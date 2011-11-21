@@ -46,7 +46,7 @@ task Package -depends Clean {
 
 task Publish -depends Package {
   Get-ChildItem $workingDir\*.nupkg | % {
-    $nupkg = %_.FullName
+    $nupkg = $_.FullName
     
     Write-Host -ForegroundColor Green "Publishing $nupkg..."
     Write-Host
