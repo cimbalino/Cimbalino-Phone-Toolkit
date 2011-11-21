@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit", "Cimbalino.Phone.Toolkit\Cimbalino.Phone.Toolkit.csproj", "{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E863E549-8D90-4BA9-8922-CD18B30B5BF1}"
+	ProjectSection(SolutionItems) = preProject
+		License.txt = License.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit.Camera", "Cimbalino.Phone.Toolkit.Camera\Cimbalino.Phone.Toolkit.Camera.csproj", "{88BB126E-AEE9-49F4-8416-A7BCA2A291AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit.PhoneDialer", "Cimbalino.Phone.Toolkit.PhoneDialer\Cimbalino.Phone.Toolkit.PhoneDialer.csproj", "{208788AD-5B68-458D-9DAE-6240CB268DF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BB126E-AEE9-49F4-8416-A7BCA2A291AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BB126E-AEE9-49F4-8416-A7BCA2A291AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BB126E-AEE9-49F4-8416-A7BCA2A291AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BB126E-AEE9-49F4-8416-A7BCA2A291AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{208788AD-5B68-458D-9DAE-6240CB268DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{208788AD-5B68-458D-9DAE-6240CB268DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{208788AD-5B68-458D-9DAE-6240CB268DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{208788AD-5B68-458D-9DAE-6240CB268DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

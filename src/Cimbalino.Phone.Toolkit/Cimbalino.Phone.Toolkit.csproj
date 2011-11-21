@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cimbalino.Phone.Toolkit</RootNamespace>
+    <AssemblyName>Cimbalino.Phone.Toolkit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices" />
+    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.3\lib\sl3-wp\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=3.8.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behaviors\ApplicationBarBehavior.cs" />
+    <Compile Include="Behaviors\ApplicationBarIconButton.cs" />
+    <Compile Include="Behaviors\ApplicationBarIconButtonCollection.cs" />
+    <Compile Include="Behaviors\ApplicationBarItemBase.cs" />
+    <Compile Include="Behaviors\ApplicationBarItemCollectionBase.cs" />
+    <Compile Include="Behaviors\ApplicationBarMenuItem.cs" />
+    <Compile Include="Behaviors\ApplicationBarMenuItemCollection.cs" />
+    <Compile Include="Extensions\FrameworkElementExtensions.cs" />
+    <Compile Include="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="Helpers\ApplicationManifest.cs" />
+    <Compile Include="Services\ApplicationSettingsService.cs" />
+    <Compile Include="Services\CameraCaptureService.cs" />
+    <Compile Include="Services\IApplicationSettingsService.cs" />
+    <Compile Include="Converters\BooleanToStringConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
+    <Compile Include="Converters\StringToLowercaseConverter.cs" />
+    <Compile Include="Converters\StringToUppercaseConverter.cs" />
+    <Compile Include="Data\TableObject.cs" />
+    <Compile Include="Converters\NegativeBooleanConverter.cs" />
+    <Compile Include="Converters\StringToVisibilityConverter.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\IsolatedStorageFileExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Helpers\LittleWatson.cs" />
+    <Compile Include="Helpers\Tuple.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ICameraCaptureService.cs" />
+    <Compile Include="Services\IMarketplaceDetailService.cs" />
+    <Compile Include="Services\IMarketplaceReviewService.cs" />
+    <Compile Include="Services\IMarketplaceSearchService.cs" />
+    <Compile Include="Services\IMessageBoxService.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\IEmailComposeService.cs" />
+    <Compile Include="Services\IShareLinkService.cs" />
+    <Compile Include="Services\IShellToastService.cs" />
+    <Compile Include="Services\IStorageService.cs" />
+    <Compile Include="Services\ISystemTrayService.cs" />
+    <Compile Include="Services\IVibrationService.cs" />
+    <Compile Include="Services\IWebBrowserService.cs" />
+    <Compile Include="Services\MarketplaceDetailService.cs" />
+    <Compile Include="Services\MarketplaceReviewService.cs" />
+    <Compile Include="Services\MarketplaceSearchService.cs" />
+    <Compile Include="Services\MessageBoxService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\EmailComposeService.cs" />
+    <Compile Include="Services\ShareLinkService.cs" />
+    <Compile Include="Services\ShellToastService.cs" />
+    <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Services\SystemTrayService.cs" />
+    <Compile Include="Services\ChooserHandler.cs" />
+    <Compile Include="Services\VibrationService.cs" />
+    <Compile Include="Services\WebBrowserService.cs" />
+    <Compile Include="System\Windows\Controls\HeaderedContentControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Cimbalino.Phone.Toolkit.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
