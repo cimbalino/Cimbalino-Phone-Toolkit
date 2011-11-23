@@ -16,7 +16,7 @@ The Toolkit is divided in projects, regarding different Windows Phone applicatio
 
 ## Nuget
 
-The packages are available thru [NuGet][7], with the same handles as the project names (e.g., the main package is "Cimbalino.Phone.Toolkit")
+The packages are available thru [NuGet][7] [here][8], with the same handles as the project names (e.g., the main package is "Cimbalino.Phone.Toolkit")
 
 ## Download
 
@@ -33,3 +33,4 @@ See the [LICENSE.txt][5] file for details.
 [5]: https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt "Cimbalino Windows Phone Toolkit License"
 [6]: https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
 [7]: http://nuget.org "NuGet Gallery"
+[8]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
