@@ -57,8 +57,8 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <summary>
         /// Called after the URI of the icon to use for the button is changed.
         /// </summary>
-        /// <param name="d">The <see cref="System.Windows.DependencyObject" />.</param>
-        /// <param name="e">The <see cref="System.Windows.DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
+        /// <param name="d">The <see cref="DependencyObject" />.</param>
+        /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnIconUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue != null && e.NewValue is Uri)

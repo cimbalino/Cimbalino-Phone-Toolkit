@@ -19,7 +19,7 @@ using Microsoft.Phone.Shell;
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {
     /// <summary>
-    /// Represents a collection of <see cref="ApplicationBarItemBase" />
+    /// Represents a collection of <see cref="ApplicationBarItemBase{T}" />
     /// </summary>
     /// <typeparam name="T">The type of items in the collection</typeparam>
     public abstract class ApplicationBarItemCollectionBase<T> : DependencyObjectCollection<ApplicationBarItemBase<T>>
@@ -30,7 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         private readonly System.Collections.IList _itemsList;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationBarItemCollectionBase&lt;T&gt;" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationBarItemCollectionBase{T}" /> class.
         /// </summary>
         /// <param name="itemsList">The items list.</param>
         public ApplicationBarItemCollectionBase(System.Collections.IList itemsList)

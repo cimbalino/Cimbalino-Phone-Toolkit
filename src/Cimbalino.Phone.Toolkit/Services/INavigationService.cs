@@ -32,7 +32,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets a collection of query string values.
         /// </summary>
-        /// <value>Returns a <see cref="System.Collections.Generic.IDictionary&lt;string, string&gt;"/> collection that contains the query string values.</value>
+        /// <value>Returns a <see cref="T:System.Collections.Generic.IDictionar{string,string}"/> collection that contains the query string values.</value>
         IDictionary<string, string> QueryString { get; }
 
         /// <summary>

@@ -29,9 +29,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         void Show(string url);
 
         /// <summary>
-        /// Launches the web browser application with the specified <see cref="System.Uri"/>.
+        /// Launches the web browser application with the specified <see cref="Uri"/>.
         /// </summary>
-        /// <param name="uri">The <see cref="System.Uri"/> to which the web browser application will navigate when it is launched.</param>
+        /// <param name="uri">The <see cref="Uri"/> to which the web browser application will navigate when it is launched.</param>
         void Show(Uri uri);
     }
 }

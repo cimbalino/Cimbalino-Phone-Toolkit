@@ -26,7 +26,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Shows the camera application.
         /// </summary>
-        /// <param name="resultAction">The <see cref="System.Action&lt;PhotoResult&gt;"/> to be called once the operation is finished.</param>
+        /// <param name="resultAction">The <see cref="Action{PhotoResult}"/> to be called once the operation is finished.</param>
         void Show(Action<PhotoResult> resultAction);
     }
 }

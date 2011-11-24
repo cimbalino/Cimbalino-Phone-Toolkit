@@ -19,9 +19,9 @@ using Microsoft.Phone.Tasks;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Manages a <see cref="T:Microsoft.Phone.Tasks.ChooserBase&lt;TTaskEventArgs&gt;"/> class.
+    /// Manages a <see cref="ChooserBase{TTaskEventArgs}"/> class.
     /// </summary>
-    /// <typeparam name="TTaskEventArgs">The <see cref="T:Microsoft.Phone.Tasks.TaskEventArgs"/>.</typeparam>
+    /// <typeparam name="TTaskEventArgs">The <see cref="TaskEventArgs"/>.</typeparam>
     public class ChooserHandler<TTaskEventArgs>
         where TTaskEventArgs : TaskEventArgs
     {
@@ -29,10 +29,10 @@ namespace Cimbalino.Phone.Toolkit.Services
         private readonly Action<TTaskEventArgs> _resultAction;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChooserHandler&lt;TTaskEventArgs&gt;" /> class.
+        /// Initializes a new instance of the <see cref="ChooserHandler{TTaskEventArgs}" /> class.
         /// </summary>
-        /// <param name="chooser">The <see cref="T:Microsoft.Phone.Tasks.ChooserBase&lt;TTaskEventArgs&gt;"/> to show.</param>
-        /// <param name="resultAction">The <see cref="T:System.Action&lt;TTaskEventArgs&gt;"/> to be called once the operation is finished.</param>
+        /// <param name="chooser">The <see cref="ChooserBase{TTaskEventArgs}"/> to show.</param>
+        /// <param name="resultAction">The <see cref="Action{TTaskEventArgs}"/> to be called once the operation is finished.</param>
         public ChooserHandler(ChooserBase<TTaskEventArgs> chooser, Action<TTaskEventArgs> resultAction)
         {
             _chooser = chooser;
@@ -42,7 +42,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Launches and displays the <see cref="T:Microsoft.Phone.Tasks.ChooserBase&lt;TTaskEventArgs&gt;"/>.
+        /// Launches and displays the <see cref="ChooserBase{TTaskEventArgs}"/>.
         /// </summary>
         public void Show()
         {

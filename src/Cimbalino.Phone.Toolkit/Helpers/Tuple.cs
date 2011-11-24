@@ -34,7 +34,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tuple&lt;T1&gt;"/> class.
+        /// Initializes a new instance of the <see cref="Tuple{T1}"/> class.
         /// </summary>
         /// <param name="item1">The first item.</param>
         public Tuple(T1 item1)
@@ -67,7 +67,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tuple&lt;T1,T2&gt;"/> class.
+        /// Initializes a new instance of the <see cref="Tuple{T1,T2}"/> class.
         /// </summary>
         /// <param name="item1">The first item.</param>
         /// <param name="item2">The second item.</param>
@@ -108,7 +108,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tuple&lt;T1,T2,T3&gt;"/> class.
+        /// Initializes a new instance of the <see cref="Tuple{T1,T2,T3}"/> class.
         /// </summary>
         /// <param name="item1">The first item.</param>
         /// <param name="item2">The second item.</param>
@@ -157,7 +157,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Tuple&lt;T1,T2,T3,T4&gt;"/> class.
+        /// Initializes a new instance of the <see cref="Tuple{T1,T2,T3,T4}"/> class.
         /// </summary>
         /// <param name="item1">The first item.</param>
         /// <param name="item2">The second item.</param>

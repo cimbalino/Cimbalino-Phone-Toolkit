@@ -19,12 +19,12 @@ using System.Collections.Generic;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="System.Collections.Generic.IEnumerable&lt;TResult&gt;"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IEnumerable{TResult}"/> instances
     /// </summary>
     public static class IEnumerableExtensions
     {
         /// <summary>
-        /// Applies the specified <see cref="System.Action&lt;TResult&gt;"/> to the enumerable.
+        /// Applies the specified <see cref="Action{TResult}"/> to the enumerable.
         /// </summary>
         /// <param name="source">The enumerable.</param>
         /// <param name="action">The action to apply.</param>
@@ -38,7 +38,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Applies the specified <see cref="System.Action&lt;TResult, int&gt;"/> to the enumerable.
+        /// Applies the specified <see cref="T:Action{TResult, int}"/> to the enumerable.
         /// </summary>
         /// <param name="source">The enumerable.</param>
         /// <param name="action">The action to apply.</param>
@@ -56,7 +56,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Returns a collection of the decendant elements for this enumerable, using the specified <see cref="Func&lt;TResult, IEnumerable&lt;TResult&gt;&gt;"/> function.
+        /// Returns a collection of the decendant elements for this enumerable, using the specified <see cref="T:Func{TResult, IEnumerable{TResult}}"/> function.
         /// </summary>
         /// <param name="source">The enumerable.</param>
         /// <param name="descendBy">The function to use for descending.</param>

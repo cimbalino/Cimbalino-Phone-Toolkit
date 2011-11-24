@@ -20,12 +20,12 @@ using System.Windows.Markup;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="System.Windows.FrameworkElement"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="FrameworkElement"/> instances
     /// </summary>
     public static class FrameworkElementExtensions
     {
         /// <summary>
-        /// Resets the <see cref="System.Windows.FrameworkElement"/> language information with a <see cref="System.Windows.Markup.XmlLanguage"/> matching the <see cref="System.Threading.Thread.CurrentThread.CurrentCulture"/>.
+        /// Resets the <see cref="FrameworkElement"/> language information with a <see cref="XmlLanguage"/> matching the <see cref="P:System.Threading.Thread.CurrentThread.CurrentCulture"/>.
         /// </summary>
         /// <param name="frameworkElement">The framework element.</param>
         public static void ResetLanguageWithCurrentCulture(this FrameworkElement frameworkElement)

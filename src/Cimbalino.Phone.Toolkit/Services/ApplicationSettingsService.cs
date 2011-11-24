@@ -26,10 +26,10 @@ namespace Cimbalino.Phone.Toolkit.Services
         private readonly IsolatedStorageSettings _settings;
 
         /// <summary>
-        /// Gets a value indicating whether this <see cref="System.IO.IsolatedStorage.IsolatedStorageSettings" /> instance has changed.
+        /// Gets a value indicating whether this <see cref="IsolatedStorageSettings" /> instance has changed.
         /// </summary>
         /// <value>
-        /// true if this <see cref="System.IO.IsolatedStorage.IsolatedStorageSettings" /> instance has changed; otherwise, false.
+        /// true if this <see cref="IsolatedStorageSettings" /> instance has changed; otherwise, false.
         /// </value>
         public bool IsDirty { get; private set; }
 
@@ -113,7 +113,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Saves this <see cref="System.IO.IsolatedStorage.IsolatedStorageSettings" /> instance.
+        /// Saves this <see cref="IsolatedStorageSettings" /> instance.
         /// </summary>
         public void Save()
         {

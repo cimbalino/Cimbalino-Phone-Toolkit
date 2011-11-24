@@ -21,7 +21,7 @@ using System.Windows.Data;
 namespace Cimbalino.Phone.Toolkit.Converters
 {
     /// <summary>
-    /// An <see cref="IValueConverter"/> which converts a <see cref="bool"/> value to a <see cref="System.Windows.Visibility"/> value.
+    /// An <see cref="IValueConverter"/> which converts a <see cref="bool"/> value to a <see cref="Visibility"/> value.
     /// </summary>
     public class BooleanToVisibilityConverter : IValueConverter
     {
@@ -32,7 +32,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
         public bool InvertValue { get; set; }
 
         /// <summary>
-        /// Converts a <see cref="bool"/> value to a <see cref="System.Windows.Visibility"/> value.
+        /// Converts a <see cref="bool"/> value to a <see cref="Visibility"/> value.
         /// </summary>
         /// <param name="value">The value produced by the binding source.</param>
         /// <param name="targetType">The type of the binding target property.</param>
@@ -59,7 +59,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
         }
 
         /// <summary>
-        /// Converts a <see cref="System.Windows.Visibility"/> value to a <see cref="bool"/> value.
+        /// Converts a <see cref="Visibility"/> value to a <see cref="bool"/> value.
         /// </summary>
         /// <param name="value">The value produced by the binding source.</param>
         /// <param name="targetType">The type of the binding target property.</param>

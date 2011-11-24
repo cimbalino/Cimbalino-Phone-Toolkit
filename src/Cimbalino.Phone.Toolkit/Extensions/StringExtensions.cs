@@ -25,10 +25,10 @@ namespace Cimbalino.Phone.Toolkit.Extensions
     public static class StringExtensions
     {
         /// <summary>
-        /// Determines whether the current string is null or an <see cref="System.String.Empty"/> string.
+        /// Determines whether the current string is null or an <see cref="String.Empty"/> string.
         /// </summary>
         /// <param name="input">The current string.</param>
-        /// <returns>true if the current string is null or an <see cref="System.String.Empty"/> string; otherwise, false.</returns>
+        /// <returns>true if the current string is null or an <see cref="String.Empty"/> string; otherwise, false.</returns>
         public static bool IsNullOrEmpty(this string input)
         {
             return string.IsNullOrEmpty(input);
@@ -55,10 +55,10 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Encodes all the characters in the string into a sequence of bytes, using the specified <see cref="System.Text.Encoding"/>.
+        /// Encodes all the characters in the string into a sequence of bytes, using the specified <see cref="Encoding"/>.
         /// </summary>
         /// <param name="input">The current string.</param>
-        /// <param name="encoding">The <see cref="System.Text.Encoding"/> to use for encoding the characters.</param>
+        /// <param name="encoding">The <see cref="Encoding"/> to use for encoding the characters.</param>
         /// <returns>A byte array containing the results of encoding the set of characters.</returns>
         public static byte[] GetBytes(this string input, Encoding encoding)
         {
@@ -87,7 +87,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Replaces one or more format items in the string with the string representation of a specified object, using an <see cref="System.Globalization.CultureInfo.InvariantCulture"/>.
+        /// Replaces one or more format items in the string with the string representation of a specified object, using an <see cref="CultureInfo.InvariantCulture"/>.
         /// </summary>
         /// <param name="format">The composite format string.</param>
         /// <param name="args">An object array that contains zero or more objects to format.</param>
@@ -98,10 +98,10 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Replaces one or more format items in the string with the string representation of a specified object, using the specified <see cref="System.Globalization.CultureInfo"/>.
+        /// Replaces one or more format items in the string with the string representation of a specified object, using the specified <see cref="CultureInfo"/>.
         /// </summary>
         /// <param name="format">The composite format string.</param>
-        /// <param name="cultureInfo">The <see cref="System.Globalization.CultureInfo"/> to use when formating the string.</param>
+        /// <param name="cultureInfo">The <see cref="CultureInfo"/> to use when formating the string.</param>
         /// <param name="args">An object array that contains zero or more objects to format.</param>
         /// <returns>A copy of the string in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
         public static string Format(this string format, CultureInfo cultureInfo, params object[] args)

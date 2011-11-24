@@ -33,9 +33,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Launches the web browser application with the specified <see cref="System.Uri" />.
+        /// Launches the web browser application with the specified <see cref="Uri" />.
         /// </summary>
-        /// <param name="uri">The <see cref="System.Uri" /> to which the web browser application will navigate when it is launched.</param>
+        /// <param name="uri">The <see cref="Uri" /> to which the web browser application will navigate when it is launched.</param>
         public void Show(Uri uri)
         {
             new WebBrowserTask()

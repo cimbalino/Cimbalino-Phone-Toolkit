@@ -62,7 +62,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the message box.</param>
         /// <param name="buttons">The captions for message box buttons. The maximum number of buttons is two.</param>
-        /// <param name="selectedButton">The <see cref="System.Action&lt;int&gt;" /> to be called once the operation is finished.</param>
+        /// <param name="selectedButton">The <see cref="T:Action{int}" /> to be called once the operation is finished.</param>
         public void Show(string text, string caption, IEnumerable<string> buttons, Action<int> selectedButton)
         {
             Guide.BeginShowMessageBox(caption, text, buttons, 0, MessageBoxIcon.None, ar =>

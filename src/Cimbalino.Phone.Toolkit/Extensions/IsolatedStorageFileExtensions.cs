@@ -21,7 +21,7 @@ using System.Text;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IsolatedStorageFile"/> instances
     /// </summary>
     public static class IsolatedStorageFileExtensions
     {
@@ -30,7 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to open for reading.</param>
         /// <returns>A string containing all lines of the file.</returns>
         public static string ReadAllText(this IsolatedStorageFile store, string path)
@@ -41,7 +41,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Opens a file, reads all lines of the file with the specified encoding, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to open for reading.</param>
         /// <param name="encoding">The encoding applied to the contents of the file.</param>
         /// <returns>A string containing all lines of the file.</returns>
@@ -56,7 +56,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Reads the lines of a file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to read.</param>
         /// <returns>The lines of the file.</returns>
         public static IEnumerable<string> ReadLines(this IsolatedStorageFile store, string path)
@@ -67,7 +67,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Reads the lines of a file that has a specified encoding.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to read.</param>
         /// <param name="encoding">The encoding that is applied to the contents of the file.</param>
         /// <returns>The lines of the file.</returns>
@@ -87,7 +87,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Opens a text file, reads all lines of the file, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to open for reading.</param>
         /// <returns>A string array containing all lines of the file.</returns>
         public static string[] ReadAllLines(this IsolatedStorageFile store, string path)
@@ -98,7 +98,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Opens a file, reads all lines of the file with the specified encoding, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to open for reading.</param>
         /// <param name="encoding">The encoding applied to the contents of the file.</param>
         /// <returns>A string array containing all lines of the file.</returns>
@@ -110,7 +110,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to open for reading.</param>
         /// <returns>A byte array containing the contents of the file.</returns>
         public static byte[] ReadAllBytes(this IsolatedStorageFile store, string path)
@@ -128,7 +128,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Creates a new file, writes the specified string to the file, and then closes the file. If the target file already exists, it is overwritten.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to write to.</param>
         /// <param name="contents">The string to write to the file.</param>
         public static void WriteAllText(this IsolatedStorageFile store, string path, string contents)
@@ -139,7 +139,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Creates a new file, writes the specified string to the file using the specified encoding, and then closes the file. If the target file already exists, it is overwritten.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to write to.</param>
         /// <param name="contents">The string to write to the file.</param>
         /// <param name="encoding">The encoding to apply to the string.</param>
@@ -151,7 +151,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Creates a new file, writes a collection of strings to the file, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to write to.</param>
         /// <param name="contents">The lines to write to the file.</param>
         public static void WriteAllLines(this IsolatedStorageFile store, string path, IEnumerable<string> contents)
@@ -162,7 +162,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Creates a new file by using the specified encoding, writes a collection of strings to the file, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to write to.</param>
         /// <param name="contents">The lines to write to the file.</param>
         /// <param name="encoding">The character encoding to use.</param>
@@ -174,7 +174,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Creates a new file, writes the specified byte array to the file, and then closes the file. If the target file already exists, it is overwritten..
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to write to.</param>
         /// <param name="bytes">The bytes to write to the file.</param>
         public static void WriteAllBytes(this IsolatedStorageFile store, string path, byte[] bytes)
@@ -188,7 +188,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Opens a file, appends the specified string to the file, and then closes the file. If the file does not exist, this method creates a file, writes the specified string to the file, then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to append the specified string to.</param>
         /// <param name="contents">The string to append to the file.</param>
         public static void AppendAllText(this IsolatedStorageFile store, string path, string contents)
@@ -199,7 +199,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Appends the specified string to the file, creating the file if it does not already exist.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to append the specified string to.</param>
         /// <param name="contents">The string to append to the file.</param>
         /// <param name="encoding">The character encoding to use.</param>
@@ -211,7 +211,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Appends lines to a file, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to append the lines to. The file is created if it does not already exist.</param>
         /// <param name="contents">The lines to append to the file.</param>
         public static void AppendAllLines(this IsolatedStorageFile store, string path, IEnumerable<string> contents)
@@ -222,7 +222,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Appends lines to a file by using a specified encoding, and then closes the file.
         /// </summary>
-        /// <param name="store">The <see cref="System.IO.IsolatedStorage.IsolatedStorageFile"/> object.</param>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
         /// <param name="path">The file to append the lines to. The file is created if it does not already exist.</param>
         /// <param name="contents">The lines to append to the file.</param>
         /// <param name="encoding">The character encoding to use.</param>

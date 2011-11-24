@@ -16,13 +16,14 @@
 using System;
 using System.Globalization;
 using System.Windows;
+using System.Windows.Data;
 
 namespace Cimbalino.Phone.Toolkit.Converters
 {
     /// <summary>
-    /// An <see cref="IValueConverter"/> which converts a <see cref="string"/> value to a <see cref="System.Windows.Visibility"/> value.
+    /// An <see cref="IValueConverter"/> which converts a <see cref="string"/> value to a <see cref="Visibility"/> value.
     /// </summary>
-    public class StringToVisibilityConverter
+    public class StringToVisibilityConverter : IValueConverter
     {
         /// <summary>
         /// Gets or sets a value indicating whether the return value should be inverted.
@@ -31,7 +32,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
         public bool InvertValue { get; set; }
 
         /// <summary>
-        /// Converts a <see cref="string"/> value to a <see cref="System.Windows.Visibility"/> value.
+        /// Converts a <see cref="string"/> value to a <see cref="Visibility"/> value.
         /// </summary>
         /// <param name="value">The value produced by the binding source.</param>
         /// <param name="targetType">The type of the binding target property.</param>
@@ -53,7 +54,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
         }
 
         /// <summary>
-        /// Converts a <see cref="System.Windows.Visibility"/> value to a <see cref="string"/> value.
+        /// Converts a <see cref="Visibility"/> value to a <see cref="string"/> value.
         /// </summary>
         /// <param name="value">The value produced by the binding source.</param>
         /// <param name="targetType">The type of the binding target property.</param>

@@ -35,15 +35,15 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         internal T Item { get; private set; }
 
         /// <summary>
-        /// Gets or sets the parent <see cref="ApplicationBarItemCollectionBase&lt;T&gt;"/>.
+        /// Gets or sets the parent <see cref="ApplicationBarItemCollectionBase{T}"/>.
         /// </summary>
-        /// <value>The parent <see cref="ApplicationBarItemCollectionBase&lt;T&gt;"/>.</value>
+        /// <value>The parent <see cref="ApplicationBarItemCollectionBase{T}"/>.</value>
         internal ApplicationBarItemCollectionBase<T> Parent { get; set; }
 
         private object _commandParameterValue;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationBarItemBase&lt;T&gt;" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationBarItemBase{T}" /> class.
         /// </summary>
         /// <param name="item">The internal item.</param>
         public ApplicationBarItemBase(T item)
@@ -54,7 +54,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Occurs when a <see cref="ApplicationBarItemBase&lt;T&gt;"/> is clicked.
+        /// Occurs when a <see cref="ApplicationBarItemBase{T}"/> is clicked.
         /// </summary>
         public event EventHandler Click;
 

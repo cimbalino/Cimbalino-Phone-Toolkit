@@ -19,12 +19,12 @@ using System.Collections.Generic;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="System.Collections.Generic.IDictionary&lt;TKey, TValue&gt;"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IDictionary{TKey, TValue}"/> instances
     /// </summary>
     public static class IDictionaryExtensions
     {
         /// <summary>
-        /// Applies the specified <see cref="System.Action&lt;KeyValuePair&lt;TKey, TValue&gt;&gt;"/> to the dictionary.
+        /// Applies the specified <see cref="T:Action{KeyValuePair{TKey, TValue}}"/> to the dictionary.
         /// </summary>
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="action">The action to apply.</param>

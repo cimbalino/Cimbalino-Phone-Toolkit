@@ -154,11 +154,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Creates a <see cref="System.Windows.Media.VideoBrush" /> containing the current image.
+        /// Creates a <see cref="VideoBrush" /> containing the current image.
         /// </summary>
-        /// <returns>
-        /// A <see cref="System.Windows.Media.VideoBrush" /> containing the current image.
-        /// </returns>
+        /// <returns>A <see cref="VideoBrush" /> containing the current image.</returns>
         public VideoBrush CreateVideoBrush()
         {
             var videoBrush = new VideoBrush();
