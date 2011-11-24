@@ -24,9 +24,9 @@ properties {
   )
 }
 
-$framework = '4.0x86'
+Framework "4.0x86"
 
-task default -depends Help
+task default -depends ?
 
 task Clean -description "Clean the output folder" {
   if (Test-Path -path $binDir)
@@ -122,6 +122,6 @@ task PublishNuget -depends Package -description "Publish the NuGet packages to t
   }
 }
 
-task Help -description "Show the help screen" {
+task ? -description "Show the help screen" {
   Write-Documentation
 }
