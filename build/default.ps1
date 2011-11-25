@@ -5,7 +5,7 @@ properties {
   $toolsDir = "$baseDir\tools"
   $binDir = "$baseDir\bin"
   
-  $assemblyVersion = "1.0.0.0"
+  $assemblyVersion = "1.1.0.0"
   $fileVersion = $assemblyVersion
   
   $tempDir = "$binDir\temp"
@@ -19,8 +19,9 @@ properties {
   $projects = @(
     @{Name = "Cimbalino.Phone.Toolkit"},
     @{Name = "Cimbalino.Phone.Toolkit.Camera"},
-    #@{Name = "Cimbalino.Phone.Toolkit.Location"},
-    @{Name = "Cimbalino.Phone.Toolkit.PhoneDialer"}
+    @{Name = "Cimbalino.Phone.Toolkit.DeviceInfo"},
+    @{Name = "Cimbalino.Phone.Toolkit.PhoneDialer"},
+    @{Name = "Cimbalino.Phone.Toolkit.UserInfo"}
   )
 }
 

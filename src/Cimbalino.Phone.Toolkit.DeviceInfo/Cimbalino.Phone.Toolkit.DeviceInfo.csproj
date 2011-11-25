@@ -61,6 +61,7 @@
     <ProjectReference Include="..\Cimbalino.Phone.Toolkit\Cimbalino.Phone.Toolkit.csproj">
       <Project>{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}</Project>
       <Name>Cimbalino.Phone.Toolkit</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
