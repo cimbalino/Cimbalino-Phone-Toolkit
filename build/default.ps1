@@ -112,7 +112,7 @@ task PackNuGet -depends Clean, Version -description "Create the NuGet packages" 
   }
 }
 
-task PublishNuget -depends Package -description "Publish the NuGet packages to the remote repositories" {
+task PublishNuget -depends PackNuGet -description "Publish the NuGet packages to the remote repositories" {
   Get-ChildItem $nupkgDir\*.nupkg | % {
     $nupkg = $_.FullName
     
