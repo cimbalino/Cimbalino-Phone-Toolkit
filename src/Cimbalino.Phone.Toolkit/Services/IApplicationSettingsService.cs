@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of handling the application settings
+    /// Represents a service capable of handling the application settings.
     /// </summary>
     public interface IApplicationSettingsService
     {

@@ -45,10 +45,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Xna.Framework.GamerServices" />
-    <Reference Include="Newtonsoft.Json, Version=4.0.3.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.4.0.3\lib\sl3-wp\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.4\lib\sl3-wp\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Device" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -71,7 +71,14 @@
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />
     <Compile Include="Services\ApplicationSettingsService.cs" />
+    <Compile Include="Services\BingMapsDirectionsService.cs" />
+    <Compile Include="Services\BingMapsService.cs" />
     <Compile Include="Services\CameraCaptureService.cs" />
+    <Compile Include="Services\ConnectionSettingsService.cs" />
+    <Compile Include="Services\DeviceStatusService.cs" />
+    <Compile Include="Services\AddressChooserService.cs" />
+    <Compile Include="Services\EmailAddressChooserService.cs" />
+    <Compile Include="Services\IAddressChooserService.cs" />
     <Compile Include="Services\IApplicationSettingsService.cs" />
     <Compile Include="Converters\BooleanToStringConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
@@ -91,15 +98,26 @@
     <Compile Include="Helpers\LittleWatson.cs" />
     <Compile Include="Helpers\Tuple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IBingMapsDirectionsService.cs" />
+    <Compile Include="Services\IBingMapsService.cs" />
     <Compile Include="Services\ICameraCaptureService.cs" />
+    <Compile Include="Services\IConnectionSettingsService.cs" />
+    <Compile Include="Services\IDeviceStatusService.cs" />
+    <Compile Include="Services\IEmailAddressChooserService.cs" />
     <Compile Include="Services\IMarketplaceDetailService.cs" />
     <Compile Include="Services\IMarketplaceReviewService.cs" />
     <Compile Include="Services\IMarketplaceSearchService.cs" />
     <Compile Include="Services\IMessageBoxService.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\IEmailComposeService.cs" />
+    <Compile Include="Services\IPhoneNumberChooserService.cs" />
+    <Compile Include="Services\IPhotoChooserService.cs" />
+    <Compile Include="Services\ISaveEmailAddressService.cs" />
+    <Compile Include="Services\ISavePhoneNumberService.cs" />
+    <Compile Include="Services\ISearchService.cs" />
     <Compile Include="Services\IShareLinkService.cs" />
     <Compile Include="Services\IShellToastService.cs" />
+    <Compile Include="Services\ISmsComposeService.cs" />
     <Compile Include="Services\IStorageService.cs" />
     <Compile Include="Services\ISystemTrayService.cs" />
     <Compile Include="Services\IVibrationService.cs" />
@@ -110,8 +128,14 @@
     <Compile Include="Services\MessageBoxService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\EmailComposeService.cs" />
+    <Compile Include="Services\PhoneNumberChooserService.cs" />
+    <Compile Include="Services\PhotoChooserService.cs" />
+    <Compile Include="Services\SaveEmailAddressService.cs" />
+    <Compile Include="Services\SavePhoneNumberService.cs" />
+    <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\ShareLinkService.cs" />
     <Compile Include="Services\ShellToastService.cs" />
+    <Compile Include="Services\SmsComposeService.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Services\SystemTrayService.cs" />
     <Compile Include="Services\ChooserHandler.cs" />
@@ -126,10 +150,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Cimbalino.Phone.Toolkit.nuspec">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
