@@ -191,7 +191,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="IsMenuEnabled" /> dependency property
         /// </summary>
         public static readonly DependencyProperty IsMenuEnabledProperty =
-            DependencyProperty.Register("IsMenuEnabled", typeof(bool), typeof(ApplicationBarBehavior), new PropertyMetadata(OnIsMenuEnabledChanged));
+            DependencyProperty.Register("IsMenuEnabled", typeof(bool), typeof(ApplicationBarBehavior), new PropertyMetadata(true, OnIsMenuEnabledChanged));
 
         /// <summary>
         /// Called after the menu enabled state of the Application Bar is changed.
@@ -226,7 +226,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="IsVisible" /> dependency property
         /// </summary>
         public static readonly DependencyProperty IsVisibleProperty =
-            DependencyProperty.Register("IsVisible", typeof(bool), typeof(ApplicationBarBehavior), new PropertyMetadata(OnIsVisibleChanged));
+            DependencyProperty.Register("IsVisible", typeof(bool), typeof(ApplicationBarBehavior), new PropertyMetadata(true, OnIsVisibleChanged));
 
         /// <summary>
         /// Called after the visible state of the Application Bar is changed.
@@ -261,7 +261,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="Mode" /> dependency property
         /// </summary>
         public static readonly DependencyProperty ModeProperty =
-            DependencyProperty.Register("Mode", typeof(ApplicationBarMode), typeof(ApplicationBarBehavior), new PropertyMetadata(OnModeChanged));
+            DependencyProperty.Register("Mode", typeof(ApplicationBarMode), typeof(ApplicationBarBehavior), new PropertyMetadata(ApplicationBarMode.Default, OnModeChanged));
 
         /// <summary>
         /// Called after the size of the ApplicationBar is changed.
@@ -296,7 +296,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="Opacity" /> dependency property
         /// </summary>
         public static readonly DependencyProperty OpacityProperty =
-            DependencyProperty.Register("Opacity", typeof(double), typeof(ApplicationBarBehavior), new PropertyMetadata(OnOpacityChanged));
+            DependencyProperty.Register("Opacity", typeof(double), typeof(ApplicationBarBehavior), new PropertyMetadata(1.0, OnOpacityChanged));
 
         /// <summary>
         /// Called after the opacity of the ApplicationBar is changed.
