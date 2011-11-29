@@ -26,7 +26,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
     /// The behavior that creates a bindable <see cref="Microsoft.Phone.Shell.ApplicationBar" />
     /// </summary>
     [System.Windows.Markup.ContentProperty("Buttons")]
-    public class ApplicationBarBehavior : Behavior<FrameworkElement>
+    public class ApplicationBarBehavior : SafeBehavior<FrameworkElement>
     {
         private readonly IApplicationBar _applicationBar = new ApplicationBar();
 
