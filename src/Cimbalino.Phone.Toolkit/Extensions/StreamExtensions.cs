@@ -25,8 +25,8 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <summary>
         /// Reads all the bytes from the current stream and writes them to a destination stream.
         /// </summary>
-        /// <param name="input">The input.</param>
-        /// <param name="destination">The destination.</param>
+        /// <param name="input">The input stream.</param>
+        /// <param name="destination">The destination stream.</param>
         public static void CopyTo(this Stream input, Stream destination)
         {
             int num;
@@ -35,6 +35,21 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             while ((num = input.Read(buffer, 0, buffer.Length)) != 0)
             {
                 destination.Write(buffer, 0, num);
+            }
+        }
+
+        /// <summary>
+        /// Writes the stream contents to a byte array.
+        /// </summary>
+        /// <param name="input">The input stream.</param>
+        /// <returns>A new byte array.</returns>
+        public static byte[] ToArray(this Stream input)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                input.CopyTo(memoryStream);
+
+                return memoryStream.ToArray();
             }
         }
     }
