@@ -91,7 +91,7 @@
     <Compile Include="Data\TableObject.cs" />
     <Compile Include="Converters\NegativeBooleanConverter.cs" />
     <Compile Include="Converters\StringToVisibilityConverter.cs" />
-    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\ICollectionExtensions.cs" />
     <Compile Include="Extensions\ByteArrayExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
     <Compile Include="Extensions\IsolatedStorageFileExtensions.cs" />
