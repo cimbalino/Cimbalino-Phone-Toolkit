@@ -21,7 +21,7 @@ using System.Text;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IsolatedStorageFile"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IsolatedStorageFile"/> instances.
     /// </summary>
     public static class IsolatedStorageFileExtensions
     {
