@@ -121,6 +121,20 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
+        /// Gets a value indicating whether the device is a low memory device (less than 256 MB of memory installed).
+        /// </summary>
+        /// <value>
+        /// true if the device is a low memory device (less than 256 MB of memory installed); otherwise, false.
+        /// </value>
+        public bool IsLowMemoryDevice
+        {
+            get
+            {
+                return DeviceTotalMemory <= 268435456;
+            }
+        }
+
+        /// <summary>
         /// Gets a value indicating whether the user has deployed the physical hardware keyboard of the device.
         /// </summary>
         /// <value>true if the keyboard is deployed; otherwise, false.</value>
