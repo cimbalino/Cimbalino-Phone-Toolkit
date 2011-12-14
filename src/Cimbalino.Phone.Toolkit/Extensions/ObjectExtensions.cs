@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="object"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="object"/> instances.
     /// </summary>
     public static class ObjectExtensions
     {

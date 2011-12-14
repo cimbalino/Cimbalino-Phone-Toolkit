@@ -18,7 +18,7 @@ using System;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="byte"/> array instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="byte"/> array instances.
     /// </summary>
     public static class ByteArrayExtensions
     {

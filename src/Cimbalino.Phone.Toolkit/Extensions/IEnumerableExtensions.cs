@@ -19,7 +19,7 @@ using System.Collections.Generic;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IEnumerable{TResult}"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IEnumerable{TResult}"/> instances.
     /// </summary>
     public static class IEnumerableExtensions
     {

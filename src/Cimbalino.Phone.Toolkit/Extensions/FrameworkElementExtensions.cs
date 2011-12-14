@@ -20,7 +20,7 @@ using System.Windows.Markup;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="FrameworkElement"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="FrameworkElement"/> instances.
     /// </summary>
     public static class FrameworkElementExtensions
     {

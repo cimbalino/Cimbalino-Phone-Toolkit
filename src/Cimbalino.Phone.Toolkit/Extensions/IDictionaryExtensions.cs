@@ -19,7 +19,7 @@ using System.Collections.Generic;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IDictionary{TKey, TValue}"/> instances
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IDictionary{TKey, TValue}"/> instances.
     /// </summary>
     public static class IDictionaryExtensions
     {
