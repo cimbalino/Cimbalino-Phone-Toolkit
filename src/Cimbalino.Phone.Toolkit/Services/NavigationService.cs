@@ -34,6 +34,25 @@ namespace Cimbalino.Phone.Toolkit.Services
         public event NavigatingCancelEventHandler Navigating;
 
         /// <summary>
+        /// Gets the uniform resource identifier (URI) of the content that is currently displayed.
+        /// </summary>
+        /// <value>
+        /// Returns a value that represents the <see cref="Uri" /> of content that is currently displayed.
+        /// </value>
+        public Uri CurrentPageURI
+        {
+            get
+            {
+                if (EnsureMainFrame())
+                {
+                    return _mainFrame.CurrentSource;
+                }
+
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Gets a collection of query string values.
         /// </summary>
         /// <value>
@@ -105,9 +124,11 @@ namespace Cimbalino.Phone.Toolkit.Services
                 // Could be null if the app runs inside a design tool
                 _mainFrame.Navigating += (s, e) =>
                 {
-                    if (Navigating != null)
+                    var eventHandler = Navigating;
+
+                    if (eventHandler != null)
                     {
-                        Navigating(s, e);
+                        eventHandler(s, e);
                     }
                 };
 

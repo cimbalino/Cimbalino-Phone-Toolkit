@@ -30,6 +30,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         event NavigatingCancelEventHandler Navigating;
 
         /// <summary>
+        /// Gets the uniform resource identifier (URI) of the content that is currently displayed.
+        /// </summary>
+        /// <value>Returns a value that represents the <see cref="Uri"/> of content that is currently displayed.</value>
+        Uri CurrentPageURI { get; }
+
+        /// <summary>
         /// Gets a collection of query string values.
         /// </summary>
         /// <value>Returns a <see cref="T:System.Collections.Generic.IDictionar{string,string}"/> collection that contains the query string values.</value>
