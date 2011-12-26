@@ -79,6 +79,7 @@
     <Compile Include="Services\BingMapsDirectionsService.cs" />
     <Compile Include="Services\BingMapsService.cs" />
     <Compile Include="Services\CameraCaptureService.cs" />
+    <Compile Include="Services\ClipboardService.cs" />
     <Compile Include="Services\ConnectionSettingsService.cs" />
     <Compile Include="Services\DeviceStatusService.cs" />
     <Compile Include="Services\AddressChooserService.cs" />
@@ -106,6 +107,7 @@
     <Compile Include="Services\IBingMapsDirectionsService.cs" />
     <Compile Include="Services\IBingMapsService.cs" />
     <Compile Include="Services\ICameraCaptureService.cs" />
+    <Compile Include="Services\IClipboardService.cs" />
     <Compile Include="Services\IConnectionSettingsService.cs" />
     <Compile Include="Services\IDeviceStatusService.cs" />
     <Compile Include="Services\IEmailAddressChooserService.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Services\ISavePhoneNumberService.cs" />
     <Compile Include="Services\ISearchService.cs" />
     <Compile Include="Services\IShareLinkService.cs" />
+    <Compile Include="Services\IShareStatusService.cs" />
     <Compile Include="Services\IShellToastService.cs" />
     <Compile Include="Services\ISmsComposeService.cs" />
     <Compile Include="Services\IStorageService.cs" />
@@ -139,6 +142,7 @@
     <Compile Include="Services\SavePhoneNumberService.cs" />
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\ShareLinkService.cs" />
+    <Compile Include="Services\ShareStatusService.cs" />
     <Compile Include="Services\ShellToastService.cs" />
     <Compile Include="Services\SmsComposeService.cs" />
     <Compile Include="Services\StorageService.cs" />
