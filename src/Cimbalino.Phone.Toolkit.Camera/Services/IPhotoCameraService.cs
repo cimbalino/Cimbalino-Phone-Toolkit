@@ -1,11 +1,11 @@
-﻿// ****************************************************************************
+// ****************************************************************************
 // <copyright file="IPhotoCameraService.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2011
+// Copyright � Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>21-11-2011</date>
+// <date>26-12-2011</date>
 // <project>Cimbalino.Phone.Toolkit.Camera</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -14,7 +14,8 @@
 // ****************************************************************************
 
 using System;
-using System.IO;
+using System.Windows.Media;
+using Microsoft.Devices;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -24,29 +25,95 @@ namespace Cimbalino.Phone.Toolkit.Services
     public interface IPhotoCameraService
     {
         /// <summary>
-        /// Creates a new photo camera handler.
+        /// Occurs when the camera object has been initialized.
         /// </summary>
-        /// <param name="onInitialized">The action to execute after initializing the camera.</param>
-        /// <returns>A <see cref="IPhotoCameraHandler"/> instance.</returns>
-        IPhotoCameraHandler CreatePhotoCameraHandler(Action<bool, Exception> onInitialized);
+        event EventHandler<CameraOperationCompletedEventArgs> Initialized;
 
         /// <summary>
-        /// Creates a new photo camera handler.
+        /// Occurs when the capture sequence is complete.
         /// </summary>
-        /// <param name="onInitialized">The action to execute after initializing the camera.</param>
-        /// <param name="onCaptureCompleted">The action to execute after an image capture operation.</param>
-        /// <param name="onCaptureImageAvailable">The action to execute after an image is available.</param>
-        /// <returns>A <see cref="IPhotoCameraHandler"/> instance.</returns>
-        IPhotoCameraHandler CreatePhotoCameraHandler(Action<bool, Exception> onInitialized, Action<bool, Exception> onCaptureCompleted, Action<Stream> onCaptureImageAvailable);
+        event EventHandler<CameraOperationCompletedEventArgs> CaptureCompleted;
 
         /// <summary>
-        /// Creates a new photo camera handler.
+        /// Occurs when an image is available.
         /// </summary>
-        /// <param name="onInitialized">The action to execute after initializing the camera.</param>
-        /// <param name="onCaptureCompleted">The action to execute after an image capture operation.</param>
-        /// <param name="onCaptureImageAvailable">The action to execute after an image is available.</param>
-        /// <param name="onAutoFocusCompleted">The action to execute after an auto focus operation.</param>
-        /// <returns>A <see cref="IPhotoCameraHandler"/> instance.</returns>
-        IPhotoCameraHandler CreatePhotoCameraHandler(Action<bool, Exception> onInitialized, Action<bool, Exception> onCaptureCompleted, Action<Stream> onCaptureImageAvailable, Action<bool, Exception> onAutoFocusCompleted);
+        event EventHandler<ContentReadyEventArgs> CaptureImageAvailable;
+
+        /// <summary>
+        /// Occurs when the capture sequence has started.
+        /// </summary>
+        event EventHandler CaptureStarted;
+
+        /// <summary>
+        /// Occurs when a thumbnail image is available.
+        /// </summary>
+        event EventHandler<ContentReadyEventArgs> CaptureThumbnailAvailable;
+
+        /// <summary>
+        /// Occurs after the focus operation is complete.
+        /// </summary>
+        event EventHandler<CameraOperationCompletedEventArgs> AutoFocusCompleted;
+
+        /// <summary>
+        /// Gets the state of the <see cref="IPhotoCameraService"/>.
+        /// </summary>
+        /// <value>Returns a <see cref="PhotoCameraServiceState"/> enumeration indication the state of the <see cref="IPhotoCameraService"/>.</value>
+        PhotoCameraServiceState State { get; }
+
+        /// <summary>
+        /// Gets or sets the flash mode.
+        /// </summary>
+        /// <value>The flash mode.</value>
+        FlashMode FlashMode { get; set; }
+
+        /// <summary>
+        /// Starts the camera service.
+        /// </summary>
+        void Start();
+
+        /// <summary>
+        /// Stops the camera service.
+        /// </summary>
+        void Stop();
+
+        /// <summary>
+        /// Starts a camera auto focus operation.
+        /// </summary>
+        void Focus();
+
+        /// <summary>
+        /// Cancels the current focus operation.
+        /// </summary>
+        void CancelFocus();
+
+        /// <summary>
+        /// Starts a camera auto focus operation on a specific point in the viewfinder, for those devices that support it.
+        /// </summary>
+        /// <param name="x">The horizontal location in the viewfinder; a value between 0 (left) and 1.0 (right).</param>
+        /// <param name="y">The vertical location in the viewfinder; a value between 0 (bottom) and 1.0 (top).</param>
+        void FocusAtPoint(double x, double y);
+
+        /// <summary>
+        /// Initiates a full-resolution capture of the current image displayed in the viewfinder.
+        /// </summary>
+        void CaptureImage();
+
+        /// <summary>
+        /// Copies the luminance data for the current viewfinder frame into a buffer for further manipulation.
+        /// </summary>
+        /// <param name="pixelData">The YUV pixel data.</param>
+        void GetPreviewBufferY(byte[] pixelData);
+
+        /// <summary>
+        /// Copies the current viewfinder frame into a buffer for further manipulation.
+        /// </summary>
+        /// <param name="pixelData">The pixel data.</param>
+        void GetPreviewBufferYCbCr(byte[] pixelData);
+
+        /// <summary>
+        /// Creates a <see cref="VideoBrush"/> containing the current image.
+        /// </summary>
+        /// <returns>A <see cref="VideoBrush"/> containing the current image.</returns>
+        VideoBrush CreateVideoBrush();
     }
 }
