@@ -48,6 +48,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         void NavigateTo(Uri source);
 
         /// <summary>
+        /// Gets a value indicating whether there is at least one entry in the back navigation history.
+        /// </summary>
+        /// <value>true if there is at least one entry in the back navigation history; otherwise, false.</value>
+        bool CanGoBack { get; }
+
+        /// <summary>
         /// Navigates to the most recent available entry in the back navigation history.
         /// </summary>
         void GoBack();

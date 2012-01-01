@@ -89,6 +89,20 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
+        /// Gets a value indicating whether there is at least one entry in the back navigation history.
+        /// </summary>
+        /// <value>
+        /// true if there is at least one entry in the back navigation history; otherwise, false.
+        /// </value>
+        public bool CanGoBack
+        {
+            get
+            {
+                return EnsureMainFrame() && _mainFrame.CanGoBack;
+            }
+        }
+
+        /// <summary>
         /// Navigates to the most recent available entry in the back navigation history.
         /// </summary>
         public void GoBack()
