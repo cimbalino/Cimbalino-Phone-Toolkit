@@ -21,6 +21,8 @@ namespace BindableApplicationBar
 
         public CustomCommand<CancelEventArgs> BackKeyPressCommand { get; private set; }
 
+        public CustomCommand AboutCommand { get; private set; }
+
         public bool IsSelectionEnabled
         {
             get
@@ -87,6 +89,11 @@ namespace BindableApplicationBar
 
                     e.Cancel = true;
                 }
+            });
+
+            AboutCommand = new CustomCommand(() =>
+            {
+                System.Windows.MessageBox.Show("Cimbalino Windows Phone Toolkit Bindable Application Bar Sample", "About", System.Windows.MessageBoxButton.OK);
             });
 
             Items = new ObservableCollection<string>();
