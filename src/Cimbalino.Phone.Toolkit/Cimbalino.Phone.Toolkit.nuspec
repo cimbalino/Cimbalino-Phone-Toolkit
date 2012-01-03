@@ -15,7 +15,7 @@
       <frameworkAssembly assemblyName="Microsoft.Xna.Framework.GamerServices" />
     </frameworkAssemblies>
     <dependencies>
-      <dependency id="Newtonsoft.Json" />
+      <dependency id="Newtonsoft.Json" version="[4.0.5]" />
     </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 MVVM WPDev WP7Dev Silverlight</tags>
   </metadata>

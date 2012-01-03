@@ -46,8 +46,7 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Xna.Framework.GamerServices" />
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.0.4\lib\sl3-wp\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\Newtonsoft.Json.4.0.5\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Device" />
     <Reference Include="System.Windows" />
@@ -70,10 +69,12 @@
     <Compile Include="Behaviors\ApplicationBarMenuItem.cs" />
     <Compile Include="Behaviors\ApplicationBarMenuItemCollection.cs" />
     <Compile Include="Behaviors\SafeBehavior.cs" />
+    <Compile Include="Converters\StringRegexConverter.cs" />
     <Compile Include="Extensions\DispatcherExtensions.cs" />
     <Compile Include="Extensions\FrameworkElementExtensions.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
+    <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />
     <Compile Include="Services\ApplicationSettingsService.cs" />
     <Compile Include="Services\BingMapsDirectionsService.cs" />
