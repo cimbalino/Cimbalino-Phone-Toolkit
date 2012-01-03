@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Cimbalino.Phone.Toolkit.Location</id>
+    <version>$version$</version>
+    <authors>Pedro Lamas</authors>
+    <title>Cimbalino Windows Phone Toolkit - Location Components</title>
+    <description>Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone. This is the Location component, and will automatically add the ID_CAP_LOCATION capability to your application.</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/PedroLamas/Cimbalino-Phone-Toolkit</projectUrl>
+    <licenseUrl>https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
+    <iconUrl>https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Device" />
+    </frameworkAssemblies>
+    <dependencies>
+      <dependency id="Cimbalino.Phone.Toolkit" />
+    </dependencies>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 MVVM WPDev WP7Dev Silverlight Location GPS</tags>
+  </metadata>
+</package>
