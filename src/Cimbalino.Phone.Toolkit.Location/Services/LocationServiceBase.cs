@@ -22,8 +22,15 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// </summary>
     public abstract class LocationServiceBase
     {
-        private const GeoPositionAccuracy DefaultGeoPositionAccuracy = GeoPositionAccuracy.Default;
-        private const double DefaultMovementThreshold = 20;
+        /// <summary>
+        /// The default <see cref="GeoPositionAccuracy"/>.
+        /// </summary>
+        protected const GeoPositionAccuracy DefaultGeoPositionAccuracy = GeoPositionAccuracy.Default;
+
+        /// <summary>
+        /// The default movement threshold
+        /// </summary>
+        protected const double DefaultMovementThreshold = 20;
 
         private GeoCoordinateWatcher _watcher;
 
@@ -66,18 +73,18 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified <see cref="DesiredAccuracy" />.
+        /// Starts the acquisition of data from the location service, using the specified accuracy.
         /// </summary>
-        /// <param name="accuracy">The <see cref="DesiredAccuracy" />.</param>
+        /// <param name="accuracy">The desired accuracy.</param>
         public void Start(GeoPositionAccuracy accuracy)
         {
             Start(accuracy, DefaultMovementThreshold);
         }
 
         /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified <see cref="DesiredAccuracy" /> and movement threshold.
+        /// Starts the acquisition of data from the location service, using the specified accuracy and movement threshold.
         /// </summary>
-        /// <param name="accuracy">The <see cref="DesiredAccuracy" />.</param>
+        /// <param name="accuracy">The desired accuracy.</param>
         /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="PositionChanged" /> events.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
             Justification = "The class will be disposed in another matter")]

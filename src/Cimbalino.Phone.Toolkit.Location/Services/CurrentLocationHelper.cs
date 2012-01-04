@@ -22,16 +22,19 @@ namespace Cimbalino.Phone.Toolkit.Services
     {
         private readonly Action<GeoCoordinate, Exception> _actionToExecute;
 
+        private GeoCoordinate _lastLocation;
+        private bool _ready = false;
+
         public CurrentLocationHelper(Action<GeoCoordinate, Exception> actionToExecute)
         {
             _actionToExecute = actionToExecute;
         }
 
-        public void GetCurrentLocation()
+        public void GetCurrentLocation(GeoPositionAccuracy accuracy)
         {
             try
             {
-                Start();
+                Start(accuracy);
 
                 CheckCurrentState();
             }
@@ -56,11 +59,21 @@ namespace Cimbalino.Phone.Toolkit.Services
             }
         }
 
+        private void CheckForLocationAvailable()
+        {
+            if (_ready && _lastLocation != null)
+            {
+                Stop();
+
+                _actionToExecute(_lastLocation, null);
+            }
+        }
+
         protected override void OnPositionChanged(GeoPositionChangedEventArgs<GeoCoordinate> e)
         {
-            Stop();
+            _lastLocation = e.Position.Location;
 
-            _actionToExecute(e.Position.Location, null);
+            CheckForLocationAvailable();
         }
 
         protected override void OnStatusChanged(GeoPositionStatusChangedEventArgs e)
@@ -68,6 +81,10 @@ namespace Cimbalino.Phone.Toolkit.Services
             try
             {
                 CheckCurrentState();
+
+                _ready = e.Status == GeoPositionStatus.Ready;
+
+                CheckForLocationAvailable();
             }
             catch (Exception ex)
             {

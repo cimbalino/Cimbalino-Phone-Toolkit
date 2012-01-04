@@ -54,8 +54,15 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets the current location.
         /// </summary>
-        /// <param name="locationResult">The location request result.</param>
+        /// <param name="locationResult">The <see cref="Action{GeoCoordinate, Exception}" /> to be called once the operation is finished.</param>
         void GetCurrentLocation(Action<GeoCoordinate, Exception> locationResult);
+
+        /// <summary>
+        /// Gets the current location, using the specified accuracy.
+        /// </summary>
+        /// <param name="accuracy">The desired accuracy.</param>
+        /// <param name="locationResult">The <see cref="Action{GeoCoordinate, Exception}" /> to be called once the operation is finished.</param>
+        void GetCurrentLocation(GeoPositionAccuracy accuracy, Action<GeoCoordinate, Exception> locationResult);
 
         /// <summary>
         /// Starts the acquisition of data from the location service.
@@ -63,15 +70,15 @@ namespace Cimbalino.Phone.Toolkit.Services
         void Start();
 
         /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified <see cref="DesiredAccuracy"/>.
+        /// Starts the acquisition of data from the location service, using the specified accuracy.
         /// </summary>
-        /// <param name="accuracy">The <see cref="DesiredAccuracy"/>.</param>
+        /// <param name="accuracy">The desired accuracy.</param>
         void Start(GeoPositionAccuracy accuracy);
 
         /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified <see cref="DesiredAccuracy"/> and movement threshold.
+        /// Starts the acquisition of data from the location service, using the specified accuracy and movement threshold.
         /// </summary>
-        /// <param name="accuracy">The <see cref="DesiredAccuracy"/>.</param>
+        /// <param name="accuracy">The desired accuracy.</param>
         /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="PositionChanged"/> events.</param>
         void Start(GeoPositionAccuracy accuracy, double movementThreshold);
 

@@ -38,10 +38,20 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets the current location.
         /// </summary>
-        /// <param name="locationResult">The location request result.</param>
+        /// <param name="locationResult">The <see cref="Action{GeoCoordinate, Exception}" /> to be called once the operation is finished.</param>
         public void GetCurrentLocation(Action<GeoCoordinate, Exception> locationResult)
         {
-            new CurrentLocationHelper(locationResult).GetCurrentLocation();
+            new CurrentLocationHelper(locationResult).GetCurrentLocation(DefaultGeoPositionAccuracy);
+        }
+
+        /// <summary>
+        /// Gets the current location, using the specified accuracy.
+        /// </summary>
+        /// <param name="accuracy">The desired accuracy.</param>
+        /// <param name="locationResult">The <see cref="Action{GeoCoordinate, Exception}" /> to be called once the operation is finished.</param>
+        public void GetCurrentLocation(GeoPositionAccuracy accuracy, Action<GeoCoordinate, Exception> locationResult)
+        {
+            new CurrentLocationHelper(locationResult).GetCurrentLocation(accuracy);
         }
 
         /// <summary>
