@@ -51,11 +51,20 @@
     <Reference Include="Cimbalino.Phone.Toolkit">
       <HintPath>..\..\..\bin\binaries\Cimbalino.Phone.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP71">
+      <HintPath>..\..\lib\GalaSoft.MvvmLight.Extras.WP71.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WP71">
+      <HintPath>..\..\lib\GalaSoft.MvvmLight.WP71.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\..\lib\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -68,11 +77,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomCommand.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPageViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,7 +89,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,26 +2,31 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using Cimbalino.Phone.Toolkit.Services;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
-namespace BindableApplicationBar
+namespace BindableApplicationBar.ViewModel
 {
-    public class MainPageViewModel : INotifyPropertyChanged
+    public class MainViewModel : ViewModelBase
     {
+        private readonly IMessageBoxService _messageBoxService;
+
         private bool _isSelectionViewEnabled = false;
 
         #region Properties
 
         public ObservableCollection<string> Items { get; private set; }
 
-        public CustomCommand AddItemCommand { get; private set; }
+        public RelayCommand AddItemCommand { get; private set; }
 
-        public CustomCommand EnableSelectionCommand { get; private set; }
+        public RelayCommand EnableSelectionCommand { get; private set; }
 
-        public CustomCommand<System.Collections.IList> DeleteItemsCommand { get; private set; }
+        public RelayCommand<System.Collections.IList> DeleteItemsCommand { get; private set; }
 
-        public CustomCommand<CancelEventArgs> BackKeyPressCommand { get; private set; }
+        public RelayCommand<CancelEventArgs> BackKeyPressCommand { get; private set; }
 
-        public CustomCommand AboutCommand { get; private set; }
+        public RelayCommand AboutCommand { get; private set; }
 
         public bool IsSelectionEnabled
         {
@@ -36,8 +41,8 @@ namespace BindableApplicationBar
 
                 _isSelectionViewEnabled = value;
 
-                NotifyPropertyChanged("IsSelectionEnabled");
-                NotifyPropertyChanged("IsSelectionDisabled");
+                RaisePropertyChanged(() => IsSelectionEnabled);
+                RaisePropertyChanged(() => IsSelectionDisabled);
             }
         }
 
@@ -51,21 +56,23 @@ namespace BindableApplicationBar
 
         #endregion
 
-        public MainPageViewModel()
+        public MainViewModel(IMessageBoxService messageBoxService)
         {
-            AddItemCommand = new CustomCommand(() =>
+            _messageBoxService = messageBoxService;
+
+            AddItemCommand = new RelayCommand(() =>
             {
                 Items.Add(DateTime.Now.ToString());
 
                 EnableSelectionCommand.RaiseCanExecuteChanged();
             });
 
-            EnableSelectionCommand = new CustomCommand(() =>
+            EnableSelectionCommand = new RelayCommand(() =>
             {
                 IsSelectionEnabled = true;
             }, () => Items.Count > 0);
 
-            DeleteItemsCommand = new CustomCommand<System.Collections.IList>(items =>
+            DeleteItemsCommand = new RelayCommand<System.Collections.IList>(items =>
             {
                 var itemsToRemove = items
                     .Cast<string>()
@@ -81,7 +88,7 @@ namespace BindableApplicationBar
                 IsSelectionEnabled = false;
             });
 
-            BackKeyPressCommand = new CustomCommand<CancelEventArgs>(e =>
+            BackKeyPressCommand = new RelayCommand<CancelEventArgs>(e =>
             {
                 if (IsSelectionEnabled)
                 {
@@ -91,24 +98,12 @@ namespace BindableApplicationBar
                 }
             });
 
-            AboutCommand = new CustomCommand(() =>
+            AboutCommand = new RelayCommand(() =>
             {
-                System.Windows.MessageBox.Show("Cimbalino Windows Phone Toolkit Bindable Application Bar Sample", "About", System.Windows.MessageBoxButton.OK);
+                _messageBoxService.Show("Cimbalino Windows Phone Toolkit Bindable Application Bar Sample", "About");
             });
 
             Items = new ObservableCollection<string>();
         }
-
-        #region INotifyPropertyChanged Interface
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
     }
 }
