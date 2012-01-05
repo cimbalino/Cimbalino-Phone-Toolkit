@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Text;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -30,6 +31,17 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         public static string ToBase64String(this byte[] input)
         {
             return Convert.ToBase64String(input);
+        }
+
+        /// <summary>
+        /// Converts an array of 8-bit unsigned integers to its equivalent <see cref="string"/> representation, using the specified <see cref="Encoding"/>.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="encoding">The <see cref="Encoding"/> to use for encoding the characters.</param>
+        /// <returns>The string representation, of the contents of <paramref name="input"/>.</returns>
+        public static string ToString(this byte[] input, Encoding encoding)
+        {
+            return encoding.GetString(input, 0, input.Length);
         }
     }
 }
