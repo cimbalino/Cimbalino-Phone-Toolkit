@@ -172,5 +172,23 @@ namespace Cimbalino.Phone.Toolkit.Extensions
 
             return input.Substring(0, input.Length - length);
         }
+
+        /// <summary>
+        /// Returns a new string by repeating the current string the specified number of times.
+        /// </summary>
+        /// <param name="input">The current string.</param>
+        /// <param name="count">The number of times the current string occurs.</param>
+        /// <returns>A new string by repeating the current string the specified number of times.</returns>
+        public static string Times(this string input, int count)
+        {
+            var stringBuilder = new StringBuilder();
+
+            while (count-- > 0)
+            {
+                stringBuilder.Append(input);
+            }
+
+            return stringBuilder.ToString();
+        }
     }
 }
