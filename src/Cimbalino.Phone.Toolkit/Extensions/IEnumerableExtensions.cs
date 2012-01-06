@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -73,6 +74,17 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                     yield return child;
                 }
             }
+        }
+
+        /// <summary>
+        /// Creates an <see cref="ObservableCollection{TResult}"/> from this enumerable.
+        /// </summary>
+        /// <param name="source">The enumerable.</param>
+        /// <returns>An <see cref="ObservableCollection{TResult}"/> that contains the elements from the input sequence.</returns>
+        /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
+        public static ObservableCollection<TResult> ToObservableCollection<TResult>(this IEnumerable<TResult> source)
+        {
+            return new ObservableCollection<TResult>(source);
         }
     }
 }

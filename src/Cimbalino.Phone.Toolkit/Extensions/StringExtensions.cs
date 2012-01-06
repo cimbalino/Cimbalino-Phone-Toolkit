@@ -16,6 +16,7 @@
 using System;
 using System.Globalization;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -189,6 +190,125 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             }
 
             return stringBuilder.ToString();
+        }
+
+        /// <summary>
+        /// Indicates whether the regular expression finds a match in the input string using the regular expression specified in the pattern parameter.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <returns>true if the regular expression finds a match; otherwise, false.</returns>
+        public static bool RegexIsMatch(this string input, string pattern)
+        {
+            return Regex.IsMatch(input, pattern);
+        }
+
+        /// <summary>
+        /// Indicates whether the regular expression finds a match in the input string, using the regular expression specified in the pattern parameter and the matching options supplied in the options parameter.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <param name="options">A bitwise combination of the enumeration values.</param>
+        /// <returns>true if the regular expression finds a match; otherwise, false.</returns>
+        public static bool RegexIsMatch(this string input, string pattern, RegexOptions options)
+        {
+            return Regex.IsMatch(input, pattern, options);
+        }
+
+        /// <summary>
+        /// Searches the specified input string for the first occurrence of the regular expression supplied in the pattern parameter.
+        /// </summary>
+        /// <param name="input">The string to be tested for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <returns>An object that contains information about the match.</returns>
+        public static Match RegexMatch(this string input, string pattern)
+        {
+            return Regex.Match(input, pattern);
+        }
+
+        /// <summary>
+        /// Searches the input string for the first occurrence of the regular expression supplied in a pattern parameter with matching options supplied in an options parameter.
+        /// </summary>
+        /// <param name="input">The string to be tested for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <param name="options">A bitwise combination of the enumeration values.</param>
+        /// <returns>An object that contains information about the match.</returns>
+        public static Match RegexMatch(this string input, string pattern, RegexOptions options)
+        {
+            return Regex.Match(input, pattern, options);
+        }
+
+        /// <summary>
+        /// Searches the specified input string for all occurrences of the regular expression specified in the pattern parameter.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <returns>A collection of the <see cref="RegexMatch"/> objects found by the search. If no matches are found, the method returns an empty collection object.</returns>
+        public static MatchCollection RegexMatches(this string input, string pattern)
+        {
+            return Regex.Matches(input, pattern);
+        }
+
+        /// <summary>
+        /// Searches the specified input string for all occurrences of the regular expression supplied in a pattern parameter with matching options supplied in an options parameter.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <param name="options">A bitwise combination of the enumeration values.</param>
+        /// <returns>A collection of the <see cref="RegexMatch"/> objects found by the search. If no matches are found, the method returns an empty collection object.</returns>
+        public static MatchCollection RegexMatches(this string input, string pattern, RegexOptions options)
+        {
+            return Regex.Matches(input, pattern, options);
+        }
+
+        /// <summary>
+        /// Within a specified input string, replaces all strings that match a specified regular expression with a specified replacement string.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <param name="replacement">The replacement string.</param>
+        /// <returns>A new string that is identical to the input string, except that a replacement string takes the place of each matched string.</returns>
+        public static string RegexReplace(this string input, string pattern, string replacement)
+        {
+            return Regex.Replace(input, pattern, replacement);
+        }
+
+        /// <summary>
+        /// Within a specified input string, replaces all strings that match a specified regular expression with a specified replacement string. Specified options modify the matching operation.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <param name="replacement">The replacement string.</param>
+        /// <param name="options">A bitwise combination of the enumeration values.</param>
+        /// <returns>A new string that is identical to the input string, except that a replacement string takes the place of each matched string.</returns>
+        public static string RegexReplace(this string input, string pattern, string replacement, RegexOptions options)
+        {
+            return Regex.Replace(input, pattern, replacement, options);
+        }
+
+        /// <summary>
+        /// Within a specified input string, replaces all strings that match a specified regular expression with a string returned by a <see cref="MatchEvaluator"/> delegate.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <param name="evaluator">A custom method that examines each match and returns either the original matched string or a replacement string.</param>
+        /// <returns>A new string that is identical to the input string, except that a replacement string takes the place of each matched string.</returns>
+        public static string RegexReplace(this string input, string pattern, MatchEvaluator evaluator)
+        {
+            return Regex.Replace(input, pattern, evaluator);
+        }
+
+        /// <summary>
+        /// Within a specified input string, replaces all strings that match a specified regular expression with a string returned by a <see cref="MatchEvaluator"/> delegate. Specified options modify the matching operation.
+        /// </summary>
+        /// <param name="input">The string to search for a match.</param>
+        /// <param name="pattern">The regular expression pattern to match.</param>
+        /// <param name="evaluator">A custom method that examines each match and returns either the original matched string or a replacement string.</param>
+        /// <param name="options">A bitwise combination of the enumeration values.</param>
+        /// <returns>A new string that is identical to the input string, except that a replacement string takes the place of each matched string.</returns>
+        public static string RegexReplace(this string input, string pattern, MatchEvaluator evaluator, RegexOptions options)
+        {
+            return Regex.Replace(input, pattern, evaluator, options);
         }
     }
 }
