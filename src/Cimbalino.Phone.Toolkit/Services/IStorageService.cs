@@ -94,27 +94,27 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Enumerates the directories in the root of an isolated store.
         /// </summary>
-        /// <returns>An <see cref="Array"/> of relative paths of directories in the root of the isolated store. A zero-length array specifies that there are no directories in the root.</returns>
+        /// <returns>An <see cref="System.Array"/> of relative paths of directories in the root of the isolated store. A zero-length array specifies that there are no directories in the root.</returns>
         string[] GetDirectoryNames();
 
         /// <summary>
         /// Enumerates directories in an isolated storage scope that match a given pattern.
         /// </summary>
         /// <param name="searchPattern">A search pattern. Both single-character ("?") and multi-character ("*") wildcards are supported.</param>
-        /// <returns>An <see cref="Array"/> of the relative paths of directories in the isolated storage scope that match searchPattern. A zero-length array specifies that there are no directories that match.</returns>
+        /// <returns>An <see cref="System.Array"/> of the relative paths of directories in the isolated storage scope that match searchPattern. A zero-length array specifies that there are no directories that match.</returns>
         string[] GetDirectoryNames(string searchPattern);
 
         /// <summary>
         /// Obtains the names of files in the root of an isolated store.
         /// </summary>
-        /// <returns>An <see cref="Array"/> of relative paths of files in the root of the isolated store. A zero-length array specifies that there are no files in the root.</returns>
+        /// <returns>An <see cref="System.Array"/> of relative paths of files in the root of the isolated store. A zero-length array specifies that there are no files in the root.</returns>
         string[] GetFileNames();
 
         /// <summary>
         /// Enumerates files in isolated storage scope that match a given pattern.
         /// </summary>
         /// <param name="searchPattern">A search pattern. Both single-character ("?") and multi-character ("*") wildcards are supported.</param>
-        /// <returns>An <see cref="Array"/> of relative paths of files in the isolated storage scope that match searchPattern. A zero-length array specifies that there are no files that match.</returns>
+        /// <returns>An <see cref="System.Array"/> of relative paths of files in the isolated storage scope that match searchPattern. A zero-length array specifies that there are no files that match.</returns>
         string[] GetFileNames(string searchPattern);
 
         /// <summary>

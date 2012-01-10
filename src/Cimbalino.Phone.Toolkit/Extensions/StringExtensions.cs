@@ -223,7 +223,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// </summary>
         /// <param name="input">The string to search for a match.</param>
         /// <param name="pattern">The regular expression pattern to match.</param>
-        /// <returns>A collection of the <see cref="RegexMatch"/> objects found by the search. If no matches are found, the method returns an empty collection object.</returns>
+        /// <returns>A collection of the <see cref="Match"/> objects found by the search. If no matches are found, the method returns an empty collection object.</returns>
         public static MatchCollection RegexMatches(this string input, string pattern)
         {
             return Regex.Matches(input, pattern);
@@ -235,7 +235,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="input">The string to search for a match.</param>
         /// <param name="pattern">The regular expression pattern to match.</param>
         /// <param name="options">A bitwise combination of the enumeration values.</param>
-        /// <returns>A collection of the <see cref="RegexMatch"/> objects found by the search. If no matches are found, the method returns an empty collection object.</returns>
+        /// <returns>A collection of the <see cref="Match"/> objects found by the search. If no matches are found, the method returns an empty collection object.</returns>
         public static MatchCollection RegexMatches(this string input, string pattern, RegexOptions options)
         {
             return Regex.Matches(input, pattern, options);
