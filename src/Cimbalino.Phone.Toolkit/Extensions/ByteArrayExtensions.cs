@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
@@ -42,6 +43,130 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         public static string ToString(this byte[] input, Encoding encoding)
         {
             return encoding.GetString(input, 0, input.Length);
+        }
+
+        /// <summary>
+        /// Computes the <see cref="SHA1"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeSHA1Hash(this byte[] input)
+        {
+            using (var hash = new SHA1Managed())
+            {
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="SHA1"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="offset">The offset into the byte array from which to begin using data.</param>
+        /// <param name="count">The number of bytes in the array to use as data.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeSHA1Hash(this byte[] input, int offset, int count)
+        {
+            using (var hash = new SHA1Managed())
+            {
+                return hash.ComputeHash(input, offset, count);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="SHA256"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeSHA256Hash(this byte[] input)
+        {
+            using (var hash = new SHA256Managed())
+            {
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="SHA256"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="offset">The offset into the byte array from which to begin using data.</param>
+        /// <param name="count">The number of bytes in the array to use as data.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeSHA256Hash(this byte[] input, int offset, int count)
+        {
+            using (var hash = new SHA256Managed())
+            {
+                return hash.ComputeHash(input, offset, count);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="HMACSHA1"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACSHA1Hash(this byte[] input, byte[] key)
+        {
+            using (var hash = new HMACSHA1())
+            {
+                hash.Key = key;
+
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="HMACSHA1"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <param name="offset">The offset into the byte array from which to begin using data.</param>
+        /// <param name="count">The number of bytes in the array to use as data.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACSHA1Hash(this byte[] input, byte[] key, int offset, int count)
+        {
+            using (var hash = new HMACSHA1())
+            {
+                hash.Key = key;
+
+                return hash.ComputeHash(input, offset, count);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="HMACSHA256"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACSHA256Hash(this byte[] input, byte[] key)
+        {
+            using (var hash = new HMACSHA256())
+            {
+                hash.Key = key;
+
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="HMACSHA256"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <param name="offset">The offset into the byte array from which to begin using data.</param>
+        /// <param name="count">The number of bytes in the array to use as data.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACSHA256Hash(this byte[] input, byte[] key, int offset, int count)
+        {
+            using (var hash = new HMACSHA256())
+            {
+                hash.Key = key;
+
+                return hash.ComputeHash(input, offset, count);
+            }
         }
     }
 }

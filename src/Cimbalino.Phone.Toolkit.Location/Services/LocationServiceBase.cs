@@ -85,7 +85,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Starts the acquisition of data from the location service, using the specified accuracy and movement threshold.
         /// </summary>
         /// <param name="accuracy">The desired accuracy.</param>
-        /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="PositionChanged" /> events.</param>
+        /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="E:PositionChanged" /> events.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
             Justification = "The class will be disposed in another matter")]
         public void Start(GeoPositionAccuracy accuracy, double movementThreshold)

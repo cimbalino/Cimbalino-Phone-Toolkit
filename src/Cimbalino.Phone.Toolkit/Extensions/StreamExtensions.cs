@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System.IO;
+using System.Security.Cryptography;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -50,6 +51,64 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                 input.CopyTo(memoryStream);
 
                 return memoryStream.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="SHA1"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">The input <see cref="Stream"/> to compute the hash code for.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeSHA1Hash(this Stream input)
+        {
+            using (var hash = new SHA1Managed())
+            {
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="SHA256"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">The input <see cref="Stream"/> to compute the hash code for.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeSHA256Hash(this Stream input)
+        {
+            using (var hash = new SHA256Managed())
+            {
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="HMACSHA1"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">The input <see cref="Stream"/> to compute the hash code for.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACSHA1Hash(this Stream input, byte[] key)
+        {
+            using (var hash = new HMACSHA1())
+            {
+                hash.Key = key;
+
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="SHA256"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">The input <see cref="Stream"/> to compute the hash code for.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACSHA256Hash(this Stream input, byte[] key)
+        {
+            using (var hash = new HMACSHA256())
+            {
+                hash.Key = key;
+
+                return hash.ComputeHash(input);
             }
         }
     }
