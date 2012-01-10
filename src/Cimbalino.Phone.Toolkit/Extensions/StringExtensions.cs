@@ -26,26 +26,6 @@ namespace Cimbalino.Phone.Toolkit.Extensions
     public static class StringExtensions
     {
         /// <summary>
-        /// Determines whether the current string is null or an <see cref="String.Empty"/> string.
-        /// </summary>
-        /// <param name="input">The current string.</param>
-        /// <returns>true if the current string is null or an <see cref="String.Empty"/> string; otherwise, false.</returns>
-        public static bool IsNullOrEmpty(this string input)
-        {
-            return string.IsNullOrEmpty(input);
-        }
-
-        /// <summary>
-        /// Determines whether the current string is null, empty, or consists only of white-space characters.
-        /// </summary>
-        /// <param name="input">The current string.</param>
-        /// <returns>true if the current string is null, empty, or consists only of white-space characters; otherwise, false.</returns>
-        public static bool IsNullOrWhiteSpace(this string input)
-        {
-            return string.IsNullOrWhiteSpace(input);
-        }
-
-        /// <summary>
         /// Encodes all the characters in the string into a sequence of UTF8 bytes.
         /// </summary>
         /// <param name="input">The current string.</param>
