@@ -18,19 +18,19 @@ using System.Collections.Generic;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="ICollection"/> instances.
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="ICollection{TSource}"/> instances.
     /// </summary>
     public static class ICollectionExtensions
     {
         /// <summary>
-        /// Determines whether the specified <see cref="ICollection{TSource}"/> is null or empty.
+        /// Determines whether the specified <see cref="ICollection{TSource}"/> is empty.
         /// </summary>
         /// <param name="collection">The <see cref="ICollection{TSource}"/> to check.</param>
-        /// <typeparam name="TSource">The <see cref="ICollection"/> type to check.</typeparam>
-        /// <returns>True if the collection is null or empty; otherwise, false.</returns>
-        public static bool IsNullOrEmpty<TSource>(this ICollection<TSource> collection)
+        /// <typeparam name="TSource">The collection items type.</typeparam>
+        /// <returns>True if the collection is empty; otherwise, false.</returns>
+        public static bool IsEmpty<TSource>(this ICollection<TSource> collection)
         {
-            return collection == null || collection.Count == 0;
+            return collection.Count == 0;
         }
     }
 }

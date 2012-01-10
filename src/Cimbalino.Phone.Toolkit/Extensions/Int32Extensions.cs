@@ -20,16 +20,16 @@ using System.Linq;
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
-    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="int"/> instances.
+    /// Provides a set of static (Shared in Visual Basic) methods for <see cref="Int32"/> instances.
     /// </summary>
-    public static class IntExtensions
+    public static class Int32Extensions
     {
         /// <summary>
         /// Repeats the specified <see cref="Action"/> the number of times.
         /// </summary>
         /// <param name="input">The number of times to repeat the <see cref="Action"/>.</param>
         /// <param name="action">The <see cref="Action"/> to repeat.</param>
-        public static void Times(this int input, Action action)
+        public static void Times(this Int32 input, Action action)
         {
             while (input-- > 0)
             {
@@ -38,11 +38,11 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Repeats the specified <see cref="Action{int}"/> the number of times.
+        /// Repeats the specified <see cref="Action{Int32}"/> the number of times.
         /// </summary>
-        /// <param name="input">The number of times to repeat the <see cref="Action{int}"/>.</param>
-        /// <param name="action">The <see cref="Action{int}"/> to repeat.</param>
-        public static void Times(this int input, Action<int> action)
+        /// <param name="input">The number of times to repeat the <see cref="Action{Int32}"/>.</param>
+        /// <param name="action">The <see cref="Action{Int32}"/> to repeat.</param>
+        public static void Times(this Int32 input, Action<Int32> action)
         {
             var count = 0;
 
@@ -59,8 +59,8 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// </summary>
         /// <param name="first">The value of the first integer in the sequence.</param>
         /// <param name="count">The number of sequential integers to generate.</param>
-        /// <returns>An <see cref="IEnumerable{int}"/> that contains a range of sequential integral numbers.</returns>
-        public static IEnumerable<int> Range(this int first, int count)
+        /// <returns>An <see cref="IEnumerable{Int32}"/> that contains a range of sequential integral numbers.</returns>
+        public static IEnumerable<Int32> Range(this Int32 first, int count)
         {
             return Enumerable.Range(first, count);
         }
@@ -70,8 +70,8 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// </summary>
         /// <param name="first">The value of the first integer in the sequence.</param>
         /// <param name="last">The value of the last integer in the sequence.</param>
-        /// <returns>An <see cref="IEnumerable{int}"/> that contains a range of sequential integral numbers.</returns>
-        public static IEnumerable<int> To(this int first, int last)
+        /// <returns>An <see cref="IEnumerable{Int32}"/> that contains a range of sequential integral numbers.</returns>
+        public static IEnumerable<Int32> To(this Int32 first, int last)
         {
             return first.Range(last - first + 1);
         }
