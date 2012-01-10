@@ -11,6 +11,7 @@ The Toolkit is divided in projects, regarding different Windows Phone applicatio
 * __Cimbalino.Phone.Toolkit__ - the base project of the toolkit, containing base MVVM services, some very usefull converters, helper classes and extension methods, and the bindable Application Bar behavior
 * __Cimbalino.Phone.Toolkit.Camera__ - MVVM compatible services for camera access
 * __Cimbalino.Phone.Toolkit.DeviceInfo__ - MVVM compatible services for device information access
+* __Cimbalino.Phone.Toolkit.Location__ - MVVM compatible services for location access
 * __Cimbalino.Phone.Toolkit.PhoneDialer__ - MVVM compatible services for phone dialer access
 * __Cimbalino.Phone.Toolkit.UserInfo__ - MVVM compatible services for user information access
 
