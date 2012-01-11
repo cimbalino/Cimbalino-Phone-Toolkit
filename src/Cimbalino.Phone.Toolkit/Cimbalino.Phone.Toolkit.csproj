@@ -76,7 +76,7 @@
     <Compile Include="Extensions\FrameworkElementExtensions.cs" />
     <Compile Include="Extensions\IComparableExtensions.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
-    <Compile Include="Extensions\Int32Extensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />

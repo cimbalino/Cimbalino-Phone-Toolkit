@@ -15,26 +15,25 @@
 
 using System.Collections.Generic;
 using System.IO;
-using System.IO.IsolatedStorage;
 using System.Text;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of handling the application isolated storage
+    /// Represents a service capable of handling the application storage
     /// </summary>
     public interface IStorageService
     {
         /// <summary>
-        /// Gets a value that represents the amount of free space available for isolated storage.
+        /// Gets a value that represents the amount of free space available for storage.
         /// </summary>
-        /// <value>The available free isolated storage space, in bytes.</value>
+        /// <value>The available free storage space, in bytes.</value>
         long AvailableFreeSpace { get; }
 
         /// <summary>
-        /// Gets a value that represents the maximum amount of space available for isolated storage.
+        /// Gets a value that represents the maximum amount of space available for storage.
         /// </summary>
-        /// <value>The limit of isolated storage space, in bytes.</value>
+        /// <value>The limit of storage space, in bytes.</value>
         long Quota { get; }
 
         /// <summary>
@@ -53,22 +52,22 @@ namespace Cimbalino.Phone.Toolkit.Services
         void CopyFile(string sourceFileName, string destinationFileName, bool overwrite);
 
         /// <summary>
-        /// Creates a directory in the isolated storage scope.
+        /// Creates a directory in the storage scope.
         /// </summary>
-        /// <param name="dir">The relative path of the directory to create within the isolated storage.</param>
+        /// <param name="dir">The relative path of the directory to create within the storage.</param>
         void CreateDirectory(string dir);
 
         /// <summary>
-        /// Creates a file in the isolated store.
+        /// Creates a file in the store.
         /// </summary>
-        /// <param name="path">The relative path of the file to be created in the isolated store.</param>
-        /// <returns>A new isolated storage file</returns>
-        IsolatedStorageFileStream CreateFile(string path);
+        /// <param name="path">The relative path of the file to be created in the store.</param>
+        /// <returns>A new storage file</returns>
+        Stream CreateFile(string path);
 
         /// <summary>
-        /// Deletes a directory in the isolated storage scope.
+        /// Deletes a directory in the storage scope.
         /// </summary>
-        /// <param name="dir">The relative path of the directory to delete within the isolated storage scope.</param>
+        /// <param name="dir">The relative path of the directory to delete within the storage scope.</param>
         void DeleteDirectory(string dir);
 
         /// <summary>
@@ -78,43 +77,43 @@ namespace Cimbalino.Phone.Toolkit.Services
         void DeleteFile(string path);
 
         /// <summary>
-        /// Determines whether the specified path refers to an existing directory in the isolated store.
+        /// Determines whether the specified path refers to an existing directory in the store.
         /// </summary>
         /// <param name="dir">The path to test.</param>
-        /// <returns>true if path refers to an existing directory in the isolated store and is not null; otherwise, false.</returns>
+        /// <returns>true if path refers to an existing directory in the store and is not null; otherwise, false.</returns>
         bool DirectoryExists(string dir);
 
         /// <summary>
-        /// Determines whether the specified path refers to an existing file in the isolated store.
+        /// Determines whether the specified path refers to an existing file in the store.
         /// </summary>
         /// <param name="path">The path and file name to test.</param>
-        /// <returns>true if path refers to an existing file in the isolated store and is not null; otherwise, false.</returns>
+        /// <returns>true if path refers to an existing file in the store and is not null; otherwise, false.</returns>
         bool FileExists(string path);
 
         /// <summary>
-        /// Enumerates the directories in the root of an isolated store.
+        /// Enumerates the directories in the root of a store.
         /// </summary>
-        /// <returns>An <see cref="System.Array"/> of relative paths of directories in the root of the isolated store. A zero-length array specifies that there are no directories in the root.</returns>
+        /// <returns>An <see cref="System.Array"/> of relative paths of directories in the root of the store. A zero-length array specifies that there are no directories in the root.</returns>
         string[] GetDirectoryNames();
 
         /// <summary>
-        /// Enumerates directories in an isolated storage scope that match a given pattern.
+        /// Enumerates directories in a storage scope that match a given pattern.
         /// </summary>
         /// <param name="searchPattern">A search pattern. Both single-character ("?") and multi-character ("*") wildcards are supported.</param>
-        /// <returns>An <see cref="System.Array"/> of the relative paths of directories in the isolated storage scope that match searchPattern. A zero-length array specifies that there are no directories that match.</returns>
+        /// <returns>An <see cref="System.Array"/> of the relative paths of directories in the storage scope that match searchPattern. A zero-length array specifies that there are no directories that match.</returns>
         string[] GetDirectoryNames(string searchPattern);
 
         /// <summary>
-        /// Obtains the names of files in the root of an isolated store.
+        /// Obtains the names of files in the root of a store.
         /// </summary>
-        /// <returns>An <see cref="System.Array"/> of relative paths of files in the root of the isolated store. A zero-length array specifies that there are no files in the root.</returns>
+        /// <returns>An <see cref="System.Array"/> of relative paths of files in the root of the store. A zero-length array specifies that there are no files in the root.</returns>
         string[] GetFileNames();
 
         /// <summary>
-        /// Enumerates files in isolated storage scope that match a given pattern.
+        /// Enumerates files in storage scope that match a given pattern.
         /// </summary>
         /// <param name="searchPattern">A search pattern. Both single-character ("?") and multi-character ("*") wildcards are supported.</param>
-        /// <returns>An <see cref="System.Array"/> of relative paths of files in the isolated storage scope that match searchPattern. A zero-length array specifies that there are no files that match.</returns>
+        /// <returns>An <see cref="System.Array"/> of relative paths of files in the storage scope that match searchPattern. A zero-length array specifies that there are no files that match.</returns>
         string[] GetFileNames(string searchPattern);
 
         /// <summary>
@@ -141,29 +140,29 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Opens a file in the specified mode.
         /// </summary>
-        /// <param name="path">The relative path of the file within the isolated store.</param>
+        /// <param name="path">The relative path of the file within the store.</param>
         /// <param name="mode">The mode in which to open the file.</param>
         /// <returns>A file that is opened in the specified mode, with read/write access, and is unshared.</returns>
-        IsolatedStorageFileStream OpenFile(string path, FileMode mode);
+        Stream OpenFile(string path, FileMode mode);
 
         /// <summary>
         /// Opens a file in the specified mode with the specified file access.
         /// </summary>
-        /// <param name="path">The relative path of the file within the isolated store.</param>
+        /// <param name="path">The relative path of the file within the store.</param>
         /// <param name="mode">The mode in which to open the file.</param>
         /// <param name="access">The type of access to open the file with.</param>
         /// <returns>A file that is opened in the specified mode and access, and is unshared.</returns>
-        IsolatedStorageFileStream OpenFile(string path, FileMode mode, FileAccess access);
+        Stream OpenFile(string path, FileMode mode, FileAccess access);
 
         /// <summary>
         /// Opens a file in the specified mode with read, write, or read/write access and the specified sharing option.
         /// </summary>
-        /// <param name="path">The relative path of the file within the isolated store.</param>
+        /// <param name="path">The relative path of the file within the store.</param>
         /// <param name="mode">The mode in which to open the file.</param>
         /// <param name="access">The type of access to open the file with.</param>
-        /// <param name="share">The type of access other <see cref="IsolatedStorageFileStream"/> objects have to this file.</param>
+        /// <param name="share">The type of access other <see cref="Stream"/> objects have to this file.</param>
         /// <returns>A file that is opened in the specified mode and access, and with the specified sharing options.</returns>
-        IsolatedStorageFileStream OpenFile(string path, FileMode mode, FileAccess access, FileShare share);
+        Stream OpenFile(string path, FileMode mode, FileAccess access, FileShare share);
 
         /// <summary>
         /// Opens a text file, reads all lines of the file, and then closes the file.
