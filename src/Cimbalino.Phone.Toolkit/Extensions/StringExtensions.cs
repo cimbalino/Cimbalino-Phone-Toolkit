@@ -62,9 +62,21 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="format">The composite format string.</param>
         /// <param name="args">An object array that contains zero or more objects to format.</param>
         /// <returns>A copy of the string in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
-        public static string Format(this string format, params object[] args)
+        public static string FormatWith(this string format, params object[] args)
         {
             return string.Format(format, args);
+        }
+
+        /// <summary>
+        /// Replaces one or more format items in the string with the string representation of a specified object.
+        /// </summary>
+        /// <param name="format">The composite format string.</param>
+        /// <param name="provider">An object that supplies culture-specific formatting information.</param>
+        /// <param name="args">An object array that contains zero or more objects to format.</param>
+        /// <returns>A copy of the string in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
+        public static string FormatWith(this string format, IFormatProvider provider, params object[] args)
+        {
+            return string.Format(provider, format, args);
         }
 
         /// <summary>
@@ -73,21 +85,9 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="format">The composite format string.</param>
         /// <param name="args">An object array that contains zero or more objects to format.</param>
         /// <returns>A copy of the string in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
-        public static string FormatInvariantCulture(this string format, params object[] args)
+        public static string FormatWithInvariantCulture(this string format, params object[] args)
         {
-            return format.Format(CultureInfo.InvariantCulture, args);
-        }
-
-        /// <summary>
-        /// Replaces one or more format items in the string with the string representation of a specified object, using the specified <see cref="CultureInfo"/>.
-        /// </summary>
-        /// <param name="format">The composite format string.</param>
-        /// <param name="cultureInfo">The <see cref="CultureInfo"/> to use when formating the string.</param>
-        /// <param name="args">An object array that contains zero or more objects to format.</param>
-        /// <returns>A copy of the string in which the format items have been replaced by the string representation of the corresponding objects in args.</returns>
-        public static string Format(this string format, CultureInfo cultureInfo, params object[] args)
-        {
-            return string.Format(cultureInfo, format, args);
+            return format.FormatWith(CultureInfo.InvariantCulture, args);
         }
 
         /// <summary>
