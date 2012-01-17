@@ -43,6 +43,7 @@
     <DocumentationFile>Bin\Release\Cimbalino.Phone.Toolkit.Location.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
     <Reference Include="System.Device" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />

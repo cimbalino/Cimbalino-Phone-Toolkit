@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
@@ -49,3 +50,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.2.0.0")]
 [assembly: AssemblyFileVersion("1.2.0.0")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
+
+[assembly: CLSCompliant(true)]
