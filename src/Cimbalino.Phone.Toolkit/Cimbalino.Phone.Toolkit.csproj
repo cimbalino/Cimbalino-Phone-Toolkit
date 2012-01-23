@@ -73,7 +73,9 @@
     <Compile Include="Extensions\DispatcherExtensions.cs" />
     <Compile Include="Extensions\FrameworkElementExtensions.cs" />
     <Compile Include="Extensions\IComparableExtensions.cs" />
+    <Compile Include="Extensions\IConvertibleExtensions.cs" />
     <Compile Include="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="Extensions\IFormattableExtensions.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
