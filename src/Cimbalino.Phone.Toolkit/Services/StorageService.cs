@@ -18,7 +18,6 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using System.Text;
 using Cimbalino.Phone.Toolkit.Extensions;
-using Newtonsoft.Json;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -329,17 +328,6 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Opens a text file, deserializes an object from its JSON content, and then closes the file.
-        /// </summary>
-        /// <param name="path">The file to open for reading.</param>
-        /// <returns>The deserialized object from the Json string.</returns>
-        /// <typeparam name="T">The type of the object to deserialize to.</typeparam>
-        public T ReadObject<T>(string path) where T : class
-        {
-            return JsonConvert.DeserializeObject<T>(_store.ReadAllText(path));
-        }
-
-        /// <summary>
         /// Creates a new file, writes the specified string to the file, and then closes the file. If the target file already exists, it is overwritten.
         /// </summary>
         /// <param name="path">The file to write to.</param>
@@ -389,17 +377,6 @@ namespace Cimbalino.Phone.Toolkit.Services
         public void WriteAllBytes(string path, byte[] bytes)
         {
             _store.WriteAllBytes(path, bytes);
-        }
-
-        /// <summary>
-        /// Creates a new file, writes the specified object serialized to JSON, and then closes the file. If the target file already exists, it is overwritten.
-        /// </summary>
-        /// <param name="path">The file to write to.</param>
-        /// <param name="data">The object to serialize.</param>
-        /// <typeparam name="T">The type of the object to serialize from.</typeparam>
-        public void WriteObject<T>(string path, T data) where T : class
-        {
-            _store.WriteAllText(path, JsonConvert.SerializeObject(data));
         }
 
         /// <summary>
