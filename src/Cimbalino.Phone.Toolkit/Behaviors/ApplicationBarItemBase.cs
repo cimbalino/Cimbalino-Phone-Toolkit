@@ -282,13 +282,25 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         {
             var focusObj = FocusManager.GetFocusedElement();
 
-            if (focusObj != null && focusObj is TextBox)
+            if (focusObj != null)
             {
-                var binding = ((TextBox)focusObj).GetBindingExpression(TextBox.TextProperty);
-
-                if (binding != null)
+                if (focusObj is TextBox)
                 {
-                    binding.UpdateSource();
+                    var binding = ((TextBox)focusObj).GetBindingExpression(TextBox.TextProperty);
+
+                    if (binding != null)
+                    {
+                        binding.UpdateSource();
+                    }
+                }
+                else if (focusObj is PasswordBox)
+                {
+                    var binding = ((PasswordBox)focusObj).GetBindingExpression(PasswordBox.PasswordProperty);
+
+                    if (binding != null)
+                    {
+                        binding.UpdateSource();
+                    }
                 }
             }
         }
