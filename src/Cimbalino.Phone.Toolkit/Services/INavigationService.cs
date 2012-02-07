@@ -33,7 +33,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Gets the uniform resource identifier (URI) of the content that is currently displayed.
         /// </summary>
         /// <value>Returns a value that represents the <see cref="Uri"/> of content that is currently displayed.</value>
-        Uri CurrentPageURI { get; }
+        Uri CurrentSource { get; }
 
         /// <summary>
         /// Gets a collection of query string values.

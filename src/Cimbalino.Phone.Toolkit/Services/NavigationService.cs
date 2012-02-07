@@ -39,7 +39,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <value>
         /// Returns a value that represents the <see cref="Uri" /> of content that is currently displayed.
         /// </value>
-        public Uri CurrentPageURI
+        public Uri CurrentSource
         {
             get
             {
