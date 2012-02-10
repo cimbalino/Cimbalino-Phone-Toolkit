@@ -21,6 +21,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
     /// <summary>
     /// Provides a set of static (Shared in Visual Basic) methods for <see cref="IConvertible"/> instances.
     /// </summary>
+    [CLSCompliant(false)]
     public static class IConvertibleExtensions
     {
         /// <summary>
