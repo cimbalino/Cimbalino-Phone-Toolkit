@@ -51,7 +51,10 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\PhotoChooserWithCameraService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CameraCaptureService.cs" />
+    <Compile Include="Services\ICameraCaptureService.cs" />
     <Compile Include="Services\IPhotoCameraService.cs" />
     <Compile Include="Services\PhotoCameraService.cs" />
     <Compile Include="Services\PhotoCameraServiceState.cs" />

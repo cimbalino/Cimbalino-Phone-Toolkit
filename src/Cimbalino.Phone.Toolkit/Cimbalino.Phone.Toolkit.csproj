@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Xna.Framework" />
     <Reference Include="Microsoft.Xna.Framework.GamerServices" />
     <Reference Include="System.Device" />
     <Reference Include="System.Windows" />
@@ -75,17 +76,17 @@
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
-    <Compile Include="Helpers\ApplicationManifest.cs" />
+    <Compile Include="Services\ApplicationManifestService.cs" />
     <Compile Include="Services\ApplicationSettingsService.cs" />
     <Compile Include="Services\BingMapsDirectionsService.cs" />
     <Compile Include="Services\BingMapsService.cs" />
-    <Compile Include="Services\CameraCaptureService.cs" />
     <Compile Include="Services\ClipboardService.cs" />
     <Compile Include="Services\ConnectionSettingsService.cs" />
     <Compile Include="Services\DeviceStatusService.cs" />
     <Compile Include="Services\AddressChooserService.cs" />
     <Compile Include="Services\EmailAddressChooserService.cs" />
     <Compile Include="Services\IAddressChooserService.cs" />
+    <Compile Include="Services\IApplicationManifestService.cs" />
     <Compile Include="Services\IApplicationSettingsService.cs" />
     <Compile Include="Converters\BooleanToStringConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
@@ -107,7 +108,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IBingMapsDirectionsService.cs" />
     <Compile Include="Services\IBingMapsService.cs" />
-    <Compile Include="Services\ICameraCaptureService.cs" />
     <Compile Include="Services\IClipboardService.cs" />
     <Compile Include="Services\IConnectionSettingsService.cs" />
     <Compile Include="Services\IDeviceStatusService.cs" />
@@ -118,6 +118,8 @@
     <Compile Include="Services\IMessageBoxService.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\IEmailComposeService.cs" />
+    <Compile Include="Services\InputBoxService.cs" />
+    <Compile Include="Services\IInputBoxService.cs" />
     <Compile Include="Services\IPhoneNumberChooserService.cs" />
     <Compile Include="Services\IPhotoChooserService.cs" />
     <Compile Include="Services\ISaveEmailAddressService.cs" />

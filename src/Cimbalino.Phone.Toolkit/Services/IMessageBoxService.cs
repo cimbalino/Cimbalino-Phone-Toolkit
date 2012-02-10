@@ -20,7 +20,7 @@ using System.Windows;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of showing message boxes
+    /// Represents a service capable of showing message boxes.
     /// </summary>
     public interface IMessageBoxService
     {
