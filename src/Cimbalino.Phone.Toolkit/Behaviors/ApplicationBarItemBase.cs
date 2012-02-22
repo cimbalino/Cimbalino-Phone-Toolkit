@@ -180,7 +180,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="Command" /> dependency property
+        /// Identifier for the <see cref="Command" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty CommandProperty =
         DependencyProperty.RegisterAttached("Command", typeof(ICommand), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(null, OnCommandChanged));

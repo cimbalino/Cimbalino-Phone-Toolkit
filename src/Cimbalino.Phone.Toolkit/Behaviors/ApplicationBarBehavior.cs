@@ -15,6 +15,7 @@
 
 using System;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -310,6 +311,22 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             }
         }
 
+        /// <summary>
+        /// Gets or sets the command to invoke when the user opens or closes the menu. This is a DependencyProperty.
+        /// </summary>
+        /// <value>The command to invoke when the user opens or closes the menu. The default is null.</value>
+        public ICommand StateChangedCommand
+        {
+            get { return (ICommand)GetValue(StateChangedCommandProperty); }
+            set { SetValue(StateChangedCommandProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifier for the <see cref="StateChangedCommand" /> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty StateChangedCommandProperty =
+            DependencyProperty.Register("StateChangedCommand", typeof(ICommand), typeof(ApplicationBarBehavior), null);
+
         private void AssociatedObject_LayoutUpdated(object sender, EventArgs e)
         {
             SetApplicationBar();
@@ -322,6 +339,18 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             if (eventHandler != null)
             {
                 eventHandler(sender, e);
+            }
+
+            var command = StateChangedCommand;
+
+            if (command != null)
+            {
+                var commandParameter = e;
+
+                if (command.CanExecute(commandParameter))
+                {
+                    command.Execute(commandParameter);
+                }
             }
         }
 
