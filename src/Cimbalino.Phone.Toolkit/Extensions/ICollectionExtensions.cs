@@ -32,5 +32,18 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         {
             return collection.Count == 0;
         }
+
+        /// <summary>
+        /// Adds the elements of the specified collection to the end of the <see cref="ICollection{TSource}"/>.
+        /// </summary>
+        /// <param name="collection">The <see cref="ICollection{TSource}"/>.</param>
+        /// <param name="collection">The collection whose elements should be added to the end of the <see cref="ICollection{TSource}"/>. The collection itself cannot be null, but it can contain elements that are null, if type TSource is a reference type.</param>
+        public static void AddRange<TSource>(this ICollection<TSource> sourceCollection, IEnumerable<TSource> collection)
+        {
+            foreach (var item in collection)
+            {
+                sourceCollection.Add(item);
+            }
+        }
     }
 }
