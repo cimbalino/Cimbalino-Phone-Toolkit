@@ -27,7 +27,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="title">The title of the shared link.</param>
         /// <param name="message">The message that will accompany the shared link.</param>
-        /// <param name="linkUrl">The URI of the link to be shared.</param>
+        /// <param name="linkUrl">The URL of the link to be shared.</param>
         void Show(string title, string message, string linkUrl);
 
         /// <summary>

@@ -79,7 +79,16 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Navigates to the content specified by the uniform resource identifier (URI).
         /// </summary>
-        /// <param name="source">A Uri object initialized with the URI for the desired content.</param>
+        /// <param name="source">The URI for the desired content.</param>
+        public void NavigateTo(string source)
+        {
+            NavigateTo(new Uri(source, UriKind.Relative));
+        }
+
+        /// <summary>
+        /// Navigates to the content specified by the uniform resource identifier (URI).
+        /// </summary>
+        /// <param name="source">A <see cref="Uri" /> initialized with the URI for the desired content.</param>
         public void NavigateTo(Uri source)
         {
             if (EnsureMainFrame())
