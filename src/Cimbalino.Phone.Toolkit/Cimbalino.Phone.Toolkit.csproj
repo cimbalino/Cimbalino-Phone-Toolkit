@@ -66,6 +66,7 @@
     <Compile Include="Behaviors\ApplicationBarMenuItem.cs" />
     <Compile Include="Behaviors\ApplicationBarMenuItemCollection.cs" />
     <Compile Include="Behaviors\SafeBehavior.cs" />
+    <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="Converters\StringRegexConverter.cs" />
     <Compile Include="Extensions\DispatcherExtensions.cs" />
     <Compile Include="Extensions\FrameworkElementExtensions.cs" />
