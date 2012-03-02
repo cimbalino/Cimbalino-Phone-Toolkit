@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Navigation;
@@ -87,9 +88,27 @@ namespace Cimbalino.Phone.Toolkit.Services
         event EventHandler Unobscured;
 
         /// <summary>
-        /// Gets or sets a value indicating whether the application can run under the lock screen.
+        /// Gets the mode in which the application was started.
         /// </summary>
-        /// <value>true if the application can run under the lock screen; otherwise, false.</value>
-        bool AllowRunningUnderLockScreen { get; set; }
+        /// <value>The mode in which the application was started.</value>
+        StartupMode StartupMode { get; }
+
+        /// <summary>
+        /// Gets the dictionary used for passing an application’s state between invocations.
+        /// </summary>
+        /// <value>The dictionary used for passing an application’s state between invocations.</value>
+        IDictionary<string, object> State { get; }
+
+        /// <summary>
+        /// Gets or sets a value indicating the application idle detection is enabled.
+        /// </summary>
+        /// <value>The application idle detection mode.</value>
+        IdleDetectionMode ApplicationIdleDetectionMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating the user idle detection mode.
+        /// </summary>
+        /// <value>The user idle detection mode.</value>
+        IdleDetectionMode UserIdleDetectionMode { get; set; }
     }
 }

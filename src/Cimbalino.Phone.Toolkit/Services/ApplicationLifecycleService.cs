@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Navigation;
@@ -32,27 +33,77 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Occurs when the application is being made active after previously being put into a dormant state or tombstoned.
         /// </summary>
-        public event EventHandler<ActivatedEventArgs> Activated;
+        public event EventHandler<ActivatedEventArgs> Activated
+        {
+            add
+            {
+                PhoneApplicationService.Current.Activated += value;
+            }
+            remove
+            {
+                PhoneApplicationService.Current.Activated -= value;
+            }
+        }
 
         /// <summary>
         /// Occurs when the application is exiting.
         /// </summary>
-        public event EventHandler<ClosingEventArgs> Closing;
+        public event EventHandler<ClosingEventArgs> Closing
+        {
+            add
+            {
+                PhoneApplicationService.Current.Closing += value;
+            }
+            remove
+            {
+                PhoneApplicationService.Current.Closing -= value;
+            }
+        }
 
         /// <summary>
         /// Occurs when the application is being deactivated.
         /// </summary>
-        public event EventHandler<DeactivatedEventArgs> Deactivated;
+        public event EventHandler<DeactivatedEventArgs> Deactivated
+        {
+            add
+            {
+                PhoneApplicationService.Current.Deactivated += value;
+            }
+            remove
+            {
+                PhoneApplicationService.Current.Deactivated -= value;
+            }
+        }
 
         /// <summary>
         /// Occurs when the application is being launched.
         /// </summary>
-        public event EventHandler<LaunchingEventArgs> Launching;
+        public event EventHandler<LaunchingEventArgs> Launching
+        {
+            add
+            {
+                PhoneApplicationService.Current.Launching += value;
+            }
+            remove
+            {
+                PhoneApplicationService.Current.Launching -= value;
+            }
+        }
 
         /// <summary>
         /// Occurs when an exception that is raised by Silverlight is not handled.
         /// </summary>
-        public event EventHandler<ApplicationUnhandledExceptionEventArgs> UnhandledException;
+        public event EventHandler<ApplicationUnhandledExceptionEventArgs> UnhandledException
+        {
+            add
+            {
+                Application.Current.UnhandledException += value;
+            }
+            remove
+            {
+                Application.Current.UnhandledException -= value;
+            }
+        }
 
         /// <summary>
         /// This event is raised when the hardware Back button is pressed.
@@ -90,20 +141,60 @@ namespace Cimbalino.Phone.Toolkit.Services
         public event EventHandler Unobscured;
 
         /// <summary>
-        /// Gets or sets a value indicating whether the application can run under the lock screen.
+        /// Gets the mode in which the application was started.
         /// </summary>
-        /// <value>
-        /// true if the application can run under the lock screen; otherwise, false.
-        /// </value>
-        public bool AllowRunningUnderLockScreen
+        /// <value>The mode in which the application was started.</value>
+        public StartupMode StartupMode
         {
             get
             {
-                return PhoneApplicationService.Current.ApplicationIdleDetectionMode == IdleDetectionMode.Disabled;
+                return PhoneApplicationService.Current.StartupMode;
+            }
+        }
+
+        /// <summary>
+        /// Gets the dictionary used for passing an application’s state between invocations.
+        /// </summary>
+        /// <value>
+        /// The dictionary used for passing an application’s state between invocations.
+        /// </value>
+        public IDictionary<string, object> State
+        {
+            get
+            {
+                return PhoneApplicationService.Current.State;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating the application idle detection is enabled.
+        /// </summary>
+        /// <value>The application idle detection mode.</value>
+        public IdleDetectionMode ApplicationIdleDetectionMode
+        {
+            get
+            {
+                return PhoneApplicationService.Current.ApplicationIdleDetectionMode;
             }
             set
             {
-                PhoneApplicationService.Current.ApplicationIdleDetectionMode = value ? IdleDetectionMode.Disabled : IdleDetectionMode.Enabled;
+                PhoneApplicationService.Current.ApplicationIdleDetectionMode = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating the user idle detection mode.
+        /// </summary>
+        /// <value>The user idle detection mode.</value>
+        public IdleDetectionMode UserIdleDetectionMode
+        {
+            get
+            {
+                return PhoneApplicationService.Current.UserIdleDetectionMode;
+            }
+            set
+            {
+                PhoneApplicationService.Current.UserIdleDetectionMode = value;
             }
         }
 
@@ -112,61 +203,14 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         public ApplicationLifecycleService()
         {
-            var phoneApplicationService = PhoneApplicationService.Current;
+            var host = Application.Current.Host;
 
-            phoneApplicationService.Activated += (s, e) =>
+            if (host == null || host.Content == null)
             {
-                var eventHandler = Activated;
+                return;
+            }
 
-                if (eventHandler != null)
-                {
-                    eventHandler(s, e);
-                }
-            };
-
-            phoneApplicationService.Closing += (s, e) =>
-            {
-                var eventHandler = Closing;
-
-                if (eventHandler != null)
-                {
-                    eventHandler(s, e);
-                }
-            };
-
-            phoneApplicationService.Deactivated += (s, e) =>
-            {
-                var eventHandler = Deactivated;
-
-                if (eventHandler != null)
-                {
-                    eventHandler(s, e);
-                }
-            };
-
-            phoneApplicationService.Launching += (s, e) =>
-            {
-                var eventHandler = Launching;
-
-                if (eventHandler != null)
-                {
-                    eventHandler(s, e);
-                }
-            };
-
-            var application = Application.Current;
-
-            application.UnhandledException += (s, e) =>
-            {
-                var eventHandler = UnhandledException;
-
-                if (eventHandler != null)
-                {
-                    eventHandler(s, e);
-                }
-            };
-
-            application.Host.Content.Resized += (s, e) =>
+            host.Content.Resized += (s, e) =>
             {
                 EnsureMainFrame();
             };
