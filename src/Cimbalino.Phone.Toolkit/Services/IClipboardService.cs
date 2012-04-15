@@ -13,6 +13,8 @@
 // </license>
 // ****************************************************************************
 
+using System.Security;
+
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
@@ -24,6 +26,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Sets Unicode text data to store on the clipboard.
         /// </summary>
         /// <param name="text">A string that contains the Unicode text data to store on the clipboard.</param>
+        /// <exception cref="SecurityException">Invoked this method from outside a user-initiated context -or- Clipboard access user dialog box was not confirmed.</exception>
         void SetText(string text);
 
         /// <summary>

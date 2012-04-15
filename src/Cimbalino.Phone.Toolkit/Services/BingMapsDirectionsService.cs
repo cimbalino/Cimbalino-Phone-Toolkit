@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System;
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -26,6 +27,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the Bing Maps application with driving directions displayed for the specified ending location.
         /// </summary>
         /// <param name="endingLocation">The ending location for which driving directions are displayed.</param>
+        /// <exception cref="InvalidOperationException">Start and End cannot both be invalid.</exception>
         public void Show(LabeledMapLocation endingLocation)
         {
             Show(null, endingLocation);
@@ -36,6 +38,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="startingLocation">The starting location for which driving directions are displayed.</param>
         /// <param name="endingLocation">The ending location for which driving directions are displayed.</param>
+        /// <exception cref="InvalidOperationException">Start and End cannot both be invalid.</exception>
         public void Show(LabeledMapLocation startingLocation, LabeledMapLocation endingLocation)
         {
             new BingMapsDirectionsTask()

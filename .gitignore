@@ -4,3 +4,6 @@ Thumbs.db
 *.suo
 *.log
 [Bb]in
+*.cache
+*.Cache
+_ReSharper*/
