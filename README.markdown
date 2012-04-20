@@ -31,9 +31,9 @@ See the [LICENSE.txt][5] file for details.
 
 [1]: http://www.pedrolamas.com
 [2]: http://twitter.com/pedrolamas
-[3]: https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png "Cimbalino Windows Phone Toolkit"
+[3]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png "Cimbalino Windows Phone Toolkit"
 [4]: http://go.microsoft.com/?linkid=9772716 "Download Windows Phone SDK"
-[5]: https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt "Cimbalino Windows Phone Toolkit License"
-[6]: https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
+[5]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt "Cimbalino Windows Phone Toolkit License"
+[6]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
 [7]: http://nuget.org "NuGet Gallery"
 [8]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
