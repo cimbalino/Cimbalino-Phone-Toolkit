@@ -21,9 +21,9 @@ namespace Cimbalino.Phone.Toolkit.Services
     public interface IApplicationSettingsService
     {
         /// <summary>
-        /// Gets a value indicating whether this <see cref="System.IO.IsolatedStorage.IsolatedStorageSettings"/> instance has changed.
+        /// Gets a value indicating whether this <see cref="IsolatedStorageSettings"/> instance has changed.
         /// </summary>
-        /// <value>true if this <see cref="System.IO.IsolatedStorage.IsolatedStorageSettings"/> instance has changed; otherwise, false.</value>
+        /// <value>true if this <see cref="IsolatedStorageSettings"/> instance has changed; otherwise, false.</value>
         bool IsDirty { get; }
 
         /// <summary>
@@ -58,8 +58,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         void Reset(string key);
 
         /// <summary>
-        /// Saves this <see cref="System.IO.IsolatedStorage.IsolatedStorageSettings"/> instance.
+        /// Saves this <see cref="IsolatedStorageSettings"/> instance.
         /// </summary>
+        /// <exception cref="IsolatedStorageException">The <see cref="IsolatedStorageFile"/> does not have enough available free space.</exception>
         void Save();
     }
 }

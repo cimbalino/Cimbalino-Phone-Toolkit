@@ -115,6 +115,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Saves this <see cref="IsolatedStorageSettings" /> instance.
         /// </summary>
+        /// <exception cref="IsolatedStorageException">The <see cref="IsolatedStorageFile"/> does not have enough available free space.</exception>
         public void Save()
         {
             if (IsDirty)
