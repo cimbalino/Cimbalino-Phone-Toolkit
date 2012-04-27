@@ -7,9 +7,9 @@
     <title>Cimbalino Windows Phone Toolkit - User Information Components</title>
     <description>Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone. This is the User Information component, and will automatically add the ID_CAP_IDENTITY_USER capability to your application.</description>
     <language>en-US</language>
-    <projectUrl>https://github.com/PedroLamas/Cimbalino-Phone-Toolkit</projectUrl>
-    <licenseUrl>https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
-    <iconUrl>https://github.com/PedroLamas/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
+    <projectUrl>http://cimbalino.org</projectUrl>
+    <licenseUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
+    <iconUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
     <dependencies>
       <dependency id="Cimbalino.Phone.Toolkit" />
     </dependencies>
