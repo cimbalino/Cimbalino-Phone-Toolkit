@@ -2,7 +2,7 @@
 
 ![Cimbalino Windows Phone Toolkit][3]
 
-### [Official Site/Blog][1] - [@pedrolamas][2]
+### [Official Site][9] - [Blog][1] - [@pedrolamas][2]
 
 Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone.
 
@@ -15,7 +15,7 @@ The Toolkit is divided in projects, regarding different Windows Phone applicatio
 * __Cimbalino.Phone.Toolkit.PhoneDialer__ - MVVM compatible services for phone dialer access
 * __Cimbalino.Phone.Toolkit.UserInfo__ - MVVM compatible services for user information access
 
-> **Note:** this toolkit is only compatible with the [Windows Phone SDK 7.1][4]!
+> **Note:** this toolkit is only compatible with the [Windows Phone SDK 7.1.x][4]!
 
 ## Nuget
 
@@ -37,3 +37,4 @@ See the [LICENSE.txt][5] file for details.
 [6]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
 [7]: http://nuget.org "NuGet Gallery"
 [8]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
+[9]: http://cimbalino.org
