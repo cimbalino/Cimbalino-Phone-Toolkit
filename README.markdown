@@ -2,7 +2,7 @@
 
 ![Cimbalino Windows Phone Toolkit][3]
 
-### [Official Site][9] - [Blog][1] - [@pedrolamas][2]
+### [Official Site][1] - [@CimbalinoWP][2]
 
 Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone.
 
@@ -29,12 +29,11 @@ Please visit the [download section on GitHub][6] to download the latest release 
 
 See the [LICENSE.txt][5] file for details.
 
-[1]: http://www.pedrolamas.com
-[2]: http://twitter.com/pedrolamas
+[1]: http://cimbalino.org
+[2]: http://twitter.com/CimbalinoWP
 [3]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png "Cimbalino Windows Phone Toolkit"
 [4]: http://go.microsoft.com/?linkid=9772716 "Download Windows Phone SDK"
 [5]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt "Cimbalino Windows Phone Toolkit License"
 [6]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
 [7]: http://nuget.org "NuGet Gallery"
 [8]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
-[9]: http://cimbalino.org
