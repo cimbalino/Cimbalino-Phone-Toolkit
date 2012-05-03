@@ -61,6 +61,75 @@
 <h2>License</h2>
 
 <p>See the <a href="https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt" title="Cimbalino Windows Phone Toolkit License">LICENSE.txt</a> file for details.</p>
+
+<h2>Latest</h2>
+
+<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+
+<div>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 10,
+  interval: 30000,
+  width: 500,
+  height: 500,
+  theme: {
+    shell: {
+      background: '#eeeeee',
+      color: '#555555'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#3399cc'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().setUser('CimbalinoWP').start();
+</script>
+</div>
+
+<p></p>
+
+<div>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'search',
+  search: 'CimbalinoWP',
+  interval: 30000,
+  title: 'CimbalinoWP',
+  subject: 'Across the Twitters',
+  width: 500,
+  height: 500,
+  theme: {
+    shell: {
+      background: '#eeeeee',
+      color: '#555555'
+    },
+    tweets: {
+      background: '#ffffff',
+      color: '#000000',
+      links: '#3399cc'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    behavior: 'all'
+  }
+}).render().start();
+</script>
+</div>
+
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
