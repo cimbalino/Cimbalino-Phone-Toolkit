@@ -25,7 +25,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
     /// Represents a base control for the <see cref="ApplicationBarBehavior" />
     /// </summary>
     /// <typeparam name="T">The item type</typeparam>
-    public abstract class ApplicationBarItemBase<T> : DependencyObject
+    public abstract class ApplicationBarItemBase<T> : DependencyObject, IApplicationBarMenuItem
         where T : IApplicationBarMenuItem
     {
         /// <summary>
@@ -56,7 +56,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <summary>
         /// Occurs when a <see cref="ApplicationBarItemBase{T}"/> is clicked.
         /// </summary>
-        public event EventHandler Click;
+        public virtual event EventHandler Click;
 
         /// <summary>
         /// Gets or sets a value indicating whether the user can interact with the control.
@@ -78,7 +78,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="IsEnabled" /> dependency property
         /// </summary>
         public static readonly DependencyProperty IsEnabledProperty =
-        DependencyProperty.Register("IsEnabled", typeof(bool), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(true, OnIsEnabledChanged));
+            DependencyProperty.Register("IsEnabled", typeof(bool), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(true, OnIsEnabledChanged));
 
         private static void OnIsEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -117,7 +117,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="Text" /> dependency property
         /// </summary>
         public static readonly DependencyProperty TextProperty =
-        DependencyProperty.Register("Text", typeof(string), typeof(ApplicationBarItemBase<T>), new PropertyMetadata("button", OnTextChanged));
+            DependencyProperty.Register("Text", typeof(string), typeof(ApplicationBarItemBase<T>), new PropertyMetadata("button", OnTextChanged));
 
         private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -151,7 +151,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="IsVisible" /> dependency property
         /// </summary>
         public static readonly DependencyProperty IsVisibleProperty =
-        DependencyProperty.Register("IsVisible", typeof(bool), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(true, OnIsVisibleChanged));
+            DependencyProperty.Register("IsVisible", typeof(bool), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(true, OnIsVisibleChanged));
 
         private static void OnIsVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -183,7 +183,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="Command" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty CommandProperty =
-        DependencyProperty.RegisterAttached("Command", typeof(ICommand), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(null, OnCommandChanged));
+            DependencyProperty.RegisterAttached("Command", typeof(ICommand), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(null, OnCommandChanged));
 
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -225,7 +225,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="CommandParameter" /> dependency property
         /// </summary>
         public static readonly DependencyProperty CommandParameterProperty =
-        DependencyProperty.RegisterAttached("CommandParameter", typeof(object), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(OnCommandParameterChanged));
+            DependencyProperty.RegisterAttached("CommandParameter", typeof(object), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(OnCommandParameterChanged));
 
         private static void OnCommandParameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
