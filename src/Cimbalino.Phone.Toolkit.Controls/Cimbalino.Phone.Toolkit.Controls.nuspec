@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Cimbalino.Phone.Toolkit.Controls</id>
+    <version>$version$</version>
+    <authors>Pedro Lamas</authors>
+    <title>Cimbalino Windows Phone Toolkit - Controls</title>
+    <description>Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone. This is the Controls component, and requires the Silverlight for Windows Phone Toolkit.</description>
+    <language>en-US</language>
+    <projectUrl>http://cimbalino.org</projectUrl>
+    <licenseUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
+    <iconUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
+    <dependencies>
+      <dependency id="Cimbalino.Phone.Toolkit" />
+      <dependency id="SilverlightToolkitWP" />
+    </dependencies>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 MVVM WPDev WP7Dev Silverlight PropertyGrid</tags>
+  </metadata>
+</package>
