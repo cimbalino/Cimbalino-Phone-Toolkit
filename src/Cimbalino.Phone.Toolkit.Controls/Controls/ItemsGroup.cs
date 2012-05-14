@@ -18,7 +18,11 @@ using System.Collections.Generic;
 
 namespace Cimbalino.Phone.Toolkit.Controls
 {
-    internal class ItemsGroup<T> : IEnumerable
+    /// <summary>
+    /// Represents a group for a collections of items.
+    /// </summary>
+    /// <typeparam name="T">The items collection type.</typeparam>
+    public class ItemsGroup<T> : IEnumerable
     {
         #region Properties
 
@@ -46,9 +50,9 @@ namespace Cimbalino.Phone.Toolkit.Controls
         }
 
         /// <summary>
-        /// Returns an enumerator that iterates through the collection.
+        /// Returns an enumerator that iterates through the group items collection.
         /// </summary>
-        /// <returns>A <see cref="IEnumerator{T}"/> that can be used to iterate through the collection.</returns>
+        /// <returns>A <see cref="IEnumerator{T}"/> that can be used to iterate through the group items collection.</returns>
         public IEnumerator GetEnumerator()
         {
             return Items.GetEnumerator();
