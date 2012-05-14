@@ -130,7 +130,8 @@ namespace Cimbalino.Phone.Toolkit.Controls
         private void SelectedObject_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             var propertyGridItem = _mainItemsControl.ItemsSource
-                .OfType<IPropertyGridItem>()
+                .Cast<ItemsGroup<IPropertyGridItem>>()
+                .SelectMany(x => x.Items)
                 .FirstOrDefault(x => x.Name == e.PropertyName);
 
             if (propertyGridItem != null)

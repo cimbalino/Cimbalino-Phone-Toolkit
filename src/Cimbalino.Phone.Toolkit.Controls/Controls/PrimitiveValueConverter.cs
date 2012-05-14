@@ -36,11 +36,6 @@ namespace Cimbalino.Phone.Toolkit.Controls
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (value == null)
-            {
-                return "(null)";
-            }
-
             return System.Convert.ToString(value, CultureInfo.InvariantCulture);
         }
 

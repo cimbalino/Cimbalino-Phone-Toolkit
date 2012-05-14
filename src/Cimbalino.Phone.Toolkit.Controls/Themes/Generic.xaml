@@ -18,7 +18,7 @@
                                 <localControls:PrimitiveValueConverter x:Key="PrimitiveValueConverter" />
 
                                 <DataTemplate x:Key="EnumPropertyDataTemplate">
-                                    <toolkit:ListPicker ItemsSource="{Binding Value, Converter={StaticResource EnumValuesConverter}}" SelectedItem="{Binding Value, Converter={StaticResource EnumValueConverter}, Mode=TwoWay}" />
+                                    <toolkit:ListPicker FullModeHeader="{Binding Name, Mode=OneTime}" ItemsSource="{Binding Value, Converter={StaticResource EnumValuesConverter}}" SelectedItem="{Binding Value, Converter={StaticResource EnumValueConverter}, Mode=TwoWay}" />
                                 </DataTemplate>
 
                                 <DataTemplate x:Key="BoolPropertyDataTemplate">
@@ -67,7 +67,7 @@
                         <toolkit:LongListSelector.GroupHeaderTemplate>
                             <DataTemplate>
                                 <Border Background="{StaticResource PhoneAccentBrush}" Padding="{StaticResource PhoneTouchTargetOverhang}" Margin="{StaticResource PhoneTouchTargetOverhang}">
-                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Foreground="{StaticResource PhoneForegroundBrush}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
                                 </Border>
                             </DataTemplate>
                         </toolkit:LongListSelector.GroupHeaderTemplate>
@@ -75,7 +75,7 @@
                         <toolkit:LongListSelector.GroupItemTemplate>
                             <DataTemplate>
                                 <Border HorizontalAlignment="Stretch" Background="{StaticResource PhoneAccentBrush}" Padding="{StaticResource PhoneTouchTargetOverhang}" Margin="{StaticResource PhoneTouchTargetOverhang}">
-                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Foreground="{StaticResource PhoneForegroundBrush}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
                                 </Border>
                             </DataTemplate>
                         </toolkit:LongListSelector.GroupItemTemplate>
