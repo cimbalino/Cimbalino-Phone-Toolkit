@@ -82,12 +82,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private static void OnIsEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.OldValue != e.NewValue)
-            {
-                var element = (ApplicationBarItemBase<T>)d;
+            var element = (ApplicationBarItemBase<T>)d;
 
-                element.EnableDisableItem();
-            }
+            element.EnableDisableItem();
         }
 
         /// <summary>
@@ -121,14 +118,11 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.OldValue != e.NewValue)
-            {
-                var element = (ApplicationBarItemBase<T>)d;
+            var element = (ApplicationBarItemBase<T>)d;
 
-                var text = e.NewValue as string;
+            var text = e.NewValue as string;
 
-                element.Item.Text = text;
-            }
+            element.Item.Text = text;
         }
 
         /// <summary>
@@ -155,12 +149,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private static void OnIsVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.OldValue != e.NewValue)
-            {
-                var element = (ApplicationBarItemBase<T>)d;
+            var element = (ApplicationBarItemBase<T>)d;
 
-                element.UpdateApplicationBar();
-            }
+            element.UpdateApplicationBar();
         }
 
         /// <summary>
@@ -187,22 +178,19 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != e.OldValue)
+            var element = (ApplicationBarItemBase<T>)d;
+
+            if (e.OldValue != null)
             {
-                var element = (ApplicationBarItemBase<T>)d;
-
-                if (e.OldValue != null)
-                {
-                    ((ICommand)e.OldValue).CanExecuteChanged -= element.Command_CanExecuteChanged;
-                }
-
-                if (e.NewValue != null)
-                {
-                    ((ICommand)e.NewValue).CanExecuteChanged += element.Command_CanExecuteChanged;
-                }
-
-                element.EnableDisableItem();
+                ((ICommand)e.OldValue).CanExecuteChanged -= element.Command_CanExecuteChanged;
             }
+
+            if (e.NewValue != null)
+            {
+                ((ICommand)e.NewValue).CanExecuteChanged += element.Command_CanExecuteChanged;
+            }
+
+            element.EnableDisableItem();
         }
 
         /// <summary>
@@ -229,12 +217,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private static void OnCommandParameterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != e.OldValue)
-            {
-                var element = (ApplicationBarItemBase<T>)d;
+            var element = (ApplicationBarItemBase<T>)d;
 
-                element.EnableDisableItem();
-            }
+            element.EnableDisableItem();
         }
 
         /// <summary>
