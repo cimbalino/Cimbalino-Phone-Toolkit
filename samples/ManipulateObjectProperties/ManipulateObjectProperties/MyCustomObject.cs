@@ -26,7 +26,7 @@ namespace ManipulateObjectProperties
 
         public string StringProperty { get; set; }
 
-        public string IntProperty { get; set; }
+        public int IntProperty { get; set; }
 
         public bool BoolProperty { get; set; }
 
