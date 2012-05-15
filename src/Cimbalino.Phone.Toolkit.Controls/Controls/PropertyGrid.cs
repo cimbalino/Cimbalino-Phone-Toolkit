@@ -57,12 +57,12 @@ namespace Cimbalino.Phone.Toolkit.Controls
 
             if ((sourceObject = e.OldValue as INotifyPropertyChanged) != null)
             {
-                sourceObject.PropertyChanged -= propertyGrid.SelectedObject_PropertyChanged;
+                sourceObject.PropertyChanged -= propertyGrid.SourceObject_PropertyChanged;
             }
 
             if ((sourceObject = e.NewValue as INotifyPropertyChanged) != null)
             {
-                sourceObject.PropertyChanged += propertyGrid.SelectedObject_PropertyChanged;
+                sourceObject.PropertyChanged += propertyGrid.SourceObject_PropertyChanged;
             }
 
             propertyGrid.Update();
@@ -83,6 +83,22 @@ namespace Cimbalino.Phone.Toolkit.Controls
         /// </summary>
         public static readonly DependencyProperty ItemTemplateProperty =
             DependencyProperty.Register("ItemTemplate", typeof(DataTemplate), typeof(PropertyGrid), null);
+
+        public bool ShowCategories
+        {
+            get { return (bool)GetValue(ShowCategoriesProperty); }
+            set { SetValue(ShowCategoriesProperty, value); }
+        }
+
+        public static readonly DependencyProperty ShowCategoriesProperty =
+            DependencyProperty.Register("ShowCategories", typeof(bool), typeof(PropertyGrid), new PropertyMetadata(true, OnShowCategoriesChanged));
+
+        private static void OnShowCategoriesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var propertyGrid = (PropertyGrid)d;
+
+            propertyGrid.Update();
+        }
 
         #endregion
 
@@ -113,26 +129,48 @@ namespace Cimbalino.Phone.Toolkit.Controls
                 return;
             }
 
-            if (SourceObject == null)
+            _mainItemsControl.ItemsSource = null;
+
+            if (SourceObject != null)
             {
-                _mainItemsControl.ItemsSource = null;
-            }
-            else
-            {
-                _mainItemsControl.ItemsSource = GetProperties()
-                    .GroupBy(x => x.Category)
-                    .Select(x => new ItemsGroup<IPropertyGridItem>(x.Key, x.OrderBy(y => y.Name)))
-                    .OrderBy(x => x.Name)
-                    .ToArray();
+                if (ShowCategories)
+                {
+                    _mainItemsControl.IsFlatList = false;
+
+                    _mainItemsControl.ItemsSource = GetProperties()
+                        .GroupBy(x => x.Category)
+                        .Select(x => new ItemsGroup<IPropertyGridItem>(x.Key, x.OrderBy(y => y.Name)))
+                        .OrderBy(x => x.Name)
+                        .ToArray();
+                }
+                else
+                {
+                    _mainItemsControl.IsFlatList = true;
+
+                    _mainItemsControl.ItemsSource = GetProperties()
+                        .OrderBy(x => x.Name)
+                        .ToArray();
+                }
             }
         }
 
-        private void SelectedObject_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void SourceObject_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            var propertyGridItem = _mainItemsControl.ItemsSource
-                .Cast<ItemsGroup<IPropertyGridItem>>()
-                .SelectMany(x => x.Items)
-                .FirstOrDefault(x => x.Name == e.PropertyName);
+            IPropertyGridItem propertyGridItem;
+
+            if (ShowCategories)
+            {
+                propertyGridItem = _mainItemsControl.ItemsSource
+                    .Cast<ItemsGroup<IPropertyGridItem>>()
+                    .SelectMany(x => x.Items)
+                    .FirstOrDefault(x => x.Name == e.PropertyName);
+            }
+            else
+            {
+                propertyGridItem = _mainItemsControl.ItemsSource
+                    .Cast<IPropertyGridItem>()
+                    .FirstOrDefault(x => x.Name == e.PropertyName);
+            }
 
             if (propertyGridItem != null)
             {

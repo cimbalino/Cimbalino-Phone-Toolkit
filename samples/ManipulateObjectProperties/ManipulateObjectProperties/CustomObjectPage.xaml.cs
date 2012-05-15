@@ -7,8 +7,6 @@ namespace ManipulateObjectProperties
         public CustomObjectPage()
         {
             InitializeComponent();
-
-            MainPropertyGrid.SourceObject = new MyCustomObject();
         }
     }
 }

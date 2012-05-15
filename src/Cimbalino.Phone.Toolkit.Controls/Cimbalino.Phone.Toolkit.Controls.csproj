@@ -43,6 +43,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
       <HintPath>..\packages\SilverlightToolkitWP.4.2011.12.14\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -80,6 +81,7 @@
     <ProjectReference Include="..\Cimbalino.Phone.Toolkit\Cimbalino.Phone.Toolkit.csproj">
       <Project>{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}</Project>
       <Name>Cimbalino.Phone.Toolkit</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

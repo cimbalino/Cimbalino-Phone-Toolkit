@@ -34,7 +34,7 @@
                 <RowDefinition Height="150" />
             </Grid.RowDefinitions>
 
-            <cimbalinoControls:PropertyGrid SourceObject="{Binding ElementName=TestButton}" />
+            <cimbalinoControls:PropertyGrid SourceObject="{Binding ElementName=TestButton}" ShowCategories="False" />
 
             <Border Background="Red" Grid.Row="1">
                 <Button x:Name="TestButton" Content="Test Button" HorizontalAlignment="Center" VerticalAlignment="Center" />
