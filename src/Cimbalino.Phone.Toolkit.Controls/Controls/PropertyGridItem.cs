@@ -16,6 +16,7 @@
 using System;
 using System.ComponentModel;
 using System.Reflection;
+using System.Windows;
 
 namespace Cimbalino.Phone.Toolkit.Controls
 {
@@ -118,21 +119,37 @@ namespace Cimbalino.Phone.Toolkit.Controls
 
         private void ReadValue()
         {
-            var value = _propertyInfo.GetValue(_sourceObject, null);
-
-            if (object.Equals(_value, value))
+            try
             {
-                return;
+                var value = _propertyInfo.GetValue(_sourceObject, null);
+
+                if (object.Equals(_value, value))
+                {
+                    return;
+                }
+
+                _value = (T)value;
+
+                RaisePropertyChanged("Value");
             }
-
-            _value = (T)value;
-
-            RaisePropertyChanged("Value");
+            catch
+            {
+                MessageBox.Show(string.Format("An error occurred while reading from the \'{0}\' property!", Name), "Error", MessageBoxButton.OK);
+            }
         }
 
         private void WriteValue()
         {
-            _propertyInfo.SetValue(_sourceObject, _value, null);
+            try
+            {
+                _propertyInfo.SetValue(_sourceObject, _value, null);
+            }
+            catch
+            {
+                MessageBox.Show(string.Format("An error occurred while writing to the \'{0}\' property!", Name), "Error", MessageBoxButton.OK);
+
+                ReadValue();
+            }
         }
 
         /// <summary>
