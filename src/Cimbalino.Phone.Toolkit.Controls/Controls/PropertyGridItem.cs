@@ -134,7 +134,10 @@ namespace Cimbalino.Phone.Toolkit.Controls
             }
             catch
             {
-                MessageBox.Show(string.Format("An error occurred while reading from the \'{0}\' property!", Name), "Error", MessageBoxButton.OK);
+                if (!DesignerProperties.IsInDesignTool)
+                {
+                    MessageBox.Show(string.Format("An error occurred while reading from the \'{0}\' property!", Name), "Error", MessageBoxButton.OK);
+                }
             }
         }
 
@@ -146,7 +149,10 @@ namespace Cimbalino.Phone.Toolkit.Controls
             }
             catch
             {
-                MessageBox.Show(string.Format("An error occurred while writing to the \'{0}\' property!", Name), "Error", MessageBoxButton.OK);
+                if (!DesignerProperties.IsInDesignTool)
+                {
+                    MessageBox.Show(string.Format("An error occurred while writing to the \'{0}\' property!", Name), "Error", MessageBoxButton.OK);
+                }
 
                 ReadValue();
             }
