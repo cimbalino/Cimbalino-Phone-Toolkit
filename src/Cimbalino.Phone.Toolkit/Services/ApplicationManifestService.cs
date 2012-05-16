@@ -174,7 +174,7 @@ namespace Cimbalino.Phone.Toolkit.Services
             {
                 bool singleInstanceHost;
 
-                if (bool.TryParse(GetAttribute("SingleInstanceHost"), out singleInstanceHost))
+                if (!bool.TryParse(GetAttribute("SingleInstanceHost"), out singleInstanceHost))
                 {
                     singleInstanceHost = true;
                 }
