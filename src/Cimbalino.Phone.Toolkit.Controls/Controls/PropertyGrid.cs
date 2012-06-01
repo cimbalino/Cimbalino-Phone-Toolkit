@@ -84,12 +84,19 @@ namespace Cimbalino.Phone.Toolkit.Controls
         public static readonly DependencyProperty ItemTemplateProperty =
             DependencyProperty.Register("ItemTemplate", typeof(DataTemplate), typeof(PropertyGrid), null);
 
+        /// <summary>
+        /// Gets or sets a value indicating whether to show categories.
+        /// </summary>
+        /// <value>true if the categories are enabled; otherwise, false.</value>
         public bool ShowCategories
         {
             get { return (bool)GetValue(ShowCategoriesProperty); }
             set { SetValue(ShowCategoriesProperty, value); }
         }
 
+        /// <summary>
+        /// Identifier for the <see cref="ShowCategories" /> dependency property.
+        /// </summary>
         public static readonly DependencyProperty ShowCategoriesProperty =
             DependencyProperty.Register("ShowCategories", typeof(bool), typeof(PropertyGrid), new PropertyMetadata(true, OnShowCategoriesChanged));
 
