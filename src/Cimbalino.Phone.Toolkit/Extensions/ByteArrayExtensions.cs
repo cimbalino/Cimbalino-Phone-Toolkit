@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -102,6 +103,34 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
+        /// Computes the <see cref="MD5"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeMD5Hash(this byte[] input)
+        {
+            using (var hash = new MD5Managed())
+            {
+                return hash.ComputeHash(input);
+            }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="MD5"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="offset">The offset into the byte array from which to begin using data.</param>
+        /// <param name="count">The number of bytes in the array to use as data.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeMD5Hash(this byte[] input, int offset, int count)
+        {
+            using (var hash = new MD5Managed())
+            {
+                return hash.ComputeHash(input, offset, count);
+            }
+        }
+
+        /// <summary>
         /// Computes the <see cref="HMACSHA1"/> hash for the current byte array using the managed library.
         /// </summary>
         /// <param name="input">An array of 8-bit unsigned integers.</param>
@@ -167,6 +196,39 @@ namespace Cimbalino.Phone.Toolkit.Extensions
 
                 return hash.ComputeHash(input, offset, count);
             }
+        }
+
+        /// <summary>
+        /// Computes the <see cref="HMACMD5"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACMD5Hash(this byte[] input, byte[] key)
+        {
+            var hash = new HMACMD5(key);
+
+            return hash.ComputeHash(input);
+        }
+
+        /// <summary>
+        /// Computes the <see cref="HMACMD5"/> hash for the current byte array using the managed library.
+        /// </summary>
+        /// <param name="input">An array of 8-bit unsigned integers.</param>
+        /// <param name="key">The key to use in the hash algorithm.</param>
+        /// <param name="offset">The offset into the byte array from which to begin using data.</param>
+        /// <param name="count">The number of bytes in the array to use as data.</param>
+        /// <returns>The computed hash code.</returns>
+        public static byte[] ComputeHMACMD5Hash(this byte[] input, byte[] key, int offset, int count)
+        {
+            var hash = new HMACMD5(key);
+
+            input = input
+                .Skip(offset)
+                .Take(count)
+                .ToArray();
+
+            return hash.ComputeHash(input);
         }
     }
 }
