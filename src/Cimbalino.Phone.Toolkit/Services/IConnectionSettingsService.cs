@@ -18,7 +18,7 @@ using Microsoft.Phone.Tasks;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of launching a Settings dialog that allows the user to change the device’s network connection settings
+    /// Represents a service capable of launching a Settings dialog that allows the user to change the device's network connection settings.
     /// </summary>
     public interface IConnectionSettingsService
     {

@@ -23,9 +23,9 @@ namespace Cimbalino.Phone.Toolkit.Services
     public interface IApplicationManifestService
     {
         /// <summary>
-        /// Gets the application author’s name.
+        /// Gets the application author's name.
         /// </summary>
-        /// <value>The application author’s name.</value>
+        /// <value>The application author's name.</value>
         string Author { get; }
 
         /// <summary>

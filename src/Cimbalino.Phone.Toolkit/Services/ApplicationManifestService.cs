@@ -27,9 +27,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         private const string AppNodeName = "App";
 
         /// <summary>
-        /// Gets the application author’s name.
+        /// Gets the application author's name.
         /// </summary>
-        /// <value>The application author’s name.</value>
+        /// <value>The application author's name.</value>
         public string Author
         {
             get

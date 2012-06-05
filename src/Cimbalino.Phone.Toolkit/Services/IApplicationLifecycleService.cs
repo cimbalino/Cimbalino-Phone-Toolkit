@@ -94,9 +94,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         StartupMode StartupMode { get; }
 
         /// <summary>
-        /// Gets the dictionary used for passing an application’s state between invocations.
+        /// Gets the dictionary used for passing an application's state between invocations.
         /// </summary>
-        /// <value>The dictionary used for passing an application’s state between invocations.</value>
+        /// <value>The dictionary used for passing an application's state between invocations.</value>
         IDictionary<string, object> State { get; }
 
         /// <summary>

@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of sending e-mail messages
+    /// Represents a service capable of sending e-mail messages.
     /// </summary>
     public interface IEmailComposeService
     {

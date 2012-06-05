@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of showing the marketplace review screen for an application
+    /// Represents a service capable of showing the marketplace review screen for an application.
     /// </summary>
     public interface IMarketplaceReviewService
     {

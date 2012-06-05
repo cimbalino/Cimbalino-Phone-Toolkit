@@ -18,7 +18,7 @@ using System;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of using the webbrowser
+    /// Represents a service capable of using the webbrowser.
     /// </summary>
     public interface IWebBrowserService
     {

@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of making searches over the marketplace
+    /// Represents a service capable of making searches over the marketplace.
     /// </summary>
     public interface IMarketplaceSearchService
     {
