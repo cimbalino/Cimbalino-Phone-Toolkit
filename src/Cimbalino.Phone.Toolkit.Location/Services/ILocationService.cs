@@ -40,9 +40,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         LocationServiceState State { get; }
 
         /// <summary>
-        /// Gets the application’s level of access to the location service.
+        /// Gets the application's level of access to the location service.
         /// </summary>
-        /// <value>The application’s level of access to the location service.</value>
+        /// <value>The application's level of access to the location service.</value>
         GeoPositionPermission Permission { get; }
 
         /// <summary>
