@@ -105,7 +105,7 @@ namespace System.Security.Cryptography
                 throw new ArgumentNullException("buffer", "The input cannot be null.");
             }
 
-            return MD5Core.GetHash(this.Combine(this.m_outer, MD5Core.GetHash(this.Combine(this.m_inner, buffer))));
+            return MD5.GetHash(this.Combine(this.m_outer, MD5.GetHash(this.Combine(this.m_inner, buffer))));
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace System.Security.Cryptography
 
             if (key.Length > BLOCK_SIZE)
             {
-                this.m_Key = MD5Core.GetHash(key);
+                this.m_Key = MD5.GetHash(key);
             }
             else
             {

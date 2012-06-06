@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of launching the Phone application
+    /// Represents a service capable of launching the Phone application.
     /// </summary>
     public interface IPhoneCallService
     {

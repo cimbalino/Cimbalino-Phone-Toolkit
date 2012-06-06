@@ -13,6 +13,8 @@
 // </license>
 // ****************************************************************************
 
+using System.IO.IsolatedStorage;
+
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>

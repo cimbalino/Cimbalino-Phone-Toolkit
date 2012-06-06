@@ -91,7 +91,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// Produces a sequence containing the current elements along with the specified element.
         /// </summary>
         /// <param name="source">The enumerable.</param>
-        /// <param name="element">A <see cref="TResult"/> element to include in the sequence.</param>
+        /// <param name="element">A <typeparamref name="TResult"/> element to include in the sequence.</param>
         /// <returns>An <see cref="IEnumerable{TResult}"/> that contains the current elements along with the specified element.</returns>
         /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
         public static IEnumerable<TResult> And<TResult>(this IEnumerable<TResult> source, TResult element)

@@ -28,10 +28,10 @@ namespace System.Security.Cryptography
         public uint D;
     }
 
-    public sealed class MD5Core
+    public sealed class MD5
     {
         //Prevent CSC from adding a default public constructor
-        private MD5Core() { }
+        private MD5() { }
 
         public static byte[] GetHash(string input, Encoding encoding)
         {
@@ -94,11 +94,11 @@ namespace System.Security.Cryptography
             int startIndex = 0;
             while (startIndex <= input.Length - 64)
             {
-                MD5Core.GetHashBlock(input, ref abcd, startIndex);
+                MD5.GetHashBlock(input, ref abcd, startIndex);
                 startIndex += 64;
             }
             // The final data block. 
-            return MD5Core.GetHashFinalBlock(input, startIndex, input.Length - startIndex, abcd, (Int64)input.Length * 8);
+            return MD5.GetHashFinalBlock(input, startIndex, input.Length - startIndex, abcd, (Int64)input.Length * 8);
         }
 
         internal static byte[] GetHashFinalBlock(byte[] input, int ibStart, int cbSize, ABCDStruct ABCD, Int64 len)

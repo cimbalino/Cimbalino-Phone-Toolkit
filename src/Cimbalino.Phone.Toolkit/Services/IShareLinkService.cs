@@ -18,7 +18,7 @@ using System;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of sharing links over the social networks configured on the device
+    /// Represents a service capable of sharing links over the social networks configured on the device.
     /// </summary>
     public interface IShareLinkService
     {

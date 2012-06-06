@@ -56,13 +56,13 @@ public class MD5Managed : MD5
             {
                 Array.Copy(array, startIndex, _data, _dataSize, 64 - _dataSize);
                 // Process message of 64 bytes (512 bits)
-                MD5Core.GetHashBlock(_data, ref _abcd, 0);
+                MD5.GetHashBlock(_data, ref _abcd, 0);
                 startIndex += 64 - _dataSize;
                 totalArrayLength -= 64;
                 while (totalArrayLength >= 64)
                 {
                     Array.Copy(array, startIndex, _data, 0, 64);
-                    MD5Core.GetHashBlock(array, ref _abcd, startIndex);
+                    MD5.GetHashBlock(array, ref _abcd, startIndex);
                     totalArrayLength -= 64;
                     startIndex += 64;
                 }
@@ -79,7 +79,7 @@ public class MD5Managed : MD5
 
         protected override byte[] HashFinal()
         {
-            base.HashValue = MD5Core.GetHashFinalBlock(_data, 0, _dataSize, _abcd, _totalLength * 8);
+            base.HashValue = MD5.GetHashFinalBlock(_data, 0, _dataSize, _abcd, _totalLength * 8);
             return base.HashValue;
         }
     }
