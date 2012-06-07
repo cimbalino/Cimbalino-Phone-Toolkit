@@ -38,6 +38,7 @@ using System.Windows.Markup;
 
 [assembly: CLSCompliant(true)]
 
+[assembly: XmlnsDefinition("http://cimbalino.org", "Cimbalino.Phone.Toolkit.Actions")]
 [assembly: XmlnsDefinition("http://cimbalino.org", "Cimbalino.Phone.Toolkit.Behaviors")]
 [assembly: XmlnsDefinition("http://cimbalino.org", "Cimbalino.Phone.Toolkit.Converters")]
 [assembly: XmlnsDefinition("http://cimbalino.org", "System.Windows.Controls")]

@@ -14,10 +14,11 @@
 // ****************************************************************************
 
 using System;
+
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of using device vibration capabilities
+    /// Represents a service capable of using device vibration capabilities.
     /// </summary>
     public interface IVibrationService
     {

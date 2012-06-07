@@ -58,6 +58,23 @@
     <Reference Include="mscorlib.extensions" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\BingMapsAction.cs" />
+    <Compile Include="Actions\BingMapsDirectionsAction.cs" />
+    <Compile Include="Actions\ClipboardAction.cs" />
+    <Compile Include="Actions\ConnectionSettingsAction.cs" />
+    <Compile Include="Actions\EmailComposeAction.cs" />
+    <Compile Include="Actions\MarketplaceDetailAction.cs" />
+    <Compile Include="Actions\MarketplaceReviewAction.cs" />
+    <Compile Include="Actions\MarketplaceSearchAction.cs" />
+    <Compile Include="Actions\MessageBoxAction.cs" />
+    <Compile Include="Actions\SaveEmailAddressAction.cs" />
+    <Compile Include="Actions\SavePhoneNumberAction.cs" />
+    <Compile Include="Actions\SearchAction.cs" />
+    <Compile Include="Actions\ShareLinkAction.cs" />
+    <Compile Include="Actions\ShareStatusAction.cs" />
+    <Compile Include="Actions\SmsComposeAction.cs" />
+    <Compile Include="Actions\VibrationAction.cs" />
+    <Compile Include="Actions\WebBrowserAction.cs" />
     <Compile Include="Behaviors\ApplicationBarBehavior.cs" />
     <Compile Include="Behaviors\ApplicationBarIconButton.cs" />
     <Compile Include="Behaviors\ApplicationBarIconButtonCollection.cs" />

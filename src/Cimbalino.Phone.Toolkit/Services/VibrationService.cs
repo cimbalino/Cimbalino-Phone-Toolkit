@@ -41,9 +41,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Vibrates the device for the specified duration in milliseconds.
+        /// Vibrates the device for the specified duration.
         /// </summary>
-        /// <param name="duration">The duration in milliseconds to vibrate the device.</param>
+        /// <param name="duration">The duration to vibrate the device.</param>
         public void Start(TimeSpan duration)
         {
             VibrateController.Default.Start(duration);
