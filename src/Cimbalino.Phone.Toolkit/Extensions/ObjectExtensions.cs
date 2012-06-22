@@ -25,7 +25,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// </summary>
         /// <param name="obj">The object.</param>
         /// <param name="propertyName">The name of the property.</param>
-        /// <returns>The requested property value</returns>
+        /// <returns>The requested property value.</returns>
         /// <typeparam name="TObject">The object type.</typeparam>
         public static TObject GetPropertyValue<TObject>(this object obj, string propertyName)
         {

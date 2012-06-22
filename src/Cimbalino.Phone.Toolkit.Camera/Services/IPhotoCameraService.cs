@@ -20,7 +20,7 @@ using Microsoft.Devices;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of handling the device camera
+    /// Represents a service capable of handling the device camera.
     /// </summary>
     public interface IPhotoCameraService
     {

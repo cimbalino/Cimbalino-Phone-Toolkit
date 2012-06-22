@@ -50,7 +50,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// Converts the string, which encodes binary data as base-64 digits, to an equivalent 8-bit unsigned integer array.
         /// </summary>
         /// <param name="input">The current string.</param>
-        /// <returns>An array of 8-bit unsigned integers that is equivalent to the string</returns>
+        /// <returns>An array of 8-bit unsigned integers that is equivalent to the string.</returns>
         public static byte[] FromBase64String(this string input)
         {
             return Convert.FromBase64String(input);

@@ -18,7 +18,7 @@ using System.Device.Location;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Base class for device location capabilities
+    /// Base class for device location capabilities.
     /// </summary>
     public abstract class LocationServiceBase
     {
@@ -28,7 +28,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         protected const GeoPositionAccuracy DefaultGeoPositionAccuracy = GeoPositionAccuracy.Default;
 
         /// <summary>
-        /// The default movement threshold
+        /// The default movement threshold.
         /// </summary>
         protected const double DefaultMovementThreshold = 20;
 

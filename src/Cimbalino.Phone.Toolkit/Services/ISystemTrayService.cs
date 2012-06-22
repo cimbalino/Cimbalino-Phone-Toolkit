@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of handling the application system tray
+    /// Represents a service capable of handling the application system tray.
     /// </summary>
     public interface ISystemTrayService
     {

@@ -64,7 +64,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="ApplicationBarIconButton.IconUri" /> dependency property
+        /// Identifier for the <see cref="ApplicationBarIconButton.IconUri" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty IconUriProperty =
             DependencyProperty.Register("IconUri", typeof(Uri), typeof(ApplicationBarIconButton), new PropertyMetadata(new Uri(string.Empty, UriKind.Relative), OnIconUriChanged));

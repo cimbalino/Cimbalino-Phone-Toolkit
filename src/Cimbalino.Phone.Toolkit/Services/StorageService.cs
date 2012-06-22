@@ -86,7 +86,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Creates a file in the store.
         /// </summary>
         /// <param name="path">The relative path of the file to be created in the store.</param>
-        /// <returns>A new storage file</returns>
+        /// <returns>A new storage file.</returns>
         public Stream CreateFile(string path)
         {
             return _store.CreateFile(path);
@@ -181,7 +181,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Enables an application to explicitly request a larger quota size, in bytes
+        /// Enables an application to explicitly request a larger quota size, in bytes.
         /// </summary>
         /// <param name="newQuotaSize">The requested size, in bytes.</param>
         /// <returns>true if the new quota is accepted by the user, otherwise, false.</returns>

@@ -23,7 +23,7 @@ using Microsoft.Phone.Tasks;
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
     /// <summary>
-    /// This object registers a raised exception information and allows the user to send the information thru e-mail
+    /// This object registers a raised exception information and allows the user to send the information thru e-mail.
     /// </summary>
     public class LittleWatson
     {

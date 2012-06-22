@@ -20,7 +20,7 @@ using System.Text;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of handling the application storage
+    /// Represents a service capable of handling the application storage.
     /// </summary>
     public interface IStorageService
     {
@@ -61,7 +61,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Creates a file in the store.
         /// </summary>
         /// <param name="path">The relative path of the file to be created in the store.</param>
-        /// <returns>A new storage file</returns>
+        /// <returns>A new storage file.</returns>
         Stream CreateFile(string path);
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         string[] GetFileNames(string searchPattern);
 
         /// <summary>
-        /// Enables an application to explicitly request a larger quota size, in bytes
+        /// Enables an application to explicitly request a larger quota size, in bytes.
         /// </summary>
         /// <param name="newQuotaSize">The requested size, in bytes.</param>
         /// <returns>true if the new quota is accepted by the user, otherwise, false.</returns>

@@ -74,7 +74,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Sets the value for the specified key. If the entry does not exist, a new one will be added
+        /// Sets the value for the specified key. If the entry does not exist, a new one will be added.
         /// </summary>
         /// <param name="key">The key whose value to set.</param>
         /// <param name="value">The value for the specified key.</param>

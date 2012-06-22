@@ -19,7 +19,7 @@ using System.Device.Location;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of handling the device location capabilities
+    /// Represents a service capable of handling the device location capabilities.
     /// </summary>
     public interface ILocationService
     {

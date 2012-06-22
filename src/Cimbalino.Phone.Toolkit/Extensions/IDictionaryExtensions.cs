@@ -68,7 +68,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Sets the value for the specified key. If the entry does not exist, a new one will be added
+        /// Sets the value for the specified key. If the entry does not exist, a new one will be added.
         /// </summary>
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="key">The key whose value to set.</param>

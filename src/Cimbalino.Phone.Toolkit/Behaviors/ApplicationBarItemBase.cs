@@ -22,9 +22,9 @@ using Microsoft.Phone.Shell;
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {
     /// <summary>
-    /// Represents a base control for the <see cref="ApplicationBarBehavior" />
+    /// Represents a base control for the <see cref="ApplicationBarBehavior" />.
     /// </summary>
-    /// <typeparam name="T">The item type</typeparam>
+    /// <typeparam name="T">The item type.</typeparam>
     public abstract class ApplicationBarItemBase<T> : DependencyObject, IApplicationBarMenuItem
         where T : IApplicationBarMenuItem
     {
@@ -75,7 +75,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="IsEnabled" /> dependency property
+        /// Identifier for the <see cref="IsEnabled" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsEnabledProperty =
             DependencyProperty.Register("IsEnabled", typeof(bool), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(true, OnIsEnabledChanged));
@@ -111,7 +111,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="Text" /> dependency property
+        /// Identifier for the <see cref="Text" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(ApplicationBarItemBase<T>), new PropertyMetadata("button", OnTextChanged));
@@ -142,7 +142,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="IsVisible" /> dependency property
+        /// Identifier for the <see cref="IsVisible" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsVisibleProperty =
             DependencyProperty.Register("IsVisible", typeof(bool), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(true, OnIsVisibleChanged));
@@ -210,7 +210,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="CommandParameter" /> dependency property
+        /// Identifier for the <see cref="CommandParameter" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty CommandParameterProperty =
             DependencyProperty.RegisterAttached("CommandParameter", typeof(object), typeof(ApplicationBarItemBase<T>), new PropertyMetadata(OnCommandParameterChanged));

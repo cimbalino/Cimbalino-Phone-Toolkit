@@ -20,7 +20,7 @@ using System.Windows.Navigation;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of handling the application navigation
+    /// Represents a service capable of handling the application navigation.
     /// </summary>
     public interface INavigationService
     {

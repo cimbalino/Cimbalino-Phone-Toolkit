@@ -18,7 +18,7 @@ using System;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of showing toast messages
+    /// Represents a service capable of showing toast messages.
     /// </summary>
     public interface IShellToastService
     {

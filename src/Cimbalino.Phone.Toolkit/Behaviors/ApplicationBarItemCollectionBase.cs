@@ -19,9 +19,9 @@ using Microsoft.Phone.Shell;
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {
     /// <summary>
-    /// Represents a collection of <see cref="ApplicationBarItemBase{T}" />
+    /// Represents a collection of <see cref="ApplicationBarItemBase{T}" />.
     /// </summary>
-    /// <typeparam name="T">The type of items in the collection</typeparam>
+    /// <typeparam name="T">The type of items in the collection.</typeparam>
     public abstract class ApplicationBarItemCollectionBase<T> : DependencyObjectCollection<ApplicationBarItemBase<T>>
         where T : IApplicationBarMenuItem
     {

@@ -22,7 +22,7 @@ using System.Linq.Expressions;
 namespace Cimbalino.Phone.Toolkit.Data
 {
     /// <summary>
-    /// Represents a base class to use with a TableAttribute marked class
+    /// Represents a base class to use with a TableAttribute marked class.
     /// </summary>
     public abstract class TableObject : INotifyPropertyChanged, INotifyPropertyChanging
     {

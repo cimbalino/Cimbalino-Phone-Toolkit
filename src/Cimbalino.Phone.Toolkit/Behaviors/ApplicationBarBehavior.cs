@@ -74,7 +74,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="MenuItems" /> dependency property
+        /// Identifier for the <see cref="MenuItems" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty MenuItemsProperty =
             DependencyProperty.Register("MenuItems", typeof(ApplicationBarMenuItemCollection), typeof(ApplicationBarBehavior), null);
@@ -96,7 +96,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="Buttons" /> dependency property
+        /// Identifier for the <see cref="Buttons" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty ButtonsProperty =
             DependencyProperty.Register("Buttons", typeof(ApplicationBarIconButtonCollection), typeof(ApplicationBarBehavior), null);
@@ -118,7 +118,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="BackgroundColor" /> dependency property
+        /// Identifier for the <see cref="BackgroundColor" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty BackgroundColorProperty =
             DependencyProperty.Register("BackgroundColor", typeof(Color), typeof(ApplicationBarBehavior), new PropertyMetadata(OnBackgroundColorChanged));
@@ -153,7 +153,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="ForegroundColor" /> dependency property
+        /// Identifier for the <see cref="ForegroundColor" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty ForegroundColorProperty =
             DependencyProperty.Register("ForegroundColor", typeof(Color), typeof(ApplicationBarBehavior), new PropertyMetadata(OnForegroundColorChanged));
@@ -188,7 +188,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="IsMenuEnabled" /> dependency property
+        /// Identifier for the <see cref="IsMenuEnabled" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsMenuEnabledProperty =
             DependencyProperty.Register("IsMenuEnabled", typeof(bool), typeof(ApplicationBarBehavior), new PropertyMetadata(true, OnIsMenuEnabledChanged));
@@ -223,7 +223,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="IsVisible" /> dependency property
+        /// Identifier for the <see cref="IsVisible" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty IsVisibleProperty =
             DependencyProperty.Register("IsVisible", typeof(bool), typeof(ApplicationBarBehavior), new PropertyMetadata(true, OnIsVisibleChanged));
@@ -258,7 +258,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="Mode" /> dependency property
+        /// Identifier for the <see cref="Mode" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty ModeProperty =
             DependencyProperty.Register("Mode", typeof(ApplicationBarMode), typeof(ApplicationBarBehavior), new PropertyMetadata(ApplicationBarMode.Default, OnModeChanged));
@@ -293,7 +293,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Identifier for the <see cref="Opacity" /> dependency property
+        /// Identifier for the <see cref="Opacity" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty OpacityProperty =
             DependencyProperty.Register("Opacity", typeof(double), typeof(ApplicationBarBehavior), new PropertyMetadata(1.0, OnOpacityChanged));
