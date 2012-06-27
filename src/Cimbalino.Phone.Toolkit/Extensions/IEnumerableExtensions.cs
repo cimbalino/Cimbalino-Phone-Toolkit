@@ -94,7 +94,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="element">A <typeparamref name="TResult"/> element to include in the sequence.</param>
         /// <returns>An <see cref="IEnumerable{TResult}"/> that contains the current elements along with the specified element.</returns>
         /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
-        public static IEnumerable<TResult> And<TResult>(this IEnumerable<TResult> source, TResult element)
+        public static IEnumerable<TResult> Concat<TResult>(this IEnumerable<TResult> source, TResult element)
         {
             foreach (var value in source)
             {
@@ -102,26 +102,6 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             }
 
             yield return element;
-        }
-
-        /// <summary>
-        /// Produces a sequence containing the elements from both sequences.
-        /// </summary>
-        /// <param name="first">The first enumerable.</param>
-        /// <param name="second">The second enumerable.</param>
-        /// <returns>An <see cref="IEnumerable{TResult}"/> that contains the elements from both sequences.</returns>
-        /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
-        public static IEnumerable<TResult> And<TResult>(this IEnumerable<TResult> first, IEnumerable<TResult> second)
-        {
-            foreach (var value in first)
-            {
-                yield return value;
-            }
-
-            foreach (var value in second)
-            {
-                yield return value;
-            }
         }
     }
 }
