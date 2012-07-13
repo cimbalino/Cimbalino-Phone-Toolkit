@@ -27,6 +27,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     public class NavigationService : INavigationService
     {
         private PhoneApplicationFrame _mainFrame;
+        private System.Windows.Navigation.NavigationService _navigationService;
 
         /// <summary>
         /// Occurs when a new navigation is requested.
@@ -43,7 +44,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                if (EnsureMainFrame())
+                if (EnsureNavigationService())
                 {
                     return _mainFrame.CurrentSource;
                 }
@@ -62,7 +63,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                if (EnsureMainFrame())
+                if (EnsureNavigationService())
                 {
                     var page = _mainFrame.Content as PhoneApplicationPage;
 
@@ -91,9 +92,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="source">A <see cref="Uri" /> initialized with the URI for the desired content.</param>
         public void NavigateTo(Uri source)
         {
-            if (EnsureMainFrame())
+            if (EnsureNavigationService())
             {
-                _mainFrame.Navigate(source);
+                _navigationService.Navigate(source);
             }
         }
 
@@ -107,7 +108,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                return EnsureMainFrame() && _mainFrame.CanGoBack;
+                return EnsureNavigationService() && _navigationService.CanGoBack;
             }
         }
 
@@ -116,9 +117,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         public void GoBack()
         {
-            if (EnsureMainFrame() && _mainFrame.CanGoBack)
+            if (EnsureNavigationService() && _navigationService.CanGoBack)
             {
-                _mainFrame.GoBack();
+                _navigationService.GoBack();
             }
         }
 
@@ -127,38 +128,60 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         public void RemoveBackEntry()
         {
-            if (EnsureMainFrame())
+            if (EnsureNavigationService() && _navigationService.CanGoBack)
             {
-                _mainFrame.RemoveBackEntry();
+                _navigationService.RemoveBackEntry();
             }
         }
 
-        private bool EnsureMainFrame()
+        private bool EnsureNavigationService()
         {
-            if (_mainFrame != null)
+            if (_navigationService != null)
             {
                 return true;
             }
 
-            _mainFrame = Application.Current.RootVisual as PhoneApplicationFrame;
-
-            if (_mainFrame != null)
+            if (_mainFrame == null)
             {
-                // Could be null if the app runs inside a design tool
-                _mainFrame.Navigating += (s, e) =>
+                _mainFrame = Application.Current.RootVisual as PhoneApplicationFrame;
+
+                if (_mainFrame != null)
                 {
-                    var eventHandler = Navigating;
-
-                    if (eventHandler != null)
+                    _mainFrame.Navigating += (s, e) =>
                     {
-                        eventHandler(s, e);
-                    }
-                };
+                        var eventHandler = Navigating;
 
-                return true;
+                        if (eventHandler != null)
+                        {
+                            eventHandler(s, e);
+                        }
+                    };
+
+                    if (GetNavigationServiceFromPage(_mainFrame.Content as PhoneApplicationPage))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        _mainFrame.Navigated += MainFrameNavigated;
+                    }
+                }
             }
 
             return false;
+        }
+
+        private void MainFrameNavigated(object s, NavigationEventArgs e)
+        {
+            if (GetNavigationServiceFromPage(e.Content as PhoneApplicationPage))
+            {
+                _mainFrame.Navigated -= MainFrameNavigated;
+            }
+        }
+
+        private bool GetNavigationServiceFromPage(PhoneApplicationPage page)
+        {
+            return page != null && (_navigationService = page.NavigationService) != null;
         }
     }
 }
