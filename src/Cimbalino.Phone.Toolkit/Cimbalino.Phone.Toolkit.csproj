@@ -96,6 +96,7 @@
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
+    <Compile Include="Helpers\WeakEventListener.cs" />
     <Compile Include="System\Security\Cryptography\HMACMD5.cs" />
     <Compile Include="System\Security\Cryptography\MD5.cs" />
     <Compile Include="System\Security\Cryptography\MD5Managed.cs" />

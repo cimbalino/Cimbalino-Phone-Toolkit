@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -357,6 +358,11 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         internal void SetApplicationBar()
         {
             AssociatedObject.LayoutUpdated -= AssociatedObject_LayoutUpdated;
+
+            if (DesignerProperties.IsInDesignTool)
+            {
+                return;
+            }
 
             var page = AssociatedObject.Parent as PhoneApplicationPage;
 

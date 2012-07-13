@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.ComponentModel;
 using System.Windows;
 using Microsoft.Phone.Shell;
 
@@ -42,6 +43,11 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         internal void UpdateApplicationBar()
         {
+            if (DesignerProperties.IsInDesignTool)
+            {
+                return;
+            }
+
             _itemsList.Clear();
 
             foreach (var item in this)
