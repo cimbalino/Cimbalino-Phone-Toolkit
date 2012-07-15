@@ -29,14 +29,17 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes",
             Justification = "Necessary")]
         private readonly System.Collections.IList _itemsList;
+        private readonly int _maxVisibleItems;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationBarItemCollectionBase{T}" /> class.
         /// </summary>
         /// <param name="itemsList">The items list.</param>
-        public ApplicationBarItemCollectionBase(System.Collections.IList itemsList)
+        /// <param name="maxVisibleItems">The maximum visible items.</param>
+        public ApplicationBarItemCollectionBase(System.Collections.IList itemsList, int maxVisibleItems)
         {
             _itemsList = itemsList;
+            _maxVisibleItems = maxVisibleItems;
 
             CollectionChanged += OnCollectionChanged;
         }
@@ -50,6 +53,8 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
             _itemsList.Clear();
 
+            var itemCount = 0;
+
             foreach (var item in this)
             {
                 var internalItem = item.Item;
@@ -57,6 +62,11 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
                 if (item.IsVisible)
                 {
                     _itemsList.Add(internalItem);
+
+                    if (itemCount++ == _maxVisibleItems)
+                    {
+                        break;
+                    }
                 }
             }
         }

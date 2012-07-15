@@ -22,12 +22,14 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
     /// </summary>
     public class ApplicationBarIconButtonCollection : ApplicationBarItemCollectionBase<IApplicationBarIconButton>
     {
+        private const int MaxVisibleIconButtons = 4;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationBarIconButtonCollection" /> class.
         /// </summary>
         /// <param name="itemsList">The items list.</param>
         public ApplicationBarIconButtonCollection(System.Collections.IList itemsList)
-            : base(itemsList)
+            : base(itemsList, MaxVisibleIconButtons)
         {
         }
     }

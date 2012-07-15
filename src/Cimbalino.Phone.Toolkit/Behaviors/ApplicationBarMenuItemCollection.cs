@@ -22,12 +22,14 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
     /// </summary>
     public class ApplicationBarMenuItemCollection : ApplicationBarItemCollectionBase<IApplicationBarMenuItem>
     {
+        private const int MaxVisibleMenuitems = 50;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationBarMenuItemCollection" /> class.
         /// </summary>
         /// <param name="itemsList">The items list.</param>
         public ApplicationBarMenuItemCollection(System.Collections.IList itemsList)
-            : base(itemsList)
+            : base(itemsList, MaxVisibleMenuitems)
         {
         }
     }
