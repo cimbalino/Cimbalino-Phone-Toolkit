@@ -63,7 +63,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
                 {
                     _itemsList.Add(internalItem);
 
-                    if (itemCount++ == _maxVisibleItems)
+                    if (++itemCount == _maxVisibleItems)
                     {
                         break;
                     }
