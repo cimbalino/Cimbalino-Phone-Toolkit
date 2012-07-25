@@ -47,10 +47,10 @@ namespace Cimbalino.Phone.Toolkit.Controls
         }
 
         /// <summary>
-        /// Called when the value of the <see cref="Content"/> property changes.
+        /// Called when the value of the <see cref="ContentControl.Content"/> property changes.
         /// </summary>
-        /// <param name="oldContent">The old value of the <see cref="Content"/> property.</param>
-        /// <param name="newContent">The new value of the <see cref="Content"/> property.</param>
+        /// <param name="oldContent">The old value of the <see cref="ContentControl.Content"/> property.</param>
+        /// <param name="newContent">The new value of the <see cref="ContentControl.Content"/> property.</param>
         protected override void OnContentChanged(object oldContent, object newContent)
         {
             base.OnContentChanged(oldContent, newContent);
