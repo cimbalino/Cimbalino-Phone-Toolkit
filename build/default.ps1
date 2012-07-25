@@ -5,7 +5,7 @@ properties {
   $toolsDir = "$baseDir\tools"
   $binDir = "$baseDir\bin"
   
-  $assemblyVersion = "1.4.0.0"
+  $assemblyVersion = "1.4.1.0"
   $fileVersion = $assemblyVersion
   
   $tempDir = "$binDir\temp"
