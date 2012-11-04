@@ -76,12 +76,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnIconUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != null && e.NewValue is Uri)
-            {
-                var element = (ApplicationBarIconButton)d;
+            var element = (ApplicationBarIconButton)d;
 
-                element.Item.IconUri = (Uri)e.NewValue;
-            }
+            element.Item.IconUri = (Uri)e.NewValue;
         }
     }
 }

@@ -131,10 +131,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnBackgroundColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != null && e.NewValue is Color)
-            {
-                ((ApplicationBarBehavior)d)._applicationBar.BackgroundColor = (Color)e.NewValue;
-            }
+            ((ApplicationBarBehavior)d)._applicationBar.BackgroundColor = (Color)e.NewValue;
         }
 
         /// <summary>
@@ -166,10 +163,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnForegroundColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != null && e.NewValue is Color)
-            {
-                ((ApplicationBarBehavior)d)._applicationBar.ForegroundColor = (Color)e.NewValue;
-            }
+            ((ApplicationBarBehavior)d)._applicationBar.ForegroundColor = (Color)e.NewValue;
         }
 
         /// <summary>
@@ -201,10 +195,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnIsMenuEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != null && e.NewValue is bool)
-            {
-                ((ApplicationBarBehavior)d)._applicationBar.IsMenuEnabled = (bool)e.NewValue;
-            }
+            ((ApplicationBarBehavior)d)._applicationBar.IsMenuEnabled = (bool)e.NewValue;
         }
 
         /// <summary>
@@ -236,10 +227,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnIsVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != null && e.NewValue is bool)
-            {
-                ((ApplicationBarBehavior)d)._applicationBar.IsVisible = (bool)e.NewValue;
-            }
+            ((ApplicationBarBehavior)d)._applicationBar.IsVisible = (bool)e.NewValue;
         }
 
         /// <summary>
@@ -271,10 +259,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != null && e.NewValue is ApplicationBarMode)
-            {
-                ((ApplicationBarBehavior)d)._applicationBar.Mode = (ApplicationBarMode)e.NewValue;
-            }
+            ((ApplicationBarBehavior)d)._applicationBar.Mode = (ApplicationBarMode)e.NewValue;
         }
 
         /// <summary>
@@ -306,10 +291,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         protected static void OnOpacityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (e.NewValue != null && e.NewValue is double)
-            {
-                ((ApplicationBarBehavior)d)._applicationBar.Opacity = (double)e.NewValue;
-            }
+            ((ApplicationBarBehavior)d)._applicationBar.Opacity = (double)e.NewValue;
         }
 
         /// <summary>
