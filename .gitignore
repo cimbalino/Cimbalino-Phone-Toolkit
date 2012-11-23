@@ -6,5 +6,6 @@ Thumbs.db
 [Bb]in
 *.cache
 *.Cache
+*.ncrunchsolution*
 _ReSharper*/
 .JustCode/
