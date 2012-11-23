@@ -1,5 +1,5 @@
 # psake
-# Copyright (c) 2010 James Kovacs
+# Copyright (c) 2012 James Kovacs
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
@@ -33,6 +33,11 @@ function Invoke-Task
     Assert $taskName ($msgs.error_invalid_task_name)
 
     $taskKey = $taskName.ToLower()
+
+    if ($currentContext.aliases.Contains($taskKey)) {
+        $taskName = $currentContext.aliases.$taskKey.Name
+        $taskKey = $taskName.ToLower()
+    }
 
     $currentContext = $psake.context.Peek()
 
@@ -162,7 +167,8 @@ function Task
         [Parameter(Position=6,Mandatory=0)][switch]$continueOnError = $false,
         [Parameter(Position=7,Mandatory=0)][string[]]$depends = @(),
         [Parameter(Position=8,Mandatory=0)][string[]]$requiredVariables = @(),
-        [Parameter(Position=9,Mandatory=0)][string]$description = $null
+        [Parameter(Position=9,Mandatory=0)][string]$description = $null,
+        [Parameter(Position=10,Mandatory=0)][string]$alias = $null
     )
     if ($name -eq 'default') {
         Assert (!$action) ($msgs.error_default_task_cannot_have_action)
@@ -180,15 +186,25 @@ function Task
         Description = $description
         Duration = [System.TimeSpan]::Zero
         RequiredVariables = $requiredVariables
+        Alias = $alias
     }
 
-    $taskKey = $name.ToLower()
+    $taskKey = $name.ToLower()    
 
     $currentContext = $psake.context.Peek()
 
     Assert (!$currentContext.tasks.ContainsKey($taskKey)) ($msgs.error_duplicate_task_name -f $name) 
 
     $currentContext.tasks.$taskKey = $newTask
+
+    if($alias)
+    {
+        $aliasKey = $alias.ToLower()
+
+        Assert (!$currentContext.aliases.ContainsKey($aliasKey)) ($msgs.error_duplicate_alias_name -f $alias) 
+
+        $currentContext.aliases.$aliasKey = $newTask        
+    }
 }
 
 # .ExternalHelp  psake.psm1-help.xml
@@ -256,7 +272,8 @@ function Invoke-psake {
         [Parameter(Position = 3, Mandatory = 0)][switch] $docs = $false, 
         [Parameter(Position = 4, Mandatory = 0)][hashtable] $parameters = @{}, 
         [Parameter(Position = 5, Mandatory = 0)][hashtable] $properties = @{},
-        [Parameter(Position = 6, Mandatory = 0)][switch] $nologo = $false
+        [Parameter(Position = 6, Mandatory = 0)][alias("init")][scriptblock] $initialization = {},
+        [Parameter(Position = 7, Mandatory = 0)][switch] $nologo = $false
     )
     try {
         if (-not $nologo) {
@@ -286,6 +303,7 @@ function Invoke-psake {
             "originalDirectory" = get-location;
             "originalErrorActionPreference" = $global:ErrorActionPreference;
             "tasks" = @{};
+            "aliases" = @{};
             "properties" = @();
             "includes" = new-object System.Collections.Queue;
             "config" = Create-ConfigurationForNewContext $buildFile $framework
@@ -340,6 +358,10 @@ function Invoke-psake {
                 set-item -path "variable:\$key" -value $properties.$key | out-null
             }
         }
+
+        # Simple dot sourcing will not work. We have to force the script block into our
+        # module's scope in order to initialize variables properly.
+        . $MyInvocation.MyCommand.Module $initialization
 
         # Execute the list of tasks or the default task
         if ($taskList) {
@@ -522,7 +544,7 @@ function Configure-BuildEnvironment {
             'x64' {
                 $bitness = 'Framework64'
             }
-            $null {
+            { [string]::IsNullOrEmpty($_) } {
                 $ptrSize = [System.IntPtr]::Size
                 switch ($ptrSize) {
                     4 {
@@ -642,6 +664,7 @@ convertfrom-stringdata @'
     error_bad_command = Error executing command {0}.
     error_default_task_cannot_have_action = 'default' task cannot specify an action.
     error_duplicate_task_name = Task {0} has already been defined.
+    error_duplicate_alias_name = Alias {0} has already been defined.
     error_invalid_include_path = Unable to include {0}. File not found.
     error_build_file_not_found = Could not find the build file {0}.
     error_no_default_task = 'default' task required.
@@ -658,12 +681,12 @@ convertfrom-stringdata @'
 import-localizeddata -bindingvariable msgs -erroraction silentlycontinue
 
 $script:psake = @{}
-$psake.version = "4.00" # contains the current version of psake
+$psake.version = "4.2.0" # contains the current version of psake
 $psake.context = new-object system.collections.stack # holds onto the current state of all variables
 $psake.run_by_psake_build_tester = $false # indicates that build is being run by psake-BuildTester
 $psake.config_default = new-object psobject -property @{
     buildFileName = "default.ps1";
-    framework = "3.5";
+    framework = "4.0";
     taskNameFormat = "Executing {0}";
     verboseError = $false;
     coloredOutput = $true;
