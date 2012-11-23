@@ -1,0 +1,88 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:systemControls="clr-namespace:System.Windows.Controls;assembly=Cimbalino.Phone.Toolkit"
+    xmlns:localControls="clr-namespace:Cimbalino.Phone.Toolkit.Controls">
+
+    <Style TargetType="localControls:PropertyGridItemContainer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="localControls:PropertyGridItemContainer">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name, Mode=OneTime}" Style="{StaticResource PhoneTextSubtleStyle}" />
+                        <ContentPresenter x:Name="ContentPresenter" Content="{Binding Mode=OneTime}">
+                            <ContentPresenter.Resources>
+                                <localControls:EnumValueConverter x:Key="EnumValueConverter" />
+                                <localControls:EnumValuesConverter x:Key="EnumValuesConverter" />
+                                <localControls:PrimitiveValueConverter x:Key="PrimitiveValueConverter" />
+
+                                <DataTemplate x:Key="EnumPropertyDataTemplate">
+                                    <toolkit:ListPicker FullModeHeader="{Binding Name, Mode=OneTime}" ItemsSource="{Binding Value, Converter={StaticResource EnumValuesConverter}}" SelectedItem="{Binding Value, Converter={StaticResource EnumValueConverter}, Mode=TwoWay}" />
+                                </DataTemplate>
+
+                                <DataTemplate x:Key="BoolPropertyDataTemplate">
+                                    <toolkit:ToggleSwitch IsChecked="{Binding Value, Mode=TwoWay}" />
+                                </DataTemplate>
+
+                                <DataTemplate x:Key="DateTimePropertyDataTemplate">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <toolkit:DatePicker Value="{Binding Value, Mode=TwoWay}" />
+                                        <toolkit:TimePicker Value="{Binding Value, Mode=TwoWay}" Grid.Column="1" />
+                                    </Grid>
+                                </DataTemplate>
+
+                                <DataTemplate x:Key="PrimitivePropertyDataTemplate">
+                                    <TextBox Text="{Binding Value, Converter={StaticResource PrimitiveValueConverter}, Mode=TwoWay}" />
+                                </DataTemplate>
+
+                                <DataTemplate x:Key="ObjectPropertyDataTemplate">
+                                    <TextBox Text="{Binding Value, Converter={StaticResource PrimitiveValueConverter}, Mode=OneTime}" IsEnabled="False" />
+                                </DataTemplate>
+                            </ContentPresenter.Resources>
+                        </ContentPresenter>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="localControls:PropertyGrid">
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <localControls:PropertyGridItemContainer Content="{Binding}" IsEnabled="{Binding IsWritable, Mode=OneTime}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="localControls:PropertyGrid">
+                    <toolkit:LongListMultiSelector x:Name="MainItemsControl" ItemTemplate="{TemplateBinding ItemTemplate}">
+
+                        <toolkit:LongListMultiSelector.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <Border Background="{StaticResource PhoneAccentBrush}" Padding="{StaticResource PhoneTouchTargetOverhang}" Margin="{StaticResource PhoneTouchTargetOverhang}">
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Foreground="{StaticResource PhoneForegroundBrush}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
+                                </Border>
+                            </DataTemplate>
+                        </toolkit:LongListMultiSelector.GroupHeaderTemplate>
+
+                        <toolkit:LongListMultiSelector.GroupItemTemplate>
+                            <DataTemplate>
+                                <Border HorizontalAlignment="Stretch" Background="{StaticResource PhoneAccentBrush}" Padding="{StaticResource PhoneTouchTargetOverhang}" Margin="{StaticResource PhoneTouchTargetOverhang}">
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Foreground="{StaticResource PhoneForegroundBrush}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
+                                </Border>
+                            </DataTemplate>
+                        </toolkit:LongListMultiSelector.GroupItemTemplate>
+
+                    </toolkit:LongListMultiSelector>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
