@@ -76,7 +76,7 @@ namespace Cimbalino.Phone.Toolkit.Controls
         /// Retrieved a <see cref="DataTemplate"/> instance for the specified <see cref="IPropertyGridItem"/>.
         /// </summary>
         /// <param name="item">The <see cref="IPropertyGridItem"/>.</param>
-        /// <returns>A <see cref="DataTemplate"/> instace for the specified <see cref="IPropertyGridItem"/>.</returns>
+        /// <returns>A <see cref="DataTemplate"/> instance for the specified <see cref="IPropertyGridItem"/>.</returns>
         protected virtual DataTemplate SelectTemplate(IPropertyGridItem item)
         {
             if (item == null)

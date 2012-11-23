@@ -96,10 +96,10 @@
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
-    <Compile Include="Helpers\WeakEventListener.cs" />
-    <Compile Include="System\Security\Cryptography\HMACMD5.cs" />
-    <Compile Include="System\Security\Cryptography\MD5.cs" />
-    <Compile Include="System\Security\Cryptography\MD5Managed.cs" />
+    <Compile Include="Helpers\WeakEventListener.generated.cs" />
+    <Compile Include="System\Security\Cryptography\HMACMD5.Generated.cs" />
+    <Compile Include="System\Security\Cryptography\MD5.Generated.cs" />
+    <Compile Include="System\Security\Cryptography\MD5Managed.Generated.cs" />
     <Compile Include="Services\ApplicationLifecycleService.cs" />
     <Compile Include="Services\ApplicationManifestService.cs" />
     <Compile Include="Services\ApplicationSettingsService.cs" />
@@ -179,7 +179,7 @@
     <Compile Include="Services\ChooserHandler.cs" />
     <Compile Include="Services\VibrationService.cs" />
     <Compile Include="Services\WebBrowserService.cs" />
-    <Compile Include="System\Windows\Controls\HeaderedContentControl.cs" />
+    <Compile Include="System\Windows\Controls\HeaderedContentControl.Generated.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Themes\Generic.xaml">

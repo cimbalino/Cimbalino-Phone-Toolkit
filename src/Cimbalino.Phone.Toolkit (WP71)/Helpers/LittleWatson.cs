@@ -85,7 +85,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// <summary>
         /// Saves information regarding an exception to the isolated storage.
         /// </summary>
-        /// <param name="ex">The exception that occured.</param>
+        /// <param name="ex">The exception that occurred.</param>
         /// <param name="extra">Extra data to save along with the exception information.</param>
         public static void ReportException(Exception ex, string extra)
         {

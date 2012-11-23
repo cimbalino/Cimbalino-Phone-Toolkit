@@ -75,7 +75,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         {
             using (var streamReader = new StreamReader(store.OpenFile(path, FileMode.Open), encoding))
             {
-                string textLine = null;
+                string textLine;
 
                 while ((textLine = streamReader.ReadLine()) != null)
                 {
