@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -42,15 +42,15 @@ namespace BindableApplicationBar.ViewModel
                 _isSelectionViewEnabled = value;
 
                 RaisePropertyChanged(() => IsSelectionEnabled);
-                RaisePropertyChanged(() => IsSelectionDisabled);
+                RaisePropertyChanged(() => ApplicationBarSelectedIndex);
             }
         }
 
-        public bool IsSelectionDisabled
+        public int ApplicationBarSelectedIndex
         {
             get
             {
-                return !_isSelectionViewEnabled;
+                return _isSelectionViewEnabled ? 1 : 0;
             }
         }
 
