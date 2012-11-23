@@ -135,8 +135,14 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\WebBrowserAction.cs">
       <Link>Actions\WebBrowserAction.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\ApplicationBar.cs">
+      <Link>Behaviors\ApplicationBar.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\ApplicationBarBehavior.cs">
       <Link>Behaviors\ApplicationBarBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\ApplicationBarCollection.cs">
+      <Link>Behaviors\ApplicationBarCollection.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\ApplicationBarIconButton.cs">
       <Link>Behaviors\ApplicationBarIconButton.cs</Link>
@@ -155,6 +161,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\ApplicationBarMenuItemCollection.cs">
       <Link>Behaviors\ApplicationBarMenuItemCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\MultiApplicationBarBehavior.cs">
+      <Link>Behaviors\MultiApplicationBarBehavior.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\SafeBehavior.cs">
       <Link>Behaviors\SafeBehavior.cs</Link>

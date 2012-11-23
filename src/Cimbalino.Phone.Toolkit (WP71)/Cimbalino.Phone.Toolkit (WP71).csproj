@@ -75,13 +75,16 @@
     <Compile Include="Actions\SmsComposeAction.cs" />
     <Compile Include="Actions\VibrationAction.cs" />
     <Compile Include="Actions\WebBrowserAction.cs" />
+    <Compile Include="Behaviors\ApplicationBar.cs" />
     <Compile Include="Behaviors\ApplicationBarBehavior.cs" />
+    <Compile Include="Behaviors\ApplicationBarCollection.cs" />
     <Compile Include="Behaviors\ApplicationBarIconButton.cs" />
     <Compile Include="Behaviors\ApplicationBarIconButtonCollection.cs" />
     <Compile Include="Behaviors\ApplicationBarItemBase.cs" />
     <Compile Include="Behaviors\ApplicationBarItemCollectionBase.cs" />
     <Compile Include="Behaviors\ApplicationBarMenuItem.cs" />
     <Compile Include="Behaviors\ApplicationBarMenuItemCollection.cs" />
+    <Compile Include="Behaviors\MultiApplicationBarBehavior.cs" />
     <Compile Include="Behaviors\SafeBehavior.cs" />
     <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="Converters\StringRegexConverter.cs" />

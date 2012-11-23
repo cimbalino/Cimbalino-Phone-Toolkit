@@ -1,4 +1,11 @@
 <StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>bindable</Value>
+      <Value>databinding</Value>
+      <Value>tombstoned</Value>
+    </CollectionProperty>
+  </GlobalSettings>
   <Parsers>
     <Parser ParserId="StyleCop.CSharp.CsParser">
       <ParserSettings>
