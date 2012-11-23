@@ -142,7 +142,9 @@ namespace Cimbalino.Phone.Toolkit.Controls
             {
                 if (ShowCategories)
                 {
+#if !WP8
                     _mainItemsControl.IsFlatList = false;
+#endif
 
                     _mainItemsControl.ItemsSource = GetProperties()
                         .GroupBy(x => x.Category)
@@ -152,7 +154,9 @@ namespace Cimbalino.Phone.Toolkit.Controls
                 }
                 else
                 {
+#if !WP8
                     _mainItemsControl.IsFlatList = true;
+#endif
 
                     _mainItemsControl.ItemsSource = GetProperties()
                         .OrderBy(x => x.Name)

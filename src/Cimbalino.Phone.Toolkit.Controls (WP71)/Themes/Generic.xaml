@@ -2,7 +2,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:systemControls="clr-namespace:System.Windows.Controls;assembly=Cimbalino.Phone.Toolkit"
     xmlns:localControls="clr-namespace:Cimbalino.Phone.Toolkit.Controls">
 
     <Style TargetType="localControls:PropertyGridItemContainer">
