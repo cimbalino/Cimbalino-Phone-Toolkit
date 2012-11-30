@@ -372,6 +372,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IShareLinkService.cs">
       <Link>Services\IShareLinkService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IShareMediaService.cs">
+      <Link>Services\IShareMediaService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IShareStatusService.cs">
       <Link>Services\IShareStatusService.cs</Link>
     </Compile>
@@ -431,6 +434,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ShareLinkService.cs">
       <Link>Services\ShareLinkService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ShareMediaService.cs">
+      <Link>Services\ShareMediaService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ShareStatusService.cs">
       <Link>Services\ShareStatusService.cs</Link>

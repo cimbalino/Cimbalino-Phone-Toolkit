@@ -101,8 +101,10 @@
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
     <Compile Include="Services\IScreenInfoService.cs" />
+    <Compile Include="Services\IShareMediaService.cs" />
     <Compile Include="Services\ScreenInfoResolution.cs" />
     <Compile Include="Services\ScreenInfoService.cs" />
+    <Compile Include="Services\ShareMediaService.cs" />
     <Compile Include="System\Security\Cryptography\HMACMD5.Generated.cs" />
     <Compile Include="System\Security\Cryptography\MD5.Generated.cs" />
     <Compile Include="System\Security\Cryptography\MD5Managed.Generated.cs" />
