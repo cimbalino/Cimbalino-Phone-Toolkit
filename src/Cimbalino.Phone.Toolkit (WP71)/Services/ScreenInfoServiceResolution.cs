@@ -1,5 +1,5 @@
 ﻿// ****************************************************************************
-// <copyright file="ScreenInfoResolution.cs" company="Pedro Lamas">
+// <copyright file="ScreenInfoServiceResolution.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
@@ -18,7 +18,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// <summary>
     /// Describes the device resolution.
     /// </summary>
-    public enum ScreenInfoResolution
+    public enum ScreenInfoServiceResolution
     {
         /// <summary>
         /// The device has a WVGA (480x800) resolution.

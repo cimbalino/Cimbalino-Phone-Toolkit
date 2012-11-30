@@ -92,30 +92,30 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets the device resolution.
         /// </summary>
-        /// <value>Returns a <see cref="ScreenInfoResolution"/> enumeration indicating the device resolution.</value>
-        public ScreenInfoResolution Resolution
+        /// <value>Returns a <see cref="ScreenInfoServiceResolution"/> enumeration indicating the device resolution.</value>
+        public ScreenInfoServiceResolution Resolution
         {
             get
             {
 #if WP8
                 if (IsWVGA)
                 {
-                    return ScreenInfoResolution.WVGA;
+                    return ScreenInfoServiceResolution.WVGA;
                 }
                 else if (IsWXGA)
                 {
-                    return ScreenInfoResolution.WXGA;
+                    return ScreenInfoServiceResolution.WXGA;
                 }
                 else if (Is720p)
                 {
-                    return ScreenInfoResolution.HD720p;
+                    return ScreenInfoServiceResolution.HD720p;
                 }
                 else
                 {
                     throw new InvalidOperationException("Unknown resolution");
                 }
 #else
-                return ScreenInfoResolution.WVGA;
+                return ScreenInfoServiceResolution.WVGA;
 #endif
             }
         }

@@ -41,7 +41,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets the device resolution.
         /// </summary>
-        /// <value>Returns a <see cref="ScreenInfoResolution"/> enumeration indicating the device resolution.</value>
-        ScreenInfoResolution Resolution { get; }
+        /// <value>Returns a <see cref="ScreenInfoServiceResolution"/> enumeration indicating the device resolution.</value>
+        ScreenInfoServiceResolution Resolution { get; }
     }
 }
