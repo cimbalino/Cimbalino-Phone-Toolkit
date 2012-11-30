@@ -363,6 +363,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISavePhoneNumberService.cs">
       <Link>Services\ISavePhoneNumberService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IScreenInfoService.cs">
+      <Link>Services\IScreenInfoService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISearchService.cs">
       <Link>Services\ISearchService.cs</Link>
     </Compile>
@@ -416,6 +419,12 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SavePhoneNumberService.cs">
       <Link>Services\SavePhoneNumberService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ScreenInfoResolution.cs">
+      <Link>Services\ScreenInfoResolution.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ScreenInfoService.cs">
+      <Link>Services\ScreenInfoService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SearchService.cs">
       <Link>Services\SearchService.cs</Link>
