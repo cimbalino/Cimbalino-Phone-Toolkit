@@ -36,7 +36,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets the state of the <see cref="ILocationService"/>.
         /// </summary>
-        /// <value>Returns a <see cref="LocationServiceState"/> enumeration indication the state of the <see cref="ILocationService"/>.</value>
+        /// <value>Returns a <see cref="LocationServiceState"/> enumeration indicating the state of the <see cref="ILocationService"/>.</value>
         LocationServiceState State { get; }
 
         /// <summary>

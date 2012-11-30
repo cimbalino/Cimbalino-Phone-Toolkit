@@ -57,7 +57,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets the state of the <see cref="IPhotoCameraService"/>.
         /// </summary>
-        /// <value>Returns a <see cref="PhotoCameraServiceState"/> enumeration indication the state of the <see cref="IPhotoCameraService"/>.</value>
+        /// <value>Returns a <see cref="PhotoCameraServiceState"/> enumeration indicating the state of the <see cref="IPhotoCameraService"/>.</value>
         PhotoCameraServiceState State { get; }
 
         /// <summary>
