@@ -336,6 +336,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMarketplaceDetailService.cs">
       <Link>Services\IMarketplaceDetailService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMarketplaceHubService.cs">
+      <Link>Services\IMarketplaceHubService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMarketplaceReviewService.cs">
       <Link>Services\IMarketplaceReviewService.cs</Link>
     </Compile>
@@ -398,6 +401,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MarketplaceDetailService.cs">
       <Link>Services\MarketplaceDetailService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MarketplaceHubService.cs">
+      <Link>Services\MarketplaceHubService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MarketplaceReviewService.cs">
       <Link>Services\MarketplaceReviewService.cs</Link>
