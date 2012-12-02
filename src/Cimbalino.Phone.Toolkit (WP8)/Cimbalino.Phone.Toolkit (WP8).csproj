@@ -24,7 +24,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;WP8</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -180,6 +180,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\NegativeBooleanConverter.cs">
       <Link>Converters\NegativeBooleanConverter.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\ResolutionAwareUriConverter.cs">
+      <Link>Converters\ResolutionAwareUriConverter.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\StringFormatConverter.cs">
       <Link>Converters\StringFormatConverter.cs</Link>
     </Compile>
@@ -254,9 +257,6 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\LittleWatson.cs">
       <Link>Helpers\LittleWatson.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\Tuple.cs">
-      <Link>Helpers\Tuple.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\WeakEventListener.generated.cs">
       <Link>Helpers\WeakEventListener.generated.cs</Link>

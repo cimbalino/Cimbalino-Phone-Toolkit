@@ -87,6 +87,7 @@
     <Compile Include="Behaviors\MultiApplicationBarBehavior.cs" />
     <Compile Include="Behaviors\SafeBehavior.cs" />
     <Compile Include="Converters\ColorToBrushConverter.cs" />
+    <Compile Include="Converters\ResolutionAwareUriConverter.cs" />
     <Compile Include="Converters\StringRegexConverter.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
     <Compile Include="Extensions\DispatcherExtensions.cs" />
