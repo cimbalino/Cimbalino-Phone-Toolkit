@@ -24,22 +24,6 @@ namespace Cimbalino.Phone.Toolkit.Extensions
     public static class StreamExtensions
     {
         /// <summary>
-        /// Reads all the bytes from the current stream and writes them to a destination stream.
-        /// </summary>
-        /// <param name="input">The input stream.</param>
-        /// <param name="destination">The destination stream.</param>
-        public static void CopyTo(this Stream input, Stream destination)
-        {
-            int num;
-            var buffer = new byte[0x1000];
-
-            while ((num = input.Read(buffer, 0, buffer.Length)) != 0)
-            {
-                destination.Write(buffer, 0, num);
-            }
-        }
-
-        /// <summary>
         /// Writes the stream contents to a byte array.
         /// </summary>
         /// <param name="input">The input stream.</param>
