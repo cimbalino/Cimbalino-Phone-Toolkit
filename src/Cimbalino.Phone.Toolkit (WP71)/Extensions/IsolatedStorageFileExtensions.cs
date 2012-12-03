@@ -16,6 +16,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.IsolatedStorage;
+using System.Linq;
 using System.Text;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
@@ -104,7 +105,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <returns>A string array containing all lines of the file.</returns>
         public static string[] ReadAllLines(this IsolatedStorageFile store, string path, Encoding encoding)
         {
-            return new List<string>(store.ReadAllLines(path, encoding)).ToArray();
+            return store.ReadLines(path, encoding).ToArray();
         }
 
         /// <summary>
