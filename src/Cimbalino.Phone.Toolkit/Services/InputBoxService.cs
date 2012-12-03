@@ -67,7 +67,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="textInputed">The <see cref="T:Action{string}" /> to be called once the operation is finished.</param>
         public void Show(string text, string caption, string defaultText, Action<string> textInputed)
         {
-            Show(text, caption, null, false, textInputed);
+            Show(text, caption, defaultText, false, textInputed);
         }
 
         /// <summary>

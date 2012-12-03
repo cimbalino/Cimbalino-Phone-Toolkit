@@ -80,12 +80,15 @@ namespace Cimbalino.Phone.Toolkit.Services
 
             _mainFrame = Application.Current.RootVisual as PhoneApplicationFrame;
 
-            _mainFrame.Navigated += (s, e) =>
+            if (_mainFrame != null)
             {
-                _currentPage = e.Content as PhoneApplicationPage;
-            };
+                _mainFrame.Navigated += (s, e) =>
+                {
+                    _currentPage = e.Content as PhoneApplicationPage;
+                };
 
-            _currentPage = _mainFrame.Content as PhoneApplicationPage;
+                _currentPage = _mainFrame.Content as PhoneApplicationPage;
+            }
 
             return _currentPage != null;
         }

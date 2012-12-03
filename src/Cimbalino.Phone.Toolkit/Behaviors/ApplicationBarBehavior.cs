@@ -39,7 +39,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             Buttons = new ApplicationBarIconButtonCollection(_applicationBar.Buttons);
             MenuItems = new ApplicationBarMenuItemCollection(_applicationBar.MenuItems);
 
-            _applicationBar.StateChanged += new EventHandler<ApplicationBarStateChangedEventArgs>(ApplicationBar_StateChanged);
+            _applicationBar.StateChanged += ApplicationBar_StateChanged;
         }
 
         /// <summary>
