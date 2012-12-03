@@ -74,9 +74,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Cimbalino.Phone.Toolkit.Controls.nuspec">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
