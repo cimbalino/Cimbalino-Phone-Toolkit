@@ -16,25 +16,26 @@ The Toolkit is divided in projects, regarding different Windows Phone applicatio
 * __Cimbalino.Phone.Toolkit.PhoneDialer__ - MVVM compatible services for phone dialer access
 * __Cimbalino.Phone.Toolkit.UserInfo__ - MVVM compatible services for user information access
 
-> **Note:** this toolkit is only compatible with the [Windows Phone SDK 7.1.x][4]!
+> **Note:** this toolkit is compatible with the [Windows Phone SDK 7.1.x][4] and [Windows Phone SDK 8.0][5]!
 
 ## Nuget
 
-The packages are available thru [NuGet][7] [here][8], with the same handles as the project names (e.g., the main package is "Cimbalino.Phone.Toolkit")
+The packages are available thru [NuGet][8] [here][9], with the same handles as the project names (e.g., the main package is "Cimbalino.Phone.Toolkit")
 
 ## Download
 
-Please visit the [download section on GitHub][6] to download the latest release of the toolkit.
+Please visit the [download section on GitHub][7] to download the latest release of the toolkit.
 
 ## License
 
-See the [LICENSE.txt][5] file for details.
+See the [LICENSE.txt][6] file for details.
 
 [1]: http://cimbalino.org
 [2]: http://twitter.com/CimbalinoWP
 [3]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png "Cimbalino Windows Phone Toolkit"
-[4]: http://go.microsoft.com/?linkid=9772716 "Download Windows Phone SDK"
-[5]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt "Cimbalino Windows Phone Toolkit License"
-[6]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
-[7]: http://nuget.org "NuGet Gallery"
-[8]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
+[4]: http://go.microsoft.com/fwlink/?LinkId=226403 "Download Windows Phone SDK 7.1"
+[5]: http://go.microsoft.com/fwlink/?LinkId=265773 "Download Windows Phone SDK 8.0"
+[6]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt "Cimbalino Windows Phone Toolkit License"
+[7]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
+[8]: http://nuget.org "NuGet Gallery"
+[9]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
