@@ -16,6 +16,6 @@
     <dependencies>
       <dependency id="Cimbalino.Phone.Toolkit" />
     </dependencies>
-    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 MVVM WPDev WP7Dev Silverlight Location GPS</tags>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Location GPS</tags>
   </metadata>
 </package>

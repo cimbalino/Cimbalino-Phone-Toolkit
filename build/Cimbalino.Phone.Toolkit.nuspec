@@ -14,6 +14,6 @@
       <frameworkAssembly assemblyName="System.Windows.Interactivity" />
       <frameworkAssembly assemblyName="Microsoft.Xna.Framework.GamerServices" />
     </frameworkAssemblies>
-    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 MVVM WPDev WP7Dev Silverlight</tags>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Appbar ApplicationBar</tags>
   </metadata>
 </package>

@@ -13,6 +13,6 @@
     <dependencies>
       <dependency id="Cimbalino.Phone.Toolkit" />
     </dependencies>
-    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 MVVM WPDev WP7Dev Silverlight Dialer</tags>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Dialer</tags>
   </metadata>
 </package>

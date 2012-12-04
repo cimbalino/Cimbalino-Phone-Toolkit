@@ -14,6 +14,6 @@
       <dependency id="Cimbalino.Phone.Toolkit" />
       <dependency id="SilverlightToolkitWP" />
     </dependencies>
-    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 MVVM WPDev WP7Dev Silverlight PropertyGrid</tags>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight PropertyGrid</tags>
   </metadata>
 </package>
