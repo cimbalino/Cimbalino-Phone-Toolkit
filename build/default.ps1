@@ -5,8 +5,9 @@ properties {
   $toolsDir = "$baseDir\tools"
   $binDir = "$baseDir\bin"
   
-  $assemblyVersion = "1.4.1.0"
-  $fileVersion = $assemblyVersion
+  $version = "1.5.0.0"
+  $assemblyVersion = $version
+  $fileVersion = $version
   
   $tempDir = "$binDir\temp"
   $binariesDir = "$binDir\binaries"
@@ -24,6 +25,10 @@ properties {
     @{Name = "Cimbalino.Phone.Toolkit.Location"},
     @{Name = "Cimbalino.Phone.Toolkit.PhoneDialer"},
     @{Name = "Cimbalino.Phone.Toolkit.UserInfo"}
+  )
+  $configurations = @(
+    @{Name = "WP71"; Folder = "sl4-wp71"},
+    @{Name = "WP8"; Folder = "wp8"}
   )
 }
 
@@ -49,20 +54,25 @@ task Version -description "Updates the version entries in AssemblyInfo.cs files"
   $assemblyVersionValue = 'AssemblyVersion("' + $assemblyVersion + '")';
   $fileVersionValue = 'AssemblyFileVersion("' + $fileVersion + '")';
   
-  $projects | % {
-    $name = $_.Name
-    $projectDir = "$sourceDir\$name\"
-    
-    Write-Host -ForegroundColor Green "Versioning $name..."
-    Write-Host
-    
-    Get-ChildItem -Path $projectDir -Filter AssemblyInfo.cs -Recurse | % {
-      $filename = $_.FullName
+  $configurations | % {
+    $configName = $_.Name
+
+    $projects | % {
+      $projectName = $_.Name
+      $fullProjectName = "$projectName ($configName)"
+      $projectDir = "$sourceDir\$fullProjectName\"
       
-      (Get-Content -Path $filename) | % {
-        % { $_ -Replace $assemblyVersionPattern, $assemblyVersionValue } |
-        % { $_ -Replace $fileVersionPattern, $fileVersionValue }
-      } | Set-Content -Path $filename -Encoding UTF8
+      Write-Host -ForegroundColor Green "Versioning $fullProjectName..."
+      Write-Host
+      
+      Get-ChildItem -Path $projectDir -Filter AssemblyInfo.cs -Recurse | % {
+        $filename = $_.FullName
+        
+        (Get-Content -Path $filename) | % {
+          % { $_ -Replace $assemblyVersionPattern, $assemblyVersionValue } |
+          % { $_ -Replace $fileVersionPattern, $fileVersionValue }
+        } | Set-Content -Path $filename -Encoding UTF8
+      }
     }
   }
 }
@@ -73,16 +83,23 @@ task Build -depends Clean, Version -description "Build all projects and get the 
   New-Item -Path $binariesDir -ItemType Directory | Out-Null
   New-Item -Path $tempBinariesDir -ItemType Directory | Out-Null
   
-  $projects | % {
-    $name = $_.Name
-    $csproj = "$sourceDir\$name\$name.csproj"
-
-    Write-Host -ForegroundColor Green "Building $name..."
-    Write-Host
+  Exec { msbuild "/t:Clean;Build" /p:Configuration=Release /p:OutDir=$tempBinariesDir /p:GenerateProjectSpecificOutputFolder=true /m "$sourceDir\Cimbalino.Phone.Toolkit.sln" } "Error building $solutionFile"
+  
+  $configurations | % {
+    $configName = $_.Name
+    $configDir = "$binariesDir\$configName"
     
-    Exec { msbuild "/t:Clean;Build" /p:Configuration=Release /p:OutputPath=$tempBinariesDir $csproj } "Error building $name"
+    New-Item -Path $configDir -ItemType Directory | Out-Null
     
-    Copy-Item -Path "$tempBinariesDir\*.*" -Destination "$binariesDir\" -Recurse
+    $projects | % {
+      $projectName = $_.Name
+      $fullProjectName = "$projectName ($configName)"
+      $projectDir = "$configDir\$projectName"
+      
+      New-Item -Path $projectDir -ItemType Directory | Out-Null
+      
+      Copy-Item -Path $tempBinariesDir\$fullProjectName\*.* -Destination $projectDir\ -Recurse
+    }
   }
 }
 
@@ -92,25 +109,45 @@ task PackZip -depends Build -description "Create a zip file with the resulting a
   New-Item -Path $zipDir -ItemType Directory | Out-Null
   New-Item -Path $tempZipDir -ItemType Directory | Out-Null
   
-  Copy-Item -Path "$binariesDir\*.*" -Destination "$tempZipDir\" -Recurse
-  Copy-Item -Path "$sourceDir\License.txt" -Destination "$tempZipDir\" -Recurse
+  Copy-Item -Path $binariesDir\* -Destination $tempZipDir\ -Recurse
+  Copy-Item -Path $sourceDir\License.txt -Destination $tempZipDir\ -Recurse
   
-  $zipVersion = $assemblyVersion -replace "(\d+.\d+).*", '$1'
+  $zipVersion = $version -replace "(\d+\.\d+(\.[1-9]+)?).*", '$1'
   
-  Exec { .$7zip a -tzip "$zipDir\Cimbalino.Phone.Toolkit.$zipVersion.zip" "$tempZipDir\*.*" } "Error packaging $name"
+  Exec { .$7zip a -tzip "$zipDir\Cimbalino.Phone.Toolkit.$zipVersion.zip" "$tempZipDir\*" } "Error packaging $name"
 }
 
-task PackNuGet -depends Clean, Version -description "Create the NuGet packages" {
+task PackNuGet -depends Clean, Build -description "Create the NuGet packages" {
+  $tempNupkgDir = "$tempDir\nupkg"
+  
   New-Item -Path $nupkgDir -ItemType Directory | Out-Null
+  New-Item -Path $tempNupkgDir -ItemType Directory | Out-Null
   
   $projects | % {
-    $name = $_.Name
-    $csproj = "$sourceDir\$name\$name.csproj"
-
-    Write-Host -ForegroundColor Green "Packaging $name..."
+    $projectName = $_.Name
+    $projectNugetFolder = "$tempNupkgDir\$projectName"
+    $projectNuspec = "$projectName.nuspec"
+    
+    New-Item -Path $projectNugetFolder -ItemType Directory | Out-Null
+    
+    (Get-Content -Path $buildDir\$projectNuspec) | % {
+          % { $_ -Replace '\$version\$', $version }
+        } | Set-Content -Path $projectNugetFolder\$projectNuspec -Encoding UTF8
+    
+    $configurations | % {
+      $configName = $_.Name
+      $configFolder = $_.Folder
+      $fullProjectFolder = "$projectNugetFolder\lib\$configFolder"
+      
+      New-Item -Path $fullProjectFolder -ItemType Directory | Out-Null
+      
+      Copy-Item -Path $binariesDir\$configName\$projectName\*.* -Destination $fullProjectFolder\ -Recurse
+    }
+    
+    Write-Host -ForegroundColor Green "Packaging $projectName..."
     Write-Host
     
-    Exec { .$nuget pack $csproj -Prop Configuration=Release -Build -OutputDirectory $nupkgDir } "Error packaging $name"
+    Exec { .$nuget pack $projectNugetFolder\$projectNuspec -Output $nupkgDir\ } "Error packaging $name"
   }
 }
 
