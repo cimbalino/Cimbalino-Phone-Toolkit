@@ -90,7 +90,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <summary>
         /// Gets or sets the text string that is displayed as a label for the item.
         /// </summary>
-        /// <value>The text.</value>
+        /// <value>The text string that is displayed as a label for the item.</value>
         public string Text
         {
             get

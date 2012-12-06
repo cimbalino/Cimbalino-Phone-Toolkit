@@ -28,6 +28,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// <summary>
         /// Gets or Sets the first item.
         /// </summary>
+        /// <value>The first item.</value>
         public T1 Item1 { get; private set; }
 
         #endregion
@@ -56,11 +57,13 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// <summary>
         /// Gets or Sets the first item.
         /// </summary>
+        /// <value>The first item.</value>
         public T1 Item1 { get; private set; }
 
         /// <summary>
         /// Gets or Sets the second item.
         /// </summary>
+        /// <value>The second item.</value>
         public T2 Item2 { get; private set; }
 
         #endregion
@@ -92,16 +95,19 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// <summary>
         /// Gets or Sets the first item.
         /// </summary>
+        /// <value>The first item.</value>
         public T1 Item1 { get; private set; }
 
         /// <summary>
         /// Gets or Sets the second item.
         /// </summary>
+        /// <value>The second item.</value>
         public T2 Item2 { get; private set; }
 
         /// <summary>
         /// Gets or Sets the third item.
         /// </summary>
+        /// <value>The third item.</value>
         public T3 Item3 { get; private set; }
 
         #endregion
@@ -136,21 +142,25 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// <summary>
         /// Gets or Sets the first item.
         /// </summary>
+        /// <value>The first item.</value>
         public T1 Item1 { get; private set; }
 
         /// <summary>
         /// Gets or Sets the second item.
         /// </summary>
+        /// <value>The second item.</value>
         public T2 Item2 { get; private set; }
 
         /// <summary>
         /// Gets or Sets the third item.
         /// </summary>
+        /// <value>The third item.</value>
         public T3 Item3 { get; private set; }
 
         /// <summary>
         /// Gets or Sets the fourth item.
         /// </summary>
+        /// <value>The fourth item.</value>
         public T4 Item4 { get; private set; }
 
         #endregion
