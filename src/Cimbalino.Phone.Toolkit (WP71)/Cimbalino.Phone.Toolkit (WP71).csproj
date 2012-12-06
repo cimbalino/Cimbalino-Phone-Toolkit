@@ -102,9 +102,12 @@
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
     <Compile Include="Services\IMarketplaceHubService.cs" />
+    <Compile Include="Services\ISaveAppointmentService.cs" />
     <Compile Include="Services\IScreenInfoService.cs" />
     <Compile Include="Services\IShareMediaService.cs" />
     <Compile Include="Services\MarketplaceHubService.cs" />
+    <Compile Include="Services\SaveAppointmentService.cs" />
+    <Compile Include="Services\SaveAppointmentServiceParams.cs" />
     <Compile Include="Services\ScreenInfoServiceResolution.cs" />
     <Compile Include="Services\ScreenInfoService.cs" />
     <Compile Include="Services\ShareMediaService.cs" />

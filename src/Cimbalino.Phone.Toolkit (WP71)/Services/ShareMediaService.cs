@@ -38,7 +38,7 @@ namespace Cimbalino.Phone.Toolkit.Services
                 FilePath = filePath
             }.Show();
 #else
-            throw new NotImplementedException("This service is unavailable in WP7");
+            throw new NotSupportedException("This service is not supported in WP7");
 #endif
         }
     }
