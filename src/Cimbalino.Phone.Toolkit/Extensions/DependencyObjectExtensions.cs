@@ -36,11 +36,11 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Returns the ancentor object of the <paramref name="dependencyObject"/> object in the visual tree with the specified type.
+        /// Returns the ancestor object of the <paramref name="dependencyObject"/> object in the visual tree with the specified type.
         /// </summary>
         /// <typeparam name="T">The type of the visual ancestor.</typeparam>
         /// <param name="dependencyObject">The dependency object.</param>
-        /// <returns>The ancentor object of the <paramref name="dependencyObject"/> object in the visual tree with the specified type.</returns>
+        /// <returns>The ancestor object of the <paramref name="dependencyObject"/> object in the visual tree with the specified type.</returns>
         public static T GetVisualAncestor<T>(this DependencyObject dependencyObject)
             where T : DependencyObject
         {
@@ -91,7 +91,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// Retrieves all the visual descendants of a dependency object.
         /// </summary>
         /// <param name="dependencyObject">The dependency object.</param>
-        /// <returns>The visual descendantes of the dependency object.</returns>
+        /// <returns>The visual descendants of the dependency object.</returns>
         public static IEnumerable<DependencyObject> GetVisualDescendents(this DependencyObject dependencyObject)
         {
             return dependencyObject.GetVisualChilds()
@@ -103,7 +103,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// </summary>
         /// <typeparam name="T">The type of the visual descendants.</typeparam>
         /// <param name="dependencyObject">The dependency object.</param>
-        /// <returns>The visual descendantes of the dependency object with the specified type.</returns>
+        /// <returns>The visual descendants of the dependency object with the specified type.</returns>
         public static IEnumerable<T> GetVisualDescendents<T>(this DependencyObject dependencyObject)
             where T : DependencyObject
         {

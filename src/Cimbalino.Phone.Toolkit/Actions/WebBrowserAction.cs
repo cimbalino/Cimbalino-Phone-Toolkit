@@ -21,7 +21,7 @@ using Microsoft.Phone.Tasks;
 namespace Cimbalino.Phone.Toolkit.Actions
 {
     /// <summary>
-    /// Represents an attachable object capable of using the webbrowser.
+    /// Represents an attachable object capable of using the web browser.
     /// </summary>
     public class WebBrowserAction : TriggerAction<FrameworkElement>
     {

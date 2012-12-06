@@ -1,4 +1,11 @@
 <StyleCopSettings Version="105">
+  <GlobalSettings>
+    <CollectionProperty Name="RecognizedWords">
+      <Value>bindable</Value>
+      <Value>databinding</Value>
+      <Value>tombstoned</Value>
+    </CollectionProperty>
+  </GlobalSettings>
   <Parsers>
     <Parser ParserId="StyleCop.CSharp.CsParser">
       <ParserSettings>
@@ -10,6 +17,21 @@
     <Analyzer AnalyzerId="StyleCop.CSharp.DocumentationRules">
       <Rules>
         <Rule Name="DocumentationTextMustEndWithAPeriod">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">True</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+        <Rule Name="PropertyDocumentationMustHaveValue">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">True</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+        <Rule Name="PropertyDocumentationMustHaveValueText">
+          <RuleSettings>
+            <BooleanProperty Name="Enabled">True</BooleanProperty>
+          </RuleSettings>
+        </Rule>
+        <Rule Name="DocumentationTextMustMeetMinimumCharacterLength">
           <RuleSettings>
             <BooleanProperty Name="Enabled">True</BooleanProperty>
           </RuleSettings>
@@ -52,11 +74,6 @@
             <BooleanProperty Name="Enabled">False</BooleanProperty>
           </RuleSettings>
         </Rule>
-        <Rule Name="ConstantsMustAppearBeforeFields">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
         <Rule Name="StaticElementsMustAppearBeforeInstanceElements">
           <RuleSettings>
             <BooleanProperty Name="Enabled">False</BooleanProperty>
@@ -68,16 +85,6 @@
           </RuleSettings>
         </Rule>
         <Rule Name="ProtectedMustComeBeforeInternal">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
-        <Rule Name="PropertyAccessorsMustFollowOrder">
-          <RuleSettings>
-            <BooleanProperty Name="Enabled">False</BooleanProperty>
-          </RuleSettings>
-        </Rule>
-        <Rule Name="EventAccessorsMustFollowOrder">
           <RuleSettings>
             <BooleanProperty Name="Enabled">False</BooleanProperty>
           </RuleSettings>

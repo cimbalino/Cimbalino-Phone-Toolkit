@@ -50,7 +50,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <summary>
         /// Gets or sets the URI of the icon to use for the button.
         /// </summary>
-        /// <returns>The URI of the icon to use for the button.</returns>
+        /// <value>The URI of the icon to use for the button.</value>
         public Uri IconUri
         {
             get

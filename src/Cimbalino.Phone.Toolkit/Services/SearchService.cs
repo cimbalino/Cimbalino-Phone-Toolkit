@@ -23,7 +23,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     public class SearchService : ISearchService
     {
         /// <summary>
-        /// Shows the Web Search application, using the specifid search query.
+        /// Shows the Web Search application, using the specified search query.
         /// </summary>
         /// <param name="searchQuery">The search query that the Web Search application will use when it is launched.</param>
         public void Show(string searchQuery)

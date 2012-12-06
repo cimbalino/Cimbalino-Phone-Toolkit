@@ -24,7 +24,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     public class PhotoChooserWithCameraService : PhotoChooserService
     {
         /// <summary>
-        /// Shows the Photo Chooser application, optionaly presenting a button for launching the camera.
+        /// Shows the Photo Chooser application, optionally presenting a button for launching the camera.
         /// </summary>
         /// <param name="showCamera">true if the user is presented with a button for launching the camera during the photo choosing process; otherwise, false.</param>
         /// <param name="resultAction">The <see cref="Action{PhotoResult}" /> to be called once the operation is finished.</param>

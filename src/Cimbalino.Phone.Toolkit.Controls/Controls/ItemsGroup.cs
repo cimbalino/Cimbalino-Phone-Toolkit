@@ -29,11 +29,13 @@ namespace Cimbalino.Phone.Toolkit.Controls
         /// <summary>
         /// Gets the group name.
         /// </summary>
+        /// <value>The group name.</value>
         public string Name { get; private set; }
 
         /// <summary>
         /// Gets the group items list.
         /// </summary>
+        /// <value>The group items list.</value>
         public IEnumerable<T> Items { get; private set; }
 
         #endregion
