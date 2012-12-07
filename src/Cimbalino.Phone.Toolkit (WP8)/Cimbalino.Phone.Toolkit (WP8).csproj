@@ -309,12 +309,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IApplicationSettingsService.cs">
       <Link>Services\IApplicationSettingsService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IBingMapsDirectionsService.cs">
-      <Link>Services\IBingMapsDirectionsService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IBingMapsService.cs">
-      <Link>Services\IBingMapsService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IClipboardService.cs">
       <Link>Services\IClipboardService.cs</Link>
     </Compile>
@@ -332,6 +326,15 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IInputBoxService.cs">
       <Link>Services\IInputBoxService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMapDownloaderService.cs">
+      <Link>Services\IMapDownloaderService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMapsDirectionsService.cs">
+      <Link>Services\IMapsDirectionsService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMapsService.cs">
+      <Link>Services\IMapsService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMarketplaceDetailService.cs">
       <Link>Services\IMarketplaceDetailService.cs</Link>
@@ -401,6 +404,15 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IWebBrowserService.cs">
       <Link>Services\IWebBrowserService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MapDownloaderService.cs">
+      <Link>Services\MapDownloaderService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MapsDirectionsService.cs">
+      <Link>Services\MapsDirectionsService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MapsService.cs">
+      <Link>Services\MapsService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MarketplaceDetailService.cs">
       <Link>Services\MarketplaceDetailService.cs</Link>
@@ -486,6 +498,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\System\Windows\Controls\HeaderedContentControl.Generated.cs">
       <Link>System\Windows\Controls\HeaderedContentControl.Generated.cs</Link>
     </Compile>
+    <Compile Include="Actions\MapDownloaderAction.cs" />
+    <Compile Include="Actions\MapsAction.cs" />
+    <Compile Include="Actions\MapsDirectionsAction.cs" />
     <Compile Include="Actions\SaveAppointmentAction.cs" />
     <Compile Include="Actions\ShareMediaAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

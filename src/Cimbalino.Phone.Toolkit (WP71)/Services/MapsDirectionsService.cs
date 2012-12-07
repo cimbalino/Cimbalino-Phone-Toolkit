@@ -1,11 +1,11 @@
 ﻿// ****************************************************************************
-// <copyright file="BingMapsDirectionsService.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2011
+// <copyright file="MapsDirectionsService.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>24-11-2011</date>
+// <date>07-12-2012</date>
 // <project>Cimbalino.Phone.Toolkit</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -21,31 +21,39 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// <summary>
     /// Represents an implementation of the <see cref="IMapsDirectionsService"/>.
     /// </summary>
-    public class BingMapsDirectionsService : IMapsDirectionsService
+    public class MapsDirectionsService : IMapsDirectionsService
     {
         /// <summary>
-        /// Shows the Bing Maps application with driving directions displayed for the specified ending location.
+        /// Shows the Maps application with driving directions displayed for the specified ending location.
         /// </summary>
         /// <param name="endingLocation">The ending location for which driving directions are displayed.</param>
         /// <exception cref="InvalidOperationException">Start and End cannot both be invalid.</exception>
         public void Show(LabeledMapLocation endingLocation)
         {
+#if WP8
             Show(null, endingLocation);
+#else
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
+#endif
         }
 
         /// <summary>
-        /// Shows the Bing Maps application with driving directions displayed for the specified starting and ending locations.
+        /// Shows the Maps application with driving directions displayed for the specified starting and ending locations.
         /// </summary>
         /// <param name="startingLocation">The starting location for which driving directions are displayed.</param>
         /// <param name="endingLocation">The ending location for which driving directions are displayed.</param>
         /// <exception cref="InvalidOperationException">Start and End cannot both be invalid.</exception>
         public void Show(LabeledMapLocation startingLocation, LabeledMapLocation endingLocation)
         {
-            new BingMapsDirectionsTask()
+#if WP8
+            new MapsDirectionsTask()
             {
                 Start = startingLocation,
                 End = endingLocation
             }.Show();
+#else
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
+#endif
         }
     }
 }

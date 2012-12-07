@@ -1,11 +1,11 @@
-﻿// ****************************************************************************
-// <copyright file="ShareMediaService.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2012
+// ****************************************************************************
+// <copyright file="MapDownloaderService.cs" company="Pedro Lamas">
+// Copyright � Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>30-12-2012</date>
+// <date>07-12-2012</date>
 // <project>Cimbalino.Phone.Toolkit</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -22,21 +22,17 @@ using System;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents an implementation of the <see cref="IShareMediaService"/>.
+    /// Represents an implementation of the <see cref="IMapDownloaderService"/>.
     /// </summary>
-    public class ShareMediaService : IShareMediaService
+    public class MapDownloaderService : IMapDownloaderService
     {
         /// <summary>
-        /// Shows a dialog that enables the user to share media on the social networks of their choice.
+        /// Shows the Maps settings application.
         /// </summary>
-        /// <param name="filePath">The path to the media file to share.</param>
-        public void Show(string filePath)
+        public void Show()
         {
 #if WP8
-            new ShareMediaTask()
-            {
-                FilePath = filePath
-            }.Show();
+            new MapDownloaderTask().Show();
 #else
             throw new NotSupportedException("This service is not supported in Windows Phone 7.x");
 #endif

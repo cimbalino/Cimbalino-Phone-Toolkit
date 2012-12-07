@@ -53,7 +53,7 @@ namespace Cimbalino.Phone.Toolkit.Services
 
             saveAppointmentTask.Show();
 #else
-            throw new NotSupportedException("This service is not supported in WP7");
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x");
 #endif
         }
     }

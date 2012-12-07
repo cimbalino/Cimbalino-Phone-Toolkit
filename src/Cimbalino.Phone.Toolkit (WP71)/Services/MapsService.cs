@@ -1,11 +1,11 @@
 ﻿// ****************************************************************************
-// <copyright file="BingMapsService.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2011
+// <copyright file="MapsService.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>24-11-2011</date>
+// <date>07-12-2012</date>
 // <project>Cimbalino.Phone.Toolkit</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -15,30 +15,36 @@
 
 using System;
 using System.Device.Location;
+#if WP8
 using Microsoft.Phone.Tasks;
+#endif
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
     /// Represents an implementation of the <see cref="IMapsService"/>.
     /// </summary>
-    public class BingMapsService : IMapsService
+    public class MapsService : IMapsService
     {
         /// <summary>
-        /// Shows the Bing Maps application centered on the specified location.
+        /// Shows the Maps application centered on the specified location.
         /// </summary>
         /// <param name="center">The location that will be used as the center point for the map.</param>
         /// <exception cref="InvalidOperationException">Center and SearchTerm cannot both be empty.</exception>
         public void Show(GeoCoordinate center)
         {
-            new BingMapsTask()
+#if WP8
+            new MapsTask()
             {
                 Center = center,
             }.Show();
+#else
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
+#endif
         }
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the specified location, with the specified initial zoom level.
+        /// Shows the Maps application centered on the specified location, with the specified initial zoom level.
         /// </summary>
         /// <param name="center">The location that will be used as the center point for the map.</param>
         /// <param name="zoomLevel">The initial zoom level of the map.</param>
@@ -49,20 +55,24 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the current user location, with locations matching the specified search term tagged on the map.
+        /// Shows the Maps application centered on the current user location, with locations matching the specified search term tagged on the map.
         /// </summary>
         /// <param name="searchTerm">The search term that is used to find and tag locations on the map.</param>
         /// <exception cref="InvalidOperationException">Center and SearchTerm cannot both be empty.</exception>
         public void Show(string searchTerm)
         {
-            new BingMapsTask()
+#if WP8
+            new MapsTask()
             {
                 SearchTerm = searchTerm,
             }.Show();
+#else
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
+#endif
         }
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the current user location, with locations matching the search term tagged on the map, and the specified initial zoom level.
+        /// Shows the Maps application centered on the current user location, with locations matching the search term tagged on the map, and the specified initial zoom level.
         /// </summary>
         /// <param name="searchTerm">The search term that is used to find and tag locations on the map.</param>
         /// <param name="zoomLevel">The initial zoom level of the map.</param>
@@ -73,7 +83,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the specified location, with locations matching the search term tagged on the map, and the specified initial zoom level.
+        /// Shows the Maps application centered on the specified location, with locations matching the search term tagged on the map, and the specified initial zoom level.
         /// </summary>
         /// <param name="center">The location that will be used as the center point for the map.</param>
         /// <param name="searchTerm">The search term that is used to find and tag locations on the map.</param>
@@ -81,12 +91,16 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <exception cref="InvalidOperationException">Center and SearchTerm cannot both be empty.</exception>
         public void Show(GeoCoordinate center, string searchTerm, double zoomLevel)
         {
-            new BingMapsTask()
+#if WP8
+            new MapsTask()
             {
                 Center = center,
                 SearchTerm = searchTerm,
                 ZoomLevel = zoomLevel
             }.Show();
+#else
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
+#endif
         }
     }
 }

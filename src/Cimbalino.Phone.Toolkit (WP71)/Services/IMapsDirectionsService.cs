@@ -1,5 +1,5 @@
 // ****************************************************************************
-// <copyright file="IBingMapsDirectionsService.cs" company="Pedro Lamas">
+// <copyright file="IMapsDirectionsService.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
@@ -19,19 +19,19 @@ using Microsoft.Phone.Tasks;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of launching the Bing Maps application, specifying a starting location or an ending location, or both, for which driving directions are displayed.
+    /// Represents a service capable of launching the Maps application, specifying a starting location or an ending location, or both, for which driving directions are displayed.
     /// </summary>
-    public interface IBingMapsDirectionsService
+    public interface IMapsDirectionsService
     {
         /// <summary>
-        /// Shows the Bing Maps application with driving directions displayed for the specified ending location.
+        /// Shows the Maps application with driving directions displayed for the specified ending location.
         /// </summary>
         /// <param name="endingLocation">The ending location for which driving directions are displayed.</param>
         /// <exception cref="InvalidOperationException">Start and End cannot both be invalid.</exception>
         void Show(LabeledMapLocation endingLocation);
 
         /// <summary>
-        /// Shows the Bing Maps application with driving directions displayed for the specified starting and ending locations.
+        /// Shows the Maps application with driving directions displayed for the specified starting and ending locations.
         /// </summary>
         /// <param name="startingLocation">The starting location for which driving directions are displayed.</param>
         /// <param name="endingLocation">The ending location for which driving directions are displayed.</param>

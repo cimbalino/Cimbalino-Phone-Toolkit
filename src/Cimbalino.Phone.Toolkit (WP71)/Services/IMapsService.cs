@@ -1,5 +1,5 @@
 // ****************************************************************************
-// <copyright file="IBingMapsService.cs" company="Pedro Lamas">
+// <copyright file="IMapsService.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
@@ -19,32 +19,19 @@ using System.Device.Location;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of launching the Bing Maps application, specifying optional center location, search term, and initial zoom values.
+    /// Represents a service capable of launching the Maps application, specifying optional center location, search term, and initial zoom values.
     /// </summary>
-    public interface IBingMapsService
+    public interface IMapsService
     {
         /// <summary>
-        /// Shows the Bing Maps application centered on the user's current location.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">Center and SearchTerm cannot both be empty.</exception>
-        void Show();
-
-        /// <summary>
-        /// Shows the Bing Maps application centered on the user's current location, with the specified initial zoom level.
-        /// </summary>
-        /// <param name="zoomLevel">The initial zoom level of the map.</param>
-        /// <exception cref="InvalidOperationException">Center and SearchTerm cannot both be empty.</exception>
-        void Show(double zoomLevel);
-
-        /// <summary>
-        /// Shows the Bing Maps application centered on the specified location.
+        /// Shows the Maps application centered on the specified location.
         /// </summary>
         /// <param name="center">The location that will be used as the center point for the map.</param>
         /// <exception cref="InvalidOperationException">Center and SearchTerm cannot both be empty.</exception>
         void Show(GeoCoordinate center);
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the specified location, with the specified initial zoom level.
+        /// Shows the Maps application centered on the specified location, with the specified initial zoom level.
         /// </summary>
         /// <param name="center">The location that will be used as the center point for the map.</param>
         /// <param name="zoomLevel">The initial zoom level of the map.</param>
@@ -52,14 +39,14 @@ namespace Cimbalino.Phone.Toolkit.Services
         void Show(GeoCoordinate center, double zoomLevel);
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the current user location, with locations matching the specified search term tagged on the map.
+        /// Shows the Maps application centered on the current user location, with locations matching the specified search term tagged on the map.
         /// </summary>
         /// <param name="searchTerm">The search term that is used to find and tag locations on the map.</param>
         /// <exception cref="InvalidOperationException">Center and SearchTerm cannot both be empty.</exception>
         void Show(string searchTerm);
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the current user location, with locations matching the search term tagged on the map, and the specified initial zoom level.
+        /// Shows the Maps application centered on the current user location, with locations matching the search term tagged on the map, and the specified initial zoom level.
         /// </summary>
         /// <param name="searchTerm">The search term that is used to find and tag locations on the map.</param>
         /// <param name="zoomLevel">The initial zoom level of the map.</param>
@@ -67,7 +54,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         void Show(string searchTerm, double zoomLevel);
 
         /// <summary>
-        /// Shows the Bing Maps application centered on the specified location, with locations matching the search term tagged on the map, and the specified initial zoom level.
+        /// Shows the Maps application centered on the specified location, with locations matching the search term tagged on the map, and the specified initial zoom level.
         /// </summary>
         /// <param name="center">The location that will be used as the center point for the map.</param>
         /// <param name="searchTerm">The search term that is used to find and tag locations on the map.</param>

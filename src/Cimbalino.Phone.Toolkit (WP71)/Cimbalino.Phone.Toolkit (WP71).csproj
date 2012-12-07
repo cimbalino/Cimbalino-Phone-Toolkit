@@ -101,6 +101,11 @@
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
+    <Compile Include="Services\IMapDownloaderService.cs" />
+    <Compile Include="Services\ISaveContactService.cs" />
+    <Compile Include="Services\MapDownloaderService.cs" />
+    <Compile Include="Services\MapsDirectionsService.cs" />
+    <Compile Include="Services\MapsService.cs" />
     <Compile Include="Services\IMarketplaceHubService.cs" />
     <Compile Include="Services\ISaveAppointmentService.cs" />
     <Compile Include="Services\IScreenInfoService.cs" />
@@ -108,6 +113,8 @@
     <Compile Include="Services\MarketplaceHubService.cs" />
     <Compile Include="Services\SaveAppointmentService.cs" />
     <Compile Include="Services\SaveAppointmentServiceParams.cs" />
+    <Compile Include="Services\SaveContactService.cs" />
+    <Compile Include="Services\SaveContactServiceParams.cs" />
     <Compile Include="Services\ScreenInfoServiceResolution.cs" />
     <Compile Include="Services\ScreenInfoService.cs" />
     <Compile Include="Services\ShareMediaService.cs" />
@@ -145,8 +152,8 @@
     <Compile Include="Helpers\LittleWatson.cs" />
     <Compile Include="Helpers\Tuple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IBingMapsDirectionsService.cs" />
-    <Compile Include="Services\IBingMapsService.cs" />
+    <Compile Include="Services\IMapsDirectionsService.cs" />
+    <Compile Include="Services\IMapsService.cs" />
     <Compile Include="Services\IClipboardService.cs" />
     <Compile Include="Services\IConnectionSettingsService.cs" />
     <Compile Include="Services\IDeviceStatusService.cs" />
