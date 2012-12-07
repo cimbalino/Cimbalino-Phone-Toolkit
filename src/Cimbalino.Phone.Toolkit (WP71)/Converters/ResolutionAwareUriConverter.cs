@@ -14,8 +14,10 @@
 // ****************************************************************************
 
 using System;
+#if WP8
 using System.IO;
 using System.Windows;
+#endif
 using System.Windows.Data;
 
 namespace Cimbalino.Phone.Toolkit.Converters

@@ -486,6 +486,8 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\System\Windows\Controls\HeaderedContentControl.Generated.cs">
       <Link>System\Windows\Controls\HeaderedContentControl.Generated.cs</Link>
     </Compile>
+    <Compile Include="Actions\SaveAppointmentAction.cs" />
+    <Compile Include="Actions\ShareMediaAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
