@@ -42,54 +42,6 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Gets a value indicating whether the device has a WVGA resolution.
-        /// </summary>
-        /// <value>true if the device has a WVGA resolution; otherwise, false.</value>
-        public bool IsWVGA
-        {
-            get
-            {
-#if WP8
-                return Application.Current.Host.Content.ScaleFactor == 100;
-#else
-                return true;
-#endif
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether the device has a WXGA resolution.
-        /// </summary>
-        /// <value>true if the device has a WXGA resolution; otherwise, false.</value>
-        public bool IsWXGA
-        {
-            get
-            {
-#if WP8
-                return Application.Current.Host.Content.ScaleFactor == 160;
-#else
-                return false;
-#endif
-            }
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether the device has a 720p resolution.
-        /// </summary>
-        /// <value>true if the device has a 720p resolution; otherwise, false.</value>
-        public bool Is720p
-        {
-            get
-            {
-#if WP8
-                return Application.Current.Host.Content.ScaleFactor == 150;
-#else
-                return false;
-#endif
-            }
-        }
-
-        /// <summary>
         /// Gets the device resolution.
         /// </summary>
         /// <value>Returns a <see cref="ScreenInfoServiceResolution"/> enumeration indicating the device resolution.</value>
@@ -98,22 +50,19 @@ namespace Cimbalino.Phone.Toolkit.Services
             get
             {
 #if WP8
-                if (IsWVGA)
+                switch (Application.Current.Host.Content.ScaleFactor)
                 {
-                    return ScreenInfoServiceResolution.WVGA;
+                    case 100:
+                        return ScreenInfoServiceResolution.WVGA;
+                        
+                    case 150:
+                        return ScreenInfoServiceResolution.HD720p;
+
+                    case 160:
+                        return ScreenInfoServiceResolution.WXGA;
                 }
-                else if (IsWXGA)
-                {
-                    return ScreenInfoServiceResolution.WXGA;
-                }
-                else if (Is720p)
-                {
-                    return ScreenInfoServiceResolution.HD720p;
-                }
-                else
-                {
-                    throw new InvalidOperationException("Unknown resolution");
-                }
+
+                throw new InvalidOperationException("Unknown resolution");
 #else
                 return ScreenInfoServiceResolution.WVGA;
 #endif

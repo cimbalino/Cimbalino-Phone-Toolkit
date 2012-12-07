@@ -14,6 +14,9 @@
 // ****************************************************************************
 
 using System;
+#if WP8
+using System.Threading.Tasks;
+#endif
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -28,5 +31,13 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="resultAction">The <see cref="Action{PhoneNumberResult}" /> to be called once the operation is finished.</param>
         void Show(Action<PhoneNumberResult> resultAction);
+
+#if WP8
+        /// <summary>
+        /// Shows the Contacts application.
+        /// </summary>
+        /// <returns>The <see cref="Task{PhoneNumberResult}"/> object representing the asynchronous operation.</returns>
+        Task<PhoneNumberResult> ShowTaskAsync();
+#endif
     }
 }

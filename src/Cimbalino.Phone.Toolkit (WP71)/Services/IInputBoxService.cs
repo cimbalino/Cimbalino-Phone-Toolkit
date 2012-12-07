@@ -14,6 +14,9 @@
 // ****************************************************************************
 
 using System;
+#if WP8
+using System.Threading.Tasks;
+#endif
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -64,5 +67,50 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
         /// <param name="textInputed">The <see cref="T:Action{string}"/> to be called once the operation is finished.</param>
         void Show(string text, string caption, string defaultText, bool usePasswordMode, Action<string> textInputed);
+
+#if WP8
+        /// <summary>
+        /// Shows the specified text and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        Task<string> ShowTaskAsync(string text);
+
+        /// <summary>
+        /// Shows the specified text and caption and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        Task<string> ShowTaskAsync(string text, string caption);
+
+        /// <summary>
+        /// Shows the specified text and caption and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        Task<string> ShowTaskAsync(string text, string caption, bool usePasswordMode);
+
+        /// <summary>
+        /// Shows the specified text, caption and default input text, and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        Task<string> ShowTaskAsync(string text, string caption, string defaultText);
+
+        /// <summary>
+        /// Shows the specified text, caption and default input text, and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
+        /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        Task<string> ShowTaskAsync(string text, string caption, string defaultText, bool usePasswordMode);
+#endif
     }
 }

@@ -14,6 +14,9 @@
 // ****************************************************************************
 
 using System;
+#if WP8
+using System.Threading.Tasks;
+#endif
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -42,5 +45,27 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
         }
+
+#if WP8
+        /// <summary>
+        /// Shows the Photo Chooser application.
+        /// </summary>
+        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        public Task<PhotoResult> ShowTaskAsync()
+        {
+            return new ChooserHandler<PhotoResult>(new PhotoChooserTask())
+               .ShowTaskAsync();
+        }
+
+        /// <summary>
+        /// Shows the Photo Chooser application, optionally presenting a button for launching the camera.
+        /// </summary>
+        /// <param name="showCamera">true if the user is presented with a button for launching the camera during the photo choosing process; otherwise, false.</param>
+        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        public virtual Task<PhotoResult> ShowTaskAsync(bool showCamera)
+        {
+            throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
+        }
+#endif
     }
 }

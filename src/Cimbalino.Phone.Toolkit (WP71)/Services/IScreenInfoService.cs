@@ -21,22 +21,10 @@ namespace Cimbalino.Phone.Toolkit.Services
     public interface IScreenInfoService
     {
         /// <summary>
-        /// Gets a value indicating whether the device has a WVGA resolution.
+        /// Gets a value indicating the device scale factor.
         /// </summary>
-        /// <value>true if the device has a WVGA resolution; otherwise, false.</value>
-        bool IsWVGA { get; }
-
-        /// <summary>
-        /// Gets a value indicating whether the device has a WXGA resolution.
-        /// </summary>
-        /// <value>true if the device has a WXGA resolution; otherwise, false.</value>
-        bool IsWXGA { get; }
-
-        /// <summary>
-        /// Gets a value indicating whether the device has a 720p resolution.
-        /// </summary>
-        /// <value>true if the device has a 720p resolution; otherwise, false.</value>
-        bool Is720p { get; }
+        /// <value>The device scale factor.</value>
+        int ScaleFactor { get; }
 
         /// <summary>
         /// Gets the device resolution.

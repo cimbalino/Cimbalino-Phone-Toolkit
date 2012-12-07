@@ -14,6 +14,9 @@
 // ****************************************************************************
 
 using System;
+#if WP8
+using System.Threading.Tasks;
+#endif
 using System.Windows;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
@@ -87,5 +90,74 @@ namespace Cimbalino.Phone.Toolkit.Services
                 Deployment.Current.Dispatcher.BeginInvoke(() => textInputed(text));
             }, null, usePasswordMode);
         }
+
+#if WP8
+        /// <summary>
+        /// Shows the specified text and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        public Task<string> ShowTaskAsync(string text)
+        {
+            return ShowTaskAsync(text, null, null, false);
+        }
+
+        /// <summary>
+        /// Shows the specified text and caption and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        public Task<string> ShowTaskAsync(string text, string caption)
+        {
+            return ShowTaskAsync(text, caption, null, false);
+        }
+
+        /// <summary>
+        /// Shows the specified text and caption and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        public Task<string> ShowTaskAsync(string text, string caption, bool usePasswordMode)
+        {
+            return ShowTaskAsync(text, caption, null, usePasswordMode);
+        }
+
+        /// <summary>
+        /// Shows the specified text, caption and default input text, and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        public Task<string> ShowTaskAsync(string text, string caption, string defaultText)
+        {
+            return ShowTaskAsync(text, caption, defaultText, false);
+        }
+
+        /// <summary>
+        /// Shows the specified text, caption and default input text, and awaits for the user to reply.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the input box.</param>
+        /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
+        /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        public Task<string> ShowTaskAsync(string text, string caption, string defaultText, bool usePasswordMode)
+        {
+            var taskCompletionSource = new TaskCompletionSource<string>();
+
+            Guide.BeginShowKeyboardInput(PlayerIndex.One, caption, text, defaultText, ar =>
+            {
+                text = Guide.EndShowKeyboardInput(ar);
+
+                Deployment.Current.Dispatcher.BeginInvoke(() => taskCompletionSource.SetResult(text));
+            }, null, usePasswordMode);
+
+            return taskCompletionSource.Task;
+        }
+#endif
     }
 }

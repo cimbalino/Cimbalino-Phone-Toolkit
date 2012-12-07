@@ -15,6 +15,9 @@
 
 using System;
 using System.Device.Location;
+#if WP8
+using System.Threading.Tasks;
+#endif
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -86,5 +89,20 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Stops the acquisition of data from the location service.
         /// </summary>
         void Stop();
+
+#if WP8
+        /// <summary>
+        /// Gets the current location.
+        /// </summary>
+        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        Task<GeoCoordinate> GetCurrentLocationTaskAsync();
+
+        /// <summary>
+        /// Gets the current location, using the specified accuracy.
+        /// </summary>
+        /// <param name="accuracy">The desired accuracy.</param>
+        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        Task<GeoCoordinate> GetCurrentLocationTaskAsync(GeoPositionAccuracy accuracy);
+#endif
     }
 }

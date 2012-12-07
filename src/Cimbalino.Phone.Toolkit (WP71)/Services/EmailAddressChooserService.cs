@@ -14,6 +14,9 @@
 // ****************************************************************************
 
 using System;
+#if WP8
+using System.Threading.Tasks;
+#endif
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -32,5 +35,17 @@ namespace Cimbalino.Phone.Toolkit.Services
             new ChooserHandler<EmailResult>(new EmailAddressChooserTask(), resultAction)
                 .Show();
         }
+
+#if WP8
+        /// <summary>
+        /// Shows the email address chooser application.
+        /// </summary>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        public Task<EmailResult> ShowTaskAsync()
+        {
+            return new ChooserHandler<EmailResult>(new EmailAddressChooserTask())
+                .ShowTaskAsync();
+        }
+#endif
     }
 }

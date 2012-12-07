@@ -15,6 +15,9 @@
 
 using System;
 using System.Collections.Generic;
+#if WP8
+using System.Threading.Tasks;
+#endif
 using System.Windows;
 using Microsoft.Xna.Framework.GamerServices;
 
@@ -71,5 +74,23 @@ namespace Cimbalino.Phone.Toolkit.Services
                 Deployment.Current.Dispatcher.BeginInvoke(() => selectedButton(buttonIndex.HasValue ? buttonIndex.Value : -1));
             }, null);
         }
+
+#if WP8
+        /// <summary>
+        /// Displays a message box that contains the specified text, title bar caption, and response buttons.
+        /// </summary>
+        /// <param name="text">The message to display.</param>
+        /// <param name="caption">The title of the message box.</param>
+        /// <param name="buttons">The captions for message box buttons. The maximum number of buttons is two.</param>
+        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        public Task<int> ShowTaskAsync(string text, string caption, IEnumerable<string> buttons)
+        {
+            var taskCompletionSource = new TaskCompletionSource<int>();
+
+            Show(text, caption, buttons, taskCompletionSource.SetResult);
+
+            return taskCompletionSource.Task;
+        }
+#endif
     }
 }

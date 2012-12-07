@@ -15,6 +15,9 @@
 
 using System;
 using System.Device.Location;
+#if WP8
+using System.Threading.Tasks;
+#endif
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -41,7 +44,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="locationResult">The <see cref="Action{GeoCoordinate, Exception}" /> to be called once the operation is finished.</param>
         public void GetCurrentLocation(Action<GeoCoordinate, Exception> locationResult)
         {
-            new CurrentLocationHelper(locationResult).GetCurrentLocation(DefaultGeoPositionAccuracy);
+            GetCurrentLocation(DefaultGeoPositionAccuracy, locationResult);
         }
 
         /// <summary>
@@ -81,5 +84,40 @@ namespace Cimbalino.Phone.Toolkit.Services
                 eventHandler(this, e);
             }
         }
+
+#if WP8
+        /// <summary>
+        /// Gets the current location.
+        /// </summary>
+        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        public Task<GeoCoordinate> GetCurrentLocationTaskAsync()
+        {
+            return GetCurrentLocationTaskAsync(DefaultGeoPositionAccuracy);
+        }
+
+        /// <summary>
+        /// Gets the current location, using the specified accuracy.
+        /// </summary>
+        /// <param name="accuracy">The desired accuracy.</param>
+        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        public Task<GeoCoordinate> GetCurrentLocationTaskAsync(GeoPositionAccuracy accuracy)
+        {
+            var taskCompletionSource = new TaskCompletionSource<GeoCoordinate>();
+
+            new CurrentLocationHelper((x, e) =>
+            {
+                if (e != null)
+                {
+                    taskCompletionSource.SetException(e);
+                }
+                else
+                {
+                    taskCompletionSource.SetResult(x);
+                }
+            }).GetCurrentLocation(accuracy);
+
+            return taskCompletionSource.Task;
+        }
+#endif
     }
 }
