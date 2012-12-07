@@ -36,7 +36,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// </summary>
         /// <param name="itemsList">The items list.</param>
         /// <param name="maxVisibleItems">The maximum visible items.</param>
-        public ApplicationBarItemCollectionBase(System.Collections.IList itemsList, int maxVisibleItems)
+        protected ApplicationBarItemCollectionBase(System.Collections.IList itemsList, int maxVisibleItems)
         {
             _itemsList = itemsList;
             _maxVisibleItems = maxVisibleItems;

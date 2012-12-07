@@ -44,10 +44,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         {
             if (!dispatcher.CheckAccess())
             {
-                dispatcher.BeginInvoke(() =>
-                {
-                    dispatcher.BeginInvokeAfterTimeout(timeout, action);
-                });
+                dispatcher.BeginInvoke(() => dispatcher.BeginInvokeAfterTimeout(timeout, action));
             }
             else
             {

@@ -123,7 +123,7 @@ namespace Cimbalino.Phone.Toolkit.Controls
             {
                 var value = _propertyInfo.GetValue(_sourceObject, null);
 
-                if (object.Equals(_value, value))
+                if (Equals(_value, value))
                 {
                     return;
                 }

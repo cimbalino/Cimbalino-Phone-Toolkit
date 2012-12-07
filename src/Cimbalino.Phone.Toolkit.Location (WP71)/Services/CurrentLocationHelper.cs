@@ -23,7 +23,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         private readonly Action<GeoCoordinate, Exception> _actionToExecute;
 
         private GeoCoordinate _lastLocation;
-        private bool _ready = false;
+        private bool _ready;
 
         public CurrentLocationHelper(Action<GeoCoordinate, Exception> actionToExecute)
         {
