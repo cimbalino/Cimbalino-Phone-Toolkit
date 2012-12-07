@@ -51,7 +51,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <typeparam name="T">The type of value to get.</typeparam>
         public T Get<T>(string key)
         {
-            return Get<T>(key, default(T));
+            return Get(key, default(T));
         }
 
         /// <summary>

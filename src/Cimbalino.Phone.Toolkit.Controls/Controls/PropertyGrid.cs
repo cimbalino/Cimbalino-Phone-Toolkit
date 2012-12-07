@@ -200,7 +200,7 @@ namespace Cimbalino.Phone.Toolkit.Controls
                     continue;
                 }
 
-                yield return (IPropertyGridItem)Activator.CreateInstance(propertyGridItemType.MakeGenericType(propertyInfo.PropertyType), new object[] { SourceObject, propertyInfo });
+                yield return (IPropertyGridItem)Activator.CreateInstance(propertyGridItemType.MakeGenericType(propertyInfo.PropertyType), new[] { SourceObject, propertyInfo });
             }
         }
     }

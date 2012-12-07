@@ -46,7 +46,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Initializes a new instance of the <see cref="ApplicationBarItemBase{T}" /> class.
         /// </summary>
         /// <param name="item">The internal item.</param>
-        public ApplicationBarItemBase(T item)
+        protected ApplicationBarItemBase(T item)
         {
             Item = item;
             Item.Text = Text;

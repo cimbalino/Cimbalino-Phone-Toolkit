@@ -210,10 +210,7 @@ namespace Cimbalino.Phone.Toolkit.Services
                 return;
             }
 
-            host.Content.Resized += (s, e) =>
-            {
-                EnsureMainFrame();
-            };
+            host.Content.Resized += (s, e) => EnsureMainFrame();
         }
 
         private bool EnsureMainFrame()

@@ -21,7 +21,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// <summary>
     /// Represents an implementation of the <see cref="ICameraCaptureService"/>.
     /// </summary>
-    public partial class CameraCaptureService : ICameraCaptureService
+    public class CameraCaptureService : ICameraCaptureService
     {
         /// <summary>
         /// Shows the camera application.
