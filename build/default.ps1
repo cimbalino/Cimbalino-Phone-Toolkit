@@ -5,9 +5,7 @@ properties {
   $toolsDir = "$baseDir\tools"
   $binDir = "$baseDir\bin"
   
-  $version = "1.5.0.0"
-  $assemblyVersion = $version
-  $fileVersion = $version
+  $version = "2.0.0-rc"
   
   $tempDir = "$binDir\temp"
   $binariesDir = "$binDir\binaries"
@@ -49,6 +47,8 @@ task Clean -description "Clean the output folder" {
 }
 
 task Version -description "Updates the version entries in AssemblyInfo.cs files" {
+  $assemblyVersion = $version -replace '([0-9]+(\.[0-9]+){2}).*', '$1.0'
+  $fileVersion = $assemblyVersion
   $assemblyVersionPattern = 'AssemblyVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)'
   $fileVersionPattern = 'AssemblyFileVersion\("[0-9]+(\.([0-9]+|\*)){1,3}"\)'
   $assemblyVersionValue = 'AssemblyVersion("' + $assemblyVersion + '")';
@@ -112,9 +112,7 @@ task PackZip -depends Build -description "Create a zip file with the resulting a
   Copy-Item -Path $binariesDir\* -Destination $tempZipDir\ -Recurse
   Copy-Item -Path $sourceDir\License.txt -Destination $tempZipDir\ -Recurse
   
-  $zipVersion = $version -replace "(\d+\.\d+(\.[1-9]+)?).*", '$1'
-  
-  Exec { .$7zip a -tzip "$zipDir\Cimbalino.Phone.Toolkit.$zipVersion.zip" "$tempZipDir\*" } "Error packaging $name"
+  Exec { .$7zip a -tzip "$zipDir\Cimbalino.Phone.Toolkit.$version.zip" "$tempZipDir\*" } "Error packaging $name"
 }
 
 task PackNuGet -depends Clean, Build -description "Create the NuGet packages" {
