@@ -37,7 +37,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the Contacts application, allowing the user to choose a contact for which the physical address is obtained.
         /// </summary>
         /// <returns>The <see cref="Task{AddressResult}"/> object representing the asynchronous operation.</returns>
-        Task<AddressResult> ShowTaskAsync();
+        Task<AddressResult> ShowAsync();
 #endif
     }
 }

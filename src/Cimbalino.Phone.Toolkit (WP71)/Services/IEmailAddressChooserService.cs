@@ -37,7 +37,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the email address chooser application.
         /// </summary>
         /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
-        Task<EmailResult> ShowTaskAsync();
+        Task<EmailResult> ShowAsync();
 #endif
     }
 }

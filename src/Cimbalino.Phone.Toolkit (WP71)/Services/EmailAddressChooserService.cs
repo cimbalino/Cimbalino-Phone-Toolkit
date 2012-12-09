@@ -41,10 +41,10 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the email address chooser application.
         /// </summary>
         /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
-        public Task<EmailResult> ShowTaskAsync()
+        public Task<EmailResult> ShowAsync()
         {
             return new ChooserHandler<EmailResult>(new EmailAddressChooserTask())
-                .ShowTaskAsync();
+                .ShowAsync();
         }
 #endif
     }

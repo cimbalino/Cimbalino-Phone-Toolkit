@@ -44,14 +44,14 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the Photo Chooser application.
         /// </summary>
         /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
-        Task<PhotoResult> ShowTaskAsync();
+        Task<PhotoResult> ShowAsync();
 
         /// <summary>
         /// Shows the Photo Chooser application, optionally presenting a button for launching the camera.
         /// </summary>
         /// <param name="showCamera">true if the user is presented with a button for launching the camera during the photo choosing process; otherwise, false.</param>
         /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
-        Task<PhotoResult> ShowTaskAsync(bool showCamera);
+        Task<PhotoResult> ShowAsync(bool showCamera);
 #endif
     }
 }

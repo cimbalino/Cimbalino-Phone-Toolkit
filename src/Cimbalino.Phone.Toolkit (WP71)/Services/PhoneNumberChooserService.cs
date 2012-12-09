@@ -41,10 +41,10 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the Contacts application.
         /// </summary>
         /// <returns>The <see cref="Task{TResult}"/> object representing the asynchronous operation.</returns>
-        public Task<PhoneNumberResult> ShowTaskAsync()
+        public Task<PhoneNumberResult> ShowAsync()
         {
             return new ChooserHandler<PhoneNumberResult>(new PhoneNumberChooserTask())
-                .ShowTaskAsync();
+                .ShowAsync();
         }
 #endif
     }

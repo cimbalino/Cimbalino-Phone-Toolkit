@@ -37,7 +37,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the Contacts application.
         /// </summary>
         /// <returns>The <see cref="Task{PhoneNumberResult}"/> object representing the asynchronous operation.</returns>
-        Task<PhoneNumberResult> ShowTaskAsync();
+        Task<PhoneNumberResult> ShowAsync();
 #endif
     }
 }

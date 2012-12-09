@@ -74,7 +74,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Launches and displays the <see cref="ChooserBase{TTaskEventArgs}"/>.
         /// </summary>
         /// <returns>The <see cref="Task{TTaskEventArgs}"/> object representing the asynchronous operation.</returns>
-        public Task<TTaskEventArgs> ShowTaskAsync()
+        public Task<TTaskEventArgs> ShowAsync()
         {
             _chooser.Show();
 
