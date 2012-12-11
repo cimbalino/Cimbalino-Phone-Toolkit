@@ -46,13 +46,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="showCamera">true if the user is presented with a button for launching the camera during the photo choosing process; otherwise, false.</param>
         /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
-        public override Task<PhotoResult> ShowTaskAsync(bool showCamera)
+        public override Task<PhotoResult> ShowAsync(bool showCamera)
         {
             return new ChooserHandler<PhotoResult>(new PhotoChooserTask()
             {
                 ShowCamera = showCamera
-            })
-                .ShowTaskAsync();
+            }).ShowAsync();
         }
 #endif
     }
