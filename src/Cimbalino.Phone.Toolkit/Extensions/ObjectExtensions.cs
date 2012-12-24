@@ -13,6 +13,8 @@
 // </license>
 // ****************************************************************************
 
+using System.Linq;
+
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
     /// <summary>
@@ -56,7 +58,11 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="args">An argument list for the invoked method or constructor.</param>
         public static void InvokeMethod(this object obj, string methodName, params object[] args)
         {
-            obj.GetType().GetMethod(methodName).Invoke(obj, args);
+            var argumentTypes = args
+                .Select(x => x.GetType())
+                .ToArray();
+            
+            obj.GetType().GetMethod(methodName,argumentTypes).Invoke(obj, args);
         }
 
         /// <summary>
@@ -69,7 +75,11 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <typeparam name="TObject">The object type.</typeparam>
         public static TObject InvokeMethod<TObject>(this object obj, string methodName, params object[] args)
         {
-            return (TObject)obj.GetType().GetMethod(methodName).Invoke(obj, args);
+            var argumentTypes = args
+                .Select(x => x.GetType())
+                .ToArray();
+
+            return (TObject)obj.GetType().GetMethod(methodName, argumentTypes).Invoke(obj, args);
         }
     }
 }
