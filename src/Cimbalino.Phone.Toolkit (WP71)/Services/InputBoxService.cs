@@ -96,7 +96,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the specified text and awaits for the user to reply.
         /// </summary>
         /// <param name="text">The message to display.</param>
-        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public Task<string> ShowAsync(string text)
         {
             return ShowAsync(text, null, null, false);
@@ -107,7 +107,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the input box.</param>
-        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public Task<string> ShowAsync(string text, string caption)
         {
             return ShowAsync(text, caption, null, false);
@@ -119,7 +119,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the input box.</param>
         /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
-        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public Task<string> ShowAsync(string text, string caption, bool usePasswordMode)
         {
             return ShowAsync(text, caption, null, usePasswordMode);
@@ -131,7 +131,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the input box.</param>
         /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
-        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public Task<string> ShowAsync(string text, string caption, string defaultText)
         {
             return ShowAsync(text, caption, defaultText, false);
@@ -144,17 +144,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="caption">The title of the input box.</param>
         /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
         /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
-        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public Task<string> ShowAsync(string text, string caption, string defaultText, bool usePasswordMode)
         {
             var taskCompletionSource = new TaskCompletionSource<string>();
 
-            Guide.BeginShowKeyboardInput(PlayerIndex.One, caption, text, defaultText, ar =>
-            {
-                text = Guide.EndShowKeyboardInput(ar);
-
-                Deployment.Current.Dispatcher.BeginInvoke(() => taskCompletionSource.SetResult(text));
-            }, null, usePasswordMode);
+            Show(text, caption, defaultText, usePasswordMode, taskCompletionSource.SetResult);
 
             return taskCompletionSource.Task;
         }

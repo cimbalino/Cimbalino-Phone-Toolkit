@@ -15,6 +15,9 @@
 
 using System.IO;
 using System.Security.Cryptography;
+#if WP8
+using System.Threading.Tasks;
+#endif
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -95,5 +98,29 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                 return hash.ComputeHash(input);
             }
         }
+
+#if WP8
+        /// <summary>
+        /// Writes the stream contents to a byte array.
+        /// </summary>
+        /// <param name="input">The input stream.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static async Task<byte[]> ToArrayAsync(this Stream input)
+        {
+            var memoryStream = input as MemoryStream;
+
+            if (memoryStream != null)
+            {
+                return memoryStream.ToArray();
+            }
+
+            using (memoryStream = new MemoryStream())
+            {
+                await input.CopyToAsync(memoryStream);
+
+                return memoryStream.ToArray();
+            }
+        }
+#endif
     }
 }

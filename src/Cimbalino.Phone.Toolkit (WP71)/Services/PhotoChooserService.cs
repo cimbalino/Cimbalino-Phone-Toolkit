@@ -50,7 +50,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Shows the Photo Chooser application.
         /// </summary>
-        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public Task<PhotoResult> ShowAsync()
         {
             return new ChooserHandler<PhotoResult>(new PhotoChooserTask())
@@ -61,7 +61,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the Photo Chooser application, optionally presenting a button for launching the camera.
         /// </summary>
         /// <param name="showCamera">true if the user is presented with a button for launching the camera during the photo choosing process; otherwise, false.</param>
-        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public virtual Task<PhotoResult> ShowAsync(bool showCamera)
         {
             throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");

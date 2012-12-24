@@ -15,6 +15,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -43,7 +44,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <returns>A string array containing all lines of the stream.</returns>
         public static string[] ReadAllLines(this StreamReader streamReader)
         {
-            return new List<string>(streamReader.ReadLines()).ToArray();
+            return streamReader.ReadLines().ToArray();
         }
     }
 }

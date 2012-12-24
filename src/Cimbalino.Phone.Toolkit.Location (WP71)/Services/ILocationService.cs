@@ -94,14 +94,14 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Gets the current location.
         /// </summary>
-        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<GeoCoordinate> GetCurrentLocationTaskAsync();
 
         /// <summary>
         /// Gets the current location, using the specified accuracy.
         /// </summary>
         /// <param name="accuracy">The desired accuracy.</param>
-        /// <returns>The <see cref="Task{PhotoResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<GeoCoordinate> GetCurrentLocationTaskAsync(GeoPositionAccuracy accuracy);
 #endif
     }

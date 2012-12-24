@@ -65,7 +65,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the message box.</param>
         /// <param name="buttons">The captions for message box buttons. The maximum number of buttons is two.</param>
-        /// <returns>The <see cref="Task{EmailResult}"/> object representing the asynchronous operation.</returns>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<int> ShowAsync(string text, string caption, IEnumerable<string> buttons);
 #endif
     }
