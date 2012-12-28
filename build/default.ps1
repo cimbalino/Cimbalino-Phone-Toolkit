@@ -21,6 +21,7 @@ properties {
     @{Name = "Cimbalino.Phone.Toolkit.Controls"},
     @{Name = "Cimbalino.Phone.Toolkit.DeviceInfo"},
     @{Name = "Cimbalino.Phone.Toolkit.Location"},
+    @{Name = "Cimbalino.Phone.Toolkit.MediaLibrary"},
     @{Name = "Cimbalino.Phone.Toolkit.PhoneDialer"},
     @{Name = "Cimbalino.Phone.Toolkit.UserInfo"}
   )
