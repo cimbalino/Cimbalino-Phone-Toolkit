@@ -1,11 +1,11 @@
 ﻿// ****************************************************************************
-// <copyright file="IApplicationManifestService.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2011
+// <copyright file="ApplicationManifestLanguageNode.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>07-02-2012</date>
+// <date>26-12-2012</date>
 // <project>Cimbalino.Phone.Toolkit</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -13,19 +13,20 @@
 // </license>
 // ****************************************************************************
 
-using Cimbalino.Phone.Toolkit.Helpers;
+using System.Xml.Serialization;
 
-namespace Cimbalino.Phone.Toolkit.Services
+namespace Cimbalino.Phone.Toolkit.Helpers
 {
     /// <summary>
-    /// Represents a service capable of reading from the application manifest.
+    /// Represents a language in the application manifest.
     /// </summary>
-    public interface IApplicationManifestService
+    public class ApplicationManifestLanguageNode
     {
         /// <summary>
-        /// Gets the application manifest for the active app.
+        /// Gets or sets the language code.
         /// </summary>
-        /// <returns>The application manifest for the active app.</returns>
-        ApplicationManifest GetApplicationManifest();
+        /// <value>The language code.</value>
+        [XmlAttribute]
+        public string Code { get; set; }
     }
 }

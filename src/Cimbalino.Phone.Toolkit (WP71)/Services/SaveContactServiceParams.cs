@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// The settings to be used when <see cref="M:SaveContactService.Show"/> is invoked.
+    /// The settings to be used when <see cref="SaveContactService.Show"/> is invoked.
     /// </summary>
     public class SaveContactServiceParams
     {

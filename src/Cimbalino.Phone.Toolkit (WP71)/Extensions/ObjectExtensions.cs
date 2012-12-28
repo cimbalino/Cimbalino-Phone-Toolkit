@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System;
 using System.Linq;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
@@ -22,6 +23,19 @@ namespace Cimbalino.Phone.Toolkit.Extensions
     /// </summary>
     public static class ObjectExtensions
     {
+        /// <summary>
+        /// Searches for the public property with the specified name and gets its value.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="propertyName">The name of the property.</param>
+        /// <returns>The requested property value.</returns>
+        public static object GetPropertyValue(this object obj, string propertyName)
+        {
+            var t = obj.GetType();
+
+            return t.GetProperty(propertyName).GetValue(obj, null);
+        }
+
         /// <summary>
         /// Searches for the public property with the specified name and gets its value.
         /// </summary>
@@ -61,8 +75,10 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             var argumentTypes = args
                 .Select(x => x.GetType())
                 .ToArray();
-            
-            obj.GetType().GetMethod(methodName,argumentTypes).Invoke(obj, args);
+
+            var t = obj.GetType();
+
+            t.GetMethod(methodName, argumentTypes).Invoke(obj, args);
         }
 
         /// <summary>
@@ -79,7 +95,41 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                 .Select(x => x.GetType())
                 .ToArray();
 
-            return (TObject)obj.GetType().GetMethod(methodName, argumentTypes).Invoke(obj, args);
+            var t = obj.GetType();
+
+            return (TObject)t.GetMethod(methodName, argumentTypes).Invoke(obj, args);
+        }
+
+        /// <summary>
+        /// Adds an event handler to an event source.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="target">The event source.</param>
+        /// <param name="handler">Encapsulation of a method or methods to be invoked when the event is raised by the target.</param>
+        /// <returns>Returns a <see cref="Delegate"/> to the attached event handler.</returns>
+        public static Delegate AddEventHandler(this object obj, string target, Delegate handler)
+        {
+            var t = obj.GetType();
+
+            var eventInfo = t.GetEvent(target);
+            var eventHandler = Delegate.CreateDelegate(eventInfo.EventHandlerType, handler.Target, handler.Method);
+
+            eventInfo.AddEventHandler(obj, eventHandler);
+
+            return eventHandler;
+        }
+
+        /// <summary>
+        /// Removes an event handler from an event source.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <param name="target">The event source.</param>
+        /// <param name="handler">The delegate to be unhooked from the event source.</param>
+        public static void RemoveEventHandler(this object obj, string target, Delegate handler)
+        {
+            var t = obj.GetType();
+
+            t.GetEvent(target).RemoveEventHandler(obj, handler);
         }
     }
 }

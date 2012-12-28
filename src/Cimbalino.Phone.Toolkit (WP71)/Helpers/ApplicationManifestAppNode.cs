@@ -1,0 +1,162 @@
+﻿// ****************************************************************************
+// <copyright file="ApplicationManifestAppNode.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2012
+// </copyright>
+// ****************************************************************************
+// <author>Pedro Lamas</author>
+// <email>pedrolamas@gmail.com</email>
+// <date>26-12-2012</date>
+// <project>Cimbalino.Phone.Toolkit</project>
+// <web>http://www.pedrolamas.com</web>
+// <license>
+// See license.txt in this solution or http://www.pedrolamas.com/license_MIT.txt
+// </license>
+// ****************************************************************************
+
+using System;
+using System.Xml.Serialization;
+
+namespace Cimbalino.Phone.Toolkit.Helpers
+{
+    /// <summary>
+    /// Represents the app detailed information in the application manifest.
+    /// </summary>
+    public class ApplicationManifestAppNode
+    {
+        /// <summary>
+        /// Gets or sets the app author’s name.
+        /// </summary>
+        /// <value>The app author’s name.</value>
+        [XmlAttribute]
+        public string Author { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bits per pixel of the app. 16 or 32 bits per pixel.
+        /// </summary>
+        /// <value>The bits per pixel of the app.</value>
+        [XmlAttribute]
+        public string BitsPerPixel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the description of the app.
+        /// </summary>
+        /// <value>The description of the app.</value>
+        [XmlAttribute]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the app genre. The default value is either Apps.Normal or Apps.Game depending on the project type.
+        /// </summary>
+        /// <value>The app genre.</value>
+        [XmlAttribute]
+        public string Genre { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the app supports settings.
+        /// </summary>
+        /// <value>true if the app supports settings; otherwise false.</value>
+        [XmlAttribute]
+        public bool HasSettings { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hub type of the app. Enables your app to appear in the Extras section of the Music + Videos Hub. It is used for testing before app submission, and must be manually entered in the manifest file. A value of 1 enables this functionality.
+        /// </summary>
+        /// <value>The hub type of the app.</value>
+        [XmlAttribute]
+        public int HubType { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the app is a beta app. This has consequences for the app license.
+        /// </summary>
+        /// <value>true if the app is a beta app; otherwise false.</value>
+        [XmlAttribute]
+        public bool IsBeta { get; set; }
+
+        /// <summary>
+        /// Gets or sets the app product id. The default value is the GUID for the project (128 bit). During the app submission process, a new product ID is inserted into the manifest file.
+        /// </summary>
+        /// <value>The app product id.</value>
+        [XmlAttribute("ProductID")]
+        public string ProductId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the publisher of the app. This default value is the name of the project. This attribute is required for certain types of apps, such as push-enabled apps.
+        /// </summary>
+        /// <value>The publisher of the app.</value>
+        [XmlAttribute]
+        public string Publisher { get; set; }
+
+        /// <summary>
+        /// Gets or sets the publisher id of the app. The default value is the GUID for the project (128 bit). During the app submission process, a new product ID is inserted into the manifest file.
+        /// </summary>
+        /// <value>The publisher id of the app.</value>
+        [XmlAttribute("PublisherID")]
+        public Guid PublisherId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the title of the app that appears in the app list or Games Hub. The default value is the name of the project.
+        /// </summary>
+        /// <value>The title of the app that appears in the app list or Games Hub.</value>
+        [XmlAttribute]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or sets the app version. The default value is 1.0.0.0.
+        /// </summary>
+        /// <value>The app version.</value>
+        [XmlAttribute("Version")]
+        public string Version { get; set; }
+
+        /// <summary>
+        /// Gets or sets the location of the app icon that is visible in the app list. The attributes are for internal use only.
+        /// </summary>
+        /// <value>The location of the app icon that is visible in the app list.</value>
+        [XmlElement]
+        public ApplicationManifestIconPathNode IconPath { get; set; }
+
+        /// <summary>
+        /// Gets or sets the software capability requirements of the app.
+        /// </summary>
+        /// <value>The software capabilities requirements of the app.</value>
+        [XmlElement]
+        public ApplicationManifestNamedNode Capabilities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the resolutions that the app supports.
+        /// </summary>
+        /// <value>The resolutions that the app supports.</value>
+        [XmlElement]
+        public ApplicationManifestNamedNode ScreenResolutions { get; set; }
+
+        /// <summary>
+        /// Gets or sets the hardware requirements of the app.
+        /// </summary>
+        /// <value>The hardware requirements of the app.</value>
+        [XmlElement]
+        public ApplicationManifestNamedNode Requirements { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tasks of the app.
+        /// </summary>
+        /// <value>The tasks of the app.</value>
+        [XmlArray("Tasks"), XmlArrayItem("DefaultTask")]
+        public ApplicationManifestTaskNode[] Tasks { get; set; }
+
+        /// <summary>
+        /// Gets or sets the tokens of the app.
+        /// </summary>
+        /// <value>The tokens of the app.</value>
+        [XmlArray("Tokens"), XmlArrayItem("PrimaryToken")]
+        public ApplicationManifestTokenNode[] Tokens { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationManifestAppNode"/> class.
+        /// </summary>
+        public ApplicationManifestAppNode()
+        {
+            Capabilities = new ApplicationManifestNamedNode();
+            ScreenResolutions = new ApplicationManifestNamedNode();
+            Requirements = new ApplicationManifestNamedNode();
+        }
+    }
+}

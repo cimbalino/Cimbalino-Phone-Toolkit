@@ -1,11 +1,11 @@
 ﻿// ****************************************************************************
-// <copyright file="IApplicationManifestService.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2011
+// <copyright file="IScreenshotService.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>07-02-2012</date>
+// <date>23-12-2012</date>
 // <project>Cimbalino.Phone.Toolkit</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -13,19 +13,16 @@
 // </license>
 // ****************************************************************************
 
-using Cimbalino.Phone.Toolkit.Helpers;
-
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of reading from the application manifest.
+    /// Represents a service capable of taking screenshots.
     /// </summary>
-    public interface IApplicationManifestService
+    public interface IScreenshotService
     {
         /// <summary>
-        /// Gets the application manifest for the active app.
+        /// Creates a screenshot image from the current screen.
         /// </summary>
-        /// <returns>The application manifest for the active app.</returns>
-        ApplicationManifest GetApplicationManifest();
+        void TakeScreenshot();
     }
 }

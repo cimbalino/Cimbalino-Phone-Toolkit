@@ -19,9 +19,9 @@ using System.Windows.Interactivity;
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {
     /// <summary>
-    /// A BaseBehavior that ensures all resources are released when the <see cref="P:AssociatedObject"/> is unloaded or detached.
+    /// A BaseBehavior that ensures all resources are released when the <see cref="Behavior.AssociatedObject"/> is unloaded or detached.
     /// </summary>
-    /// <typeparam name="T">The <see cref="P:AssociatedObject"/> type.</typeparam>
+    /// <typeparam name="T">The <see cref="Behavior.AssociatedObject"/> type.</typeparam>
     public abstract class SafeBehavior<T> : Behavior<T>
         where T : FrameworkElement
     {

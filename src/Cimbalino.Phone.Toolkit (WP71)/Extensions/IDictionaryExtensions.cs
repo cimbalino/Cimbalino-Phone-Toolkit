@@ -24,7 +24,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
     public static class IDictionaryExtensions
     {
         /// <summary>
-        /// Applies the specified <see cref="T:Action{KeyValuePair{TKey, TValue}}"/> to the dictionary.
+        /// Applies the specified <see cref="Action{KeyValuePair}"/> to the dictionary.
         /// </summary>
         /// <param name="dictionary">The dictionary.</param>
         /// <param name="action">The action to apply.</param>

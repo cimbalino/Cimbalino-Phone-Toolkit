@@ -255,6 +255,27 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\StringExtensions.cs">
       <Link>Extensions\StringExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifest.cs">
+      <Link>Helpers\ApplicationManifest.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestAppNode.cs">
+      <Link>Helpers\ApplicationManifestAppNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestIconPathNode.cs">
+      <Link>Helpers\ApplicationManifestIconPathNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestLanguageNode.cs">
+      <Link>Helpers\ApplicationManifestLanguageNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestNamedNode.cs">
+      <Link>Helpers\ApplicationManifestNamedNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestTaskNode.cs">
+      <Link>Helpers\ApplicationManifestTaskNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestTokenNode.cs">
+      <Link>Helpers\ApplicationManifestTokenNode.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\LittleWatson.cs">
       <Link>Helpers\LittleWatson.cs</Link>
     </Compile>
@@ -366,6 +387,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISaveAppointmentService.cs">
       <Link>Services\ISaveAppointmentService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISaveContactService.cs">
+      <Link>Services\ISaveContactService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISaveEmailAddressService.cs">
       <Link>Services\ISaveEmailAddressService.cs</Link>
     </Compile>
@@ -444,6 +468,12 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SaveAppointmentServiceParams.cs">
       <Link>Services\SaveAppointmentServiceParams.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SaveContactService.cs">
+      <Link>Services\SaveContactService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SaveContactServiceParams.cs">
+      <Link>Services\SaveContactServiceParams.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SaveEmailAddressService.cs">
       <Link>Services\SaveEmailAddressService.cs</Link>
     </Compile>
@@ -504,6 +534,8 @@
     <Compile Include="Actions\SaveAppointmentAction.cs" />
     <Compile Include="Actions\ShareMediaAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AsyncStorageService.cs" />
+    <Compile Include="Services\IAsyncStorageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Themes\Generic.xaml">

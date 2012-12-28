@@ -66,14 +66,13 @@ namespace Cimbalino.Phone.Toolkit.Converters
             {
                 return stringValue;
             }
-            else if (ReplacementPattern == null)
+            
+            if (ReplacementPattern == null)
             {
                 return Regex.Match(stringValue, Pattern).Value;
             }
-            else
-            {
-                return Regex.Replace(stringValue, Pattern, ReplacementPattern);
-            }
+            
+            return Regex.Replace(stringValue, Pattern, ReplacementPattern);
         }
 
         /// <summary>

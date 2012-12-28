@@ -2,6 +2,7 @@
   <GlobalSettings>
     <CollectionProperty Name="RecognizedWords">
       <Value>bindable</Value>
+      <Value>cimbalino</Value>
       <Value>databinding</Value>
       <Value>tombstoned</Value>
     </CollectionProperty>

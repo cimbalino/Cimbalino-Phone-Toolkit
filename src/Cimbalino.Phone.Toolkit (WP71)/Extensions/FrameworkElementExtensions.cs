@@ -25,7 +25,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
     public static class FrameworkElementExtensions
     {
         /// <summary>
-        /// Resets the <see cref="FrameworkElement"/> language information with a <see cref="XmlLanguage"/> matching the <see cref="P:System.Threading.Thread.CurrentThread.CurrentCulture"/>.
+        /// Resets the <see cref="FrameworkElement"/> language information with a <see cref="XmlLanguage"/> matching the current <see cref="Thread.CurrentCulture"/>.
         /// </summary>
         /// <param name="frameworkElement">The framework element.</param>
         public static void ResetLanguageWithCurrentCulture(this FrameworkElement frameworkElement)

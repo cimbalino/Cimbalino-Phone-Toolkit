@@ -57,7 +57,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Gets a collection of query string values.
         /// </summary>
         /// <value>
-        /// Returns a <see cref="T:IDictionary{string,string}" /> collection that contains the query string values.
+        /// Returns a <see cref="IDictionary{String,String}" /> collection that contains the query string values.
         /// </value>
         public IDictionary<string, string> QueryString
         {
@@ -161,10 +161,8 @@ namespace Cimbalino.Phone.Toolkit.Services
                     {
                         return true;
                     }
-                    else
-                    {
-                        _mainFrame.Navigated += MainFrameNavigated;
-                    }
+                    
+                    _mainFrame.Navigated += MainFrameNavigated;
                 }
             }
 

@@ -19,7 +19,7 @@ using Microsoft.Phone.UserData;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// The settings to be used when <see cref="M:SaveAppointmentService.Show"/> is invoked.
+    /// The settings to be used when <see cref="SaveAppointmentService.Show"/> is invoked.
     /// </summary>
     public class SaveAppointmentServiceParams
     {

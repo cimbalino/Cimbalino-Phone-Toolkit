@@ -39,7 +39,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Applies the specified <see cref="T:Action{TResult, int}"/> to the enumerable.
+        /// Applies the specified <see cref="Action{TResult,Int32}"/> to the enumerable.
         /// </summary>
         /// <param name="source">The enumerable.</param>
         /// <param name="action">The action to apply.</param>
@@ -57,7 +57,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Returns a collection of the descendant elements for this enumerable, using the specified <see cref="T:Func{TResult, IEnumerable{TResult}}"/> function.
+        /// Returns a collection of the descendant elements for this enumerable, using the specified <see cref="Func{TResult,IEnumerable}"/> function.
         /// </summary>
         /// <param name="source">The enumerable.</param>
         /// <param name="descendBy">The function to use for descending.</param>

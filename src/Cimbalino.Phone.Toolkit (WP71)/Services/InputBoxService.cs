@@ -32,7 +32,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Shows the specified text and awaits for the user to reply.
         /// </summary>
         /// <param name="text">The message to display.</param>
-        /// <param name="textInputed">The <see cref="T:Action{string}" /> to be called once the operation is finished.</param>
+        /// <param name="textInputed">The <see cref="Action{String}" /> to be called once the operation is finished.</param>
         public void Show(string text, Action<string> textInputed)
         {
             Show(text, null, null, false, textInputed);
@@ -43,7 +43,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the input box.</param>
-        /// <param name="textInputed">The <see cref="T:Action{string}" /> to be called once the operation is finished.</param>
+        /// <param name="textInputed">The <see cref="Action{String}" /> to be called once the operation is finished.</param>
         public void Show(string text, string caption, Action<string> textInputed)
         {
             Show(text, caption, null, false, textInputed);
@@ -55,7 +55,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the input box.</param>
         /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
-        /// <param name="textInputed">The <see cref="T:Action{string}" /> to be called once the operation is finished.</param>
+        /// <param name="textInputed">The <see cref="Action{String}" /> to be called once the operation is finished.</param>
         public void Show(string text, string caption, bool usePasswordMode, Action<string> textInputed)
         {
             Show(text, caption, null, usePasswordMode, textInputed);
@@ -67,7 +67,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="text">The message to display.</param>
         /// <param name="caption">The title of the input box.</param>
         /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
-        /// <param name="textInputed">The <see cref="T:Action{string}" /> to be called once the operation is finished.</param>
+        /// <param name="textInputed">The <see cref="Action{String}" /> to be called once the operation is finished.</param>
         public void Show(string text, string caption, string defaultText, Action<string> textInputed)
         {
             Show(text, caption, defaultText, false, textInputed);
@@ -80,7 +80,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="caption">The title of the input box.</param>
         /// <param name="defaultText">The default text displayed in the input area when the interface dialog box is first shown.</param>
         /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
-        /// <param name="textInputed">The <see cref="T:Action{string}" /> to be called once the operation is finished.</param>
+        /// <param name="textInputed">The <see cref="Action{String}" /> to be called once the operation is finished.</param>
         public void Show(string text, string caption, string defaultText, bool usePasswordMode, Action<string> textInputed)
         {
             Guide.BeginShowKeyboardInput(PlayerIndex.One, caption, text, defaultText, ar =>
