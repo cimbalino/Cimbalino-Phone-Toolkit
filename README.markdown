@@ -13,6 +13,7 @@ The Toolkit is divided in projects, regarding different Windows Phone applicatio
 * __Cimbalino.Phone.Toolkit.Controls__ - Controls library (requires Silverlight for Windows Phone Toolkit)
 * __Cimbalino.Phone.Toolkit.DeviceInfo__ - MVVM compatible services for device information access
 * __Cimbalino.Phone.Toolkit.Location__ - MVVM compatible services for location access
+* __Cimbalino.Phone.Toolkit.MediaLibrary__ - MVVM compatible services for media library access
 * __Cimbalino.Phone.Toolkit.PhoneDialer__ - MVVM compatible services for phone dialer access
 * __Cimbalino.Phone.Toolkit.UserInfo__ - MVVM compatible services for user information access
 
