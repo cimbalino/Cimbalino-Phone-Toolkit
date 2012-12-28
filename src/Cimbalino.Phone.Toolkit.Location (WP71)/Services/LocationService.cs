@@ -58,7 +58,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Raises the <see cref="E:PositionChanged" /> event.
+        /// Raises the <see cref="GeoCoordinateWatcher.PositionChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="GeoPositionChangedEventArgs{GeoCoordinate}" /> instance containing the event data.</param>
         protected override void OnPositionChanged(GeoPositionChangedEventArgs<GeoCoordinate> e)
@@ -72,7 +72,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Raises the <see cref="E:StatusChanged" /> event.
+        /// Raises the <see cref="GeoCoordinateWatcher.StatusChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="System.Device.Location.GeoPositionStatusChangedEventArgs" /> instance containing the event data.</param>
         protected override void OnStatusChanged(GeoPositionStatusChangedEventArgs e)

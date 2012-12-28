@@ -85,7 +85,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Starts the acquisition of data from the location service, using the specified accuracy and movement threshold.
         /// </summary>
         /// <param name="accuracy">The desired accuracy.</param>
-        /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="E:PositionChanged" /> events.</param>
+        /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="GeoCoordinateWatcher.PositionChanged" /> events.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
             Justification = "The class will be disposed in another matter")]
         public void Start(GeoPositionAccuracy accuracy, double movementThreshold)
@@ -130,13 +130,13 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Processed the watcher <see cref="E:PositionChanged" /> event.
+        /// Processed the watcher <see cref="GeoCoordinateWatcher.PositionChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="GeoPositionChangedEventArgs{GeoCoordinate}" /> instance containing the event data.</param>
         protected abstract void OnPositionChanged(GeoPositionChangedEventArgs<GeoCoordinate> e);
 
         /// <summary>
-        /// Processes the watcher <see cref="E:StatusChanged" /> event.
+        /// Processes the watcher <see cref="GeoCoordinateWatcher.StatusChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="System.Device.Location.GeoPositionStatusChangedEventArgs" /> instance containing the event data.</param>
         protected abstract void OnStatusChanged(GeoPositionStatusChangedEventArgs e);
