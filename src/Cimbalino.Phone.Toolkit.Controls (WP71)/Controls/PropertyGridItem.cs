@@ -75,7 +75,7 @@ namespace Cimbalino.Phone.Toolkit.Controls
             }
             set
             {
-                if (!object.Equals(_value, value))
+                if (!Equals(_value, value))
                 {
                     _value = value;
 

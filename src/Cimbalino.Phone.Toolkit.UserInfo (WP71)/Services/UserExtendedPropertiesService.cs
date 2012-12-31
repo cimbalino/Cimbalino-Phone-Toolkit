@@ -36,10 +36,8 @@ namespace Cimbalino.Phone.Toolkit.Services
                 {
                     return anid.Substring(2, 32);
                 }
-                else
-                {
-                    return null;
-                }
+
+                return null;
             }
         }
 

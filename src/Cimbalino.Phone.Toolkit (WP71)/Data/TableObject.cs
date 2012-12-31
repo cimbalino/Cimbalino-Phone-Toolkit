@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace Cimbalino.Phone.Toolkit.Data
 {
@@ -79,18 +80,13 @@ namespace Cimbalino.Phone.Toolkit.Data
         /// <param name="propertyExpression">An expression identifying the property that changed.</param>
         protected virtual void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpression)
         {
-            if (propertyExpression == null)
-            {
-                return;
-            }
-
             var handler = PropertyChanged;
 
             if (handler != null)
             {
-                var body = propertyExpression.Body as MemberExpression;
+                var propertyName = GetPropertyName(propertyExpression);
 
-                handler(this, new PropertyChangedEventArgs(body.Member.Name));
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
@@ -117,19 +113,46 @@ namespace Cimbalino.Phone.Toolkit.Data
         /// <param name="propertyExpression">An expression identifying the property that is changing.</param>
         protected virtual void RaisePropertyChanging<T>(Expression<Func<T>> propertyExpression)
         {
-            if (propertyExpression == null)
-            {
-                return;
-            }
-
             var handler = PropertyChanging;
 
             if (handler != null)
             {
-                var body = propertyExpression.Body as MemberExpression;
+                var propertyName = GetPropertyName(propertyExpression);
 
-                handler(this, new PropertyChangingEventArgs(body.Member.Name));
+                handler(this, new PropertyChangingEventArgs(propertyName));
             }
+        }
+
+        /// <summary>
+        /// Extracts the name of a property from an expression.
+        /// </summary>
+        /// <typeparam name="T">The type of the property.</typeparam>
+        /// <param name="propertyExpression">An expression returning the property's name.</param>
+        /// <returns>The name of the property returned by the expression.</returns>
+        /// <exception cref="ArgumentNullException">If the expression is null.</exception>
+        /// <exception cref="ArgumentException">If the expression does not represent a property.</exception>
+        protected string GetPropertyName<T>(Expression<Func<T>> propertyExpression)
+        {
+            if (propertyExpression == null)
+            {
+                throw new ArgumentNullException("propertyExpression");
+            }
+
+            var body = propertyExpression.Body as MemberExpression;
+
+            if (body == null)
+            {
+                throw new ArgumentException("Invalid argument", "propertyExpression");
+            }
+
+            var property = body.Member as PropertyInfo;
+
+            if (property == null)
+            {
+                throw new ArgumentException("Argument is not a property", "propertyExpression");
+            }
+
+            return property.Name;
         }
 
         /// <summary>

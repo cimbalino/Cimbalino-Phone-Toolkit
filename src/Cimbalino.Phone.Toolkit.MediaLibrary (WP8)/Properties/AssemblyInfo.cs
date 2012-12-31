@@ -17,6 +17,7 @@ using System;
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
+using System.Windows.Markup;
 
 [assembly: AssemblyTitle("Cimbalino.Phone.Toolkit.MediaLibrary")]
 [assembly: AssemblyDescription("Cimbalino Windows Phone Toolkit")]
@@ -36,3 +37,6 @@ using System.Runtime.InteropServices;
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
 
 [assembly: CLSCompliant(true)]
+
+[assembly: XmlnsDefinition("http://cimbalino.org", "Cimbalino.Phone.Toolkit.Actions")]
+[assembly: XmlnsPrefix("http://cimbalino.org", "cimbalino")]

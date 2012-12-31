@@ -269,18 +269,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
             if (focusObj != null)
             {
-                if (focusObj is TextBox)
+                if (focusObj is TextBox || focusObj is PasswordBox)
                 {
-                    var binding = ((TextBox)focusObj).GetBindingExpression(TextBox.TextProperty);
-
-                    if (binding != null)
-                    {
-                        binding.UpdateSource();
-                    }
-                }
-                else if (focusObj is PasswordBox)
-                {
-                    var binding = ((PasswordBox)focusObj).GetBindingExpression(PasswordBox.PasswordProperty);
+                    var binding = ((FrameworkElement)focusObj).GetBindingExpression(PasswordBox.PasswordProperty);
 
                     if (binding != null)
                     {

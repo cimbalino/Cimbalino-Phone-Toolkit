@@ -20,9 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-
 using Cimbalino.Phone.Toolkit.Extensions;
-
 using Windows.Storage;
 
 namespace Cimbalino.Phone.Toolkit.Services

@@ -45,7 +45,7 @@ namespace Cimbalino.Phone.Toolkit.Services
                 {
                     screenshotBitmap.SaveJpeg(screenshotStream, screenshotBitmap.PixelWidth, screenshotBitmap.PixelHeight, 0, 100);
 
-                    var destinationFilename = new Guid().ToString() + ".jpg";
+                    var destinationFilename = new Guid() + ".jpg";
 
                     using (var mediaLibrary = new MediaLibrary())
                     {
