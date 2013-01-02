@@ -50,19 +50,14 @@ namespace Cimbalino.Phone.Toolkit.Services
             get
             {
 #if WP8
-                switch (Application.Current.Host.Content.ScaleFactor)
-                {
-                    case 100:
-                        return ScreenInfoServiceResolution.WVGA;
-                        
-                    case 150:
-                        return ScreenInfoServiceResolution.HD720p;
+                var scaleFactor = Application.Current.Host.Content.ScaleFactor;
 
-                    case 160:
-                        return ScreenInfoServiceResolution.WXGA;
+                if (Enum.IsDefined(typeof(ScreenInfoServiceResolution), scaleFactor))
+                {
+                    return (ScreenInfoServiceResolution)scaleFactor;
                 }
 
-                throw new InvalidOperationException("Unknown resolution");
+                return ScreenInfoServiceResolution.Unknown;
 #else
                 return ScreenInfoServiceResolution.WVGA;
 #endif

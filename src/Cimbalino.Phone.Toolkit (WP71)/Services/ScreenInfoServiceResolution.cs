@@ -21,18 +21,23 @@ namespace Cimbalino.Phone.Toolkit.Services
     public enum ScreenInfoServiceResolution
     {
         /// <summary>
-        /// The device has a WVGA (480x800) resolution.
+        /// The device has an unknown resolution.
         /// </summary>
-        WVGA,
+        Unknown = 0,
 
         /// <summary>
-        /// The device has a WXGA (768x1280) resolution.
+        /// The device has a WVGA (480x800) resolution.
         /// </summary>
-        WXGA,
+        WVGA = 100,
 
         /// <summary>
         /// The device has a HD 720p (720x1280) resolution.
         /// </summary>
-        HD720p
+        HD720p = 150,
+
+        /// <summary>
+        /// The device has a WXGA (768x1280) resolution.
+        /// </summary>
+        WXGA = 160
     }
 }
