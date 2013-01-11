@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cimbalino.Phone.Toolkit">
-      <HintPath>..\..\..\bin\binaries\Cimbalino.Phone.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\bin\binaries\WP71\Cimbalino.Phone.Toolkit\Cimbalino.Phone.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight.Extras.WP71">
       <HintPath>..\..\lib\GalaSoft.MvvmLight.Extras.WP71.dll</HintPath>
