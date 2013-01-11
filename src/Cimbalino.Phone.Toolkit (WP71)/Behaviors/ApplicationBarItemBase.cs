@@ -16,6 +16,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using Microsoft.Phone.Shell;
 
@@ -265,18 +266,31 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private void FocusedTextBoxUpdateSource()
         {
-            var focusObj = FocusManager.GetFocusedElement();
+            var focusedElement = FocusManager.GetFocusedElement();
 
-            if (focusObj != null)
+            if (focusedElement != null)
             {
-                if (focusObj is TextBox || focusObj is PasswordBox)
-                {
-                    var binding = ((FrameworkElement)focusObj).GetBindingExpression(PasswordBox.PasswordProperty);
+                BindingExpression binding = null;
 
-                    if (binding != null)
+                var focusedTextBox = focusedElement as TextBox;
+
+                if (focusedTextBox != null)
+                {
+                    binding = focusedTextBox.GetBindingExpression(TextBox.TextProperty);
+                }
+                else
+                {
+                    var focusedPasswordBox = focusedElement as PasswordBox;
+
+                    if (focusedPasswordBox != null)
                     {
-                        binding.UpdateSource();
+                        binding = focusedPasswordBox.GetBindingExpression(PasswordBox.PasswordProperty);
                     }
+                }
+
+                if (binding != null)
+                {
+                    binding.UpdateSource();
                 }
             }
         }
