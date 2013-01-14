@@ -59,7 +59,6 @@ namespace Cimbalino.Phone.Toolkit.Actions
             DependencyProperty.Register("Caption", typeof(string), typeof(MessageBoxAction), null);
 
         /// <summary>
-        [Category("Common")]
         /// Invokes the action.
         /// </summary>
         /// <param name="parameter">The parameter to the action. If the action does not require a parameter, the parameter may be set to a null reference.</param>
