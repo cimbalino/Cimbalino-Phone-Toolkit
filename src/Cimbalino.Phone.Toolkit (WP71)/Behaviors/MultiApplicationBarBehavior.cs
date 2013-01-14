@@ -49,6 +49,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets the <see cref="ApplicationBar"/> collection.
         /// </summary>
         /// <value>The <see cref="ApplicationBar"/> collection.</value>
+        [Category("Common")]
         public ApplicationBarCollection ApplicationBars
         {
             get { return (ApplicationBarCollection)GetValue(ApplicationBarsProperty); }
@@ -65,6 +66,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the index of the selected Application Bar.
         /// </summary>
         /// <value>the index of the selected Application Bar.</value>
+        [Category("Common")]
         public int SelectedIndex
         {
             get { return (int)GetValue(SelectedIndexProperty); }
@@ -93,6 +95,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets a value indicating whether the Application Bar is visible.
         /// </summary>
         /// <value>true if the Application Bar is visible; otherwise, false.</value>
+        [Category("Appearance")]
         public bool IsVisible
         {
             get { return (bool)GetValue(IsVisibleProperty); }

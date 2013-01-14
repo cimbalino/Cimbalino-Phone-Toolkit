@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
 
@@ -27,6 +28,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the message to display.
         /// </summary>
         /// <value>The message to display.</value>
+        [Category("Common")]
         public string Text
         {
             get { return (string)GetValue(TextProperty); }
@@ -43,6 +45,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the title of the message box.
         /// </summary>
         /// <value>The title of the message box.</value>
+        [Category("Common")]
         public string Caption
         {
             get { return (string)GetValue(CaptionProperty); }
@@ -56,6 +59,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
             DependencyProperty.Register("Caption", typeof(string), typeof(MessageBoxAction), null);
 
         /// <summary>
+        [Category("Common")]
         /// Invokes the action.
         /// </summary>
         /// <param name="parameter">The parameter to the action. If the action does not require a parameter, the parameter may be set to a null reference.</param>
