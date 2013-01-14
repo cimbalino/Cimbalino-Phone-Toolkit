@@ -13,9 +13,10 @@
 // </license>
 // ****************************************************************************
 
+using Microsoft.Phone.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
-using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {
@@ -28,6 +29,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the recipient list for the new SMS message.
         /// </summary>
         /// <value>The recipient list for the new SMS message.</value>
+        [Category("Common")]
         public string Recipient
         {
             get { return (string)GetValue(RecipientProperty); }
@@ -44,6 +46,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the body text of the new SMS message.
         /// </summary>
         /// <value>The body text of the new SMS message.</value>
+        [Category("Common")]
         public string Body
         {
             get { return (string)GetValue(BodyProperty); }

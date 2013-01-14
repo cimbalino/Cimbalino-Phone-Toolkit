@@ -17,6 +17,7 @@ using System;
 using System.Windows;
 using System.Windows.Interactivity;
 using Microsoft.Phone.Tasks;
+using System.ComponentModel;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {
@@ -29,6 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the title of the shared link.
         /// </summary>
         /// <value>The title of the shared link.</value>
+        [Category("Common")]
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
@@ -45,6 +47,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the message that will accompany the shared link.
         /// </summary>
         /// <value>The message that will accompany the shared link.</value>
+        [Category("Common")]
         public string Message
         {
             get { return (string)GetValue(MessageProperty); }
@@ -61,6 +64,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the URI of the link to be shared.
         /// </summary>
         /// <value>The URI of the link to be shared.</value>
+        [Category("Common")]
         public Uri LinkUri
         {
             get { return (Uri)GetValue(LinkUriProperty); }

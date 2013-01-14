@@ -13,9 +13,10 @@
 // </license>
 // ****************************************************************************
 
+using Microsoft.Phone.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
-using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {
@@ -28,6 +29,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the email address that can be saved to a contact.
         /// </summary>
         /// <value>The email address that can be saved to a contact.</value>
+        [Category("Common")]
         public string EmailAddress
         {
             get { return (string)GetValue(EmailAddressProperty); }
