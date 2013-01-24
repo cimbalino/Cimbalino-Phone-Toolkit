@@ -78,7 +78,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         {
             var element = (ApplicationBarIconButton)d;
 
-            element.Item.IconUri = (Uri)e.NewValue;
+            element.InternalItem.IconUri = (Uri)e.NewValue;
         }
     }
 }

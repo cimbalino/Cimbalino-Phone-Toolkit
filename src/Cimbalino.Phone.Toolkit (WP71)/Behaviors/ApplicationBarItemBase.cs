@@ -33,7 +33,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets the internal item.
         /// </summary>
         /// <value>The internal item.</value>
-        internal T Item { get; private set; }
+        internal T InternalItem { get; private set; }
 
         /// <summary>
         /// Gets or sets the parent <see cref="ApplicationBarItemCollectionBase{T}"/>.
@@ -49,9 +49,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="item">The internal item.</param>
         protected ApplicationBarItemBase(T item)
         {
-            Item = item;
-            Item.Text = Text;
-            Item.Click += Item_Click;
+            InternalItem = item;
+            InternalItem.Text = Text;
+            InternalItem.Click += InternalItemClick;
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
             var text = e.NewValue as string;
 
-            element.Item.Text = text;
+            element.InternalItem.Text = text;
         }
 
         /// <summary>
@@ -183,12 +183,12 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
             if (e.OldValue != null)
             {
-                ((ICommand)e.OldValue).CanExecuteChanged -= element.Command_CanExecuteChanged;
+                ((ICommand)e.OldValue).CanExecuteChanged -= element.CommandCanExecuteChanged;
             }
 
             if (e.NewValue != null)
             {
-                ((ICommand)e.NewValue).CanExecuteChanged += element.Command_CanExecuteChanged;
+                ((ICommand)e.NewValue).CanExecuteChanged += element.CommandCanExecuteChanged;
             }
 
             element.EnableDisableItem();
@@ -241,6 +241,30 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             }
         }
 
+        internal void InvokeClick()
+        {
+            FocusedTextBoxUpdateSource();
+
+            var eventHandler = Click;
+
+            if (eventHandler != null)
+            {
+                eventHandler(this, null);
+            }
+
+            var command = Command;
+
+            if (command != null)
+            {
+                var commandParameter = CommandParameterValue;
+
+                if (command.CanExecute(commandParameter))
+                {
+                    command.Execute(commandParameter);
+                }
+            }
+        }
+
         private void EnableDisableItem()
         {
             var isEnabled = IsEnabled;
@@ -253,7 +277,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
                 isEnabled = command.CanExecute(commandParameter);
             }
 
-            Item.IsEnabled = isEnabled;
+            InternalItem.IsEnabled = isEnabled;
         }
 
         private void UpdateApplicationBar()
@@ -295,33 +319,14 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             }
         }
 
-        private void Command_CanExecuteChanged(object sender, EventArgs e)
+        private void CommandCanExecuteChanged(object sender, EventArgs e)
         {
             EnableDisableItem();
         }
 
-        private void Item_Click(object sender, EventArgs e)
+        private void InternalItemClick(object sender, EventArgs e)
         {
-            FocusedTextBoxUpdateSource();
-
-            var eventHandler = Click;
-
-            if (eventHandler != null)
-            {
-                eventHandler(this, null);
-            }
-
-            var command = Command;
-
-            if (command != null)
-            {
-                var commandParameter = CommandParameterValue;
-
-                if (command.CanExecute(commandParameter))
-                {
-                    command.Execute(commandParameter);
-                }
-            }
+            InvokeClick();
         }
     }
 }

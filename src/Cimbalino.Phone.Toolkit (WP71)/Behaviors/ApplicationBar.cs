@@ -39,7 +39,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             Buttons = new ApplicationBarIconButtonCollection(InternalApplicationBar.Buttons);
             MenuItems = new ApplicationBarMenuItemCollection(InternalApplicationBar.MenuItems);
 
-            InternalApplicationBar.StateChanged += ApplicationBar_StateChanged;
+            InternalApplicationBar.StateChanged += ApplicationBarStateChanged;
         }
 
         /// <summary>
@@ -293,7 +293,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         public static readonly DependencyProperty StateChangedCommandProperty =
             DependencyProperty.Register("StateChangedCommand", typeof(ICommand), typeof(ApplicationBar), null);
 
-        private void ApplicationBar_StateChanged(object sender, ApplicationBarStateChangedEventArgs e)
+        private void ApplicationBarStateChanged(object sender, ApplicationBarStateChangedEventArgs e)
         {
             var eventHandler = StateChanged;
 

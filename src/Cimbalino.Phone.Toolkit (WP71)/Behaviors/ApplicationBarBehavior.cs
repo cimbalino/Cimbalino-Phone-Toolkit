@@ -39,7 +39,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             Buttons = new ApplicationBarIconButtonCollection(_applicationBar.Buttons);
             MenuItems = new ApplicationBarMenuItemCollection(_applicationBar.MenuItems);
 
-            _applicationBar.StateChanged += ApplicationBar_StateChanged;
+            _applicationBar.StateChanged += ApplicationBarStateChanged;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <remarks>Override this to hook up functionality to the AssociatedObject.</remarks>
         protected override void OnAttached()
         {
-            AssociatedObject.LayoutUpdated += AssociatedObject_LayoutUpdated;
+            AssociatedObject.LayoutUpdated += AssociatedObjectLayoutUpdated;
 
             base.OnAttached();
         }
@@ -310,12 +310,12 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         public static readonly DependencyProperty StateChangedCommandProperty =
             DependencyProperty.Register("StateChangedCommand", typeof(ICommand), typeof(ApplicationBarBehavior), null);
 
-        private void AssociatedObject_LayoutUpdated(object sender, EventArgs e)
+        private void AssociatedObjectLayoutUpdated(object sender, EventArgs e)
         {
             SetApplicationBar();
         }
 
-        private void ApplicationBar_StateChanged(object sender, ApplicationBarStateChangedEventArgs e)
+        private void ApplicationBarStateChanged(object sender, ApplicationBarStateChangedEventArgs e)
         {
             var eventHandler = StateChanged;
 
@@ -337,9 +337,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             }
         }
 
-        internal void SetApplicationBar()
+        private void SetApplicationBar()
         {
-            AssociatedObject.LayoutUpdated -= AssociatedObject_LayoutUpdated;
+            AssociatedObject.LayoutUpdated -= AssociatedObjectLayoutUpdated;
 
             if (DesignerProperties.IsInDesignTool)
             {

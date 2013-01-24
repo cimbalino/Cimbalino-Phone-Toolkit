@@ -105,6 +105,23 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         public static readonly DependencyProperty IsVisibleProperty =
             DependencyProperty.Register("Visible", typeof(bool), typeof(MultiApplicationBarBehavior), new PropertyMetadata(true, OnIsVisibleChanged));
 
+        internal ApplicationBar SelectedItem
+        {
+            get
+            {
+                var selectedIndex = SelectedIndex;
+
+                if (IsVisible && selectedIndex >= 0 && selectedIndex <= ApplicationBars.Count - 1)
+                {
+                    return ApplicationBars[selectedIndex];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         /// <summary>
         /// Called after the visible state of the Application Bar is changed.
         /// </summary>
@@ -138,16 +155,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
                 throw new Exception("This MultiApplicationBarBehavior element can only be attached to the LayoutRoot element");
             }
 
-            var selectedIndex = SelectedIndex;
+            var applicationBar = SelectedItem;
 
-            if (IsVisible && selectedIndex >= 0 && selectedIndex <= ApplicationBars.Count - 1)
-            {
-                page.ApplicationBar = ApplicationBars[selectedIndex].InternalApplicationBar;
-            }
-            else
-            {
-                page.ApplicationBar = null;
-            }
+            page.ApplicationBar = applicationBar == null ? null : applicationBar.InternalApplicationBar;
         }
     }
 }

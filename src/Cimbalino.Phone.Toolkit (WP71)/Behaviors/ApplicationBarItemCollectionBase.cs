@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using Microsoft.Phone.Shell;
@@ -53,21 +54,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
             _itemsList.Clear();
 
-            var itemCount = 0;
-
-            foreach (var item in this)
+            foreach (var item in GetVisibleItems())
             {
-                var internalItem = item.Item;
-
-                if (item.IsVisible)
-                {
-                    _itemsList.Add(internalItem);
-
-                    if (++itemCount == _maxVisibleItems)
-                    {
-                        break;
-                    }
-                }
+                _itemsList.Add(item.InternalItem);
             }
         }
 
@@ -90,6 +79,24 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             }
 
             UpdateApplicationBar();
+        }
+
+        private IEnumerable<ApplicationBarItemBase<T>> GetVisibleItems()
+        {
+            var itemCount = 0;
+
+            foreach (var item in this)
+            {
+                if (item.IsVisible)
+                {
+                    yield return item;
+
+                    if (++itemCount == _maxVisibleItems)
+                    {
+                        yield break;
+                    }
+                }
+            }
         }
     }
 }
