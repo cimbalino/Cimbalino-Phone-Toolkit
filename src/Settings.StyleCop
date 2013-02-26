@@ -4,6 +4,7 @@
       <Value>bindable</Value>
       <Value>cimbalino</Value>
       <Value>databinding</Value>
+      <Value>namescope</Value>
       <Value>tombstoned</Value>
     </CollectionProperty>
   </GlobalSettings>
