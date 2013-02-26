@@ -1,16 +1,16 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:systemControls="clr-namespace:System.Windows.Controls;assembly=Cimbalino.Phone.Toolkit"
-    xmlns:localControls="clr-namespace:Cimbalino.Phone.Toolkit.Controls">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:localControls="clr-namespace:Cimbalino.Phone.Toolkit.Controls"
+                    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                    xmlns:systemControls="clr-namespace:System.Windows.Controls;assembly=Cimbalino.Phone.Toolkit"
+                    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
 
     <Style TargetType="localControls:PropertyGridItemContainer">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="localControls:PropertyGridItemContainer">
                     <StackPanel>
-                        <TextBlock Text="{Binding Name, Mode=OneTime}" Style="{StaticResource PhoneTextSubtleStyle}" />
+                        <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="{Binding Name, Mode=OneTime}" />
                         <ContentPresenter x:Name="ContentPresenter" Content="{Binding Mode=OneTime}">
                             <ContentPresenter.Resources>
                                 <localControls:EnumValueConverter x:Key="EnumValueConverter" />
@@ -18,7 +18,13 @@
                                 <localControls:PrimitiveValueConverter x:Key="PrimitiveValueConverter" />
 
                                 <DataTemplate x:Key="EnumPropertyDataTemplate">
-                                    <toolkit:ListPicker FullModeHeader="{Binding Name, Mode=OneTime}" ItemsSource="{Binding Value, Converter={StaticResource EnumValuesConverter}}" SelectedItem="{Binding Value, Converter={StaticResource EnumValueConverter}, Mode=TwoWay}" />
+                                    <toolkit:ListPicker FullModeHeader="{Binding Name,
+                                                                                 Mode=OneTime}"
+                                                        ItemsSource="{Binding Value,
+                                                                              Converter={StaticResource EnumValuesConverter}}"
+                                                        SelectedItem="{Binding Value,
+                                                                               Converter={StaticResource EnumValueConverter},
+                                                                               Mode=TwoWay}" />
                                 </DataTemplate>
 
                                 <DataTemplate x:Key="BoolPropertyDataTemplate">
@@ -32,7 +38,7 @@
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <toolkit:DatePicker Value="{Binding Value, Mode=TwoWay}" />
-                                        <toolkit:TimePicker Value="{Binding Value, Mode=TwoWay}" Grid.Column="1" />
+                                        <toolkit:TimePicker Grid.Column="1" Value="{Binding Value, Mode=TwoWay}" />
                                     </Grid>
                                 </DataTemplate>
 
@@ -41,7 +47,7 @@
                                 </DataTemplate>
 
                                 <DataTemplate x:Key="ObjectPropertyDataTemplate">
-                                    <TextBox Text="{Binding Value, Converter={StaticResource PrimitiveValueConverter}, Mode=OneTime}" IsEnabled="False" />
+                                    <TextBox IsEnabled="False" Text="{Binding Value, Converter={StaticResource PrimitiveValueConverter}, Mode=OneTime}" />
                                 </DataTemplate>
                             </ContentPresenter.Resources>
                         </ContentPresenter>
@@ -55,32 +61,47 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <localControls:PropertyGridItemContainer Content="{Binding}" IsEnabled="{Binding IsWritable, Mode=OneTime}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+                    <localControls:PropertyGridItemContainer HorizontalAlignment="Stretch"
+                                                             HorizontalContentAlignment="Stretch"
+                                                             Content="{Binding}"
+                                                             IsEnabled="{Binding IsWritable,
+                                                                                 Mode=OneTime}" />
                 </DataTemplate>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="localControls:PropertyGrid">
-                    <toolkit:LongListMultiSelector x:Name="MainItemsControl" ItemTemplate="{TemplateBinding ItemTemplate}">
+                    <phone:LongListSelector x:Name="MainItemsControl" ItemTemplate="{TemplateBinding ItemTemplate}">
 
                         <toolkit:LongListMultiSelector.GroupHeaderTemplate>
                             <DataTemplate>
-                                <Border Background="{StaticResource PhoneAccentBrush}" Padding="{StaticResource PhoneTouchTargetOverhang}" Margin="{StaticResource PhoneTouchTargetOverhang}">
-                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Foreground="{StaticResource PhoneForegroundBrush}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
+                                <Border Margin="{StaticResource PhoneTouchTargetOverhang}"
+                                        Background="{StaticResource PhoneAccentBrush}"
+                                        Padding="{StaticResource PhoneTouchTargetOverhang}">
+                                    <TextBlock Foreground="{StaticResource PhoneForegroundBrush}"
+                                               Style="{StaticResource PhoneTextGroupHeaderStyle}"
+                                               Text="{Binding Name,
+                                                              Mode=OneTime}" />
                                 </Border>
                             </DataTemplate>
                         </toolkit:LongListMultiSelector.GroupHeaderTemplate>
 
                         <toolkit:LongListMultiSelector.GroupItemTemplate>
                             <DataTemplate>
-                                <Border HorizontalAlignment="Stretch" Background="{StaticResource PhoneAccentBrush}" Padding="{StaticResource PhoneTouchTargetOverhang}" Margin="{StaticResource PhoneTouchTargetOverhang}">
-                                    <TextBlock Text="{Binding Name, Mode=OneTime}" Foreground="{StaticResource PhoneForegroundBrush}" Style="{StaticResource PhoneTextGroupHeaderStyle}" />
+                                <Border Margin="{StaticResource PhoneTouchTargetOverhang}"
+                                        HorizontalAlignment="Stretch"
+                                        Background="{StaticResource PhoneAccentBrush}"
+                                        Padding="{StaticResource PhoneTouchTargetOverhang}">
+                                    <TextBlock Foreground="{StaticResource PhoneForegroundBrush}"
+                                               Style="{StaticResource PhoneTextGroupHeaderStyle}"
+                                               Text="{Binding Name,
+                                                              Mode=OneTime}" />
                                 </Border>
                             </DataTemplate>
                         </toolkit:LongListMultiSelector.GroupItemTemplate>
 
-                    </toolkit:LongListMultiSelector>
+                    </phone:LongListSelector>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
