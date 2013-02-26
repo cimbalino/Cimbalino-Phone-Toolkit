@@ -88,6 +88,7 @@
     <Compile Include="Behaviors\ApplicationBarMenuItemCollection.cs" />
     <Compile Include="Behaviors\MultiApplicationBarBehavior.cs" />
     <Compile Include="Behaviors\SafeBehavior.cs" />
+    <Compile Include="Converters\BooleanToBrushConverter.cs" />
     <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="Converters\ResolutionAwareUriConverter.cs" />
     <Compile Include="Converters\StringRegexConverter.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Helpers\ApplicationManifestNamedNode.cs" />
     <Compile Include="Helpers\ApplicationManifestTaskNode.cs" />
     <Compile Include="Helpers\ApplicationManifestTokenNode.cs" />
+    <Compile Include="Helpers\NamescopeBinding.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
     <Compile Include="Services\IMapDownloaderService.cs" />
     <Compile Include="Services\ISaveContactService.cs" />
