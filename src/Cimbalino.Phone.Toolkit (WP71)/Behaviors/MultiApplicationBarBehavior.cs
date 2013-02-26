@@ -143,16 +143,16 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private void Update()
         {
-            if (DesignerProperties.IsInDesignTool)
+            if (DesignerProperties.IsInDesignTool || AssociatedObject == null)
             {
                 return;
             }
 
-            var page = AssociatedObject.Parent as PhoneApplicationPage;
+            var page = AssociatedObject as PhoneApplicationPage ?? AssociatedObject.Parent as PhoneApplicationPage;
 
             if (page == null)
             {
-                throw new Exception("This MultiApplicationBarBehavior element can only be attached to the LayoutRoot element");
+                throw new Exception("This MultiApplicationBarBehavior element can only be attached to the Page or LayoutRoot elements");
             }
 
             var applicationBar = SelectedItem;

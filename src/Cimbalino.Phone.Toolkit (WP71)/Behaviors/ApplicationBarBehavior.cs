@@ -15,6 +15,8 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -312,6 +314,8 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private void AssociatedObjectLayoutUpdated(object sender, EventArgs e)
         {
+            AssociatedObject.LayoutUpdated -= AssociatedObjectLayoutUpdated;
+
             SetApplicationBar();
         }
 
@@ -339,18 +343,16 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private void SetApplicationBar()
         {
-            AssociatedObject.LayoutUpdated -= AssociatedObjectLayoutUpdated;
-
-            if (DesignerProperties.IsInDesignTool)
+            if (DesignerProperties.IsInDesignTool || AssociatedObject == null)
             {
                 return;
             }
 
-            var page = AssociatedObject.Parent as PhoneApplicationPage;
+            var page = AssociatedObject as PhoneApplicationPage ?? AssociatedObject.Parent as PhoneApplicationPage;
 
             if (page == null)
             {
-                throw new Exception("This ApplicationBarBehavior element can only be attached to the LayoutRoot element");
+                throw new Exception("This ApplicationBarBehavior element can only be attached to the Page or LayoutRoot element");
             }
 
             page.ApplicationBar = _applicationBar;
