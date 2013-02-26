@@ -1,75 +1,106 @@
-<phone:PhoneApplicationPage 
-    x:Class="BindableApplicationBar.View.MainPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:cimbalino="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
-    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:mvvmlight="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP71"
-    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
-    FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True"
-    DataContext="{Binding Main,Source={StaticResource Locator}}">
+<phone:PhoneApplicationPage x:Class="BindableApplicationBar.View.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:cimbalinoBehaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+                            xmlns:cimbalinoHelpers="clr-namespace:Cimbalino.Phone.Toolkit.Helpers;assembly=Cimbalino.Phone.Toolkit"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:mvvmlight="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP71"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+                            DataContext="{Binding Main,
+                                                  Source={StaticResource Locator}}"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            Orientation="Portrait"
+                            SupportedOrientations="Portrait"
+                            d:DesignHeight="696"
+                            d:DesignWidth="480"
+                            shell:SystemTray.IsVisible="True"
+                            mc:Ignorable="d">
+    <phone:PhoneApplicationPage.Resources>
+        <cimbalinoHelpers:NamescopeBinding x:Key="ItemsMultiselectList" Source="{Binding ElementName=ItemsMultiselectList}" />
+    </phone:PhoneApplicationPage.Resources>
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="BackKeyPress">
             <mvvmlight:EventToCommand Command="{Binding BackKeyPressCommand, Mode=OneTime}" PassEventArgsToCommand="True" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    <i:Interaction.Behaviors>
+        <cimbalinoBehaviors:MultiApplicationBarBehavior SelectedIndex="{Binding ApplicationBarSelectedIndex}">
+            <cimbalinoBehaviors:ApplicationBar>
+                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding AddItemCommand,
+                                                                               Mode=OneTime}"
+                                                             IconUri="/Images/appbar.add.rest.png"
+                                                             Text="add" />
+                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding EnableSelectionCommand,
+                                                                               Mode=OneTime}"
+                                                             IconUri="/Images/appbar.manage.rest.png"
+                                                             Text="select" />
+                <cimbalinoBehaviors:ApplicationBar.MenuItems>
+                    <cimbalinoBehaviors:ApplicationBarMenuItem Command="{Binding AboutCommand, Mode=OneTime}" Text="about" />
+                </cimbalinoBehaviors:ApplicationBar.MenuItems>
+            </cimbalinoBehaviors:ApplicationBar>
+            <cimbalinoBehaviors:ApplicationBar>
+                <cimbalinoBehaviors:ApplicationBarIconButton Command="{Binding DeleteItemsCommand,
+                                                                               Mode=OneTime}"
+                                                             CommandParameter="{Binding Source.SelectedItems,
+                                                                                        Source={StaticResource ItemsMultiselectList}}"
+                                                             IconUri="/Images/appbar.delete.rest.png"
+                                                             Text="delete" />
+                <cimbalinoBehaviors:ApplicationBar.MenuItems>
+                    <cimbalinoBehaviors:ApplicationBarMenuItem Command="{Binding AboutCommand, Mode=OneTime}" Text="about" />
+                </cimbalinoBehaviors:ApplicationBar.MenuItems>
+            </cimbalinoBehaviors:ApplicationBar>
+        </cimbalinoBehaviors:MultiApplicationBarBehavior>
+    </i:Interaction.Behaviors>
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
+    <!--  LayoutRoot is the root grid where all page content is placed  -->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <i:Interaction.Behaviors>
-            <cimbalino:MultiApplicationBarBehavior SelectedIndex="{Binding ApplicationBarSelectedIndex}">
-                <cimbalino:ApplicationBar>
-                    <cimbalino:ApplicationBarIconButton Command="{Binding AddItemCommand, Mode=OneTime}" IconUri="/Images/appbar.add.rest.png" Text="add" />
-                    <cimbalino:ApplicationBarIconButton Command="{Binding EnableSelectionCommand, Mode=OneTime}" IconUri="/Images/appbar.manage.rest.png" Text="select" />
-                    <cimbalino:ApplicationBar.MenuItems>
-                        <cimbalino:ApplicationBarMenuItem Command="{Binding AboutCommand, Mode=OneTime}" Text="about" />
-                    </cimbalino:ApplicationBar.MenuItems>
-                </cimbalino:ApplicationBar>
-                <cimbalino:ApplicationBar>
-                    <cimbalino:ApplicationBarIconButton Command="{Binding DeleteItemsCommand, Mode=OneTime}" CommandParameter="{Binding SelectedItems, ElementName=ItemsMultiselectList}" IconUri="/Images/appbar.delete.rest.png" Text="delete" />
-                    <cimbalino:ApplicationBar.MenuItems>
-                        <cimbalino:ApplicationBarMenuItem Command="{Binding AboutCommand, Mode=OneTime}" Text="about" />
-                    </cimbalino:ApplicationBar.MenuItems>
-                </cimbalino:ApplicationBar>
-            </cimbalino:MultiApplicationBarBehavior>
-        </i:Interaction.Behaviors>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="CIMBALINO WINDOWS PHONE TOOLKIT" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="bindable application bar" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        <!--  TitlePanel contains the name of the application and page title  -->
+        <StackPanel x:Name="TitlePanel"
+                    Grid.Row="0"
+                    Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle"
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       Text="CIMBALINO WINDOWS PHONE TOOLKIT" />
+            <TextBlock x:Name="PageTitle"
+                       Margin="9,-7,0,0"
+                       Style="{StaticResource PhoneTextTitle1Style}"
+                       Text="bindable application bar" />
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <toolkit:MultiselectList x:Name="ItemsMultiselectList" ItemsSource="{Binding Items}" IsSelectionEnabled="{Binding IsSelectionEnabled, Mode=TwoWay}">
+        <!--  ContentPanel - place additional content here  -->
+        <Grid x:Name="ContentPanel"
+              Grid.Row="1"
+              Margin="12,0,12,0">
+            <toolkit:MultiselectList x:Name="ItemsMultiselectList"
+                                     IsSelectionEnabled="{Binding IsSelectionEnabled,
+                                                                  Mode=TwoWay}"
+                                     ItemsSource="{Binding Items}">
                 <toolkit:MultiselectList.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding}" Margin="0,16" Style="{StaticResource PhoneTextTitle3Style}" />
+                        <TextBlock Margin="0,16"
+                                   Style="{StaticResource PhoneTextTitle3Style}"
+                                   Text="{Binding}" />
                     </DataTemplate>
                 </toolkit:MultiselectList.ItemTemplate>
             </toolkit:MultiselectList>
         </Grid>
     </Grid>
 
-    <!--Sample code showing usage of ApplicationBar-->
+    <!--  Sample code showing usage of ApplicationBar  -->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" />
+        <shell:ApplicationBar IsMenuEnabled="True" IsVisible="True" />
     </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>
