@@ -32,8 +32,8 @@ using System.Windows.Markup;
 
 [assembly: Guid("26d5f3a0-4452-492b-8318-3f8a21af0c27")]
 
-[assembly: AssemblyVersion("2.0.1.0")]
-[assembly: AssemblyFileVersion("2.0.1.0")]
+[assembly: AssemblyVersion("2.1")]
+[assembly: AssemblyFileVersion("2.1")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
 
 [assembly: CLSCompliant(true)]
