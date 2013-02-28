@@ -80,7 +80,11 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         {
             var element = (ApplicationBarIconButton)d;
 
+<<<<<<< HEAD
             element.InternalItem.IconUri = (Uri)e.NewValue;
+=======
+            element.Item.IconUri = (Uri)e.NewValue;
+>>>>>>> 8109a57b2faf6d6dce4ff9fd922cb8319f1cd379
         }
     }
 }

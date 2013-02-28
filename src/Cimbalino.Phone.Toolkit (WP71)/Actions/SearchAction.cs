@@ -13,9 +13,10 @@
 // </license>
 // ****************************************************************************
 
+using Microsoft.Phone.Tasks;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
-using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {
@@ -28,6 +29,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the search query that the Web Search application will use when it is launched.
         /// </summary>
         /// <value>The search query that the Web Search application will use when it is launched.</value>
+        [Category("Common")]
         public string SearchQuery
         {
             get { return (string)GetValue(SearchQueryProperty); }
