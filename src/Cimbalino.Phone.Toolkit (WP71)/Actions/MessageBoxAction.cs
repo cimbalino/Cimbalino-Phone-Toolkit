@@ -56,27 +56,19 @@ namespace Cimbalino.Phone.Toolkit.Actions
             DependencyProperty.Register("Caption", typeof(string), typeof(MessageBoxAction), null);
 
         /// <summary>
-        /// Gets or sets the value that indicates the button or buttons to display.
-        /// </summary>
-        /// <value>The value that indicates the button or buttons to display.</value>
-        public MessageBoxButton Button
-        {
-            get { return (MessageBoxButton)GetValue(ButtonProperty); }
-            set { SetValue(ButtonProperty, value); }
-        }
-
-        /// <summary>
-        /// Identifier for the <see cref="Button" /> dependency property.
-        /// </summary>
-        public static readonly DependencyProperty ButtonProperty =
-            DependencyProperty.Register("Button", typeof(MessageBoxButton), typeof(MessageBoxAction), null);
-
-        /// <summary>
         /// Invokes the action.
         /// </summary>
         /// <param name="parameter">The parameter to the action. If the action does not require a parameter, the parameter may be set to a null reference.</param>
         protected override void Invoke(object parameter)
         {
+            if (!string.IsNullOrEmpty(Caption))
+            {
+                MessageBox.Show(Text);
+            }
+            else
+            {
+                MessageBox.Show(Text, Caption, MessageBoxButton.OK);
+            }
         }
     }
 }
