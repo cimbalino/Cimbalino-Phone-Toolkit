@@ -95,7 +95,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         public static IEnumerable<DependencyObject> GetVisualDescendents(this DependencyObject dependencyObject)
         {
             return dependencyObject.GetVisualChilds()
-                .Descendants(x => x.GetVisualDescendents());
+                .Descendants(x => x.GetVisualChilds());
         }
 
         /// <summary>
@@ -107,8 +107,8 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         public static IEnumerable<T> GetVisualDescendents<T>(this DependencyObject dependencyObject)
             where T : DependencyObject
         {
-            return dependencyObject.GetVisualChilds<T>()
-                .Descendants(x => x.GetVisualDescendents<T>());
+            return dependencyObject.GetVisualDescendents()
+                .OfType<T>();
         }
     }
 }
