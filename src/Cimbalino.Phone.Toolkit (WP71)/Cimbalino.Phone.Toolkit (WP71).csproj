@@ -110,6 +110,7 @@
     <Compile Include="Helpers\ApplicationManifestNamedNode.cs" />
     <Compile Include="Helpers\ApplicationManifestTaskNode.cs" />
     <Compile Include="Helpers\ApplicationManifestTokenNode.cs" />
+    <Compile Include="Helpers\MutexLock.cs" />
     <Compile Include="Helpers\NamescopeBinding.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
     <Compile Include="Services\IMapDownloaderService.cs" />
