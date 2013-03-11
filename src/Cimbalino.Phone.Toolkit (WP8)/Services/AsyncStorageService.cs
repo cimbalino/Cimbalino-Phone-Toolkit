@@ -30,7 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// </summary>
     public class AsyncStorageService : IAsyncStorageService
     {
-        private readonly StorageFolder _store = ApplicationData.Current.LocalFolder;
+        private static readonly StorageFolder Storage = ApplicationData.Current.LocalFolder;
 
         /// <summary>
         /// Copies an existing file to a new file.
@@ -52,10 +52,10 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task CopyFileAsync(string sourceFileName, string destinationFileName, bool overwrite)
         {
-            var file = await _store.GetFileAsync(sourceFileName);
+            var file = await Storage.GetFileAsync(sourceFileName);
 
             var destinationFolderName = Path.GetDirectoryName(destinationFileName);
-            var destinationFolder = await _store.GetFolderAsync(destinationFolderName);
+            var destinationFolder = await Storage.GetFolderAsync(destinationFolderName);
 
             destinationFileName = Path.GetFileName(destinationFileName);
 
@@ -71,7 +71,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task CreateDirectoryAsync(string dir)
         {
-            await _store.CreateFolderAsync(dir);
+            await Storage.CreateFolderAsync(dir);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<Stream> CreateFileAsync(string path)
         {
-            return await _store.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
+            return await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task DeleteDirectoryAsync(string dir)
         {
-            var folder = await _store.GetFolderAsync(dir);
+            var folder = await Storage.GetFolderAsync(dir);
 
             await folder.DeleteAsync();
         }
@@ -103,7 +103,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task DeleteFileAsync(string path)
         {
-            var file = await _store.GetFileAsync(path);
+            var file = await Storage.GetFileAsync(path);
 
             await file.DeleteAsync();
         }
@@ -118,7 +118,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             try
             {
-                var folder = await _store.GetFolderAsync(dir);
+                var folder = await Storage.GetFolderAsync(dir);
 
                 return folder != null;
             }
@@ -137,7 +137,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             try
             {
-                var file = await _store.GetFileAsync(path);
+                var file = await Storage.GetFileAsync(path);
 
                 return file != null;
             }
@@ -153,7 +153,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetDirectoryNamesAsync()
         {
-            var folders = await _store.GetFoldersAsync();
+            var folders = await Storage.GetFoldersAsync();
 
             return folders
                 .Select(x => x.Name)
@@ -167,7 +167,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetDirectoryNamesAsync(string searchPattern)
         {
-            var folders = await _store.GetFoldersAsync();
+            var folders = await Storage.GetFoldersAsync();
 
             var regexPattern = FilePatternToRegex(searchPattern);
 
@@ -183,7 +183,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetFileNamesAsync()
         {
-            var files = await _store.GetFoldersAsync();
+            var files = await Storage.GetFoldersAsync();
 
             return files
                 .Select(x => x.Name)
@@ -197,7 +197,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetFileNamesAsync(string searchPattern)
         {
-            var files = await _store.GetFilesAsync();
+            var files = await Storage.GetFilesAsync();
 
             var regexPattern = FilePatternToRegex(searchPattern);
 
@@ -214,7 +214,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<Stream> OpenFileForReadAsync(string path)
         {
-            return await _store.OpenStreamForReadAsync(path);
+            return await Storage.OpenStreamForReadAsync(path);
         }
 
         /// <summary>
@@ -410,7 +410,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllText(string path, string contents)
         {
-            using (var fileStream = await _store.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
@@ -428,7 +428,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllText(string path, string contents, Encoding encoding)
         {
-            using (var fileStream = await _store.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
             {
                 using (var streamWriter = new StreamWriter(fileStream, encoding))
                 {
@@ -445,7 +445,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllLines(string path, IEnumerable<string> contents)
         {
-            using (var fileStream = await _store.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
@@ -467,7 +467,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding)
         {
-            using (var fileStream = await _store.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
             {
                 using (var streamWriter = new StreamWriter(fileStream, encoding))
                 {

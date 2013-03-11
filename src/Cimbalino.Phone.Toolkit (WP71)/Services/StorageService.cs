@@ -26,7 +26,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// </summary>
     public class StorageService : IStorageService
     {
-        private readonly IsolatedStorageFile _store = IsolatedStorageFile.GetUserStoreForApplication();
+        private static readonly IsolatedStorageFile Storage = IsolatedStorageFile.GetUserStoreForApplication();
 
         /// <summary>
         /// Gets a value that represents the amount of free space available for storage.
@@ -36,7 +36,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                return _store.AvailableFreeSpace;
+                return Storage.AvailableFreeSpace;
             }
         }
 
@@ -48,7 +48,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                return _store.Quota;
+                return Storage.Quota;
             }
         }
 
@@ -59,7 +59,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="destinationFileName">The name of the destination file. This cannot be a directory or an existing file.</param>
         public void CopyFile(string sourceFileName, string destinationFileName)
         {
-            _store.CopyFile(sourceFileName, destinationFileName);
+            Storage.CopyFile(sourceFileName, destinationFileName);
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="overwrite">true if the destination file can be overwritten; otherwise, false.</param>
         public void CopyFile(string sourceFileName, string destinationFileName, bool overwrite)
         {
-            _store.CopyFile(sourceFileName, destinationFileName, overwrite);
+            Storage.CopyFile(sourceFileName, destinationFileName, overwrite);
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="dir">The relative path of the directory to create within the storage.</param>
         public void CreateDirectory(string dir)
         {
-            _store.CreateDirectory(dir);
+            Storage.CreateDirectory(dir);
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>A new storage file.</returns>
         public Stream CreateFile(string path)
         {
-            return _store.CreateFile(path);
+            return Storage.CreateFile(path);
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="dir">The relative path of the directory to delete within the storage scope.</param>
         public void DeleteDirectory(string dir)
         {
-            _store.DeleteDirectory(dir);
+            Storage.DeleteDirectory(dir);
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="path">The name of the file to be deleted. Wildcard characters are not supported.</param>
         public void DeleteFile(string path)
         {
-            _store.DeleteFile(path);
+            Storage.DeleteFile(path);
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public bool DirectoryExists(string dir)
         {
-            return _store.DirectoryExists(dir);
+            return Storage.DirectoryExists(dir);
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public bool FileExists(string path)
         {
-            return _store.FileExists(path);
+            return Storage.FileExists(path);
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public string[] GetDirectoryNames()
         {
-            return _store.GetDirectoryNames();
+            return Storage.GetDirectoryNames();
         }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public string[] GetDirectoryNames(string searchPattern)
         {
-            return _store.GetDirectoryNames(searchPattern);
+            return Storage.GetDirectoryNames(searchPattern);
         }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public string[] GetFileNames()
         {
-            return _store.GetFileNames();
+            return Storage.GetFileNames();
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public string[] GetFileNames(string searchPattern)
         {
-            return _store.GetFileNames(searchPattern);
+            return Storage.GetFileNames(searchPattern);
         }
 
         /// <summary>
@@ -187,7 +187,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>true if the new quota is accepted by the user, otherwise, false.</returns>
         public bool IncreaseQuotaTo(long newQuotaSize)
         {
-            return _store.IncreaseQuotaTo(newQuotaSize);
+            return Storage.IncreaseQuotaTo(newQuotaSize);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="destinationDirectoryName">The path to the new location for sourceDirectoryName. This cannot be the path to an existing directory.</param>
         public void MoveDirectory(string sourceDirectoryName, string destinationDirectoryName)
         {
-            _store.MoveDirectory(sourceDirectoryName, destinationDirectoryName);
+            Storage.MoveDirectory(sourceDirectoryName, destinationDirectoryName);
         }
 
         /// <summary>
@@ -207,7 +207,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="destinationFileName">The path to the new location for the file. If a file name is included, the moved file will have that name.</param>
         public void MoveFile(string sourceFileName, string destinationFileName)
         {
-            _store.MoveFile(sourceFileName, destinationFileName);
+            Storage.MoveFile(sourceFileName, destinationFileName);
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public Stream OpenFile(string path, FileMode mode)
         {
-            return _store.OpenFile(path, mode);
+            return Storage.OpenFile(path, mode);
         }
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public Stream OpenFile(string path, FileMode mode, FileAccess access)
         {
-            return _store.OpenFile(path, mode, access);
+            return Storage.OpenFile(path, mode, access);
         }
 
         /// <summary>
@@ -249,7 +249,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public Stream OpenFile(string path, FileMode mode, FileAccess access, FileShare share)
         {
-            return _store.OpenFile(path, mode, access, share);
+            return Storage.OpenFile(path, mode, access, share);
         }
 
         /// <summary>
@@ -259,7 +259,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>A string containing all lines of the file.</returns>
         public string ReadAllText(string path)
         {
-            return _store.ReadAllText(path);
+            return Storage.ReadAllText(path);
         }
 
         /// <summary>
@@ -270,7 +270,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>A string containing all lines of the file.</returns>
         public string ReadAllText(string path, Encoding encoding)
         {
-            return _store.ReadAllText(path, encoding);
+            return Storage.ReadAllText(path, encoding);
         }
 
         /// <summary>
@@ -280,7 +280,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The lines of the file.</returns>
         public IEnumerable<string> ReadLines(string path)
         {
-            return _store.ReadLines(path);
+            return Storage.ReadLines(path);
         }
 
         /// <summary>
@@ -291,7 +291,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The lines of the file.</returns>
         public IEnumerable<string> ReadLines(string path, Encoding encoding)
         {
-            return _store.ReadLines(path, encoding);
+            return Storage.ReadLines(path, encoding);
         }
 
         /// <summary>
@@ -301,7 +301,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>A string array containing all lines of the file.</returns>
         public string[] ReadAllLines(string path)
         {
-            return _store.ReadAllLines(path);
+            return Storage.ReadAllLines(path);
         }
 
         /// <summary>
@@ -312,7 +312,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>A string array containing all lines of the file.</returns>
         public string[] ReadAllLines(string path, Encoding encoding)
         {
-            return _store.ReadAllLines(path, encoding);
+            return Storage.ReadAllLines(path, encoding);
         }
 
         /// <summary>
@@ -324,7 +324,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </returns>
         public byte[] ReadAllBytes(string path)
         {
-            return _store.ReadAllBytes(path);
+            return Storage.ReadAllBytes(path);
         }
 
         /// <summary>
@@ -334,7 +334,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="contents">The string to write to the file.</param>
         public void WriteAllText(string path, string contents)
         {
-            _store.WriteAllText(path, contents);
+            Storage.WriteAllText(path, contents);
         }
 
         /// <summary>
@@ -345,7 +345,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="encoding">The encoding to apply to the string.</param>
         public void WriteAllText(string path, string contents, Encoding encoding)
         {
-            _store.WriteAllText(path, contents, encoding);
+            Storage.WriteAllText(path, contents, encoding);
         }
 
         /// <summary>
@@ -355,7 +355,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="contents">The lines to write to the file.</param>
         public void WriteAllLines(string path, IEnumerable<string> contents)
         {
-            _store.WriteAllLines(path, contents);
+            Storage.WriteAllLines(path, contents);
         }
 
         /// <summary>
@@ -366,7 +366,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="encoding">The character encoding to use.</param>
         public void WriteAllLines(string path, IEnumerable<string> contents, Encoding encoding)
         {
-            _store.WriteAllLines(path, contents, encoding);
+            Storage.WriteAllLines(path, contents, encoding);
         }
 
         /// <summary>
@@ -376,7 +376,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="bytes">The bytes to write to the file.</param>
         public void WriteAllBytes(string path, byte[] bytes)
         {
-            _store.WriteAllBytes(path, bytes);
+            Storage.WriteAllBytes(path, bytes);
         }
 
         /// <summary>
@@ -386,7 +386,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="contents">The string to append to the file.</param>
         public void AppendAllText(string path, string contents)
         {
-            _store.AppendAllText(path, contents);
+            Storage.AppendAllText(path, contents);
         }
 
         /// <summary>
@@ -397,7 +397,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="encoding">The character encoding to use.</param>
         public void AppendAllText(string path, string contents, Encoding encoding)
         {
-            _store.AppendAllText(path, contents, encoding);
+            Storage.AppendAllText(path, contents, encoding);
         }
 
         /// <summary>
@@ -407,7 +407,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="contents">The lines to append to the file.</param>
         public void AppendAllLines(string path, IEnumerable<string> contents)
         {
-            _store.AppendAllLines(path, contents);
+            Storage.AppendAllLines(path, contents);
         }
 
         /// <summary>
@@ -418,7 +418,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="encoding">The character encoding to use.</param>
         public void AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding)
         {
-            _store.AppendAllLines(path, contents, encoding);
+            Storage.AppendAllLines(path, contents, encoding);
         }
     }
 }
