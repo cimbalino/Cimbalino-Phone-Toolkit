@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -102,6 +103,35 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             }
 
             yield return element;
+        }
+
+        /// <summary>
+        /// Produces a sequence containing the current elements randomly shuffled.
+        /// </summary>
+        /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
+        /// <param name="source">The enumerable.</param>
+        /// <returns>A sequence containing the current elements randomly shuffled.</returns>
+        public static IEnumerable<TResult> Shuffle<TResult>(this IEnumerable<TResult> source)
+        {
+            var random = new Random();
+
+            return source
+                .OrderBy(x => random.Next());
+        }
+
+        /// <summary>
+        /// Produces a sequence containing the current elements randomly shuffled, using the specified seed to calculate a starting value for the pseudo-random number sequence.
+        /// </summary>
+        /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
+        /// <param name="source">The enumerable.</param>
+        /// <param name="seed">A number used to calculate a starting value for the pseudo-random number sequence. If a negative number is specified, the absolute value of the number is used.</param>
+        /// <returns>A sequence containing the current elements randomly shuffled.</returns>
+        public static IEnumerable<TResult> Shuffle<TResult>(this IEnumerable<TResult> source, int seed)
+        {
+            var random = new Random(seed);
+
+            return source
+                .OrderBy(x => random.Next());
         }
     }
 }
