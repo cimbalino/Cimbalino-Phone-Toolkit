@@ -103,6 +103,7 @@
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
+    <Compile Include="Extensions\UriExtensions.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />
     <Compile Include="Helpers\ApplicationManifestAppNode.cs" />
     <Compile Include="Helpers\ApplicationManifestIconPathNode.cs" />
