@@ -16,7 +16,7 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Describes the application profile mode
+    /// Describes the application profile mode.
     /// </summary>
     public enum ApplicationProfileServiceMode
     {

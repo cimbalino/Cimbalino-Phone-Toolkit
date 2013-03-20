@@ -14,6 +14,7 @@ properties {
   
   $nuget = "$toolsDir\nuget\nuget.exe"
   $7zip = "$toolsDir\7zip\7za.exe"
+  $vstest = "${Env:ProgramFiles(x86)}\Microsoft Visual Studio 11.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
   
   $projects = @(
     @{Name = "Cimbalino.Phone.Toolkit"},
@@ -104,6 +105,24 @@ task Build -depends Clean, Version -description "Build all projects and get the 
   }
 }
 
+task Test -depends Build -description "Run tests in the resulting assemblies" {
+  pushd $tempDir
+  
+  Exec { .$vstest "$tempDir\binaries\Cimbalino.Phone.Toolkit.Tests (WP8)\Cimbalino.Phone.Toolkit.Tests.xap" /Logger:trx /InIsolation } "Error running tests"
+  
+  popd
+  
+  Get-ChildItem $tempDir\TestResults\*.trx | % {
+    $filename = $_.FullName
+    [xml]$trx = Get-Content $filename
+  
+    if (($trx.TestRun.ResultSummary.outcome -ne "Completed") -or ($trx.TestRun.ResultSummary.Counters.failed -ne "0"))
+    {
+      throw
+    }
+  }
+}
+
 task PackZip -depends Build -description "Create a zip file with the resulting assemblies" {
   $tempZipDir = "$tempDir\zip"
   
@@ -116,7 +135,7 @@ task PackZip -depends Build -description "Create a zip file with the resulting a
   Exec { .$7zip a -tzip "$zipDir\Cimbalino.Phone.Toolkit.$version.zip" "$tempZipDir\*" } "Error packaging $name"
 }
 
-task PackNuGet -depends Clean, Build -description "Create the NuGet packages" {
+task PackNuGet -depends Build -description "Create the NuGet packages" {
   $tempNupkgDir = "$tempDir\nupkg"
   
   New-Item -Path $nupkgDir -ItemType Directory | Out-Null

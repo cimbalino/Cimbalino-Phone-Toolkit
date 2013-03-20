@@ -27,7 +27,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
     [System.Windows.Markup.ContentProperty("Buttons")]
     public class ApplicationBar : DependencyObject
     {
-        internal IApplicationBar InternalApplicationBar { get; private set; }
+        internal readonly IApplicationBar InternalApplicationBar;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationBar" /> class.

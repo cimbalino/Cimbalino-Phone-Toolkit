@@ -28,11 +28,19 @@ namespace Cimbalino.Phone.Toolkit.Converters
     public class ResolutionAwareUriConverter : IValueConverter
     {
 #if WP8
-        private static readonly string _resolutionSuffix;
+        private readonly string _resolutionSuffix;
 
-        static ResolutionAwareUriConverter()
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResolutionAwareUriConverter" /> class.
+        /// </summary>
+        public ResolutionAwareUriConverter()
+            : this(Application.Current.Host.Content.ScaleFactor)
         {
-            switch (Application.Current.Host.Content.ScaleFactor)
+        }
+
+        internal ResolutionAwareUriConverter(int scaleFactor)
+        {
+            switch (scaleFactor)
             {
                 case 100:
                     _resolutionSuffix = ".Screen-WVGA";
