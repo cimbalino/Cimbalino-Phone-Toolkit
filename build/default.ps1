@@ -85,7 +85,7 @@ task Build -depends Clean, Version -description "Build all projects and get the 
   New-Item -Path $binariesDir -ItemType Directory | Out-Null
   New-Item -Path $tempBinariesDir -ItemType Directory | Out-Null
   
-  Exec { msbuild "/t:Clean;Build" /p:Configuration=Release /p:OutDir=$tempBinariesDir /p:GenerateProjectSpecificOutputFolder=true /m "$sourceDir\Cimbalino.Phone.Toolkit.sln" } "Error building $solutionFile"
+  Exec { msbuild "/t:Clean;Build" /p:Configuration=Release /p:OutDir=$tempBinariesDir /p:GenerateProjectSpecificOutputFolder=true /p:StyleCopTreatErrorsAsWarnings=false /m "$sourceDir\Cimbalino.Phone.Toolkit.sln" } "Error building $solutionFile"
   
   $configurations | % {
     $configName = $_.Name
