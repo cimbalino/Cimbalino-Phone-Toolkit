@@ -133,5 +133,42 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             return source
                 .OrderBy(x => random.Next());
         }
+
+        /// <summary>
+        /// Produces a sequence containing batches of the current elements with the specified size.
+        /// </summary>
+        /// <param name="source">The enumerable.</param>
+        /// <param name="batchSize">The batch size.</param>
+        /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
+        /// <returns>A sequence containing batches of the current elements with the specified size.</returns>
+        /// <exception cref="ArgumentException">If the batch size is below 1.</exception>
+        public static IEnumerable<IEnumerable<TResult>> Batch<TResult>(this IEnumerable<TResult> source, int batchSize)
+        {
+            if (batchSize < 1)
+            {
+                throw new ArgumentException("Batch size must be greater or equal to 1", "batchSize");
+            }
+
+            var buffer = new List<TResult>();
+
+            foreach (var item in source)
+            {
+                buffer.Add(item);
+
+                if (buffer.Count == batchSize)
+                {
+                    yield return buffer
+                        .ToArray();
+
+                    buffer.Clear();
+                }
+            }
+
+            if (buffer.Count > 0)
+            {
+                yield return buffer
+                    .ToArray();
+            }
+        }
     }
 }

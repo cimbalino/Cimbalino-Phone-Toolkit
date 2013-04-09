@@ -88,6 +88,7 @@
     <Compile Include="Tests\Converters\StringToLowercaseConverterTests.cs" />
     <Compile Include="Tests\Converters\StringToUppercaseConverterTests.cs" />
     <Compile Include="Tests\Converters\StringToVisibilityConverterTests.cs" />
+    <Compile Include="Tests\Extensions\IEnumerableExtensionsTests.cs" />
     <Compile Include="Tests\UIDataTestMethodAttribute.cs" />
     <Compile Include="Tests\UITestMethodAttribute.cs" />
     <Compile Include="Tests\Extensions\EnumExtensionsTests.cs" />
