@@ -14,6 +14,9 @@
 // ****************************************************************************
 
 using System;
+#if WP8
+using System.Threading.Tasks;
+#endif
 using System.Windows.Threading;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
@@ -42,28 +45,53 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="action">The <see cref="Action"/> to execute.</param>
         public static void BeginInvokeAfterTimeout(this Dispatcher dispatcher, TimeSpan timeout, Action action)
         {
-            if (!dispatcher.CheckAccess())
+            var dispatcherTimer = new DispatcherTimer()
             {
-                dispatcher.BeginInvoke(() => dispatcher.BeginInvokeAfterTimeout(timeout, action));
-            }
-            else
+                Interval = timeout
+            };
+
+            EventHandler timerTickEventHandler = null;
+
+            timerTickEventHandler = (s, e) =>
             {
-                var dispatcherTimer = new DispatcherTimer()
-                {
-                    Interval = timeout
-                };
+                dispatcherTimer.Tick -= timerTickEventHandler;
 
-                dispatcherTimer.Tick += (s, e) =>
-                {
-                    dispatcherTimer.Stop();
+                dispatcherTimer.Stop();
 
-                    dispatcherTimer = null;
+                dispatcher.BeginInvoke(action);
+            };
 
-                    action();
-                };
+            dispatcherTimer.Tick += timerTickEventHandler;
 
-                dispatcherTimer.Start();
-            }
+            dispatcherTimer.Start();
         }
+
+#if WP8
+        /// <summary>
+        /// Retrieves a <see cref="TaskScheduler"/> instance for the thread the Dispatcher is associated with.
+        /// </summary>
+        /// <param name="dispatcher">The dispatcher instance.</param>
+        /// <returns>A <see cref="TaskScheduler"/> instance for the thread the Dispatcher is associated with.</returns>
+        public static Task<TaskScheduler> ToTaskSchedulerAsync(this Dispatcher dispatcher)
+        {
+            var taskCompletionSource = new TaskCompletionSource<TaskScheduler>();
+
+            dispatcher.BeginInvoke(() =>
+            {
+                try
+                {
+                    var synchronizationContext = TaskScheduler.FromCurrentSynchronizationContext();
+
+                    taskCompletionSource.SetResult(synchronizationContext);
+                }
+                catch (Exception ex)
+                {
+                    taskCompletionSource.SetException(ex);
+                }
+            });
+
+            return taskCompletionSource.Task;
+        }
+#endif
     }
 }
