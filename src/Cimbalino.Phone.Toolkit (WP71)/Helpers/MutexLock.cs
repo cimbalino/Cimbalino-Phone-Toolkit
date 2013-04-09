@@ -21,9 +21,11 @@ namespace Cimbalino.Phone.Toolkit.Helpers
     /// <summary>
     /// Allows for inter-process locking and synchronization.
     /// </summary>
-    public sealed class MutexLock
+    public sealed class MutexLock : IDisposable
     {
         private readonly Mutex _mutex;
+
+        private bool _disposed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MutexLock"/> class.
@@ -32,6 +34,14 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         public MutexLock(string name)
         {
             _mutex = new Mutex(false, name);
+        }
+
+        /// <summary>
+        /// Finalizes an instance of the <see cref="MutexLock" /> class.
+        /// </summary>
+        ~MutexLock()
+        {
+            Dispose();
         }
 
         /// <summary>
@@ -53,6 +63,19 @@ namespace Cimbalino.Phone.Toolkit.Helpers
 #endif
 
             return new Releaser(this);
+        }
+
+        /// <summary>
+        /// Releases the resources allocated by this <see cref="MutexLock"/> instance.
+        /// </summary>
+        public void Dispose()
+        {
+            if (!_disposed)
+            {
+                _disposed = true;
+
+                _mutex.Dispose();
+            }
         }
 
         private class Releaser : IDisposable
