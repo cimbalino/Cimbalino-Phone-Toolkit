@@ -342,6 +342,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\EmailComposeService.cs">
       <Link>Services\EmailComposeService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\GlobalSystemTrayService.cs">
+      <Link>Services\GlobalSystemTrayService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IAddressChooserService.cs">
       <Link>Services\IAddressChooserService.cs</Link>
     </Compile>
@@ -371,6 +374,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IEmailComposeService.cs">
       <Link>Services\IEmailComposeService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IGlobalSystemTrayService.cs">
+      <Link>Services\IGlobalSystemTrayService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IInputBoxService.cs">
       <Link>Services\IInputBoxService.cs</Link>

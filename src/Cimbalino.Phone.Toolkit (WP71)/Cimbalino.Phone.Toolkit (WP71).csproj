@@ -119,7 +119,9 @@
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
     <Compile Include="Services\ApplicationProfileServiceMode.cs" />
     <Compile Include="Services\ApplicationProfileService.cs" />
+    <Compile Include="Services\GlobalSystemTrayService.cs" />
     <Compile Include="Services\IApplicationProfileService.cs" />
+    <Compile Include="Services\IGlobalSystemTrayService.cs" />
     <Compile Include="Services\IMapDownloaderService.cs" />
     <Compile Include="Services\ISaveContactService.cs" />
     <Compile Include="Services\MapDownloaderService.cs" />
