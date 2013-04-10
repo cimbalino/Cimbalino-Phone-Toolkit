@@ -24,7 +24,11 @@ namespace Cimbalino.Phone.Toolkit.Tests.Extensions
             var actualArray = actual.Select(x => x.ToArray()).ToArray();
 
             Assert.AreEqual(expected.Length, actualArray.Length);
-            CollectionAssert.AreEqual(expected, actualArray);
+
+            for (int itemIndex = 0; itemIndex < actualArray.Length; itemIndex++)
+            {
+                CollectionAssert.AreEqual(expected[itemIndex], actualArray[itemIndex]);
+            }
         }
     }
 }
