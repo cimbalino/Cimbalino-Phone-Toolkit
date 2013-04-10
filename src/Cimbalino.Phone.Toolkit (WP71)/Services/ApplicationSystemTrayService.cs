@@ -1,5 +1,5 @@
 ﻿// ****************************************************************************
-// <copyright file="GlobalSystemTrayService.cs" company="Pedro Lamas">
+// <copyright file="ApplicationSystemTrayService.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2013
 // </copyright>
 // ****************************************************************************
@@ -20,9 +20,9 @@ using Microsoft.Phone.Shell;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents an implementation of the <see cref="IGlobalSystemTrayService"/>.
+    /// Represents an implementation of the <see cref="IApplicationSystemTrayService"/>.
     /// </summary>
-    public class GlobalSystemTrayService : IGlobalSystemTrayService
+    public class ApplicationSystemTrayService : IApplicationSystemTrayService
     {
         private readonly ProgressIndicator _progressIndicator = new ProgressIndicator();
         private readonly object _progressIndicatorLock = new object();
@@ -63,9 +63,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         #endregion
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GlobalSystemTrayService" /> class.
+        /// Initializes a new instance of the <see cref="ApplicationSystemTrayService" /> class.
         /// </summary>
-        public GlobalSystemTrayService()
+        public ApplicationSystemTrayService()
         {
             Deployment.Current.Dispatcher.BeginInvoke(EnsureInitialization);
         }

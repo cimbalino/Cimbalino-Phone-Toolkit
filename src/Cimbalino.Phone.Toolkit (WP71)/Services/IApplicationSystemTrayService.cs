@@ -1,5 +1,5 @@
 ﻿// ****************************************************************************
-// <copyright file="IGlobalSystemTrayService.cs" company="Pedro Lamas">
+// <copyright file="IApplicationSystemTrayService.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2013
 // </copyright>
 // ****************************************************************************
@@ -18,7 +18,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// <summary>
     /// Represents a service capable of handling the application system tray across the whole application.
     /// </summary>
-    public interface IGlobalSystemTrayService
+    public interface IApplicationSystemTrayService
     {
         /// <summary>
         /// Gets a value indicating whether the progress indicator is visible on the system tray.
