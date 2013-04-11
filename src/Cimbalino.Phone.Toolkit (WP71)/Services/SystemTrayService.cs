@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System;
 using System.Windows;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -52,10 +53,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Sets the progress indicator on the system tray on the current application page with the specified text.
         /// </summary>
         /// <param name="text">The text to use in the progress indicator.</param>
-        public void SetProgressIndicator(string text)
+        public void Show(string text)
         {
             EnsureInitialization();
 
+            _progressIndicator.Text = text;
             _progressIndicator.IsIndeterminate = true;
             _progressIndicator.IsVisible = true;
         }
@@ -63,7 +65,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Hides the progress indicator on the system tray on the current application page.
         /// </summary>
-        public void HideProgressIndicator()
+        public void Hide()
         {
             _progressIndicator.IsIndeterminate = false;
             _progressIndicator.IsVisible = false;
@@ -98,5 +100,40 @@ namespace Cimbalino.Phone.Toolkit.Services
                 SystemTray.SetProgressIndicator(page, _progressIndicator);
             }
         }
+
+        #region Obsolete
+
+        /// <summary>
+        /// Gets a value indicating whether the progress indicator on the system tray on the current application page is visible.
+        /// </summary>
+        /// <value>true if the progress indicator is visible; otherwise, false.</value>
+        [Obsolete("Please use the IsVisible property instead.")]
+        public bool IsBusy
+        {
+            get
+            {
+                return IsVisible;
+            }
+        }
+
+        /// <summary>
+        /// Sets the progress indicator on the system tray on the current application page with the specified text.
+        /// </summary>
+        /// <param name="text">The text to use in the progress indicator.</param>
+        [Obsolete("Please use the Show method instead.")]
+        public void SetProgressIndicator(string text)
+        {
+            Show(text);
+        }
+
+        /// <summary>
+        /// Hides the progress indicator on the system tray on the current application page.
+        /// </summary>
+        [Obsolete("Please use the Hide method instead.")]
+        public void HideProgressIndicator()
+        {
+            Hide();
+        }
+        #endregion
     }
 }
