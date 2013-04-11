@@ -24,7 +24,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Gets a value indicating whether the progress indicator on the system tray on the current application page is visible.
         /// </summary>
         /// <value>true if the progress indicator is visible; otherwise, false.</value>
-        bool IsBusy { get; }
+        bool IsVisible { get; }
 
         /// <summary>
         /// Sets the progress indicator on the system tray on the current application page with the specified text.

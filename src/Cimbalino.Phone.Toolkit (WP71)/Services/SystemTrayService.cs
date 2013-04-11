@@ -26,14 +26,13 @@ namespace Cimbalino.Phone.Toolkit.Services
     {
         private readonly ProgressIndicator _progressIndicator = new ProgressIndicator();
 
-        private PhoneApplicationFrame _mainFrame;
-        private PhoneApplicationPage _currentPage;
+        private bool _initialized;
 
         /// <summary>
         /// Gets a value indicating whether the progress indicator on the system tray on the current application page is visible.
         /// </summary>
         /// <value>true if the progress indicator is visible; otherwise, false.</value>
-        public bool IsBusy
+        public bool IsVisible
         {
             get
             {
@@ -42,19 +41,23 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="SystemTrayService" /> class.
+        /// </summary>
+        public SystemTrayService()
+        {
+            Deployment.Current.Dispatcher.BeginInvoke(EnsureInitialization);
+        }
+
+        /// <summary>
         /// Sets the progress indicator on the system tray on the current application page with the specified text.
         /// </summary>
         /// <param name="text">The text to use in the progress indicator.</param>
         public void SetProgressIndicator(string text)
         {
-            if (EnsureCurrentPage())
-            {
-                _progressIndicator.IsVisible = true;
-                _progressIndicator.IsIndeterminate = true;
-                _progressIndicator.Text = text;
+            EnsureInitialization();
 
-                SystemTray.SetProgressIndicator(_currentPage, _progressIndicator);
-            }
+            _progressIndicator.IsIndeterminate = true;
+            _progressIndicator.IsVisible = true;
         }
 
         /// <summary>
@@ -62,35 +65,38 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         public void HideProgressIndicator()
         {
-            if (EnsureCurrentPage())
-            {
-                _progressIndicator.IsVisible = false;
-                _progressIndicator.IsIndeterminate = false;
+            _progressIndicator.IsIndeterminate = false;
+            _progressIndicator.IsVisible = false;
+        }
 
-                SystemTray.SetProgressIndicator(_currentPage, null);
+        private void EnsureInitialization()
+        {
+            if (_initialized)
+            {
+                return;
+            }
+
+            var mainFrame = Application.Current.RootVisual as PhoneApplicationFrame;
+
+            if (mainFrame != null)
+            {
+                mainFrame.Navigated += (s, e) =>
+                {
+                    SetPageProgressIndicator(e.Content as PhoneApplicationPage);
+                };
+
+                SetPageProgressIndicator(mainFrame.Content as PhoneApplicationPage);
+
+                _initialized = true;
             }
         }
 
-        private bool EnsureCurrentPage()
+        private void SetPageProgressIndicator(PhoneApplicationPage page)
         {
-            if (_mainFrame != null)
+            if (page != null)
             {
-                return _currentPage != null;
+                SystemTray.SetProgressIndicator(page, _progressIndicator);
             }
-
-            _mainFrame = Application.Current.RootVisual as PhoneApplicationFrame;
-
-            if (_mainFrame != null)
-            {
-                _mainFrame.Navigated += (s, e) =>
-                {
-                    _currentPage = e.Content as PhoneApplicationPage;
-                };
-
-                _currentPage = _mainFrame.Content as PhoneApplicationPage;
-            }
-
-            return _currentPage != null;
         }
     }
 }
