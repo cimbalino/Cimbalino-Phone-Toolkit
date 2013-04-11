@@ -29,8 +29,10 @@ namespace Cimbalino.Phone.Toolkit.Services
 
         private bool _initialized;
 
+        #region Properties
+
         /// <summary>
-        /// Gets a value indicating whether the progress indicator on the system tray on the current application page is visible.
+        /// Gets or sets a value indicating whether the progress indicator is visible on the system tray on the current application.
         /// </summary>
         /// <value>true if the progress indicator is visible; otherwise, false.</value>
         public bool IsVisible
@@ -39,7 +41,69 @@ namespace Cimbalino.Phone.Toolkit.Services
             {
                 return _progressIndicator.IsVisible;
             }
+            set
+            {
+                EnsureInitialization();
+
+                _progressIndicator.IsVisible = value;
+            }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the progress indicator on the system tray on the current application page is determinate or indeterminate.
+        /// </summary>
+        /// <value>true if the progress indicator is indeterminate; false if the progress bar is determinate.</value>
+        public bool IsIndeterminate
+        {
+            get
+            {
+                return _progressIndicator.IsIndeterminate;
+            }
+            set
+            {
+                EnsureInitialization();
+
+                _progressIndicator.IsIndeterminate = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the text to show in the system tray.
+        /// </summary>
+        /// <value>The text to show in the system tray.</value>
+        public string Text
+        {
+            get
+            {
+                return _progressIndicator.Text;
+            }
+            set
+            {
+                EnsureInitialization();
+
+                _progressIndicator.Text = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the value of the progress indicator on the system tray on the current application page.
+        /// </summary>
+        /// <value>The value of the progress indicator on the system tray.</value>
+        public double Value
+        {
+            get
+            {
+                return _progressIndicator.Value;
+            }
+            set
+            {
+                EnsureInitialization();
+
+                _progressIndicator.Value = value;
+            }
+        }
+
+        #endregion
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemTrayService" /> class.
@@ -47,28 +111,6 @@ namespace Cimbalino.Phone.Toolkit.Services
         public SystemTrayService()
         {
             Deployment.Current.Dispatcher.BeginInvoke(EnsureInitialization);
-        }
-
-        /// <summary>
-        /// Sets the progress indicator on the system tray on the current application page with the specified text.
-        /// </summary>
-        /// <param name="text">The text to use in the progress indicator.</param>
-        public void Show(string text)
-        {
-            EnsureInitialization();
-
-            _progressIndicator.Text = text;
-            _progressIndicator.IsIndeterminate = true;
-            _progressIndicator.IsVisible = true;
-        }
-
-        /// <summary>
-        /// Hides the progress indicator on the system tray on the current application page.
-        /// </summary>
-        public void Hide()
-        {
-            _progressIndicator.IsIndeterminate = false;
-            _progressIndicator.IsVisible = false;
         }
 
         private void EnsureInitialization()
@@ -120,20 +162,26 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Sets the progress indicator on the system tray on the current application page with the specified text.
         /// </summary>
         /// <param name="text">The text to use in the progress indicator.</param>
-        [Obsolete("Please use the Show method instead.")]
+        [Obsolete("Please use the Text, IsVisible and IsIndeterminate properties instead.")]
         public void SetProgressIndicator(string text)
         {
-            Show(text);
+            EnsureInitialization();
+
+            _progressIndicator.Text = text;
+            _progressIndicator.IsIndeterminate = true;
+            _progressIndicator.IsVisible = true;
         }
 
         /// <summary>
         /// Hides the progress indicator on the system tray on the current application page.
         /// </summary>
-        [Obsolete("Please use the Hide method instead.")]
+        [Obsolete("Please use the IsVisible property instead.")]
         public void HideProgressIndicator()
         {
-            Hide();
+            _progressIndicator.IsIndeterminate = false;
+            _progressIndicator.IsVisible = false;
         }
+
         #endregion
     }
 }
