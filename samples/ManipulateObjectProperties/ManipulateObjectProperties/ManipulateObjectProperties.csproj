@@ -49,10 +49,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cimbalino.Phone.Toolkit">
-      <HintPath>..\..\..\bin\binaries\Cimbalino.Phone.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\bin\binaries\WP71\Cimbalino.Phone.Toolkit\Cimbalino.Phone.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Cimbalino.Phone.Toolkit.Controls">
-      <HintPath>..\..\..\bin\binaries\Cimbalino.Phone.Toolkit.Controls.dll</HintPath>
+      <HintPath>..\..\..\bin\binaries\WP71\Cimbalino.Phone.Toolkit.Controls\Cimbalino.Phone.Toolkit.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
