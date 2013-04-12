@@ -13,7 +13,6 @@
 // </license>
 // ****************************************************************************
 
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Cimbalino.Phone.Toolkit.Controls
@@ -22,7 +21,7 @@ namespace Cimbalino.Phone.Toolkit.Controls
     /// Represents a group for a collections of items.
     /// </summary>
     /// <typeparam name="T">The items collection type.</typeparam>
-    public class ItemsGroup<T> : IEnumerable
+    public class ItemsGroup<T> : List<T>
     {
         #region Properties
 
@@ -32,12 +31,6 @@ namespace Cimbalino.Phone.Toolkit.Controls
         /// <value>The group name.</value>
         public string Name { get; private set; }
 
-        /// <summary>
-        /// Gets the group items list.
-        /// </summary>
-        /// <value>The group items list.</value>
-        public IEnumerable<T> Items { get; private set; }
-
         #endregion
 
         /// <summary>
@@ -46,18 +39,9 @@ namespace Cimbalino.Phone.Toolkit.Controls
         /// <param name="name">The group name.</param>
         /// <param name="items">The group items list.</param>
         public ItemsGroup(string name, IEnumerable<T> items)
+            : base(items)
         {
             Name = name;
-            Items = items;
-        }
-
-        /// <summary>
-        /// Returns an enumerator that iterates through the group items collection.
-        /// </summary>
-        /// <returns>A <see cref="IEnumerator{T}"/> that can be used to iterate through the group items collection.</returns>
-        public IEnumerator GetEnumerator()
-        {
-            return Items.GetEnumerator();
         }
     }
 }

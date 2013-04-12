@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -142,7 +143,9 @@ namespace Cimbalino.Phone.Toolkit.Controls
             {
                 if (ShowCategories)
                 {
-#if !WP8
+#if WP8
+                    _mainItemsControl.IsGroupingEnabled = true;
+#else
                     _mainItemsControl.IsFlatList = false;
 #endif
 
@@ -154,7 +157,9 @@ namespace Cimbalino.Phone.Toolkit.Controls
                 }
                 else
                 {
-#if !WP8
+#if WP8
+                    _mainItemsControl.IsGroupingEnabled = false;
+#else
                     _mainItemsControl.IsFlatList = true;
 #endif
 
@@ -173,7 +178,7 @@ namespace Cimbalino.Phone.Toolkit.Controls
             {
                 propertyGridItem = _mainItemsControl.ItemsSource
                     .Cast<ItemsGroup<IPropertyGridItem>>()
-                    .SelectMany(x => x.Items)
+                    .SelectMany(x => x)
                     .FirstOrDefault(x => x.Name == e.PropertyName);
             }
             else

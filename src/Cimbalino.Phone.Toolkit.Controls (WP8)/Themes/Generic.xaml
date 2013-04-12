@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:localControls="clr-namespace:Cimbalino.Phone.Toolkit.Controls"
                     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-                    xmlns:systemControls="clr-namespace:System.Windows.Controls;assembly=Cimbalino.Phone.Toolkit"
                     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
 
     <Style TargetType="localControls:PropertyGridItemContainer">
@@ -73,8 +72,26 @@
             <Setter.Value>
                 <ControlTemplate TargetType="localControls:PropertyGrid">
                     <phone:LongListSelector x:Name="MainItemsControl" ItemTemplate="{TemplateBinding ItemTemplate}">
-
-                        <toolkit:LongListMultiSelector.GroupHeaderTemplate>
+                        <phone:LongListSelector.JumpListStyle>
+                            <Style TargetType="phone:LongListSelector">
+                                <Setter Property="ItemTemplate">
+                                    <Setter.Value>
+                                        <DataTemplate>
+                                            <Border Margin="{StaticResource PhoneTouchTargetOverhang}"
+                                                    HorizontalAlignment="Stretch"
+                                                    Background="{StaticResource PhoneAccentBrush}"
+                                                    Padding="{StaticResource PhoneTouchTargetOverhang}">
+                                                <TextBlock Foreground="{StaticResource PhoneForegroundBrush}"
+                                                           Style="{StaticResource PhoneTextGroupHeaderStyle}"
+                                                           Text="{Binding Name,
+                                                                          Mode=OneTime}" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </phone:LongListSelector.JumpListStyle>
+                        <phone:LongListSelector.GroupHeaderTemplate>
                             <DataTemplate>
                                 <Border Margin="{StaticResource PhoneTouchTargetOverhang}"
                                         Background="{StaticResource PhoneAccentBrush}"
@@ -85,22 +102,7 @@
                                                               Mode=OneTime}" />
                                 </Border>
                             </DataTemplate>
-                        </toolkit:LongListMultiSelector.GroupHeaderTemplate>
-
-                        <toolkit:LongListMultiSelector.GroupItemTemplate>
-                            <DataTemplate>
-                                <Border Margin="{StaticResource PhoneTouchTargetOverhang}"
-                                        HorizontalAlignment="Stretch"
-                                        Background="{StaticResource PhoneAccentBrush}"
-                                        Padding="{StaticResource PhoneTouchTargetOverhang}">
-                                    <TextBlock Foreground="{StaticResource PhoneForegroundBrush}"
-                                               Style="{StaticResource PhoneTextGroupHeaderStyle}"
-                                               Text="{Binding Name,
-                                                              Mode=OneTime}" />
-                                </Border>
-                            </DataTemplate>
-                        </toolkit:LongListMultiSelector.GroupItemTemplate>
-
+                        </phone:LongListSelector.GroupHeaderTemplate>
                     </phone:LongListSelector>
                 </ControlTemplate>
             </Setter.Value>
