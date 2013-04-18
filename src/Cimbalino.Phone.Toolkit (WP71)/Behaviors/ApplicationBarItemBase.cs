@@ -57,7 +57,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <summary>
         /// Occurs when a <see cref="ApplicationBarItemBase{T}"/> is clicked.
         /// </summary>
-        public virtual event EventHandler Click;
+        public event EventHandler Click;
 
         /// <summary>
         /// Gets or sets a value indicating whether the user can interact with the control.

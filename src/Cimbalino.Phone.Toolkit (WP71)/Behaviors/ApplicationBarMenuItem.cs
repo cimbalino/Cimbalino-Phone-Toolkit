@@ -24,21 +24,6 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
     public class ApplicationBarMenuItem : ApplicationBarItemBase<IApplicationBarMenuItem>, IApplicationBarMenuItem
     {
         /// <summary>
-        /// Occurs when a <see cref="ApplicationBarMenuItem"/> is clicked.
-        /// </summary>
-        public override event EventHandler Click
-        {
-            add
-            {
-                base.Click += value;
-            }
-            remove
-            {
-                base.Click -= value;
-            }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationBarMenuItem" /> class.
         /// </summary>
         public ApplicationBarMenuItem()

@@ -33,21 +33,6 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Occurs when a <see cref="ApplicationBarIconButton"/> is clicked.
-        /// </summary>
-        public override event EventHandler Click
-        {
-            add
-            {
-                base.Click += value;
-            }
-            remove
-            {
-                base.Click -= value;
-            }
-        }
-
-        /// <summary>
         /// Gets or sets the URI of the icon to use for the button.
         /// </summary>
         /// <value>The URI of the icon to use for the button.</value>
