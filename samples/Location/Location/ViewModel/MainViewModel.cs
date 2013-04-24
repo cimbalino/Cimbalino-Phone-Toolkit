@@ -1,4 +1,5 @@
-﻿using Cimbalino.Phone.Toolkit.Services;
+﻿using System;
+using Cimbalino.Phone.Toolkit.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
@@ -66,7 +67,7 @@ namespace Location.ViewModel
 
             GetCurrentLocationCommand = new RelayCommand(() =>
             {
-                _locationService.GetCurrentLocation((location, ex) =>
+                _locationService.GetPosition(TimeSpan.FromSeconds(20), TimeSpan.FromSeconds(10), (location, ex) =>
                 {
                     if (ex != null)
                     {
@@ -81,7 +82,7 @@ namespace Location.ViewModel
 
             StartMonitoringLocationCommand = new RelayCommand(() =>
             {
-                _locationService.Start();
+                _locationService.Start(LocationServiceAccuracy.High);
 
                 Status = "Starting";
             });
@@ -97,14 +98,14 @@ namespace Location.ViewModel
             Status = "Stopped";
         }
 
-        private void LocationService_StatusChanged(object sender, System.Device.Location.GeoPositionStatusChangedEventArgs e)
+        private void LocationService_StatusChanged(object sender, LocationServiceStatusChangedEventArgs e)
         {
             Status = e.Status.ToString();
         }
 
-        private void LocationService_PositionChanged(object sender, System.Device.Location.GeoPositionChangedEventArgs<System.Device.Location.GeoCoordinate> e)
+        private void LocationService_PositionChanged(object sender, LocationServicePositionChangedEventArgs e)
         {
-            CurrentLocation = e.Position.Location.ToString();
+            CurrentLocation = e.Position.ToString();
         }
     }
 }
