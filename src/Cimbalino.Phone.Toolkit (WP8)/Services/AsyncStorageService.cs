@@ -141,7 +141,7 @@ namespace Cimbalino.Phone.Toolkit.Services
 
                 return file != null;
             }
-            catch
+            catch (FileNotFoundException)
             {
                 return false;
             }
