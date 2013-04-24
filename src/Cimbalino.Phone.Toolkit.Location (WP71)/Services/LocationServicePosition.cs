@@ -129,7 +129,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>true if the latitude and longitude properties of both objects have the same value.</returns>
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj))
+            if (ReferenceEquals(null, obj) || obj.GetType() != typeof(LocationServicePosition))
             {
                 return false;
             }
@@ -139,12 +139,9 @@ namespace Cimbalino.Phone.Toolkit.Services
                 return true;
             }
 
-            if (obj.GetType() != this.GetType())
-            {
-                return false;
-            }
+            var other = (LocationServicePosition)obj;
 
-            return Equals((LocationServicePosition)obj);
+            return Latitude.Equals(other.Latitude) && Longitude.Equals(other.Longitude);
         }
 
         /// <summary>
@@ -178,7 +175,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>true if the latitude and longitude values of both <see cref="LocationServicePosition"/> objects are equal; otherwise, false.</returns>
         public static bool operator ==(LocationServicePosition left, LocationServicePosition right)
         {
-            return left.Latitude == right.Latitude && left.Longitude == right.Longitude;
+            if (ReferenceEquals(left, null))
+            {
+                return ReferenceEquals(right, null);
+            }
+
+            return left.Equals(right);
         }
 
         /// <summary>
