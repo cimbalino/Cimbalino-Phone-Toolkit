@@ -1,11 +1,11 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="LocationService.cs" company="Pedro Lamas">
-// Copyright � Pedro Lamas 2011
+// Copyright © Pedro Lamas 2013
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>17-11-2011</date>
+// <date>20-04-2013</date>
 // <project>Cimbalino.Phone.Toolkit.Location</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -14,21 +14,17 @@
 // ****************************************************************************
 
 using System;
-using System.Device.Location;
-using System.Windows.Threading;
+using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
     /// Represents an implementation of the <see cref="ILocationService"/>.
     /// </summary>
-    public class LocationService : LocationServiceBase, ILocationService
+    public class LocationService : ILocationService
     {
-        private static GeoPosition<GeoCoordinate> _position;
-
-        private DispatcherTimer _timer;
-        private double _movementThreshold;
-        private int _reportInterval;
+        private readonly Geolocator _geolocator;
 
         /// <summary>
         /// Occurs when the location service detects a change in position.
@@ -50,7 +46,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                return GeoCoordinateWatcher.DesiredAccuracy.ToLocationServiceAccuracy();
+                return _geolocator.DesiredAccuracy.ToLocationServiceAccuracy();
             }
         }
 
@@ -62,7 +58,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                return null;
+                return (int?)_geolocator.DesiredAccuracyInMeters;
             }
         }
 
@@ -74,14 +70,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                var tempWatcher = GeoCoordinateWatcher ?? new GeoCoordinateWatcher();
-
-                if (tempWatcher.Status == GeoPositionStatus.Disabled && tempWatcher.Permission != GeoPositionPermission.Denied)
-                {
-                    return LocationServiceStatus.NotAvailable;
-                }
-
-                return tempWatcher.Status.ToLocationServiceStatus();
+                return _geolocator.LocationStatus.ToLocationServiceStatus();
             }
         }
 
@@ -93,16 +82,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                return _movementThreshold;
+                return _geolocator.MovementThreshold;
             }
             set
             {
-                _movementThreshold = value;
-
-                if (GeoCoordinateWatcher != null)
-                {
-                    GeoCoordinateWatcher.MovementThreshold = value;
-                }
+                _geolocator.MovementThreshold = value;
             }
         }
 
@@ -114,32 +98,23 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                return _reportInterval;
+                return (int)_geolocator.ReportInterval;
             }
             set
             {
-                _reportInterval = value;
-
-                if (_timer != null)
-                {
-                    _timer.Interval = TimeSpan.FromTicks(value);
-
-                    if (value != 0)
-                    {
-                        if (!_timer.IsEnabled)
-                        {
-                            _timer.Start();
-                        }
-                    }
-                    else if (_timer.IsEnabled)
-                    {
-                        _timer.Stop();
-                    }
-                }
+                _geolocator.ReportInterval = (uint)value;
             }
         }
 
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationService"/> class.
+        /// </summary>
+        public LocationService()
+        {
+            _geolocator = new Geolocator();
+        }
 
         /// <summary>
         /// Starts the acquisition of data from the location service.
@@ -155,19 +130,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="desiredAccuracy">The desired accuracy.</param>
         public void Start(LocationServiceAccuracy desiredAccuracy)
         {
-            Start(desiredAccuracy.ToGeoPositionAccuracy(), _movementThreshold);
+            _geolocator.DesiredAccuracy = desiredAccuracy.ToPositionAccuracy();
+            _geolocator.DesiredAccuracyInMeters = null;
 
-            _timer = new DispatcherTimer()
-            {
-                Interval = new TimeSpan(_reportInterval)
-            };
-
-            _timer.Tick += ReportTimerTick;
-
-            if (_reportInterval != 0)
-            {
-                _timer.Start();
-            }
+            _geolocator.StatusChanged += GeolocatorStatusChanged;
+            _geolocator.PositionChanged += GeolocatorPositionChanged;
         }
 
         /// <summary>
@@ -176,53 +143,37 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="desiredAccuracyInMeters">The desired accuracy in meters for data returned from the location service.</param>
         public void Start(int desiredAccuracyInMeters)
         {
-            throw new NotSupportedException("Not supported in Windows Phone 7.x");
+            _geolocator.DesiredAccuracyInMeters = (uint)desiredAccuracyInMeters;
+
+            _geolocator.StatusChanged += GeolocatorStatusChanged;
+            _geolocator.PositionChanged += GeolocatorPositionChanged;
         }
 
         /// <summary>
         /// Stops the acquisition of data from the location service.
         /// </summary>
-        public override void Stop()
+        public void Stop()
         {
-            _timer.Stop();
-
-            _timer.Tick -= ReportTimerTick;
-
-            _timer = null;
-
-            base.Stop();
-        }
-
-        /// <summary>
-        /// Processed the watcher <see cref="GeoCoordinateWatcher.PositionChanged" /> event.
-        /// </summary>
-        /// <param name="e">The <see cref="GeoPositionChangedEventArgs{GeoCoordinate}" /> instance containing the event data.</param>
-        protected override void OnPositionChanged(GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            _position = e.Position;
-        }
-
-        /// <summary>
-        /// Processes the watcher <see cref="GeoCoordinateWatcher.StatusChanged" /> event.
-        /// </summary>
-        /// <param name="e">The <see cref="GeoPositionStatusChangedEventArgs" /> instance containing the event data.</param>
-        protected override void OnStatusChanged(GeoPositionStatusChangedEventArgs e)
-        {
-            var eventHandler = StatusChanged;
-
-            if (eventHandler != null)
-            {
-                eventHandler(this, e.ToLocationServiceStatusChangedEventArgs());
-            }
+            _geolocator.PositionChanged -= GeolocatorPositionChanged;
+            _geolocator.StatusChanged -= GeolocatorStatusChanged;
         }
 
         /// <summary>
         /// Retrieves the current location.
         /// </summary>
         /// <param name="locationResult">The current location.</param>
-        public void GetPosition(Action<LocationServicePosition, Exception> locationResult)
+        public async void GetPosition(Action<LocationServicePosition, Exception> locationResult)
         {
-            new CurrentLocationHelper(TimeSpan.FromSeconds(10), locationResult).Start(GeoPositionAccuracy.Default);
+            try
+            {
+                var position = await GetPositionAsync();
+
+                locationResult(position, null);
+            }
+            catch (Exception ex)
+            {
+                locationResult(null, ex);
+            }
         }
 
         /// <summary>
@@ -231,33 +182,62 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
         /// <param name="timeout">The timeout.</param>
         /// <param name="locationResult">The current location.</param>
-        public void GetPosition(TimeSpan maximumAge, TimeSpan timeout, Action<LocationServicePosition, Exception> locationResult)
+        public async void GetPosition(TimeSpan maximumAge, TimeSpan timeout, Action<LocationServicePosition, Exception> locationResult)
         {
-            var position = LastPosition;
+            try
+            {
+                var position = await GetPositionAsync(maximumAge, timeout);
 
-            if (position != null && position.Timestamp.Add(maximumAge) > DateTimeOffset.Now)
-            {
-                locationResult(position.ToLocationServicePosition(), null);
+                locationResult(position, null);
             }
-            else
+            catch (Exception ex)
             {
-                new CurrentLocationHelper(timeout, locationResult).Start(GeoPositionAccuracy.Default);
+                locationResult(null, ex);
             }
         }
 
-        private void ReportTimerTick(object sender, EventArgs e)
+        private void GeolocatorPositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {
             var eventHandler = PositionChanged;
-            var position = _position;
 
-            if (eventHandler != null && position != null)
+            if (eventHandler != null)
             {
-                _position = null;
-
-                var locationServicePosition = position.ToLocationServicePosition();
-
-                eventHandler(this, new LocationServicePositionChangedEventArgs(locationServicePosition));
+                eventHandler(this, args.ToLocationServicePositionChangedEventArgs());
             }
+        }
+
+        private void GeolocatorStatusChanged(Geolocator sender, StatusChangedEventArgs args)
+        {
+            var eventHandler = StatusChanged;
+
+            if (eventHandler != null)
+            {
+                eventHandler(this, args.ToLocationServiceStatusChangedEventArgs());
+            }
+        }
+
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public async Task<LocationServicePosition> GetPositionAsync()
+        {
+            var position = await _geolocator.GetGeopositionAsync();
+
+            return position.Coordinate.ToLocationServicePosition();
+        }
+
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
+        /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public async Task<LocationServicePosition> GetPositionAsync(TimeSpan maximumAge, TimeSpan timeout)
+        {
+            var position = await _geolocator.GetGeopositionAsync(maximumAge, timeout);
+
+            return position.Coordinate.ToLocationServicePosition();
         }
     }
 }

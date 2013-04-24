@@ -23,130 +23,81 @@ namespace Cimbalino.Phone.Toolkit.Services
     public abstract class LocationServiceBase
     {
         /// <summary>
-        /// The default <see cref="GeoPositionAccuracy"/>.
+        /// Gets the <see cref="GeoCoordinateWatcher"/> instance.
         /// </summary>
-        protected const GeoPositionAccuracy DefaultGeoPositionAccuracy = GeoPositionAccuracy.Default;
+        /// <value>The <see cref="GeoCoordinateWatcher"/> instance.</value>
+        protected GeoCoordinateWatcher GeoCoordinateWatcher { get; private set; }
 
         /// <summary>
-        /// The default movement threshold.
+        /// Gets the last reported position.
         /// </summary>
-        protected const double DefaultMovementThreshold = 20;
-
-        private GeoCoordinateWatcher _watcher;
-
-        /// <summary>
-        /// Gets the state of the <see cref="ILocationService"/>.
-        /// </summary>
-        /// <value>Returns a <see cref="LocationServiceState"/> enumeration indicating the state of the <see cref="ILocationService"/>.</value>
-        public LocationServiceState State { get; private set; }
-
-        /// <summary>
-        /// Gets the application's level of access to the location service.
-        /// </summary>
-        /// <value>The application's level of access to the location service.</value>
-        public GeoPositionPermission Permission
-        {
-            get
-            {
-                return _watcher.Permission;
-            }
-        }
-
-        /// <summary>
-        /// Gets the status of the location service.
-        /// </summary>
-        /// <value>The status of the location service.</value>
-        public GeoPositionStatus Status
-        {
-            get
-            {
-                return _watcher.Status;
-            }
-        }
+        /// <value>The last reported position.</value>
+        protected static GeoPosition<GeoCoordinate> LastPosition { get; private set; }
 
         /// <summary>
         /// Starts the acquisition of data from the location service.
         /// </summary>
-        public void Start()
-        {
-            Start(DefaultGeoPositionAccuracy, DefaultMovementThreshold);
-        }
-
-        /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified accuracy.
-        /// </summary>
-        /// <param name="accuracy">The desired accuracy.</param>
-        public void Start(GeoPositionAccuracy accuracy)
-        {
-            Start(accuracy, DefaultMovementThreshold);
-        }
-
-        /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified accuracy and movement threshold.
-        /// </summary>
-        /// <param name="accuracy">The desired accuracy.</param>
-        /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="GeoCoordinateWatcher.PositionChanged" /> events.</param>
+        /// <param name="desiredAccuracy">The desired accuracy.</param>
+        /// <param name="movementThreshold">The minimum distance that must be travelled between successive position changes.</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",
             Justification = "The class will be disposed in another matter")]
-        public void Start(GeoPositionAccuracy accuracy, double movementThreshold)
+        protected void Start(GeoPositionAccuracy desiredAccuracy, double movementThreshold)
         {
-            if (_watcher != null)
+            if (GeoCoordinateWatcher != null)
             {
                 return;
             }
 
-            _watcher = new GeoCoordinateWatcher(accuracy)
+            GeoCoordinateWatcher = new GeoCoordinateWatcher(desiredAccuracy)
             {
                 MovementThreshold = movementThreshold
             };
 
-            _watcher.PositionChanged += Watcher_PositionChanged;
-            _watcher.StatusChanged += Watcher_StatusChanged;
+            GeoCoordinateWatcher.PositionChanged += GeoCoordinateWatcherPositionChanged;
+            GeoCoordinateWatcher.StatusChanged += GeoCoordinateWatcherStatusChanged;
 
-            _watcher.Start();
-
-            State = LocationServiceState.Started;
+            GeoCoordinateWatcher.Start();
         }
 
         /// <summary>
         /// Stops the acquisition of data from the location service.
         /// </summary>
-        public void Stop()
+        public virtual void Stop()
         {
-            if (_watcher == null)
+            if (GeoCoordinateWatcher == null)
             {
                 return;
             }
 
-            _watcher.Stop();
+            GeoCoordinateWatcher.Stop();
 
-            _watcher.PositionChanged -= Watcher_PositionChanged;
-            _watcher.StatusChanged -= Watcher_StatusChanged;
+            GeoCoordinateWatcher.PositionChanged -= GeoCoordinateWatcherPositionChanged;
+            GeoCoordinateWatcher.StatusChanged -= GeoCoordinateWatcherStatusChanged;
 
-            _watcher.Dispose();
-            _watcher = null;
-
-            State = LocationServiceState.Stopped;
+            GeoCoordinateWatcher.Dispose();
+            GeoCoordinateWatcher = null;
         }
 
         /// <summary>
-        /// Processed the watcher <see cref="GeoCoordinateWatcher.PositionChanged" /> event.
+        /// Invoked when the location service detects a change in position.
         /// </summary>
         /// <param name="e">The <see cref="GeoPositionChangedEventArgs{GeoCoordinate}" /> instance containing the event data.</param>
         protected abstract void OnPositionChanged(GeoPositionChangedEventArgs<GeoCoordinate> e);
 
         /// <summary>
-        /// Processes the watcher <see cref="GeoCoordinateWatcher.StatusChanged" /> event.
+        /// Invoked when the status of the location service changes.
         /// </summary>
-        /// <param name="e">The <see cref="System.Device.Location.GeoPositionStatusChangedEventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="GeoPositionStatusChangedEventArgs" /> instance containing the event data.</param>
         protected abstract void OnStatusChanged(GeoPositionStatusChangedEventArgs e);
 
-        private void Watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        private void GeoCoordinateWatcherPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
         {
+            LastPosition = e.Position;
+
             OnPositionChanged(e);
         }
 
-        private void Watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        private void GeoCoordinateWatcherStatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
         {
             OnStatusChanged(e);
         }

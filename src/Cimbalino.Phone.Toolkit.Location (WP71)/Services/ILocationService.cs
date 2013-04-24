@@ -14,7 +14,6 @@
 // ****************************************************************************
 
 using System;
-using System.Device.Location;
 #if WP8
 using System.Threading.Tasks;
 #endif
@@ -29,43 +28,42 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Occurs when the location service detects a change in position.
         /// </summary>
-        event EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>> PositionChanged;
+        event EventHandler<LocationServicePositionChangedEventArgs> PositionChanged;
 
         /// <summary>
         /// Occurs when the status of the location service changes.
         /// </summary>
-        event EventHandler<GeoPositionStatusChangedEventArgs> StatusChanged;
+        event EventHandler<LocationServiceStatusChangedEventArgs> StatusChanged;
 
         /// <summary>
-        /// Gets the state of the <see cref="ILocationService"/>.
+        /// Gets the accuracy level at which the location service provides location updates.
         /// </summary>
-        /// <value>Returns a <see cref="LocationServiceState"/> enumeration indicating the state of the <see cref="ILocationService"/>.</value>
-        LocationServiceState State { get; }
+        /// <value>The accuracy level at which the location service provides location updates.</value>
+        LocationServiceAccuracy DesiredAccuracy { get; }
 
         /// <summary>
-        /// Gets the application's level of access to the location service.
+        /// Gets the desired accuracy in meters for data returned from the location service.
         /// </summary>
-        /// <value>The application's level of access to the location service.</value>
-        GeoPositionPermission Permission { get; }
+        /// <value>The desired accuracy in meters for data returned from the location service.</value>
+        int? DesiredAccuracyInMeters { get; }
 
         /// <summary>
-        /// Gets the status of the location service.
+        /// Gets the status that indicates the ability of the location service to provide location updates.
         /// </summary>
-        /// <value>The status of the location service.</value>
-        GeoPositionStatus Status { get; }
+        /// <value>The status that indicates the ability of the location service to provide location updates.</value>
+        LocationServiceStatus Status { get; }
 
         /// <summary>
-        /// Gets the current location.
+        /// Gets or sets the distance of movement, in meters, relative to the coordinate from the last <see cref="PositionChanged"/> event, that is required for the location service to raise a <see cref="PositionChanged"/> event.
         /// </summary>
-        /// <param name="locationResult">The <see cref="Action{GeoCoordinate, Exception}" /> to be called once the operation is finished.</param>
-        void GetCurrentLocation(Action<GeoCoordinate, Exception> locationResult);
+        /// <value>The distance of movement, in meters, relative to the coordinate from the last <see cref="PositionChanged"/> event, that is required for the location service to raise a <see cref="PositionChanged"/> event.</value>
+        double MovementThreshold { get; set; }
 
         /// <summary>
-        /// Gets the current location, using the specified accuracy.
+        /// Gets or sets the requested minimum time interval between location updates, in milliseconds. If your application requires updates infrequently, set this value so that the location provider can conserve power by calculating location only when needed.
         /// </summary>
-        /// <param name="accuracy">The desired accuracy.</param>
-        /// <param name="locationResult">The <see cref="Action{GeoCoordinate, Exception}" /> to be called once the operation is finished.</param>
-        void GetCurrentLocation(GeoPositionAccuracy accuracy, Action<GeoCoordinate, Exception> locationResult);
+        /// <value>The requested minimum time interval between location updates, in milliseconds.</value>
+        int ReportInterval { get; set; }
 
         /// <summary>
         /// Starts the acquisition of data from the location service.
@@ -73,36 +71,50 @@ namespace Cimbalino.Phone.Toolkit.Services
         void Start();
 
         /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified accuracy.
+        /// Starts the acquisition of data from the location service.
         /// </summary>
-        /// <param name="accuracy">The desired accuracy.</param>
-        void Start(GeoPositionAccuracy accuracy);
+        /// <param name="desiredAccuracy">The desired accuracy.</param>
+        void Start(LocationServiceAccuracy desiredAccuracy);
 
         /// <summary>
-        /// Starts the acquisition of data from the location service, using the specified accuracy and movement threshold.
+        /// Starts the acquisition of data from the location service.
         /// </summary>
-        /// <param name="accuracy">The desired accuracy.</param>
-        /// <param name="movementThreshold">The minimum distance that must be travelled between successive <see cref="PositionChanged"/> events.</param>
-        void Start(GeoPositionAccuracy accuracy, double movementThreshold);
+        /// <param name="desiredAccuracyInMeters">The desired accuracy in meters for data returned from the location service.</param>
+        void Start(int desiredAccuracyInMeters);
 
         /// <summary>
         /// Stops the acquisition of data from the location service.
         /// </summary>
         void Stop();
 
-#if WP8
         /// <summary>
-        /// Gets the current location.
+        /// Retrieves the current location.
         /// </summary>
-        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
-        Task<GeoCoordinate> GetCurrentLocationTaskAsync();
+        /// <param name="locationResult">The current location.</param>
+        void GetPosition(Action<LocationServicePosition, Exception> locationResult);
 
         /// <summary>
-        /// Gets the current location, using the specified accuracy.
+        /// Retrieves the current location.
         /// </summary>
-        /// <param name="accuracy">The desired accuracy.</param>
+        /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <param name="locationResult">The current location.</param>
+        void GetPosition(TimeSpan maximumAge, TimeSpan timeout, Action<LocationServicePosition, Exception> locationResult);
+
+#if WP8
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
-        Task<GeoCoordinate> GetCurrentLocationTaskAsync(GeoPositionAccuracy accuracy);
+        Task<LocationServicePosition> GetPositionAsync();
+
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
+        /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        Task<LocationServicePosition> GetPositionAsync(TimeSpan maximumAge, TimeSpan timeout);
 #endif
     }
 }

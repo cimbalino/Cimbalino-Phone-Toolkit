@@ -1,6 +1,6 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="CurrentLocationHelper.cs" company="Pedro Lamas">
-// Copyright � Pedro Lamas 2011
+// Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
@@ -15,63 +15,42 @@
 
 using System;
 using System.Device.Location;
+using System.Windows.Threading;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
     internal class CurrentLocationHelper : LocationServiceBase
     {
-        private readonly Action<GeoCoordinate, Exception> _actionToExecute;
+        private readonly TimeSpan _timeout;
+        private readonly Action<LocationServicePosition, Exception> _actionToExecute;
 
-        private GeoCoordinate _lastLocation;
+        private DispatcherTimer _timer;
+        private GeoPosition<GeoCoordinate> _lastPosition;
         private bool _ready;
 
-        public CurrentLocationHelper(Action<GeoCoordinate, Exception> actionToExecute)
+        public CurrentLocationHelper(TimeSpan timeout, Action<LocationServicePosition, Exception> actionToExecute)
         {
+            _timeout = timeout;
             _actionToExecute = actionToExecute;
         }
 
-        public void GetCurrentLocation(GeoPositionAccuracy accuracy)
+        public override void Stop()
         {
-            try
+            if (_timer != null)
             {
-                Start(accuracy);
+                _timer.Stop();
 
-                CheckCurrentState();
-            }
-            catch (Exception ex)
-            {
-                Stop();
+                _timer.Tick -= TimerTick;
 
-                _actionToExecute(null, ex);
-            }
-        }
-
-        private void CheckCurrentState()
-        {
-            if (Permission == GeoPositionPermission.Denied)
-            {
-                throw new Exception("Access to the location service is denied.");
+                _timer = null;
             }
 
-            if (Status == GeoPositionStatus.Disabled)
-            {
-                throw new Exception("The location service is disabled or unsupported.");
-            }
-        }
-
-        private void CheckForLocationAvailable()
-        {
-            if (_ready && _lastLocation != null)
-            {
-                Stop();
-
-                _actionToExecute(_lastLocation, null);
-            }
+            base.Stop();
         }
 
         protected override void OnPositionChanged(GeoPositionChangedEventArgs<GeoCoordinate> e)
         {
-            _lastLocation = e.Position.Location;
+            _lastPosition = e.Position;
 
             CheckForLocationAvailable();
         }
@@ -91,6 +70,68 @@ namespace Cimbalino.Phone.Toolkit.Services
                 Stop();
 
                 _actionToExecute(null, ex);
+            }
+        }
+
+        public void Start(GeoPositionAccuracy desiredAccuracy)
+        {
+            try
+            {
+                Start(desiredAccuracy, 0);
+
+                CheckCurrentState();
+
+                _timer = new DispatcherTimer()
+                {
+                    Interval = _timeout
+                };
+
+                _timer.Tick += TimerTick;
+
+                _timer.Start();
+            }
+            catch (Exception ex)
+            {
+                Stop();
+
+                _actionToExecute(null, ex);
+            }
+        }
+
+        private void TimerTick(object sender, EventArgs e)
+        {
+            try
+            {
+                throw new Exception("Timeout");
+            }
+            catch (Exception ex)
+            {
+                Stop();
+
+                _actionToExecute(null, ex);
+            }
+        }
+
+        private void CheckCurrentState()
+        {
+            if (GeoCoordinateWatcher.Permission == GeoPositionPermission.Denied)
+            {
+                throw new Exception("Access to the location service is denied.");
+            }
+
+            if (GeoCoordinateWatcher.Status == GeoPositionStatus.Disabled)
+            {
+                throw new Exception("The location service is disabled or unsupported.");
+            }
+        }
+
+        private void CheckForLocationAvailable()
+        {
+            if (_ready && _lastPosition != null)
+            {
+                Stop();
+
+                _actionToExecute(_lastPosition.ToLocationServicePosition(), null);
             }
         }
     }

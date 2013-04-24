@@ -1,11 +1,11 @@
 ﻿// ****************************************************************************
-// <copyright file="LocationServiceState.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2011
+// <copyright file="LocationServiceAccuracy.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2013
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>03-01-2012</date>
+// <date>20-04-2013</date>
 // <project>Cimbalino.Phone.Toolkit.Location</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -16,18 +16,18 @@
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Describes the current state of <see cref="ILocationService"/>.
+    /// Indicates the requested accuracy level for the location data that the application uses.
     /// </summary>
-    public enum LocationServiceState
+    public enum LocationServiceAccuracy
     {
         /// <summary>
-        /// The <see cref="ILocationService"/> is stopped.
+        /// Optimize for power, performance, and other cost considerations.
         /// </summary>
-        Stopped,
-
+        Default,
+        
         /// <summary>
-        /// The <see cref="ILocationService"/> is started.
+        /// Deliver the most accurate report possible. This includes using services that might charge money, or consuming higher levels of battery power or connection bandwidth. An accuracy level of High may degrade system performance and should be used only when necessary.
         /// </summary>
-        Started
+        High
     }
 }
