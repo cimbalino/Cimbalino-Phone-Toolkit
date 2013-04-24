@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Globalization;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -22,6 +23,11 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// </summary>
     public class LocationServicePosition : IEquatable<LocationServicePosition>
     {
+        /// <summary>
+        /// Represents a <see cref="LocationServicePosition"/> object with unknown latitude and longitude fields.
+        /// </summary>
+        public static readonly LocationServicePosition Unknown = new LocationServicePosition();
+
         #region Properties
 
         /// <summary>
@@ -72,7 +78,26 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <value>The speed in meters per second.</value>
         public double? Speed { get; private set; }
 
+        /// <summary>
+        /// Gets a value indicating whether the <see cref="LocationServicePosition" /> does not contain latitude or longitude data.
+        /// </summary>
+        /// <value>true if the <see cref="LocationServicePosition" /> does not contain latitude or longitude data; otherwise, false.</value>
+        public bool IsUnknown
+        {
+            get
+            {
+                return this == Unknown;
+            }
+        }
+
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LocationServicePosition"/> class.
+        /// </summary>
+        public LocationServicePosition()
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LocationServicePosition"/> class.
@@ -174,6 +199,22 @@ namespace Cimbalino.Phone.Toolkit.Services
             }
 
             return Latitude.Equals(other.Latitude) && Longitude.Equals(other.Longitude);
+        }
+
+        /// <summary>
+        /// Returns a string representation of the current <see cref="LocationServicePosition"/>.
+        /// </summary>
+        /// <returns>A string representation of the current <see cref="LocationServicePosition"/>.</returns>
+        public override string ToString()
+        {
+            if (this == Unknown)
+            {
+                return "Unknown";
+            }
+
+            return string.Format(CultureInfo.InvariantCulture, "{0:G}, {1:G}",
+                Latitude,
+                Longitude);
         }
     }
 }

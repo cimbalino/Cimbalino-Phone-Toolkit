@@ -75,6 +75,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             var coordinate = position.Location;
 
+            if (coordinate.IsUnknown)
+            {
+                return LocationServicePosition.Unknown;
+            }
+
             return new LocationServicePosition(
                 position.Timestamp,
                 coordinate.Latitude,
