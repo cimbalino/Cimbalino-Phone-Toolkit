@@ -200,6 +200,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         protected override void OnPositionChanged(GeoPositionChangedEventArgs<GeoCoordinate> e)
         {
             _position = e.Position;
+
+            if (_reportInterval == 0)
+            {
+                RaisePositionChangedEvent();
+            }
         }
 
         /// <summary>
@@ -246,6 +251,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         private void ReportTimerTick(object sender, EventArgs e)
+        {
+            RaisePositionChangedEvent();
+        }
+
+        private void RaisePositionChangedEvent()
         {
             var eventHandler = PositionChanged;
             var position = _position;
