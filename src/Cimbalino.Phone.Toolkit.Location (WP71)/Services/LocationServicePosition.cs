@@ -23,6 +23,8 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// </summary>
     public class LocationServicePosition : IEquatable<LocationServicePosition>
     {
+        private const double DegToRad = 0.0174532925199433;
+
         /// <summary>
         /// Represents a <see cref="LocationServicePosition"/> object with unknown latitude and longitude fields.
         /// </summary>
@@ -123,25 +125,19 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Determines whether the specified object is a <see cref="LocationServicePosition"/> that has the same latitude and longitude values as this one.
+        /// Returns a string representation of the current <see cref="LocationServicePosition"/>.
         /// </summary>
-        /// <param name="obj">The object to compare with the current instance.</param>
-        /// <returns>true if the latitude and longitude properties of both objects have the same value.</returns>
-        public override bool Equals(object obj)
+        /// <returns>A string representation of the current <see cref="LocationServicePosition"/>.</returns>
+        public override string ToString()
         {
-            if (ReferenceEquals(null, obj) || obj.GetType() != typeof(LocationServicePosition))
+            if (this == Unknown)
             {
-                return false;
+                return "Unknown";
             }
 
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            var other = (LocationServicePosition)obj;
-
-            return Latitude.Equals(other.Latitude) && Longitude.Equals(other.Longitude);
+            return string.Format(CultureInfo.InvariantCulture, "{0:G}, {1:G}",
+                Latitude,
+                Longitude);
         }
 
         /// <summary>
@@ -154,6 +150,63 @@ namespace Cimbalino.Phone.Toolkit.Services
             {
                 return (Latitude.GetHashCode() * 397) ^ Longitude.GetHashCode();
             }
+        }
+
+        /// <summary>
+        /// Determines whether the specified object is a <see cref="LocationServicePosition"/> that has the same latitude and longitude values as this one.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current instance.</param>
+        /// <returns>true if the latitude and longitude properties of both objects have the same value.</returns>
+        public override bool Equals(object obj)
+        {
+            if (!(obj is LocationServicePosition))
+            {
+                return this.Equals(obj);
+            }
+
+            return this.Equals(obj as LocationServicePosition);
+        }
+
+        /// <summary>
+        /// Determines whether the specified <see cref="LocationServicePosition"/> has the same latitude and longitude values as this one.
+        /// </summary>
+        /// <param name="other">The <see cref="LocationServicePosition"/> object to compare with the current instance.</param>
+        /// <returns>true if the latitude and longitude properties of both objects have the same value; otherwise, false.</returns>
+        public bool Equals(LocationServicePosition other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            return Latitude.Equals(other.Latitude) && Longitude.Equals(other.Longitude);
+        }
+
+        /// <summary>
+        /// Returns the distance between the latitude and longitude coordinates that are specified by this <see cref="LocationServicePosition" /> and another specified <see cref="LocationServicePosition" />.
+        /// </summary>
+        /// <param name="other">The <see cref="LocationServicePosition" /> for the location to calculate the distance to.</param>
+        /// <returns>The distance between the two coordinates, in meters.</returns>
+        public double GetDistanceTo(LocationServicePosition other)
+        {
+            var latitude0 = Latitude * DegToRad;
+            var longitude0 = Longitude * DegToRad;
+            var latitude1 = other.Latitude * DegToRad;
+            var longitude1 = other.Longitude * DegToRad;
+
+            var deltaLatitude = latitude1 - latitude0;
+            var deltaLongitude = longitude1 - longitude0;
+
+            var r0 = Math.Pow(Math.Sin(deltaLatitude / 2), 2) + (Math.Pow(Math.Sin(deltaLongitude / 2), 2) * Math.Cos(latitude0) * Math.Cos(latitude1));
+
+            var r1 = 2 * Math.Atan2(Math.Sqrt(r0), Math.Sqrt(1 - r0));
+
+            return 6376500 * r1;
         }
 
         /// <summary>
@@ -181,42 +234,6 @@ namespace Cimbalino.Phone.Toolkit.Services
             }
 
             return left.Equals(right);
-        }
-
-        /// <summary>
-        /// Determines whether the specified <see cref="LocationServicePosition"/> has the same latitude and longitude values as this one.
-        /// </summary>
-        /// <param name="other">The <see cref="LocationServicePosition"/> object to compare with the current instance.</param>
-        /// <returns>true if the latitude and longitude properties of both objects have the same value; otherwise, false.</returns>
-        public bool Equals(LocationServicePosition other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            return Latitude.Equals(other.Latitude) && Longitude.Equals(other.Longitude);
-        }
-
-        /// <summary>
-        /// Returns a string representation of the current <see cref="LocationServicePosition"/>.
-        /// </summary>
-        /// <returns>A string representation of the current <see cref="LocationServicePosition"/>.</returns>
-        public override string ToString()
-        {
-            if (this == Unknown)
-            {
-                return "Unknown";
-            }
-
-            return string.Format(CultureInfo.InvariantCulture, "{0:G}, {1:G}",
-                Latitude,
-                Longitude);
         }
     }
 }
