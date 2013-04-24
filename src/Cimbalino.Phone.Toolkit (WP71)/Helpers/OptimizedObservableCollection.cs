@@ -1,0 +1,116 @@
+﻿// ****************************************************************************
+// <copyright file="OptimizedObservableCollection.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2011
+// </copyright>
+// ****************************************************************************
+// <author>Pedro Lamas</author>
+// <email>pedrolamas@gmail.com</email>
+// <date>23-04-2013</date>
+// <project>Cimbalino.Phone.Toolkit</project>
+// <web>http://www.pedrolamas.com</web>
+// <license>
+// See license.txt in this solution or http://www.pedrolamas.com/license_MIT.txt
+// </license>
+// ****************************************************************************
+
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+
+namespace Cimbalino.Phone.Toolkit.Helpers
+{
+    /// <summary>
+    /// Optimized version of the <see cref="ObservableCollection{T}"/> class.
+    /// </summary>
+    /// <typeparam name="T">The type of items in the collection.</typeparam>
+    public class OptimizedObservableCollection<T> : ObservableCollection<T>
+    {
+        private bool _suppressEvents;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the <see cref="ObservableCollection{T}.CollectionChanged"/> events are raised.
+        /// </summary>
+        /// <value>true if the <see cref="ObservableCollection{T}.CollectionChanged"/> events are raised; otherwise, false.</value>
+        public bool SuppressEvents
+        {
+            get
+            {
+                return _suppressEvents;
+            }
+            set
+            {
+                if (_suppressEvents != value)
+                {
+                    _suppressEvents = value;
+
+                    OnPropertyChanged(new PropertyChangedEventArgs("SuppressEvents"));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OptimizedObservableCollection{T}"/> class.
+        /// </summary>
+        public OptimizedObservableCollection()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OptimizedObservableCollection{T}"/> class.
+        /// </summary>
+        /// <param name="items">The collection from which the items are copied.</param>
+        public OptimizedObservableCollection(IEnumerable<T> items)
+            : base(items)
+        {
+        }
+
+        /// <summary>
+        /// Raises the <see cref="E:System.Collections.ObjectModel.ObservableCollection`1.CollectionChanged"/> event with the provided event data.
+        /// </summary>
+        /// <param name="e">The event data to report in the event.</param>
+        protected override void OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (!SuppressEvents)
+            {
+                base.OnCollectionChanged(e);
+            }
+        }
+
+        /// <summary>
+        /// Adds the specified items collection to the current <see cref="OptimizedObservableCollection{T}"/> instance.
+        /// </summary>
+        /// <param name="items">The collection from which the items are copied.</param>
+        public void AddRange(IEnumerable<T> items)
+        {
+            try
+            {
+                SuppressEvents = true;
+
+                foreach (var item in items)
+                {
+                    Add(item);
+                }
+            }
+            finally
+            {
+                SuppressEvents = false;
+
+                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            }
+        }
+
+        /// <summary>
+        /// Replaces the current <see cref="OptimizedObservableCollection{T}"/> instance items with the ones specified in the items collection.
+        /// </summary>
+        /// <param name="items">The collection from which the items are copied.</param>
+        public void ReplaceWith(IEnumerable<T> items)
+        {
+            SuppressEvents = true;
+
+            Clear();
+
+            AddRange(items);
+        }
+    }
+}

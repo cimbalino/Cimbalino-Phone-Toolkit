@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Cimbalino.Phone.Toolkit.Helpers;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -86,6 +87,17 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         public static ObservableCollection<TResult> ToObservableCollection<TResult>(this IEnumerable<TResult> source)
         {
             return new ObservableCollection<TResult>(source);
+        }
+
+        /// <summary>
+        /// Creates an <see cref="OptimizedObservableCollection{T}"/> from this enumerable.
+        /// </summary>
+        /// <param name="source">The enumerable.</param>
+        /// <returns>An <see cref="OptimizedObservableCollection{TResult}"/> that contains the elements from the input sequence.</returns>
+        /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
+        public static OptimizedObservableCollection<TResult> ToOptimizedObservableCollection<TResult>(this IEnumerable<TResult> source)
+        {
+            return new OptimizedObservableCollection<TResult>(source);
         }
 
         /// <summary>
