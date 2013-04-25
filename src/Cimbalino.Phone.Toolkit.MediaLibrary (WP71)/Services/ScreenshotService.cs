@@ -32,6 +32,17 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         public void TakeScreenshot()
         {
+            var destinationFilename = new Guid() + ".jpg";
+
+            TakeScreenshot(destinationFilename);
+        }
+
+        /// <summary>
+        /// Creates a screenshot image from the current screen and saves it with the specified filename.
+        /// </summary>
+        /// <param name="destinationFilename">The destination filename.</param>
+        public void TakeScreenshot(string destinationFilename)
+        {
             var frame = Application.Current.RootVisual as PhoneApplicationFrame;
 
             if (frame != null)
@@ -44,8 +55,6 @@ namespace Cimbalino.Phone.Toolkit.Services
                 using (var screenshotStream = new MemoryStream())
                 {
                     screenshotBitmap.SaveJpeg(screenshotStream, screenshotBitmap.PixelWidth, screenshotBitmap.PixelHeight, 0, 100);
-
-                    var destinationFilename = new Guid() + ".jpg";
 
                     using (var mediaLibrary = new MediaLibrary())
                     {

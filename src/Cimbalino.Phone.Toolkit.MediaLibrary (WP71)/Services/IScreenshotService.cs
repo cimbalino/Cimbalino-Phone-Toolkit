@@ -24,5 +24,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Creates a screenshot image from the current screen.
         /// </summary>
         void TakeScreenshot();
+
+        /// <summary>
+        /// Creates a screenshot image from the current screen and saves it with the specified filename.
+        /// </summary>
+        /// <param name="destinationFilename">The destination filename.</param>
+        void TakeScreenshot(string destinationFilename);
     }
 }
