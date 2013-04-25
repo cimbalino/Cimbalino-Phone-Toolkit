@@ -61,9 +61,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Gets the list of the menu items that appear on the Application Bar.
+        /// Gets the <see cref="ApplicationBarMenuItem"/> collection that appear on the Application Bar.
         /// </summary>
-        /// <value>The list of menu items.</value>
+        /// <value>The <see cref="ApplicationBarMenuItem"/> collection.</value>
         public ApplicationBarMenuItemCollection MenuItems
         {
             get
@@ -83,9 +83,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             DependencyProperty.Register("MenuItems", typeof(ApplicationBarMenuItemCollection), typeof(ApplicationBarBehavior), null);
 
         /// <summary>
-        /// Gets the list of the buttons that appear on the Application Bar.
+        /// Gets the <see cref="ApplicationBarIconButton"/> collection that appear on the Application Bar.
         /// </summary>
-        /// <value>The Application Bar buttons.</value>
+        /// <value>The <see cref="ApplicationBarIconButton"/> collection.</value>
         public ApplicationBarIconButtonCollection Buttons
         {
             get

@@ -46,13 +46,13 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
-        /// Gets or sets the list of Application Bars.
+        /// Gets the <see cref="ApplicationBar"/> collection.
         /// </summary>
-        /// <value>The list of Application Bars.</value>
+        /// <value>The <see cref="ApplicationBar"/> collection.</value>
         public ApplicationBarCollection ApplicationBars
         {
             get { return (ApplicationBarCollection)GetValue(ApplicationBarsProperty); }
-            set { SetValue(ApplicationBarsProperty, value); }
+            private set { SetValue(ApplicationBarsProperty, value); }
         }
 
         /// <summary>
