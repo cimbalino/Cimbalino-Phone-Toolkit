@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Globalization;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Data;
@@ -27,9 +28,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
     public class MultiBindingBehavior : SafeBehavior<FrameworkElement>
     {
         /// <summary>
-        /// Gets the <see cref="MultiBindingItem"/> collection.
+        /// Gets the <see cref="MultiBindingItem"/> collection within this <see cref="MultiBindingBehavior"/> instance.
         /// </summary>
-        /// <value>The <see cref="MultiBindingItem"/> collection.</value>
+        /// <value>One or more <see cref="MultiBindingItem"/> objects.</value>
         public MultiBindingItemCollection Items
         {
             get { return (MultiBindingItemCollection)GetValue(ItemsProperty); }
@@ -56,19 +57,12 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="PropertyName" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty PropertyNameProperty =
-            DependencyProperty.Register("PropertyName", typeof(string), typeof(MultiBindingBehavior), new PropertyMetadata(null, OnPropertyNameChanged));
-
-        private static void OnPropertyNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var multiBindingBehavior = (MultiBindingBehavior)d;
-
-            multiBindingBehavior.UpdateAttach();
-        }
+            DependencyProperty.Register("PropertyName", typeof(string), typeof(MultiBindingBehavior), new PropertyMetadata(null, OnPropertyChanged));
 
         /// <summary>
-        /// Gets or sets the converter to use.
+        /// Gets or sets the converter to use to convert the source values to or from the target value.
         /// </summary>
-        /// <value>The converter to use.</value>
+        /// <value>A resource reference to a class that implements the <see cref="IValueConverter"/> interface, which includes implementations of the <see cref="IValueConverter.Convert"/> and <see cref="IValueConverter.ConvertBack"/> methods.</value>
         public IValueConverter Converter
         {
             get { return (IValueConverter)GetValue(ConverterProperty); }
@@ -79,13 +73,45 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Identifier for the <see cref="Converter" /> dependency property.
         /// </summary>
         public static readonly DependencyProperty ConverterProperty =
-            DependencyProperty.Register("Converter", typeof(IValueConverter), typeof(MultiBindingBehavior), new PropertyMetadata(null, OnConverterChanged));
+            DependencyProperty.Register("Converter", typeof(IValueConverter), typeof(MultiBindingBehavior), new PropertyMetadata(null, OnPropertyChanged));
 
-        private static void OnConverterChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        /// <summary>
+        /// Gets or sets the <see cref="CultureInfo"/> object that applies to the converter.
+        /// </summary>
+        /// <value>The <see cref="CultureInfo"/> object that applies to the converter.</value>
+        public CultureInfo ConverterCulture
+        {
+            get { return (CultureInfo)GetValue(ConverterCultureProperty); }
+            set { SetValue(ConverterCultureProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifier for the <see cref="ConverterCulture" /> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty ConverterCultureProperty =
+            DependencyProperty.Register("ConverterCulture", typeof(CultureInfo), typeof(MultiBindingBehavior), new PropertyMetadata(null, OnPropertyChanged));
+
+        /// <summary>
+        /// Gets or sets an optional parameter to pass to the converter as additional information.
+        /// </summary>
+        /// <value>A value of the type expected by the converter, which might be an object element or a string depending on the definition and XAML capabilities both of the property type being used and of the implementation of the converter.</value>
+        public object ConverterParameter
+        {
+            get { return GetValue(ConverterParameterProperty); }
+            set { SetValue(ConverterParameterProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifier for the <see cref="ConverterParameter" /> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty ConverterParameterProperty =
+            DependencyProperty.Register("ConverterParameter", typeof(object), typeof(MultiBindingBehavior), new PropertyMetadata(null, OnPropertyChanged));
+
+        private static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var multiBindingBehavior = (MultiBindingBehavior)d;
 
-            multiBindingBehavior.UpdateAttach();
+            multiBindingBehavior.Update();
         }
 
         /// <summary>
@@ -104,12 +130,12 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         {
             base.OnAttached();
 
-            UpdateAttach();
+            Update();
         }
 
-        private void UpdateAttach()
+        private void Update()
         {
-            if (AssociatedObject == null)
+            if (AssociatedObject == null || string.IsNullOrEmpty(PropertyName))
             {
                 return;
             }
@@ -138,6 +164,8 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             {
                 Source = Items,
                 Converter = Converter,
+                ConverterCulture = ConverterCulture,
+                ConverterParameter = ConverterParameter,
                 Mode = BindingMode.TwoWay
             };
 
