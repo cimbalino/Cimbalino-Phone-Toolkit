@@ -1,0 +1,67 @@
+﻿<phone:PhoneApplicationPage x:Class="MultiBinding.View.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:cimbalinoBehaviors="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                            xmlns:local="clr-namespace:MultiBinding.ViewModel"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            DataContext="{Binding Main,
+                                                  Source={StaticResource Locator}}"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            Orientation="Portrait"
+                            SupportedOrientations="Portrait"
+                            shell:SystemTray.IsVisible="True"
+                            mc:Ignorable="d">
+
+    <phone:PhoneApplicationPage.Resources>
+        <local:MultiStringsToStateConverter x:Key="MultiStringsToStateConverter" />
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Text="MY APPLICATION" />
+            <TextBlock Margin="9,-7,0,0"
+                       Style="{StaticResource PhoneTextTitle1Style}"
+                       Text="page name" />
+        </StackPanel>
+
+        <StackPanel x:Name="ContentPanel"
+                    Grid.Row="1"
+                    Margin="12,0,12,0">
+
+            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="Text 1" />
+            <TextBox Text="{Binding Text1, Mode=TwoWay}" />
+
+            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="Text 2" />
+            <TextBox Text="{Binding Text2, Mode=TwoWay}" />
+
+            <TextBlock Style="{StaticResource PhoneTextSubtleStyle}" Text="State" />
+            <ListBox ItemsSource="{Binding Items}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Margin="{StaticResource PhoneTouchTargetOverhang}"
+                                   FontSize="{StaticResource PhoneFontSizeLarge}"
+                                   Text="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <i:Interaction.Behaviors>
+                    <cimbalinoBehaviors:MultiBindingBehavior Converter="{StaticResource MultiStringsToStateConverter}" PropertyName="SelectedIndex">
+                        <cimbalinoBehaviors:MultiBindingItem Value="{Binding Text1, Mode=TwoWay}" />
+                        <cimbalinoBehaviors:MultiBindingItem Value="{Binding Text2, Mode=TwoWay}" />
+                    </cimbalinoBehaviors:MultiBindingBehavior>
+                </i:Interaction.Behaviors>
+            </ListBox>
+
+        </StackPanel>
+    </Grid>
+</phone:PhoneApplicationPage>
