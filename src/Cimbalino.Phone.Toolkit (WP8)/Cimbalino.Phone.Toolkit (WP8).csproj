@@ -168,6 +168,15 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\MultiApplicationBarBehavior.cs">
       <Link>Behaviors\MultiApplicationBarBehavior.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\MultiBindingBehavior.cs">
+      <Link>Behaviors\MultiBindingBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\MultiBindingItem.cs">
+      <Link>Behaviors\MultiBindingItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\MultiBindingItemCollection.cs">
+      <Link>Behaviors\MultiBindingItemCollection.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\SafeBehavior.cs">
       <Link>Behaviors\SafeBehavior.cs</Link>
     </Compile>
@@ -185,6 +194,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\ColorToBrushConverter.cs">
       <Link>Converters\ColorToBrushConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\MultiValueConverterBase.cs">
+      <Link>Converters\MultiValueConverterBase.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\NegativeBooleanConverter.cs">
       <Link>Converters\NegativeBooleanConverter.cs</Link>
