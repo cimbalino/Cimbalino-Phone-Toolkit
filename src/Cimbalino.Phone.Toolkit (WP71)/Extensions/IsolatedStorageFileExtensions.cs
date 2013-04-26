@@ -232,6 +232,36 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             InternalWriteAllLines(store.OpenFile(path, FileMode.OpenOrCreate), contents, encoding);
         }
 
+        /// <summary>
+        /// Deletes the folder.
+        /// </summary>
+        /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
+        /// <param name="path">The path.</param>
+        public static void DeleteFolder(this IsolatedStorageFile store, string path)
+        {
+            if (!store.DirectoryExists(path))
+                return;
+
+            // Get the subfolders that reside under path
+            var folders = store.GetDirectoryNames(Path.Combine(path, "*.*"));
+
+            // Iterate through the subfolders and check for further subfolders            
+            foreach (var folder in folders)
+            {
+                var folderName = path + "/" + folder;
+                store.DeleteFolder(folderName);
+            }
+
+            // Delete all files at the root level in that folder.
+            foreach (var file in store.GetFileNames(Path.Combine(path, "*.*")))
+            {
+                store.DeleteFile(Path.Combine(path, file));
+            }
+
+            // Finally delete the path
+            store.DeleteDirectory(path);
+        }
+
         private static void InternalWriteAllLines(IsolatedStorageFileStream fileStream, IEnumerable<string> contents, Encoding encoding)
         {
             using (var streamWriter = new StreamWriter(fileStream, encoding))
