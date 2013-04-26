@@ -20,8 +20,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
     /// <summary>
     /// An <see cref="IValueConverter"/> which converts a <see cref="bool"/> value to a <see cref="int"/> value.
     /// </summary>
-    public class BooleanToIntConverter : BooleanToValueBaseConverter<int>
+    public class BooleanToIntConverter : BooleanToValueConverterBase<int>
     {
-        
     }
 }

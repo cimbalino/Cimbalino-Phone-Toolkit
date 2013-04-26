@@ -233,32 +233,31 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
-        /// Deletes the folder.
+        /// Deletes the specified directory and, if indicated, any subdirectories and files in the directory.
         /// </summary>
         /// <param name="store">The <see cref="IsolatedStorageFile"/> object.</param>
-        /// <param name="path">The path.</param>
-        public static void DeleteFolder(this IsolatedStorageFile store, string path)
+        /// <param name="path">The relative path of the directory to delete within the isolated storage scope.</param>
+        /// <param name="recursive">true to remove directories, subdirectories, and files in path; otherwise, false.</param>
+        public static void DeleteDirectory(this IsolatedStorageFile store, string path, bool recursive)
         {
             if (!store.DirectoryExists(path))
+            {
                 return;
-
-            // Get the subfolders that reside under path
-            var folders = store.GetDirectoryNames(Path.Combine(path, "*.*"));
-
-            // Iterate through the subfolders and check for further subfolders            
-            foreach (var folder in folders)
-            {
-                var folderName = path + "/" + folder;
-                store.DeleteFolder(folderName);
             }
 
-            // Delete all files at the root level in that folder.
-            foreach (var file in store.GetFileNames(Path.Combine(path, "*.*")))
+            if (recursive)
             {
-                store.DeleteFile(Path.Combine(path, file));
+                foreach (var folder in store.GetDirectoryNames(Path.Combine(path, "*.*")))
+                {
+                    store.DeleteDirectory(Path.Combine(path, folder), true);
+                }
+
+                foreach (var file in store.GetFileNames(Path.Combine(path, "*.*")))
+                {
+                    store.DeleteFile(Path.Combine(path, file));
+                }
             }
 
-            // Finally delete the path
             store.DeleteDirectory(path);
         }
 

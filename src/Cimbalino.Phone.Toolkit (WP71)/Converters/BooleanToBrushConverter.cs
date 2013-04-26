@@ -21,8 +21,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
     /// <summary>
     /// An <see cref="IValueConverter"/> which converts a <see cref="bool"/> value to a <see cref="Brush"/> value.
     /// </summary>
-    public class BooleanToBrushConverter : BooleanToValueBaseConverter<Brush>
+    public class BooleanToBrushConverter : BooleanToValueConverterBase<Brush>
     {
-        
     }
 }

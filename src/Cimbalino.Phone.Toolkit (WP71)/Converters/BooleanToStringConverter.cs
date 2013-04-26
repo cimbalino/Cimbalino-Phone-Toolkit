@@ -20,8 +20,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
     /// <summary>
     /// An <see cref="IValueConverter"/> which converts a <see cref="bool"/> value to a <see cref="string"/> value.
     /// </summary>
-    public class BooleanToStringConverter : BooleanToValueBaseConverter<string>
+    public class BooleanToStringConverter : BooleanToValueConverterBase<string>
     {
-        
     }
 }

@@ -30,13 +30,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                var anid = GetPropertyValue<string>(
 #if WP8
-                    "ANID2"
+                var anid = GetPropertyValue<string>("ANID2");
 #else
-                    "ANID"
+                var anid = GetPropertyValue<string>("ANID");
 #endif
-                    );
 
                 if (anid.Length >= 34)
                 {

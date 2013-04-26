@@ -189,6 +189,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\BooleanToStringConverter.cs">
       <Link>Converters\BooleanToStringConverter.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\BooleanToValueConverterBase.cs">
+      <Link>Converters\BooleanToValueConverterBase.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\BooleanToVisibilityConverter.cs">
       <Link>Converters\BooleanToVisibilityConverter.cs</Link>
     </Compile>
