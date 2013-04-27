@@ -29,10 +29,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Text="MY APPLICATION" />
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Text="CIMBALINO WINDOWS PHONE TOOLKIT" />
             <TextBlock Margin="9,-7,0,0"
                        Style="{StaticResource PhoneTextTitle1Style}"
-                       Text="page name" />
+                       Text="multibinding" />
         </StackPanel>
 
         <StackPanel x:Name="ContentPanel"
