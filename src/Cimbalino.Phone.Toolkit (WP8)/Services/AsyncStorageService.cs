@@ -183,7 +183,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetFileNamesAsync()
         {
-            var files = await Storage.GetFoldersAsync();
+            var files = await Storage.GetFilesAsync();
 
             return files
                 .Select(x => x.Name)
