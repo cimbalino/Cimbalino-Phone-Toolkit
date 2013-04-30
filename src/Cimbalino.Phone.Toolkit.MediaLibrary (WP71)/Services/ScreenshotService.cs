@@ -32,7 +32,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         public void TakeScreenshot()
         {
-            var destinationFilename = new Guid() + ".jpg";
+            var destinationFilename = Guid.NewGuid() + ".jpg";
 
             TakeScreenshot(destinationFilename);
         }
