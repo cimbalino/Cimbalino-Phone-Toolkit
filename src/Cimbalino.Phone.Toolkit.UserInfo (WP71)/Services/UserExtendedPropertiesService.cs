@@ -36,7 +36,7 @@ namespace Cimbalino.Phone.Toolkit.Services
                 var anid = GetPropertyValue<string>("ANID");
 #endif
 
-                if (anid.Length >= 34)
+                if (!string.IsNullOrEmpty(anid) && anid.Length >= 34)
                 {
                     return anid.Substring(2, 32);
                 }
