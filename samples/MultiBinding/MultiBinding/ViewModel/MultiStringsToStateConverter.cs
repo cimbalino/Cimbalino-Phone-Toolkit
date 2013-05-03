@@ -4,9 +4,9 @@ using Cimbalino.Phone.Toolkit.Converters;
 
 namespace MultiBinding.ViewModel
 {
-    public class MultiStringsToStateConverter : MultiValueConverterBase<int>
+    public class MultiStringsToStateConverter : MultiValueConverterBase
     {
-        public override int Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        public override object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var text1 = (string)values[0];
             var text2 = (string)values[1];
@@ -32,12 +32,14 @@ namespace MultiBinding.ViewModel
             }
         }
 
-        public override object[] ConvertBack(int value, Type targetType, object parameter, CultureInfo culture)
+        public override object[] ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            var intValue = (int)value;
+            
             return new object[]
             {
-                value == -1 || value == 0 || value == 1 ? null : "This is not empty",
-                value == -1 || value == 0 || value == 2 ? null : "This is not empty"
+                intValue == -1 || intValue == 0 || intValue == 1 ? null : "This is not empty",
+                intValue == -1 || intValue == 0 || intValue == 2 ? null : "This is not empty"
             };
         }
     }

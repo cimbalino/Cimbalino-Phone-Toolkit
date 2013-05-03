@@ -22,8 +22,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
     /// <summary>
     /// An <see cref="IValueConverter"/> abstract implementation to be used with the <see cref="Cimbalino.Phone.Toolkit.Behaviors.MultiBindingBehavior"/>.
     /// </summary>
-    /// <typeparam name="T">The return type.</typeparam>
-    public abstract class MultiValueConverterBase<T> : IValueConverter
+    public abstract class MultiValueConverterBase : IValueConverter
     {
         /// <summary>
         /// Modifies the source data before passing it to the target for display in the UI.
@@ -33,7 +32,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
         /// <param name="targetType">The <see cref="T:System.Type"/> of data expected by the target dependency property.</param>
         /// <param name="parameter">An optional parameter to be used in the converter logic.</param>
         /// <param name="culture">The culture of the conversion.</param>
-        public abstract T Convert(object[] values, Type targetType, object parameter, CultureInfo culture);
+        public abstract object Convert(object[] values, Type targetType, object parameter, CultureInfo culture);
 
         /// <summary>
         /// Modifies the target data before passing it to the source object. This method is called only in <see cref="F:System.Windows.Data.BindingMode.TwoWay"/> bindings.
@@ -43,7 +42,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
         /// <param name="targetType">The <see cref="T:System.Type"/> of data expected by the source object.</param>
         /// <param name="parameter">An optional parameter to be used in the converter logic.</param>
         /// <param name="culture">The culture of the conversion.</param>
-        public abstract object[] ConvertBack(T value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture);
+        public abstract object[] ConvertBack(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture);
 
         object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
@@ -52,7 +51,7 @@ namespace Cimbalino.Phone.Toolkit.Converters
 
         object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ConvertBack((T)value, targetType, parameter, culture);
+            return ConvertBack(value, targetType, parameter, culture);
         }
     }
 }
