@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 using System.Windows.Threading;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
@@ -66,7 +64,6 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             dispatcherTimer.Start();
         }
 
-#if WP8
         /// <summary>
         /// Retrieves a <see cref="TaskScheduler"/> instance for the thread the Dispatcher is associated with.
         /// </summary>
@@ -92,6 +89,5 @@ namespace Cimbalino.Phone.Toolkit.Extensions
 
             return taskCompletionSource.Task;
         }
-#endif
     }
 }

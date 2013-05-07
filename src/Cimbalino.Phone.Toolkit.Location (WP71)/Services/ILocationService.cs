@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -101,7 +99,6 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="locationResult">The current location.</param>
         void GetPosition(TimeSpan maximumAge, TimeSpan timeout, Action<LocationServicePosition, Exception> locationResult);
 
-#if WP8
         /// <summary>
         /// Starts an asynchronous operation to retrieve the current location.
         /// </summary>
@@ -115,6 +112,5 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="timeout">The timeout.</param>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<LocationServicePosition> GetPositionAsync(TimeSpan maximumAge, TimeSpan timeout);
-#endif
     }
 }

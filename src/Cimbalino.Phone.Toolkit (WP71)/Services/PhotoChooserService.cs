@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -46,7 +44,6 @@ namespace Cimbalino.Phone.Toolkit.Services
             throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
         }
 
-#if WP8
         /// <summary>
         /// Shows the Photo Chooser application.
         /// </summary>
@@ -66,6 +63,5 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
         }
-#endif
     }
 }

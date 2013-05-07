@@ -196,26 +196,6 @@ namespace Cimbalino.Phone.Toolkit.Services
             }
         }
 
-        private void GeolocatorPositionChanged(Geolocator sender, PositionChangedEventArgs args)
-        {
-            var eventHandler = PositionChanged;
-
-            if (eventHandler != null)
-            {
-                eventHandler(this, args.ToLocationServicePositionChangedEventArgs());
-            }
-        }
-
-        private void GeolocatorStatusChanged(Geolocator sender, StatusChangedEventArgs args)
-        {
-            var eventHandler = StatusChanged;
-
-            if (eventHandler != null)
-            {
-                eventHandler(this, args.ToLocationServiceStatusChangedEventArgs());
-            }
-        }
-
         /// <summary>
         /// Starts an asynchronous operation to retrieve the current location.
         /// </summary>
@@ -238,6 +218,26 @@ namespace Cimbalino.Phone.Toolkit.Services
             var position = await _geolocator.GetGeopositionAsync(maximumAge, timeout);
 
             return position.Coordinate.ToLocationServicePosition();
+        }
+
+        private void GeolocatorPositionChanged(Geolocator sender, PositionChangedEventArgs args)
+        {
+            var eventHandler = PositionChanged;
+
+            if (eventHandler != null)
+            {
+                eventHandler(this, args.ToLocationServicePositionChangedEventArgs());
+            }
+        }
+
+        private void GeolocatorStatusChanged(Geolocator sender, StatusChangedEventArgs args)
+        {
+            var eventHandler = StatusChanged;
+
+            if (eventHandler != null)
+            {
+                eventHandler(this, args.ToLocationServiceStatusChangedEventArgs());
+            }
         }
     }
 }

@@ -15,9 +15,7 @@
 
 using System;
 using System.Collections.Generic;
-#if WP8
 using System.Threading.Tasks;
-#endif
 using System.Windows;
 using Microsoft.Xna.Framework.GamerServices;
 
@@ -75,7 +73,6 @@ namespace Cimbalino.Phone.Toolkit.Services
             }, null);
         }
 
-#if WP8
         /// <summary>
         /// Displays a message box that contains the specified text, title bar caption, and response buttons.
         /// </summary>
@@ -91,6 +88,5 @@ namespace Cimbalino.Phone.Toolkit.Services
 
             return taskCompletionSource.Task;
         }
-#endif
     }
 }

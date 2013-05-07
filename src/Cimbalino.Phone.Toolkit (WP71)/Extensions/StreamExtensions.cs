@@ -15,9 +15,7 @@
 
 using System.IO;
 using System.Security.Cryptography;
-#if WP8
 using System.Threading.Tasks;
-#endif
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -99,7 +97,6 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             }
         }
 
-#if WP8
         /// <summary>
         /// Writes the stream contents to a byte array.
         /// </summary>
@@ -121,6 +118,5 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                 return memoryStream.ToArray();
             }
         }
-#endif
     }
 }

@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -39,7 +37,6 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="resultAction">The <see cref="Action{PhotoResult}" /> to be called once the operation is finished.</param>
         void Show(bool showCamera, Action<PhotoResult> resultAction);
 
-#if WP8
         /// <summary>
         /// Shows the Photo Chooser application.
         /// </summary>
@@ -52,6 +49,5 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="showCamera">true if the user is presented with a button for launching the camera during the photo choosing process; otherwise, false.</param>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<PhotoResult> ShowAsync(bool showCamera);
-#endif
     }
 }

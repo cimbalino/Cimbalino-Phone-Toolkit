@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -40,7 +38,6 @@ namespace Cimbalino.Phone.Toolkit.Services
                 .Show();
         }
 
-#if WP8
         /// <summary>
         /// Shows the Photo Chooser application, optionally presenting a button for launching the camera.
         /// </summary>
@@ -53,6 +50,5 @@ namespace Cimbalino.Phone.Toolkit.Services
                 ShowCamera = showCamera
             }).ShowAsync();
         }
-#endif
     }
 }

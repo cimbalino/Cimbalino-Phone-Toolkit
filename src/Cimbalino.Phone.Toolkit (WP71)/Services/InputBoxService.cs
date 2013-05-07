@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 using System.Windows;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.GamerServices;
@@ -91,7 +89,6 @@ namespace Cimbalino.Phone.Toolkit.Services
             }, null, usePasswordMode);
         }
 
-#if WP8
         /// <summary>
         /// Shows the specified text and awaits for the user to reply.
         /// </summary>
@@ -153,6 +150,5 @@ namespace Cimbalino.Phone.Toolkit.Services
 
             return taskCompletionSource.Task;
         }
-#endif
     }
 }

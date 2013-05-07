@@ -15,6 +15,7 @@
 
 using System;
 using System.Device.Location;
+using System.Threading.Tasks;
 using System.Windows.Threading;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -248,6 +249,54 @@ namespace Cimbalino.Phone.Toolkit.Services
             {
                 new CurrentLocationHelper(timeout, locationResult).Start(GeoPositionAccuracy.Default);
             }
+        }
+
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public Task<LocationServicePosition> GetPositionAsync()
+        {
+            var taskCompletionsSource = new TaskCompletionSource<LocationServicePosition>();
+
+            GetPosition((p, e) =>
+            {
+                if (p != null)
+                {
+                    taskCompletionsSource.SetResult(p);
+                }
+                else
+                {
+                    taskCompletionsSource.SetException(e);
+                }
+            });
+
+            return taskCompletionsSource.Task;
+        }
+
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
+        /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public Task<LocationServicePosition> GetPositionAsync(TimeSpan maximumAge, TimeSpan timeout)
+        {
+            var taskCompletionsSource = new TaskCompletionSource<LocationServicePosition>();
+
+            GetPosition(maximumAge, timeout, (p, e) =>
+            {
+                if (p != null)
+                {
+                    taskCompletionsSource.SetResult(p);
+                }
+                else
+                {
+                    taskCompletionsSource.SetException(e);
+                }
+            });
+
+            return taskCompletionsSource.Task;
         }
 
         private void ReportTimerTick(object sender, EventArgs e)

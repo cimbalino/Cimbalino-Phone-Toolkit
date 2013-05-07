@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -36,7 +34,6 @@ namespace Cimbalino.Phone.Toolkit.Services
                 .Show();
         }
 
-#if WP8
         /// <summary>
         /// Shows the Contacts application.
         /// </summary>
@@ -46,6 +43,5 @@ namespace Cimbalino.Phone.Toolkit.Services
             return new ChooserHandler<PhoneNumberResult>(new PhoneNumberChooserTask())
                 .ShowAsync();
         }
-#endif
     }
 }

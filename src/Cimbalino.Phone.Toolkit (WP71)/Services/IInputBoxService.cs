@@ -14,9 +14,7 @@
 // ****************************************************************************
 
 using System;
-#if WP8
 using System.Threading.Tasks;
-#endif
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -68,7 +66,6 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="textInputed">The <see cref="Action{String}"/> to be called once the operation is finished.</param>
         void Show(string text, string caption, string defaultText, bool usePasswordMode, Action<string> textInputed);
 
-#if WP8
         /// <summary>
         /// Shows the specified text and awaits for the user to reply.
         /// </summary>
@@ -111,6 +108,5 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="usePasswordMode">true if password mode is enabled; otherwise, false.</param>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         Task<string> ShowAsync(string text, string caption, string defaultText, bool usePasswordMode);
-#endif
     }
 }
