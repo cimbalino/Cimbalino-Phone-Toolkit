@@ -14,6 +14,11 @@
       <frameworkAssembly assemblyName="System.Windows.Interactivity" />
       <frameworkAssembly assemblyName="Microsoft.Xna.Framework.GamerServices" />
     </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework="sl4-windowsphone71">
+        <dependency id="Microsoft.Bcl.Async" />
+      </group>
+    </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Appbar ApplicationBar</tags>
   </metadata>
 </package>
