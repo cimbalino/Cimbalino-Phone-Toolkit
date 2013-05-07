@@ -261,14 +261,8 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\IntExtensions.cs">
       <Link>Extensions\IntExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\IsolatedStorageFileExtensions.cs">
-      <Link>Extensions\IsolatedStorageFileExtensions.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\ObjectExtensions.cs">
       <Link>Extensions\ObjectExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\StreamExtensions.cs">
-      <Link>Extensions\StreamExtensions.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\StreamReaderExtensions.cs">
       <Link>Extensions\StreamReaderExtensions.cs</Link>
@@ -281,27 +275,6 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\UriExtensions.cs">
       <Link>Extensions\UriExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifest.cs">
-      <Link>Helpers\ApplicationManifest.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestAppNode.cs">
-      <Link>Helpers\ApplicationManifestAppNode.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestIconPathNode.cs">
-      <Link>Helpers\ApplicationManifestIconPathNode.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestLanguageNode.cs">
-      <Link>Helpers\ApplicationManifestLanguageNode.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestNamedNode.cs">
-      <Link>Helpers\ApplicationManifestNamedNode.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestTaskNode.cs">
-      <Link>Helpers\ApplicationManifestTaskNode.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\ApplicationManifestTokenNode.cs">
-      <Link>Helpers\ApplicationManifestTokenNode.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\LittleWatson.cs">
       <Link>Helpers\LittleWatson.cs</Link>
@@ -324,18 +297,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ApplicationLifecycleService.cs">
       <Link>Services\ApplicationLifecycleService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ApplicationManifestService.cs">
-      <Link>Services\ApplicationManifestService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ApplicationProfileService.cs">
-      <Link>Services\ApplicationProfileService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ApplicationProfileServiceMode.cs">
-      <Link>Services\ApplicationProfileServiceMode.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ApplicationSettingsService.cs">
-      <Link>Services\ApplicationSettingsService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\BingMapsDirectionsService.cs">
       <Link>Services\BingMapsDirectionsService.cs</Link>
     </Compile>
@@ -351,9 +312,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ConnectionSettingsService.cs">
       <Link>Services\ConnectionSettingsService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\DeviceStatusService.cs">
-      <Link>Services\DeviceStatusService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\EmailAddressChooserService.cs">
       <Link>Services\EmailAddressChooserService.cs</Link>
     </Compile>
@@ -366,23 +324,11 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IApplicationLifecycleService.cs">
       <Link>Services\IApplicationLifecycleService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IApplicationManifestService.cs">
-      <Link>Services\IApplicationManifestService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IApplicationProfileService.cs">
-      <Link>Services\IApplicationProfileService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IApplicationSettingsService.cs">
-      <Link>Services\IApplicationSettingsService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IClipboardService.cs">
       <Link>Services\IClipboardService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IConnectionSettingsService.cs">
       <Link>Services\IConnectionSettingsService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IDeviceStatusService.cs">
-      <Link>Services\IDeviceStatusService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IEmailAddressChooserService.cs">
       <Link>Services\IEmailAddressChooserService.cs</Link>
@@ -417,9 +363,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMessageBoxService.cs">
       <Link>Services\IMessageBoxService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\INavigationService.cs">
-      <Link>Services\INavigationService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\InputBoxService.cs">
       <Link>Services\InputBoxService.cs</Link>
     </Compile>
@@ -441,9 +384,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISavePhoneNumberService.cs">
       <Link>Services\ISavePhoneNumberService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IScreenInfoService.cs">
-      <Link>Services\IScreenInfoService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISearchService.cs">
       <Link>Services\ISearchService.cs</Link>
     </Compile>
@@ -456,14 +396,8 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IShareStatusService.cs">
       <Link>Services\IShareStatusService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IShellToastService.cs">
-      <Link>Services\IShellToastService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISmsComposeService.cs">
       <Link>Services\ISmsComposeService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IStorageService.cs">
-      <Link>Services\IStorageService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISystemTrayService.cs">
       <Link>Services\ISystemTrayService.cs</Link>
@@ -498,9 +432,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MessageBoxService.cs">
       <Link>Services\MessageBoxService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\NavigationService.cs">
-      <Link>Services\NavigationService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\PhoneNumberChooserService.cs">
       <Link>Services\PhoneNumberChooserService.cs</Link>
     </Compile>
@@ -525,12 +456,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SavePhoneNumberService.cs">
       <Link>Services\SavePhoneNumberService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ScreenInfoService.cs">
-      <Link>Services\ScreenInfoService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ScreenInfoServiceResolution.cs">
-      <Link>Services\ScreenInfoServiceResolution.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SearchService.cs">
       <Link>Services\SearchService.cs</Link>
     </Compile>
@@ -543,14 +468,8 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ShareStatusService.cs">
       <Link>Services\ShareStatusService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ShellToastService.cs">
-      <Link>Services\ShellToastService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SmsComposeService.cs">
       <Link>Services\SmsComposeService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\StorageService.cs">
-      <Link>Services\StorageService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SystemTrayService.cs">
       <Link>Services\SystemTrayService.cs</Link>
@@ -579,8 +498,6 @@
     <Compile Include="Actions\SaveAppointmentAction.cs" />
     <Compile Include="Actions\ShareMediaAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AsyncStorageService.cs" />
-    <Compile Include="Services\IAsyncStorageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Themes\Generic.xaml">
