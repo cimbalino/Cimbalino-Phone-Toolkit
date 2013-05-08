@@ -208,6 +208,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Cimbalino.Phone.Toolkit.Background %28WP71%29.csproj">
+      <Project>{960E9331-9264-4485-ADD3-C68966685311}</Project>
+      <Name>Cimbalino.Phone.Toolkit.Background %28WP71%29</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
