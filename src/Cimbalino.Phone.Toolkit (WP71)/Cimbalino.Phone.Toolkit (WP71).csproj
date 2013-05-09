@@ -132,53 +132,39 @@
     <Compile Include="Extensions\StreamReaderExtensions.cs" />
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
-    <Compile Include="Helpers\ApplicationManifest.cs" />
-    <Compile Include="Helpers\ApplicationManifestAppNode.cs" />
-    <Compile Include="Helpers\ApplicationManifestIconPathNode.cs" />
-    <Compile Include="Helpers\ApplicationManifestLanguageNode.cs" />
-    <Compile Include="Helpers\ApplicationManifestNamedNode.cs" />
-    <Compile Include="Helpers\ApplicationManifestTaskNode.cs" />
-    <Compile Include="Helpers\ApplicationManifestTokenNode.cs" />
     <Compile Include="Helpers\MutexLock.cs" />
     <Compile Include="Helpers\NamescopeBinding.cs" />
     <Compile Include="Helpers\OptimizedObservableCollection.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
-    <Compile Include="Services\ApplicationProfileServiceMode.cs" />
-    <Compile Include="Services\ApplicationProfileService.cs" />
-    <Compile Include="Services\IApplicationProfileService.cs" />
+    <Compile Include="Services\DeviceStatusService.cs" />
+    <Compile Include="Services\IDeviceStatusService.cs" />
     <Compile Include="Services\IMapDownloaderService.cs" />
+    <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISaveContactService.cs" />
     <Compile Include="Services\MapDownloaderService.cs" />
     <Compile Include="Services\MapsDirectionsService.cs" />
     <Compile Include="Services\MapsService.cs" />
     <Compile Include="Services\IMarketplaceHubService.cs" />
     <Compile Include="Services\ISaveAppointmentService.cs" />
-    <Compile Include="Services\IScreenInfoService.cs" />
     <Compile Include="Services\IShareMediaService.cs" />
     <Compile Include="Services\MarketplaceHubService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\SaveAppointmentService.cs" />
     <Compile Include="Services\SaveAppointmentServiceParams.cs" />
     <Compile Include="Services\SaveContactService.cs" />
     <Compile Include="Services\SaveContactServiceParams.cs" />
-    <Compile Include="Services\ScreenInfoServiceResolution.cs" />
-    <Compile Include="Services\ScreenInfoService.cs" />
     <Compile Include="Services\ShareMediaService.cs" />
     <Compile Include="System\Security\Cryptography\HMACMD5.Generated.cs" />
     <Compile Include="System\Security\Cryptography\MD5.Generated.cs" />
     <Compile Include="System\Security\Cryptography\MD5Managed.Generated.cs" />
     <Compile Include="Services\ApplicationLifecycleService.cs" />
-    <Compile Include="Services\ApplicationManifestService.cs" />
-    <Compile Include="Services\ApplicationSettingsService.cs" />
     <Compile Include="Services\BingMapsDirectionsService.cs" />
     <Compile Include="Services\BingMapsService.cs" />
     <Compile Include="Services\ClipboardService.cs" />
     <Compile Include="Services\ConnectionSettingsService.cs" />
-    <Compile Include="Services\DeviceStatusService.cs" />
     <Compile Include="Services\AddressChooserService.cs" />
     <Compile Include="Services\EmailAddressChooserService.cs" />
     <Compile Include="Services\IAddressChooserService.cs" />
-    <Compile Include="Services\IApplicationManifestService.cs" />
-    <Compile Include="Services\IApplicationSettingsService.cs" />
     <Compile Include="Converters\BooleanToStringConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\StringFormatConverter.cs" />
@@ -190,9 +176,7 @@
     <Compile Include="Extensions\ICollectionExtensions.cs" />
     <Compile Include="Extensions\ByteArrayExtensions.cs" />
     <Compile Include="Extensions\IEnumerableExtensions.cs" />
-    <Compile Include="Extensions\IsolatedStorageFileExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
-    <Compile Include="Extensions\StreamExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Helpers\LittleWatson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,14 +184,12 @@
     <Compile Include="Services\IMapsService.cs" />
     <Compile Include="Services\IClipboardService.cs" />
     <Compile Include="Services\IConnectionSettingsService.cs" />
-    <Compile Include="Services\IDeviceStatusService.cs" />
     <Compile Include="Services\IEmailAddressChooserService.cs" />
     <Compile Include="Services\IApplicationLifecycleService.cs" />
     <Compile Include="Services\IMarketplaceDetailService.cs" />
     <Compile Include="Services\IMarketplaceReviewService.cs" />
     <Compile Include="Services\IMarketplaceSearchService.cs" />
     <Compile Include="Services\IMessageBoxService.cs" />
-    <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\IEmailComposeService.cs" />
     <Compile Include="Services\InputBoxService.cs" />
     <Compile Include="Services\IInputBoxService.cs" />
@@ -218,9 +200,7 @@
     <Compile Include="Services\ISearchService.cs" />
     <Compile Include="Services\IShareLinkService.cs" />
     <Compile Include="Services\IShareStatusService.cs" />
-    <Compile Include="Services\IShellToastService.cs" />
     <Compile Include="Services\ISmsComposeService.cs" />
-    <Compile Include="Services\IStorageService.cs" />
     <Compile Include="Services\ISystemTrayService.cs" />
     <Compile Include="Services\IVibrationService.cs" />
     <Compile Include="Services\IWebBrowserService.cs" />
@@ -228,7 +208,6 @@
     <Compile Include="Services\MarketplaceReviewService.cs" />
     <Compile Include="Services\MarketplaceSearchService.cs" />
     <Compile Include="Services\MessageBoxService.cs" />
-    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\EmailComposeService.cs" />
     <Compile Include="Services\PhoneNumberChooserService.cs" />
     <Compile Include="Services\PhotoChooserService.cs" />
@@ -237,9 +216,7 @@
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\ShareLinkService.cs" />
     <Compile Include="Services\ShareStatusService.cs" />
-    <Compile Include="Services\ShellToastService.cs" />
     <Compile Include="Services\SmsComposeService.cs" />
-    <Compile Include="Services\StorageService.cs" />
     <Compile Include="Services\SystemTrayService.cs" />
     <Compile Include="Services\ChooserHandler.cs" />
     <Compile Include="Services\VibrationService.cs" />
@@ -254,6 +231,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Cimbalino.Phone.Toolkit.Background %28WP71%29.csproj">
+      <Project>{960E9331-9264-4485-ADD3-C68966685311}</Project>
+      <Name>Cimbalino.Phone.Toolkit.Background %28WP71%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
