@@ -122,9 +122,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\ApplicationSettingsService.cs">
       <Link>Services\ApplicationSettingsService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\DeviceStatusService.cs">
-      <Link>Services\DeviceStatusService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\IApplicationManifestService.cs">
       <Link>Services\IApplicationManifestService.cs</Link>
     </Compile>
@@ -134,12 +131,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\IApplicationSettingsService.cs">
       <Link>Services\IApplicationSettingsService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\IDeviceStatusService.cs">
-      <Link>Services\IDeviceStatusService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\INavigationService.cs">
-      <Link>Services\INavigationService.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\IScreenInfoService.cs">
       <Link>Services\IScreenInfoService.cs</Link>
     </Compile>
@@ -148,9 +139,6 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\IStorageService.cs">
       <Link>Services\IStorageService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\NavigationService.cs">
-      <Link>Services\NavigationService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Services\ScreenInfoService.cs">
       <Link>Services\ScreenInfoService.cs</Link>

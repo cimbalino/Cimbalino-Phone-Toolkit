@@ -312,6 +312,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ConnectionSettingsService.cs">
       <Link>Services\ConnectionSettingsService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\DeviceStatusService.cs">
+      <Link>Services\DeviceStatusService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\EmailAddressChooserService.cs">
       <Link>Services\EmailAddressChooserService.cs</Link>
     </Compile>
@@ -329,6 +332,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IConnectionSettingsService.cs">
       <Link>Services\IConnectionSettingsService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IDeviceStatusService.cs">
+      <Link>Services\IDeviceStatusService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IEmailAddressChooserService.cs">
       <Link>Services\IEmailAddressChooserService.cs</Link>
@@ -362,6 +368,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IMessageBoxService.cs">
       <Link>Services\IMessageBoxService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\INavigationService.cs">
+      <Link>Services\INavigationService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\InputBoxService.cs">
       <Link>Services\InputBoxService.cs</Link>
@@ -431,6 +440,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\MessageBoxService.cs">
       <Link>Services\MessageBoxService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\NavigationService.cs">
+      <Link>Services\NavigationService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\PhoneNumberChooserService.cs">
       <Link>Services\PhoneNumberChooserService.cs</Link>

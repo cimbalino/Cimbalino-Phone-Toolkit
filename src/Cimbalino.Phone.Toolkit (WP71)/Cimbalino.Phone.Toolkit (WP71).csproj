@@ -116,7 +116,10 @@
     <Compile Include="Helpers\NamescopeBinding.cs" />
     <Compile Include="Helpers\OptimizedObservableCollection.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
+    <Compile Include="Services\DeviceStatusService.cs" />
+    <Compile Include="Services\IDeviceStatusService.cs" />
     <Compile Include="Services\IMapDownloaderService.cs" />
+    <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISaveContactService.cs" />
     <Compile Include="Services\MapDownloaderService.cs" />
     <Compile Include="Services\MapsDirectionsService.cs" />
@@ -125,6 +128,7 @@
     <Compile Include="Services\ISaveAppointmentService.cs" />
     <Compile Include="Services\IShareMediaService.cs" />
     <Compile Include="Services\MarketplaceHubService.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\SaveAppointmentService.cs" />
     <Compile Include="Services\SaveAppointmentServiceParams.cs" />
     <Compile Include="Services\SaveContactService.cs" />

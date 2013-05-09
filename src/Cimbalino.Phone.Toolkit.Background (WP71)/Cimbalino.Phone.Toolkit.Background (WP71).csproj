@@ -67,16 +67,12 @@
     <Compile Include="Services\ApplicationProfileService.cs" />
     <Compile Include="Services\ApplicationProfileServiceMode.cs" />
     <Compile Include="Services\ApplicationSettingsService.cs" />
-    <Compile Include="Services\DeviceStatusService.cs" />
     <Compile Include="Services\IApplicationManifestService.cs" />
     <Compile Include="Services\IApplicationProfileService.cs" />
     <Compile Include="Services\IApplicationSettingsService.cs" />
-    <Compile Include="Services\IDeviceStatusService.cs" />
-    <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\IScreenInfoService.cs" />
     <Compile Include="Services\IShellToastService.cs" />
     <Compile Include="Services\IStorageService.cs" />
-    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ScreenInfoService.cs" />
     <Compile Include="Services\ScreenInfoServiceResolution.cs" />
     <Compile Include="Services\ShellToastService.cs" />
