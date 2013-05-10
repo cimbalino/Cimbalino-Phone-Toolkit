@@ -222,9 +222,6 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\StringToVisibilityConverter.cs">
       <Link>Converters\StringToVisibilityConverter.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Data\TableObject.cs">
-      <Link>Data\TableObject.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\ByteArrayExtensions.cs">
       <Link>Extensions\ByteArrayExtensions.cs</Link>
     </Compile>

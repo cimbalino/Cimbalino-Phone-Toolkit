@@ -74,6 +74,7 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\TableObject.cs" />
     <Compile Include="Extensions\IsolatedStorageFileExtensions.cs" />
     <Compile Include="Extensions\StreamExtensions.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />

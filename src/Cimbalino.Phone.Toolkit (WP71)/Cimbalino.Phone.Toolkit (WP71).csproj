@@ -169,7 +169,6 @@
     <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Converters\StringToLowercaseConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
-    <Compile Include="Data\TableObject.cs" />
     <Compile Include="Converters\NegativeBooleanConverter.cs" />
     <Compile Include="Converters\StringToVisibilityConverter.cs" />
     <Compile Include="Extensions\ICollectionExtensions.cs" />
