@@ -102,6 +102,11 @@
       <Name>Cimbalino.Phone.Toolkit %28WP8%29</Name>
       <Private>False</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP8%29\Cimbalino.Phone.Toolkit.Background %28WP8%29.csproj">
+      <Project>{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}</Project>
+      <Name>Cimbalino.Phone.Toolkit.Background %28WP8%29</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

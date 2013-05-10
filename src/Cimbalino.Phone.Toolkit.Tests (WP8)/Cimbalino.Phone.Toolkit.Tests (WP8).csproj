@@ -148,6 +148,10 @@
       <Project>{F75511BC-209A-485C-8952-33C638C56BA7}</Project>
       <Name>Cimbalino.Phone.Toolkit %28WP8%29</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP8%29\Cimbalino.Phone.Toolkit.Background %28WP8%29.csproj">
+      <Project>{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}</Project>
+      <Name>Cimbalino.Phone.Toolkit.Background %28WP8%29</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />

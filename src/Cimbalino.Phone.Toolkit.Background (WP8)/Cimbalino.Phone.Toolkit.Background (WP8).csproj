@@ -86,6 +86,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\DeviceStatusService.cs">
+      <Link>Services\DeviceStatusService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IDeviceStatusService.cs">
+      <Link>Services\IDeviceStatusService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Extensions\IsolatedStorageFileExtensions.cs">
       <Link>Extensions\IsolatedStorageFileExtensions.cs</Link>
     </Compile>

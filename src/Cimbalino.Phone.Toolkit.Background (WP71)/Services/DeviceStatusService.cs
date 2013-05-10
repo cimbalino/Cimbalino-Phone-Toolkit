@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System;
 using Microsoft.Phone.Info;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -138,11 +139,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Gets a value indicating whether the user has deployed the physical hardware keyboard of the device.
         /// </summary>
         /// <value>true if the keyboard is deployed; otherwise, false.</value>
-        public bool IsKeyboardDeployed
+        public virtual bool IsKeyboardDeployed
         {
             get
             {
-                return DeviceStatus.IsKeyboardDeployed;
+                throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the DeviceStatusWithKeyboardService instead. This method can't be called from a Background Agent.");
             }
         }
 

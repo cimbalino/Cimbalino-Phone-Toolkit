@@ -136,8 +136,7 @@
     <Compile Include="Helpers\NamescopeBinding.cs" />
     <Compile Include="Helpers\OptimizedObservableCollection.cs" />
     <Compile Include="Helpers\WeakEventListener.generated.cs" />
-    <Compile Include="Services\DeviceStatusService.cs" />
-    <Compile Include="Services\IDeviceStatusService.cs" />
+    <Compile Include="Services\DeviceStatusWithKeyboardService.cs" />
     <Compile Include="Services\IMapDownloaderService.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISaveContactService.cs" />
@@ -236,6 +235,7 @@
     <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Cimbalino.Phone.Toolkit.Background %28WP71%29.csproj">
       <Project>{960E9331-9264-4485-ADD3-C68966685311}</Project>
       <Name>Cimbalino.Phone.Toolkit.Background %28WP71%29</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

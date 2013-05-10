@@ -1,0 +1,37 @@
+﻿// ****************************************************************************
+// <copyright file="DeviceStatusWithKeyboardService.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2013
+// </copyright>
+// ****************************************************************************
+// <author>Pedro Lamas</author>
+// <email>pedrolamas@gmail.com</email>
+// <date>10-05-2013</date>
+// <project>Cimbalino.Phone.Toolkit</project>
+// <web>http://www.pedrolamas.com</web>
+// <license>
+// See license.txt in this solution or http://www.pedrolamas.com/license_MIT.txt
+// </license>
+// ****************************************************************************
+
+using Microsoft.Phone.Info;
+
+namespace Cimbalino.Phone.Toolkit.Services
+{
+    /// <summary>
+    /// Represents an implementation of the <see cref="IDeviceStatusService"/>.
+    /// </summary>
+    public class DeviceStatusWithKeyboardService : DeviceStatusService
+    {
+        /// <summary>
+        /// Gets a value indicating whether the user has deployed the physical hardware keyboard of the device.
+        /// </summary>
+        /// <value>true if the keyboard is deployed; otherwise, false.</value>
+        public override bool IsKeyboardDeployed
+        {
+            get
+            {
+                return DeviceStatus.IsKeyboardDeployed;
+            }
+        }
+    }
+}

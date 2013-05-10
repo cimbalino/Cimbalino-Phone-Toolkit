@@ -312,8 +312,8 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ConnectionSettingsService.cs">
       <Link>Services\ConnectionSettingsService.cs</Link>
     </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\DeviceStatusService.cs">
-      <Link>Services\DeviceStatusService.cs</Link>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\DeviceStatusWithKeyboardService.cs">
+      <Link>Services\DeviceStatusWithKeyboardService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\EmailAddressChooserService.cs">
       <Link>Services\EmailAddressChooserService.cs</Link>
@@ -332,9 +332,6 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IConnectionSettingsService.cs">
       <Link>Services\IConnectionSettingsService.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IDeviceStatusService.cs">
-      <Link>Services\IDeviceStatusService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\IEmailAddressChooserService.cs">
       <Link>Services\IEmailAddressChooserService.cs</Link>
@@ -530,6 +527,7 @@
     <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP8%29\Cimbalino.Phone.Toolkit.Background %28WP8%29.csproj">
       <Project>{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}</Project>
       <Name>Cimbalino.Phone.Toolkit.Background %28WP8%29</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
