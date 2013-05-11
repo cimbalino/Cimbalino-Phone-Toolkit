@@ -75,8 +75,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\TableObject.cs" />
+    <Compile Include="Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="Extensions\DependencyObjectExtensions.cs" />
+    <Compile Include="Extensions\DispatcherExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\FrameworkElementExtensions.cs" />
+    <Compile Include="Extensions\ICollectionExtensions.cs" />
+    <Compile Include="Extensions\IComparableExtensions.cs" />
+    <Compile Include="Extensions\IConvertibleExtensions.cs" />
+    <Compile Include="Extensions\IDictionaryExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\IFormattableExtensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\IsolatedStorageFileExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\StreamReaderExtensions.cs" />
+    <Compile Include="Extensions\StreamWriterExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\UriExtensions.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />
     <Compile Include="Helpers\ApplicationManifestAppNode.cs" />
     <Compile Include="Helpers\ApplicationManifestIconPathNode.cs" />
@@ -84,6 +101,9 @@
     <Compile Include="Helpers\ApplicationManifestNamedNode.cs" />
     <Compile Include="Helpers\ApplicationManifestTaskNode.cs" />
     <Compile Include="Helpers\ApplicationManifestTokenNode.cs" />
+    <Compile Include="Helpers\MutexLock.cs" />
+    <Compile Include="Helpers\OptimizedObservableCollection.cs" />
+    <Compile Include="Helpers\WeakEventListener.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApplicationManifestService.cs" />
     <Compile Include="Services\ApplicationProfileService.cs" />
@@ -101,6 +121,9 @@
     <Compile Include="Services\ScreenInfoServiceResolution.cs" />
     <Compile Include="Services\ShellToastService.cs" />
     <Compile Include="Services\StorageService.cs" />
+    <Compile Include="System\Security\Cryptography\HMACMD5.Generated.cs" />
+    <Compile Include="System\Security\Cryptography\MD5.Generated.cs" />
+    <Compile Include="System\Security\Cryptography\MD5Managed.Generated.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

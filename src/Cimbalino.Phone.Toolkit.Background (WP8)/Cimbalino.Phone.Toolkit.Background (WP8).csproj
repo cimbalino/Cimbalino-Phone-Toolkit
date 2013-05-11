@@ -89,11 +89,80 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Data\TableObject.cs">
       <Link>Data\TableObject.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\ByteArrayExtensions.cs">
+      <Link>Extensions\ByteArrayExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\DependencyObjectExtensions.cs">
+      <Link>Extensions\DependencyObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\DispatcherExtensions.cs">
+      <Link>Extensions\DispatcherExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\EnumExtensions.cs">
+      <Link>Extensions\EnumExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\FrameworkElementExtensions.cs">
+      <Link>Extensions\FrameworkElementExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\ICollectionExtensions.cs">
+      <Link>Extensions\ICollectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\IComparableExtensions.cs">
+      <Link>Extensions\IComparableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\IConvertibleExtensions.cs">
+      <Link>Extensions\IConvertibleExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\IDictionaryExtensions.cs">
+      <Link>Extensions\IDictionaryExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\IEnumerableExtensions.cs">
+      <Link>Extensions\IEnumerableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\IFormattableExtensions.cs">
+      <Link>Extensions\IFormattableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\IntExtensions.cs">
+      <Link>Extensions\IntExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\ObjectExtensions.cs">
+      <Link>Extensions\ObjectExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\StreamReaderExtensions.cs">
+      <Link>Extensions\StreamReaderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\StreamWriterExtensions.cs">
+      <Link>Extensions\StreamWriterExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\StringExtensions.cs">
+      <Link>Extensions\StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\UriExtensions.cs">
+      <Link>Extensions\UriExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MutexLock.cs">
+      <Link>Helpers\MutexLock.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\OptimizedObservableCollection.cs">
+      <Link>Helpers\OptimizedObservableCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\WeakEventListener.generated.cs">
+      <Link>Helpers\WeakEventListener.generated.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\DeviceStatusService.cs">
       <Link>Services\DeviceStatusService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IDeviceStatusService.cs">
       <Link>Services\IDeviceStatusService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\System\Security\Cryptography\HMACMD5.Generated.cs">
+      <Link>System\Security\Cryptography\HMACMD5.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\System\Security\Cryptography\MD5.Generated.cs">
+      <Link>System\Security\Cryptography\MD5.Generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\System\Security\Cryptography\MD5Managed.Generated.cs">
+      <Link>System\Security\Cryptography\MD5Managed.Generated.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Extensions\IsolatedStorageFileExtensions.cs">
       <Link>Extensions\IsolatedStorageFileExtensions.cs</Link>
