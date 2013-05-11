@@ -33,5 +33,17 @@ namespace Cimbalino.Phone.Toolkit.Services
                 return DeviceStatus.IsKeyboardDeployed;
             }
         }
+
+        /// <summary>
+        /// Gets a value indicating whether the device contains a physical hardware keyboard.
+        /// </summary>
+        /// <value>true if the device contains a physical hardware keyboard; otherwise, false.</value>
+        public override bool IsKeyboardPresent
+        {
+            get
+            {
+                return DeviceStatus.IsKeyboardPresent;
+            }
+        }
     }
 }

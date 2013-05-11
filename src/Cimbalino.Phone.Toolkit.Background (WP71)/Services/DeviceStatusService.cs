@@ -153,11 +153,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <value>
         /// true if the device contains a physical hardware keyboard; otherwise, false.
         /// </value>
-        public bool IsKeyboardPresent
+        public virtual bool IsKeyboardPresent
         {
             get
             {
-                return DeviceStatus.IsKeyboardPresent;
+                throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the DeviceStatusWithKeyboardService instead. This method can't be called from a Background Agent.");
             }
         }
 
