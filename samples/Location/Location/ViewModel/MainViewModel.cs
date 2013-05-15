@@ -67,7 +67,7 @@ namespace Location.ViewModel
 
             GetCurrentLocationCommand = new RelayCommand(() =>
             {
-                _locationService.GetPosition(TimeSpan.FromSeconds(20), TimeSpan.FromSeconds(10), (location, ex) =>
+                _locationService.GetPosition(LocationServiceAccuracy.High, TimeSpan.FromSeconds(20), TimeSpan.FromSeconds(10), (location, ex) =>
                 {
                     if (ex != null)
                     {
