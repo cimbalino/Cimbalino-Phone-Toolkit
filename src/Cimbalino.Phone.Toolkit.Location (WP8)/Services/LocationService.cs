@@ -162,11 +162,21 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Retrieves the current location.
         /// </summary>
         /// <param name="locationResult">The current location.</param>
-        public async void GetPosition(Action<LocationServicePosition, Exception> locationResult)
+        public void GetPosition(Action<LocationServicePosition, Exception> locationResult)
+        {
+            GetPosition(LocationServiceAccuracy.Default, locationResult);
+        }
+
+        /// <summary>
+        /// Retrieves the current location.
+        /// </summary>
+        /// <param name="desiredAccuracy">The desired accuracy.</param>
+        /// <param name="locationResult">The current location.</param>
+        public async void GetPosition(LocationServiceAccuracy desiredAccuracy, Action<LocationServicePosition, Exception> locationResult)
         {
             try
             {
-                var position = await GetPositionAsync();
+                var position = await GetPositionAsync(desiredAccuracy);
 
                 locationResult(position, null);
             }
@@ -182,11 +192,23 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
         /// <param name="timeout">The timeout.</param>
         /// <param name="locationResult">The current location.</param>
-        public async void GetPosition(TimeSpan maximumAge, TimeSpan timeout, Action<LocationServicePosition, Exception> locationResult)
+        public void GetPosition(TimeSpan maximumAge, TimeSpan timeout, Action<LocationServicePosition, Exception> locationResult)
+        {
+            GetPosition(LocationServiceAccuracy.Default, maximumAge, timeout, locationResult);
+        }
+
+        /// <summary>
+        /// Retrieves the current location.
+        /// </summary>
+        /// <param name="desiredAccuracy">The desired accuracy.</param>
+        /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <param name="locationResult">The current location.</param>
+        public async void GetPosition(LocationServiceAccuracy desiredAccuracy, TimeSpan maximumAge, TimeSpan timeout, Action<LocationServicePosition, Exception> locationResult)
         {
             try
             {
-                var position = await GetPositionAsync(maximumAge, timeout);
+                var position = await GetPositionAsync(desiredAccuracy, maximumAge, timeout);
 
                 locationResult(position, null);
             }
@@ -200,8 +222,20 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Starts an asynchronous operation to retrieve the current location.
         /// </summary>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
-        public async Task<LocationServicePosition> GetPositionAsync()
+        public Task<LocationServicePosition> GetPositionAsync()
         {
+            return GetPositionAsync(LocationServiceAccuracy.Default);
+        }
+
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
+        /// <param name="desiredAccuracy">The desired accuracy.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public async Task<LocationServicePosition> GetPositionAsync(LocationServiceAccuracy desiredAccuracy)
+        {
+            _geolocator.DesiredAccuracy = desiredAccuracy.ToPositionAccuracy();
+
             var position = await _geolocator.GetGeopositionAsync();
 
             return position.Coordinate.ToLocationServicePosition();
@@ -213,8 +247,22 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
         /// <param name="timeout">The timeout.</param>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
-        public async Task<LocationServicePosition> GetPositionAsync(TimeSpan maximumAge, TimeSpan timeout)
+        public Task<LocationServicePosition> GetPositionAsync(TimeSpan maximumAge, TimeSpan timeout)
         {
+            return GetPositionAsync(LocationServiceAccuracy.Default, maximumAge, timeout);
+        }
+
+        /// <summary>
+        /// Starts an asynchronous operation to retrieve the current location.
+        /// </summary>
+        /// <param name="desiredAccuracy">The desired accuracy.</param>
+        /// <param name="maximumAge">The maximum acceptable age of cached location data.</param>
+        /// <param name="timeout">The timeout.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public async Task<LocationServicePosition> GetPositionAsync(LocationServiceAccuracy desiredAccuracy, TimeSpan maximumAge, TimeSpan timeout)
+        {
+            _geolocator.DesiredAccuracy = desiredAccuracy.ToPositionAccuracy();
+
             var position = await _geolocator.GetGeopositionAsync(maximumAge, timeout);
 
             return position.Coordinate.ToLocationServicePosition();
