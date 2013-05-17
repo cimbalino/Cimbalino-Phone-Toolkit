@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Phone.Shell;
 
@@ -84,12 +85,37 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             return new IconicTileData(xmlContent);
         }
+
+        /// <summary>
+        /// Creates the tile.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        /// <param name="tileData">The tile data.</param>
+        /// <param name="supportsWideTile">if set to <c>true</c> [supports wide tile].</param>
+        public void CreateTile(string uri, ShellTileData tileData, bool supportsWideTile)
+        {
+            CreateTile(new Uri(uri, UriKind.Relative), tileData, supportsWideTile);
+        }
+
+        /// <summary>
+        /// Creates the tile.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        /// <param name="tileData">The tile data.</param>
+        /// <param name="supportsWideTile">if set to <c>true</c> [supports wide tile].</param>
+        public void CreateTile(Uri uri, ShellTileData tileData, bool supportsWideTile)
+        {
+            ShellTile.Create(uri, tileData, supportsWideTile);
+        }
+
+        
 #endif
     }
 
     public static class TileServiceExtensions
     {
 #if WP8
+        #region FlipTileData ExtensionMethods
         public static FlipTileData AddTitle(this FlipTileData tile, string title)
         {
             tile.Title = title;
@@ -179,6 +205,48 @@ namespace Cimbalino.Phone.Toolkit.Services
             tile.WideBackBackgroundImage = wideBackBackgroundImage;
             return tile;
         }
+        #endregion
+
+        #region CycleTileData ExtensionMethods
+        public static CycleTileData AddTitle(this CycleTileData tile, string title)
+        {
+            tile.Title = title;
+            return tile;
+        }
+
+        public static CycleTileData AddCount(this CycleTileData tile, int count)
+        {
+            tile.Count = count;
+            return tile;
+        }
+
+        public static CycleTileData AddSmallBackgroundImage(this CycleTileData tile, string smallBackgroundImage)
+        {
+            tile.SmallBackgroundImage = new Uri(smallBackgroundImage, UriKind.RelativeOrAbsolute);
+            return tile;
+        }
+
+        public static CycleTileData AddSmallBackgroundImage(this CycleTileData tile, Uri smallBackgroundImage)
+        {
+            tile.SmallBackgroundImage = smallBackgroundImage;
+            return tile;
+        }
+
+        public static CycleTileData AddCycleImages(this CycleTileData tile, List<Uri> cycleImages)
+        {
+            tile.CycleImages = cycleImages;
+            return tile;
+        }
+
+        public static CycleTileData AddCycleImages(this CycleTileData tile, List<string> cycleImages)
+        {
+            var cycleImageUris = new List<Uri>();
+            
+            cycleImages.ForEach(image => cycleImageUris.Add(new Uri(image, UriKind.RelativeOrAbsolute)));
+
+            return tile.AddCycleImages(cycleImageUris);
+        }
+        #endregion
 #else
 
 #endif
