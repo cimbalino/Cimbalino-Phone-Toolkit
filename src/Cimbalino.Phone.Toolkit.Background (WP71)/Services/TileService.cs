@@ -6,7 +6,7 @@ using Microsoft.Phone.Shell;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
-    public class TileService
+    public class TileService : ITileService
     {
         public bool TileExists(string uriString)
         {
