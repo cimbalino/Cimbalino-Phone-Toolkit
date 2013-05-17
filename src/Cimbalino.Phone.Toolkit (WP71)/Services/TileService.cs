@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Media;
 using Microsoft.Phone.Shell;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -247,6 +248,69 @@ namespace Cimbalino.Phone.Toolkit.Services
             return tile.AddCycleImages(cycleImageUris);
         }
         #endregion
+
+        #region IconicTileData ExtensionMethods
+        public static IconicTileData AddTitle(this IconicTileData tile, string title)
+        {
+            tile.Title = title;
+            return tile;
+        }
+
+        public static IconicTileData AddCount(this IconicTileData tile, int count)
+        {
+            tile.Count = count;
+            return tile;
+        }
+
+        public static IconicTileData AddIconImage(this IconicTileData tile, string iconImage)
+        {
+            tile.IconImage = new Uri(iconImage, UriKind.RelativeOrAbsolute);
+            return tile;
+        }
+
+        public static IconicTileData AddIconImage(this IconicTileData tile, Uri iconImage)
+        {
+            tile.IconImage = iconImage;
+            return tile;
+        }
+
+        public static IconicTileData AddSmallIconImage(this IconicTileData tile, string smallIconImage)
+        {
+            tile.SmallIconImage = new Uri(smallIconImage, UriKind.RelativeOrAbsolute);
+            return tile;
+        }
+
+        public static IconicTileData AddSmallIconImage(this IconicTileData tile, Uri smallIconImage)
+        {
+            tile.SmallIconImage = smallIconImage;
+            return tile;
+        }
+        
+        public static IconicTileData AddWideContent1(this IconicTileData tile, string wideContent1)
+        {
+            tile.WideContent1 = wideContent1;
+            return tile;
+        }
+
+        public static IconicTileData AddWideContent2(this IconicTileData tile, string wideContent2)
+        {
+            tile.WideContent2 = wideContent2;
+            return tile;
+        }
+
+        public static IconicTileData AddWideContent3(this IconicTileData tile, string wideContent3)
+        {
+            tile.WideContent3 = wideContent3;
+            return tile;
+        }
+
+        public static IconicTileData AddBackgroundColor(this IconicTileData tile, Color backgroundColor)
+        {
+            tile.BackgroundColor = backgroundColor;
+            return tile;
+        }
+        #endregion
+
 #else
 
 #endif
