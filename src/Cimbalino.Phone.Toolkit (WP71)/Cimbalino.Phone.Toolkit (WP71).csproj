@@ -207,7 +207,6 @@
     <Compile Include="Services\SmsComposeService.cs" />
     <Compile Include="Services\SystemTrayService.cs" />
     <Compile Include="Services\ChooserHandler.cs" />
-    <Compile Include="Services\TileService.cs" />
     <Compile Include="Services\VibrationService.cs" />
     <Compile Include="Services\VoiceCommandService.cs" />
     <Compile Include="Services\WebBrowserService.cs" />

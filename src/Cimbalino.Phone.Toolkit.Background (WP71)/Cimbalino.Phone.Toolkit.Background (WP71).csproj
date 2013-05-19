@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="Services\MarketplaceInformationService.cs" />
     <Compile Include="Services\NetworkInformationService.cs" />
+    <Compile Include="Services\ITileService.cs" />
     <Compile Include="Services\ScreenInfoService.cs" />
     <Compile Include="Services\ScreenInfoServiceResolution.cs" />
     <Compile Include="Services\ShellTileService.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Services\ShellTileServiceTileDataBase.cs" />
     <Compile Include="Services\ShellToastService.cs" />
     <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Services\TileService.cs" />
     <Compile Include="System\Security\Cryptography\HMACMD5.Generated.cs" />
     <Compile Include="System\Security\Cryptography\MD5.Generated.cs" />
     <Compile Include="System\Security\Cryptography\MD5Managed.Generated.cs" />

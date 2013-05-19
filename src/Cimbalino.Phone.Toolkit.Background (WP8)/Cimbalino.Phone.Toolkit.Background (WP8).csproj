@@ -248,6 +248,11 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileServiceTileDataBase.cs">
       <Link>Services\ShellTileServiceTileDataBase.cs</Link>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ITileService.cs">
+      <Link>Services\ITileService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\TileService.cs">
+      <Link>Services\TileService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\System\Security\Cryptography\HMACMD5.Generated.cs">
       <Link>System\Security\Cryptography\HMACMD5.Generated.cs</Link>
