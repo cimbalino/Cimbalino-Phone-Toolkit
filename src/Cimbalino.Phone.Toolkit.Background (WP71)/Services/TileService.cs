@@ -8,32 +8,70 @@ namespace Cimbalino.Phone.Toolkit.Services
 {
     public class TileService : ITileService
     {
+        /// <summary>
+        /// Tiles the exists.
+        /// </summary>
+        /// <param name="uriString">The URI string.</param>
+        /// <returns></returns>
         public bool TileExists(string uriString)
         {
             var tileExists = ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Contains(uriString));
             return tileExists != null;
         }
 
+        /// <summary>
+        /// Gets the tile.
+        /// </summary>
+        /// <param name="uriString">The URI string.</param>
+        /// <returns></returns>
         public ShellTile GetTile(string uriString)
         {
             return ShellTile.ActiveTiles.FirstOrDefault(x => x.NavigationUri.ToString().Contains(uriString));
         }
 
+        /// <summary>
+        /// Gets the primary tile.
+        /// </summary>
+        /// <value>
+        /// The primary tile.
+        /// </value>
         public ShellTile PrimaryTile
         {
             get { return ShellTile.ActiveTiles.First(); }
         }
 
 #if !WP8
+        private static readonly Version TargetedVersion = new Version(7, 10, 8858);
+
+        /// <summary>
+        /// Gets a value indicating whether [supports new tiles].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [supports new tiles]; otherwise, <c>false</c>.
+        /// </value>
+        public bool SupportsNewTiles
+        {
+            get { return Environment.OSVersion.Version >= TargetedVersion; }
+        }
+
+        /// <summary>
+        /// Creates the new tile.
+        /// </summary>
+        /// <returns></returns>
         public StandardTileData CreateNewTile()
         {
             return new StandardTileData();
         }
+
+        public void CreateTile(string uri, ShellTileData tileData)
+        {
+            ShellTile.Create(new Uri(uri, UriKind.Relative), tileData);
+        }
 #else
-        /// <summary>
-        /// Creates the new flip tile.
-        /// </summary>
-        /// <returns></returns>
+    /// <summary>
+    /// Creates the new flip tile.
+    /// </summary>
+    /// <returns></returns>
         public FlipTileData CreateNewFlipTile()
         {
             return new FlipTileData();
@@ -312,7 +350,116 @@ namespace Cimbalino.Phone.Toolkit.Services
         #endregion
 
 #else
+        #region Windows Phone 7.8 Tile Extension Methods
+        /// <summary>
+        /// Updates the flip tile through the use of reflection.
+        /// </summary>
+        /// <param name="shellTile">The tile data.</param>
+        /// <param name="title">The title.</param>
+        /// <param name="backTitle">The back title.</param>
+        /// <param name="backContent">Content of the back.</param>
+        /// <param name="wideBackContent">Content of the wide back.</param>
+        /// <param name="count">The count.</param>
+        /// <param name="tileId">The tile id.</param>
+        /// <param name="smallBackgroundImage">The small background image.</param>
+        /// <param name="backgroundImage">The background image.</param>
+        /// <param name="backBackgroundImage">The back background image.</param>
+        /// <param name="wideBackgroundImage">The wide background image.</param>
+        /// <param name="wideBackBackgroundImage">The wide back background image.</param>
+        public static void UpdateFlipTile(this ShellTile shellTile,
+                                          string title = null,
+                                          string backTitle = null,
+                                          string backContent = null,
+                                          string wideBackContent = null,
+                                          int? count = null,
+                                          Uri tileId = null,
+                                          Uri smallBackgroundImage = null,
+                                          Uri backgroundImage = null,
+                                          Uri backBackgroundImage = null,
+                                          Uri wideBackgroundImage = null,
+                                          Uri wideBackBackgroundImage = null)
+        {
+            // Get the new FlipTileData type.
+            var flipTileDataType = Type.GetType("Microsoft.Phone.Shell.FlipTileData, Microsoft.Phone");
 
+            // Get the ShellTile type so we can call the new version of "Update" that takes the new Tile templates.
+            var shellTileType = Type.GetType("Microsoft.Phone.Shell.ShellTile, Microsoft.Phone");
+
+            // Get the constructor for the new FlipTileData class and assign it to our variable to hold the Tile properties.
+            var updateTileData = flipTileDataType.GetConstructor(new Type[] {}).Invoke(null);
+
+            // Set the properties. 
+            SetProperty(updateTileData, "Title", title);
+            SetProperty(updateTileData, "Count", count.HasValue ? count.Value : 0);
+            SetProperty(updateTileData, "BackTitle", backTitle);
+            SetProperty(updateTileData, "BackContent", backContent);
+            SetProperty(updateTileData, "SmallBackgroundImage", smallBackgroundImage);
+            SetProperty(updateTileData, "BackgroundImage", backgroundImage);
+            SetProperty(updateTileData, "BackBackgroundImage", backBackgroundImage);
+            SetProperty(updateTileData, "WideBackgroundImage", wideBackgroundImage);
+            SetProperty(updateTileData, "WideBackBackgroundImage", wideBackBackgroundImage);
+            SetProperty(updateTileData, "WideBackContent", wideBackContent);
+
+            // Invoke the new version of ShellTile.Update.
+            shellTileType.GetMethod("Update").Invoke(shellTile, new[] {updateTileData});
+        }
+
+        private static void SetProperty(object instance, string name, object value)
+        {
+            var setMethod = instance.GetType().GetProperty(name).GetSetMethod();
+            setMethod.Invoke(instance, new [] { value });
+        }
+        #endregion
+
+        #region StandardTileData Extension Methods
+        public static StandardTileData AddTitle(this StandardTileData tileData, string title)
+        {
+            tileData.Title = title;
+            return tileData;
+        }
+
+        public static StandardTileData AddCount(this StandardTileData tileData, int count)
+        {
+            tileData.Count = count;
+            return tileData;
+        }
+
+        public static StandardTileData AddBackTitle(this StandardTileData tileData, string backTitle)
+        {
+            tileData.BackTitle = backTitle;
+            return tileData;
+        }
+
+        public static StandardTileData AddBackgroundImage(this StandardTileData tileData, string backgroundImage)
+        {
+            tileData.BackgroundImage = new Uri(backgroundImage, UriKind.RelativeOrAbsolute);
+            return tileData;
+        }
+
+        public static StandardTileData AddBackgroundImage(this StandardTileData tileData, Uri backgroundImage)
+        {
+            tileData.BackgroundImage = backgroundImage;
+            return tileData;
+        }
+
+        public static StandardTileData AddBackContent(this StandardTileData tileData, string backContent)
+        {
+            tileData.BackContent = backContent;
+            return tileData;
+        }
+
+        public static StandardTileData AddBackBackgroundImage(this StandardTileData tileData, string backBackgroundImage)
+        {
+            tileData.BackBackgroundImage = new Uri(backBackgroundImage, UriKind.RelativeOrAbsolute);
+            return tileData;
+        }
+
+        public static StandardTileData AddBackBackgroundImage(this StandardTileData tileData, Uri backBackgroundImage)
+        {
+            tileData.BackBackgroundImage = backBackgroundImage;
+            return tileData;
+        }
+        #endregion
 #endif
     }
 }

@@ -65,7 +65,21 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="supportsWideTile">if set to <c>true</c> [supports wide tile].</param>
         void CreateTile(Uri uri, ShellTileData tileData, bool supportsWideTile);
 #else
+        /// <summary>
+        /// Creates the new tile.
+        /// </summary>
+        /// <returns></returns>
         StandardTileData CreateNewTile();
+
+        /// <summary>
+        /// Gets a value indicating whether [supports new tiles].
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if [supports new tiles]; otherwise, <c>false</c>.
+        /// </value>
+        bool SupportsNewTiles { get; }
+
+        void CreateTile(string uri, ShellTileData tileData);
 #endif
     }
 }
