@@ -155,6 +155,36 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IDeviceStatusService.cs">
       <Link>Services\IDeviceStatusService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IShellTileService.cs">
+      <Link>Services\IShellTileService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IShellTileServiceTile.cs">
+      <Link>Services\IShellTileServiceTile.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IShellTileServiceTileData.cs">
+      <Link>Services\IShellTileServiceTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileService.cs">
+      <Link>Services\ShellTileService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileServiceCycleTileData.cs">
+      <Link>Services\ShellTileServiceCycleTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileServiceFlipTileData.cs">
+      <Link>Services\ShellTileServiceFlipTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileServiceIconicTileData.cs">
+      <Link>Services\ShellTileServiceIconicTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileServiceStandardTileData.cs">
+      <Link>Services\ShellTileServiceStandardTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileServiceTile.cs">
+      <Link>Services\ShellTileServiceTile.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileServiceTileDataBase.cs">
+      <Link>Services\ShellTileServiceTileDataBase.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\System\Security\Cryptography\HMACMD5.Generated.cs">
       <Link>System\Security\Cryptography\HMACMD5.Generated.cs</Link>
     </Compile>

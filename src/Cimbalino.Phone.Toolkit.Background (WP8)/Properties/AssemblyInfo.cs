@@ -16,6 +16,7 @@
 using System;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Cimbalino.Phone.Toolkit.Background")]
@@ -36,3 +37,4 @@ using System.Runtime.InteropServices;
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
 
 [assembly: CLSCompliant(true)]
+[assembly: InternalsVisibleTo("Cimbalino.Phone.Toolkit")]

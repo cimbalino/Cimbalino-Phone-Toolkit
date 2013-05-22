@@ -414,6 +414,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ShareStatusService.cs">
       <Link>Services\ShareStatusService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ShellTileWithAddService.cs">
+      <Link>Services\ShellTileWithAddService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SmsComposeService.cs">
       <Link>Services\SmsComposeService.cs</Link>
     </Compile>
