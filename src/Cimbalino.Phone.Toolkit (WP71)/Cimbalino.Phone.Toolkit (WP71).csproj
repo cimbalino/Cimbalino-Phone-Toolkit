@@ -140,8 +140,6 @@
     <Compile Include="Services\SaveContactServiceParams.cs" />
     <Compile Include="Services\ShareMediaService.cs" />
     <Compile Include="Services\ApplicationLifecycleService.cs" />
-    <Compile Include="Services\BingMapsDirectionsService.cs" />
-    <Compile Include="Services\BingMapsService.cs" />
     <Compile Include="Services\ClipboardService.cs" />
     <Compile Include="Services\ConnectionSettingsService.cs" />
     <Compile Include="Services\AddressChooserService.cs" />

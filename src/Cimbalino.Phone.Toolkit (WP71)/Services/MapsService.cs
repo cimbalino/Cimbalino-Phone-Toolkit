@@ -15,9 +15,7 @@
 
 using System;
 using System.Device.Location;
-#if WP8
 using Microsoft.Phone.Tasks;
-#endif
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -35,12 +33,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
 #if WP8
             new MapsTask()
+#else
+            new BingMapsTask()
+#endif
             {
                 Center = center,
             }.Show();
-#else
-            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
-#endif
         }
 
         /// <summary>
@@ -63,12 +61,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
 #if WP8
             new MapsTask()
+#else
+            new BingMapsTask()
+#endif
             {
                 SearchTerm = searchTerm,
             }.Show();
-#else
-            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
-#endif
         }
 
         /// <summary>
@@ -93,14 +91,14 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
 #if WP8
             new MapsTask()
+#else
+            new BingMapsTask()
+#endif
             {
                 Center = center,
                 SearchTerm = searchTerm,
                 ZoomLevel = zoomLevel
             }.Show();
-#else
-            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
-#endif
         }
     }
 }

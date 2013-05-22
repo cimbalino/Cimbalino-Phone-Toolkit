@@ -30,11 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <exception cref="InvalidOperationException">Start and End cannot both be invalid.</exception>
         public void Show(LabeledMapLocation endingLocation)
         {
-#if WP8
             Show(null, endingLocation);
-#else
-            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
-#endif
         }
 
         /// <summary>
@@ -47,13 +43,13 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
 #if WP8
             new MapsDirectionsTask()
+#else
+            new BingMapsDirectionsTask()
+#endif
             {
                 Start = startingLocation,
                 End = endingLocation
             }.Show();
-#else
-            throw new NotSupportedException("This service is not supported in Windows Phone 7.x. Use the BingMapsService instead.");
-#endif
         }
     }
 }
