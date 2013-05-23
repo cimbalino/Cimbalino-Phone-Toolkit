@@ -23,7 +23,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     public interface IShellTileServiceTile
     {
         /// <summary>
-        /// Contains the <see cref="Uri"/> and launch parameter this is navigated to when a secondary tile is tapped.
+        /// Gets the <see cref="Uri"/> and launch parameter this is navigated to when a secondary tile is tapped.
         /// </summary>
         /// <value>The <see cref="Uri"/> and launch parameter this is navigated to when a secondary tile is tapped.</value>
         Uri NavigationUri { get; }

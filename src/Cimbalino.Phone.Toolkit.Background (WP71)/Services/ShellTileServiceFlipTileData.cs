@@ -14,22 +14,43 @@
 // ****************************************************************************
 
 using System;
+#if !WP8
 using Cimbalino.Phone.Toolkit.Extensions;
+#endif
 using Microsoft.Phone.Shell;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
+    /// <summary>
+    /// Describes a Tile template that flips from the front to the back side. Allows customization of the background image and text for both the front and back Tile.
+    /// </summary>
     public class ShellTileServiceFlipTileData : ShellTileServiceStandardTileData
     {
         #region Properties
 
-        public Uri SmallBackgroundImage { set; get; }
+        /// <summary>
+        /// Gets or sets the front-side background image for the small Tile size.
+        /// </summary>
+        /// <value>The front-side background image for the small Tile size.</value>
+        public Uri SmallBackgroundImage { get; set; }
 
-        public Uri WideBackgroundImage { set; get; }
+        /// <summary>
+        /// Gets or sets the back-side background image for the wide Tile size.
+        /// </summary>
+        /// <value>The back-side background image for the wide Tile size.</value>
+        public Uri WideBackgroundImage { get; set; }
 
-        public Uri WideBackBackgroundImage { set; get; }
+        /// <summary>
+        /// Gets or sets the text that displays above the title, on the back-side of the wide Tile size.
+        /// </summary>
+        /// <value>The text that displays above the title, on the back-side of the wide Tile size.</value>
+        public Uri WideBackBackgroundImage { get; set; }
 
-        public string WideBackContent { set; get; }
+        /// <summary>
+        /// Gets or sets the front-side background image for the wide Tile size.
+        /// </summary>
+        /// <value>The front-side background image for the wide Tile size.</value>
+        public string WideBackContent { get; set; }
 
         #endregion
 

@@ -46,8 +46,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         }
 
         /// <summary>
-        /// Contains the collection of an applications tiles pinned to Start.
+        /// Gets the collection of an applications tiles pinned to Start.
         /// </summary>
+        /// <value>The collection of an applications tiles pinned to Start.</value>
         public IEnumerable<IShellTileServiceTile> ActiveTiles
         {
             get

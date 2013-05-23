@@ -15,21 +15,38 @@
 
 using System;
 using System.Collections.Generic;
+#if !WP8
 using System.Linq;
 using Cimbalino.Phone.Toolkit.Extensions;
+#endif
 using Microsoft.Phone.Shell;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
+    /// <summary>
+    /// Describes a Tile template that cycles between 1 to 9 background images.
+    /// </summary>
     public class ShellTileServiceCycleTileData : ShellTileServiceTileDataBase
     {
         #region Properties
 
-        public int? Count { set; get; }
+        /// <summary>
+        /// Gets or sets a value between 1 and 99 that will be displayed in the Count field of the Tile. A value of 0 means the Count will not be displayed. If this property is not set, the Count display will not change during an update.
+        /// </summary>
+        /// <value>A value between 1 and 99 that will be displayed in the Count field of the Tile.</value>
+        public int? Count { get; set; }
 
-        public IEnumerable<Uri> CycleImages { set; get; }
+        /// <summary>
+        /// Gets or sets a collection of up to 9 background images for the medium and wide Tile sizes.
+        /// </summary>
+        /// <value>A collection of up to 9 background images for the medium and wide Tile sizes.</value>
+        public IEnumerable<Uri> CycleImages { get; set; }
 
-        public Uri SmallBackgroundImage { set; get; }
+        /// <summary>
+        /// Gets or sets the front-side background image for the small Tile size.
+        /// </summary>
+        /// <value>The front-side background image for the small Tile size.</value>
+        public Uri SmallBackgroundImage { get; set; }
 
         #endregion
 

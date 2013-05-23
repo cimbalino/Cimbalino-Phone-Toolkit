@@ -24,6 +24,10 @@ namespace Cimbalino.Phone.Toolkit.Services
     {
         #region Properties
 
+        /// <summary>
+        /// Gets or sets the text to display in the tile.
+        /// </summary>
+        /// <value>The text to display in the tile.</value>
         public string Title { get; set; }
 
         #endregion
