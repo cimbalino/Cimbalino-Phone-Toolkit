@@ -15,6 +15,7 @@
 
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -33,6 +34,20 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             foreach (var line in lines)
             {
                 streamWriter.WriteLine(line);
+            }
+        }
+
+        /// <summary>
+        /// Writes all lines.
+        /// </summary>
+        /// <param name="streamWriter">The stream writer.</param>
+        /// <param name="lines">The lines.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public async static Task WriteAllLinesAsync(this StreamWriter streamWriter, IEnumerable<string> lines)
+        {
+            foreach (var line in lines)
+            {
+                await streamWriter.WriteLineAsync(line);
             }
         }
     }

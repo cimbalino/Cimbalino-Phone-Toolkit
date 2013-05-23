@@ -16,6 +16,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -45,6 +46,16 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         public static string[] ReadAllLines(this StreamReader streamReader)
         {
             return streamReader.ReadLines().ToArray();
+        }
+
+        /// <summary>
+        /// Reads all lines of the stream.
+        /// </summary>
+        /// <param name="streamReader">The <see cref="StreamReader"/> instance.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static Task<string[]> ReadAllLinesAsync(this StreamReader streamReader)
+        {
+            return Task.Factory.StartNew<string[]>(streamReader.ReadAllLines);
         }
     }
 }
