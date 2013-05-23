@@ -126,6 +126,8 @@
     <Compile Include="Services\IMapDownloaderService.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISaveContactService.cs" />
+    <Compile Include="Services\IVoiceCommandService.cs" />
+    <Compile Include="Services\IVoiceCommandServiceSet.cs" />
     <Compile Include="Services\MapDownloaderService.cs" />
     <Compile Include="Services\MapsDirectionsService.cs" />
     <Compile Include="Services\MapsService.cs" />
@@ -194,6 +196,7 @@
     <Compile Include="Services\SystemTrayService.cs" />
     <Compile Include="Services\ChooserHandler.cs" />
     <Compile Include="Services\VibrationService.cs" />
+    <Compile Include="Services\VoiceCommandService.cs" />
     <Compile Include="Services\WebBrowserService.cs" />
     <Compile Include="System\Windows\Controls\HeaderedContentControl.Generated.cs" />
   </ItemGroup>
