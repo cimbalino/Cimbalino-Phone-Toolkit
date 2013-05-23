@@ -31,17 +31,16 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <returns>A collection that contains the query string values.</returns>
         public static IDictionary<string, string> QueryString(this Uri uri)
         {
-            if (!uri.IsAbsoluteUri || string.IsNullOrEmpty(uri.Query))
+            var uriString = uri.ToString();
+
+            var queryIndex = uriString.IndexOf("?", StringComparison.InvariantCulture);
+
+            if (queryIndex == -1)
             {
                 return new Dictionary<string, string>();
             }
 
-            var query = uri.Query;
-
-            if (query.StartsWith("?"))
-            {
-                query = query.Substring(1);
-            }
+            var query = uriString.Substring(queryIndex);
 
             return query.Split('&')
                 .Where(x => !string.IsNullOrEmpty(x))
