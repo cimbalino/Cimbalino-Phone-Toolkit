@@ -62,7 +62,11 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// <param name="parameter">The parameter to the action. If the action does not require a parameter, the parameter may be set to a null reference.</param>
         protected override void Invoke(object parameter)
         {
+#if WP8
             new MapsDirectionsTask()
+#else
+            new BingMapsDirectionsTask()
+#endif
             {
                 Start = StartingLocation,
                 End = EndingLocation

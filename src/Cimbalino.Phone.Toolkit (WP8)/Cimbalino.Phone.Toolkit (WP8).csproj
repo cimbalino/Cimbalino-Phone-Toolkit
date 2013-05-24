@@ -87,12 +87,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\BingMapsAction.cs">
-      <Link>Actions\BingMapsAction.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\BingMapsDirectionsAction.cs">
-      <Link>Actions\BingMapsDirectionsAction.cs</Link>
-    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\ClipboardAction.cs">
       <Link>Actions\ClipboardAction.cs</Link>
     </Compile>
@@ -101,6 +95,12 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\EmailComposeAction.cs">
       <Link>Actions\EmailComposeAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\MapsAction.cs">
+      <Link>Actions\MapsAction.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\MapsDirectionsAction.cs">
+      <Link>Actions\MapsDirectionsAction.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\MarketplaceDetailAction.cs">
       <Link>Actions\MarketplaceDetailAction.cs</Link>
@@ -436,8 +436,6 @@
       <Link>System\Windows\Controls\HeaderedContentControl.Generated.cs</Link>
     </Compile>
     <Compile Include="Actions\MapDownloaderAction.cs" />
-    <Compile Include="Actions\MapsAction.cs" />
-    <Compile Include="Actions\MapsDirectionsAction.cs" />
     <Compile Include="Actions\SaveAppointmentAction.cs" />
     <Compile Include="Actions\ShareMediaAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

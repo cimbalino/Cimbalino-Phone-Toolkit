@@ -81,11 +81,11 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\BingMapsAction.cs" />
-    <Compile Include="Actions\BingMapsDirectionsAction.cs" />
     <Compile Include="Actions\ClipboardAction.cs" />
     <Compile Include="Actions\ConnectionSettingsAction.cs" />
     <Compile Include="Actions\EmailComposeAction.cs" />
+    <Compile Include="Actions\MapsAction.cs" />
+    <Compile Include="Actions\MapsDirectionsAction.cs" />
     <Compile Include="Actions\MarketplaceDetailAction.cs" />
     <Compile Include="Actions\MarketplaceHubAction.cs" />
     <Compile Include="Actions\MarketplaceReviewAction.cs" />
