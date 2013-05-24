@@ -40,12 +40,12 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                 return new Dictionary<string, string>();
             }
 
-            var query = uriString.Substring(queryIndex);
+            var query = uriString.Substring(queryIndex + 1);
 
             return query.Split('&')
                 .Where(x => !string.IsNullOrEmpty(x))
                 .Select(x => x.Split('='))
-                .ToDictionary(x => x[0], x => x.Length == 2 ? System.Net.HttpUtility.UrlDecode(x[1]) : null);
+                .ToDictionary(x => x[0], x => x.Length == 2 && !string.IsNullOrEmpty(x[1]) ? System.Net.HttpUtility.UrlDecode(x[1]) : null);
         }
     }
 }
