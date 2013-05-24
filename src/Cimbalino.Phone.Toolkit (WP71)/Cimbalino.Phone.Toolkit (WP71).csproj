@@ -128,6 +128,8 @@
     <Compile Include="Services\ISaveContactService.cs" />
     <Compile Include="Services\IVoiceCommandService.cs" />
     <Compile Include="Services\IVoiceCommandServiceSet.cs" />
+    <Compile Include="Services\ILauncherService.cs" />
+    <Compile Include="Services\LauncherService.cs" />
     <Compile Include="Services\MapDownloaderService.cs" />
     <Compile Include="Services\MapsDirectionsService.cs" />
     <Compile Include="Services\MapsService.cs" />
