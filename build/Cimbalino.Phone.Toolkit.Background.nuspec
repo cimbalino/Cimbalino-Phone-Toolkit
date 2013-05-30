@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Cimbalino.Phone.Toolkit.Background</id>
+    <version>$version$</version>
+    <authors>Pedro Lamas</authors>
+    <title>Cimbalino Windows Phone Toolkit - Background Components</title>
+    <description>Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone. This is the Background Agents component.</description>
+    <language>en-US</language>
+    <projectUrl>http://cimbalino.org</projectUrl>
+    <licenseUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
+    <iconUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
+    <dependencies>
+      <group targetFramework="sl4-windowsphone71">
+        <dependency id="Microsoft.Bcl.Async" />
+      </group>
+    </dependencies>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Background Agent</tags>
+  </metadata>
+</package>
