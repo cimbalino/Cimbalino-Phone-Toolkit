@@ -12,10 +12,7 @@
     <iconUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
     <dependencies>
       <dependency id="Cimbalino.Phone.Toolkit" />
-      <dependency id="SilverlightToolkitWP" />
-      <group targetFramework="sl4-windowsphone71">
-        <dependency id="Microsoft.Bcl.Async" />
-      </group>
+      <dependency id="WPtoolkit" />
     </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight PropertyGrid</tags>
   </metadata>

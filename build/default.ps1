@@ -18,6 +18,7 @@ properties {
   
   $projects = @(
     @{Name = "Cimbalino.Phone.Toolkit"},
+    @{Name = "Cimbalino.Phone.Toolkit.Background"},
     @{Name = "Cimbalino.Phone.Toolkit.Camera"},
     @{Name = "Cimbalino.Phone.Toolkit.Controls"},
     @{Name = "Cimbalino.Phone.Toolkit.DeviceInfo"},

@@ -15,9 +15,6 @@
     </frameworkAssemblies>
     <dependencies>
       <dependency id="Cimbalino.Phone.Toolkit" />
-      <group targetFramework="sl4-windowsphone71">
-        <dependency id="Microsoft.Bcl.Async" />
-      </group>
     </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Location GPS</tags>
   </metadata>
