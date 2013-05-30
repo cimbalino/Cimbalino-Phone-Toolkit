@@ -22,6 +22,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Cimbalino.Phone.Toolkit.Extensions;
 using Windows.Storage;
+using Windows.Storage.Search;
 
 namespace Cimbalino.Phone.Toolkit.Services
 {
@@ -167,7 +168,19 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetDirectoryNamesAsync(string searchPattern)
         {
-            var folders = await Storage.GetFoldersAsync();
+            var folderName = Path.GetDirectoryName(searchPattern);
+            var folder = await Storage.GetFolderAsync(folderName);
+
+            var folders = await folder.GetFoldersAsync();
+
+            searchPattern = Path.GetFileName(searchPattern);
+
+            if (string.IsNullOrEmpty(searchPattern))
+            {
+                return folders
+                    .Select(x => x.Name)
+                    .ToArray();
+            }
 
             var regexPattern = FilePatternToRegex(searchPattern);
 
@@ -197,7 +210,19 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetFileNamesAsync(string searchPattern)
         {
-            var files = await Storage.GetFilesAsync();
+            var folderName = Path.GetDirectoryName(searchPattern);
+            var folder = await Storage.GetFolderAsync(folderName);
+
+            var files = await folder.GetFilesAsync();
+
+            searchPattern = Path.GetFileName(searchPattern);
+
+            if (string.IsNullOrEmpty(searchPattern))
+            {
+                return files
+                    .Select(x => x.Name)
+                    .ToArray();
+            }
 
             var regexPattern = FilePatternToRegex(searchPattern);
 
@@ -482,30 +507,22 @@ namespace Cimbalino.Phone.Toolkit.Services
 
         private Regex FilePatternToRegex(string pattern)
         {
-            var regexPattern = new StringBuilder();
-
-            foreach (var letter in pattern)
+            var regexPattern = Regex.Replace(pattern, "[*?]|[^*?]+", m =>
             {
-                switch (letter)
+                switch (m.Value)
                 {
-                    case '*':
-                        regexPattern.Append(".*");
+                    case "*":
+                        return ".*";
 
-                        break;
-
-                    case '?':
-                        regexPattern.Append(".");
-
-                        break;
+                    case "?":
+                        return ".";
 
                     default:
-                        regexPattern.Append("\\" + letter);
-
-                        break;
+                        return Regex.Escape(m.Value);
                 }
-            }
+            });
 
-            return new Regex(regexPattern.ToString(), RegexOptions.Compiled);
+            return new Regex(regexPattern, RegexOptions.Compiled);
         }
     }
 }
