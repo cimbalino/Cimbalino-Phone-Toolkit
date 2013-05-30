@@ -158,6 +158,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IDeviceStatusService.cs">
       <Link>Services\IDeviceStatusService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\INetworkInformationService.cs">
+      <Link>Services\INetworkInformationService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IShellTileService.cs">
       <Link>Services\IShellTileService.cs</Link>
     </Compile>
@@ -166,6 +169,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IShellTileServiceTileData.cs">
       <Link>Services\IShellTileServiceTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\NetworkInformationService.cs">
+      <Link>Services\NetworkInformationService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileService.cs">
       <Link>Services\ShellTileService.cs</Link>
