@@ -14,6 +14,7 @@
       <group targetFramework="sl4-windowsphone71">
         <dependency id="Microsoft.Bcl.Async" version="1.0.16" />
       </group>
+      <group targetFramework="windowsphone8" />
     </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Background Agent</tags>
   </metadata>
