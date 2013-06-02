@@ -193,7 +193,7 @@
     <Compile Include="Services\SearchService.cs" />
     <Compile Include="Services\ShareLinkService.cs" />
     <Compile Include="Services\ShareStatusService.cs" />
-    <Compile Include="Services\ShellTileWithAddService.cs" />
+    <Compile Include="Services\ShellTileWithCreateService.cs" />
     <Compile Include="Services\SmsComposeService.cs" />
     <Compile Include="Services\SystemTrayService.cs" />
     <Compile Include="Services\ChooserHandler.cs" />

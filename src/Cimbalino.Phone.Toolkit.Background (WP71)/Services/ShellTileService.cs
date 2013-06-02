@@ -66,7 +66,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="supportsWideTile">true if the wide tile size is supported; otherwise, false.</param>
         public virtual void Create(Uri navigationUri, IShellTileServiceTileData initialTileData, bool supportsWideTile)
         {
-            throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the ShellTileWithAddService instead. This method can't be called from a Background Agent.");
+            throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the ShellTileWithCreateService instead. This method can't be called from a Background Agent.");
         }
     }
 }

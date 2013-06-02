@@ -1,5 +1,5 @@
 ﻿// ****************************************************************************
-// <copyright file="ShellTileWithAddService.cs" company="Pedro Lamas">
+// <copyright file="ShellTileWithCreateService.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2013
 // </copyright>
 // ****************************************************************************
@@ -21,7 +21,7 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// <summary>
     /// Represents an implementation of the <see cref="IShellTileService"/>.
     /// </summary>
-    public class ShellTileWithAddService : ShellTileService
+    public class ShellTileWithCreateService : ShellTileService
     {
         /// <summary>
         /// Creates a new secondary tile.
