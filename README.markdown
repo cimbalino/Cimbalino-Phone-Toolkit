@@ -8,9 +8,10 @@ Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will 
 
 The Toolkit is divided in projects, regarding different Windows Phone application required capabilities:
 
-* __Cimbalino.Phone.Toolkit__ - the base project of the toolkit, containing base MVVM services, some very usefull converters, helper classes and extension methods, and the bindable Application Bar behavior
+* __Cimbalino.Phone.Toolkit__ - the base project of the toolkit, containing base MVVM services, some very useful converters, helper classes and extension methods, and the bindable Application Bar behavior
+* __Cimbalino.Phone.Toolkit.Background__ - MVVM compatible services for background agents
 * __Cimbalino.Phone.Toolkit.Camera__ - MVVM compatible services for camera access
-* __Cimbalino.Phone.Toolkit.Controls__ - Controls library (requires Silverlight for Windows Phone Toolkit)
+* __Cimbalino.Phone.Toolkit.Controls__ - Controls library (requires [Windows Phone Toolkit][9])
 * __Cimbalino.Phone.Toolkit.DeviceInfo__ - MVVM compatible services for device information access
 * __Cimbalino.Phone.Toolkit.Location__ - MVVM compatible services for location access
 * __Cimbalino.Phone.Toolkit.MediaLibrary__ - MVVM compatible services for media library access
@@ -21,7 +22,7 @@ The Toolkit is divided in projects, regarding different Windows Phone applicatio
 
 ## Nuget
 
-The packages are available thru [NuGet][8] [here][9], with the same handles as the project names (e.g., the main package is "Cimbalino.Phone.Toolkit")
+The packages are available on [NuGet][8], with the same handles as the project names (e.g., the main package is `Cimbalino.Phone.Toolkit`)
 
 ## Download
 
@@ -31,6 +32,13 @@ Please visit the [download section on GitHub][7] to download the latest release 
 
 See the [LICENSE.txt][6] file for details.
 
+## Acknowledgments
+
+* [Paulo Morgado](https://twitter.com/PauloMorgado)
+* [Scott Lovegrove](https://twitter.com/scottisafool)
+* [Jeff Wilcox](https://twitter.com/jeffwilcox)
+* All developers that use this toolkit in their apps! :)
+
 [1]: http://cimbalino.org
 [2]: http://twitter.com/CimbalinoWP
 [3]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png "Cimbalino Windows Phone Toolkit"
@@ -38,5 +46,5 @@ See the [LICENSE.txt][6] file for details.
 [5]: http://go.microsoft.com/fwlink/?LinkId=265773 "Download Windows Phone SDK 8.0"
 [6]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt "Cimbalino Windows Phone Toolkit License"
 [7]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
-[8]: http://nuget.org "NuGet Gallery"
-[9]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
+[8]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
+[9]: http://phone.codeplex.com "Windows Phone Toolkit on Codeplex"
