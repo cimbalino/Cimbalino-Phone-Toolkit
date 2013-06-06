@@ -55,7 +55,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
             {
                 _mutex.WaitOne();
             }
-            catch //there is no pratical of of knowing if the Mutex was abandoned as WP8 does not throw the AbandonedMutexException
+            catch
             {
             }
 #else
