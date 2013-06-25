@@ -210,7 +210,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// <param name="e">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         private static void OnIsVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            ((ApplicationBar)d).InternalApplicationBar.IsMenuEnabled = (bool)e.NewValue;
+            ((ApplicationBar)d).InternalApplicationBar.IsVisible = (bool)e.NewValue;
         }
 
         /// <summary>
