@@ -39,6 +39,10 @@ See the [LICENSE.txt][6] file for details.
 * [Jeff Wilcox](https://twitter.com/jeffwilcox)
 * All developers that use this toolkit in their apps! :)
 
+## Sponsors
+
+* [JetBrains ReSharper][10] - The best C# & VB.NET refactoring plugin for Visual Studio!
+
 [1]: http://cimbalino.org
 [2]: http://twitter.com/CimbalinoWP
 [3]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png "Cimbalino Windows Phone Toolkit"
@@ -48,3 +52,4 @@ See the [LICENSE.txt][6] file for details.
 [7]: https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/downloads "Cimbalino Windows Phone Toolkit Downloads"
 [8]: http://nuget.org/List/Packages/Cimbalino.Phone.Toolkit "Nuget Package Page"
 [9]: http://phone.codeplex.com "Windows Phone Toolkit on Codeplex"
+[10]: http://www.jetbrains.com/resharper
