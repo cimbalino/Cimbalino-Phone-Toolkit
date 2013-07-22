@@ -1,6 +1,6 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="ApplicationBarItemBase.cs" company="Pedro Lamas">
-// Copyright � Pedro Lamas 2011
+// Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -63,6 +64,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets a value indicating whether the user can interact with the control.
         /// </summary>
         /// <value>true if the user can interact with the control; otherwise, false.</value>
+        [Category("Common")]
         public bool IsEnabled
         {
             get
@@ -92,6 +94,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the text string that is displayed as a label for the item.
         /// </summary>
         /// <value>The text string that is displayed as a label for the item.</value>
+        [Category("Common")]
         public string Text
         {
             get
@@ -130,6 +133,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets a value indicating whether the item is visible.
         /// </summary>
         /// <value>true if the item is visible; otherwise, false.</value>
+        [Category("Appearance")]
         public bool IsVisible
         {
             get
@@ -159,6 +163,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the command to invoke when this item is pressed. This is a DependencyProperty.
         /// </summary>
         /// <value>The command to invoke when this item is pressed. The default is null.</value>
+        [Category("Common")]
         public ICommand Command
         {
             get
@@ -198,6 +203,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the parameter to pass to the <see cref="Command"/> property. This is a DependencyProperty.
         /// </summary>
         /// <value>The parameter to pass to the <see cref="Command"/> property. The default is null.</value>
+        [Category("Common")]
         public object CommandParameter
         {
             get
@@ -227,6 +233,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets an object that will be passed to the <see cref="Command" /> attached to this trigger. This property is here for compatibility with the Silverlight version. This is NOT a DependencyProperty. For databinding, use the <see cref="CommandParameter" /> property.
         /// </summary>
         /// <value>The parameter value to pass to the <see cref="Command"/> property. The default is null.</value>
+        [Category("Common")]
         public object CommandParameterValue
         {
             get

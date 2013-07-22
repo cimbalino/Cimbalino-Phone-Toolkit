@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
 using Microsoft.Phone.Tasks;
@@ -28,6 +29,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the starting location for which driving directions are displayed.
         /// </summary>
         /// <value>The starting location for which driving directions are displayed.</value>
+        [Category("Common")]
         public LabeledMapLocation StartingLocation
         {
             get { return (LabeledMapLocation)GetValue(StartingLocationProperty); }
@@ -44,6 +46,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the ending location for which driving directions are displayed.
         /// </summary>
         /// <value>The ending location for which driving directions are displayed.</value>
+        [Category("Common")]
         public LabeledMapLocation EndingLocation
         {
             get { return (LabeledMapLocation)GetValue(EndingLocationProperty); }

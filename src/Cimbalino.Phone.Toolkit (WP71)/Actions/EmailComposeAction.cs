@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
 using Microsoft.Phone.Tasks;
@@ -28,6 +29,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the e-mail recipients.
         /// </summary>
         /// <value>The e-mail recipients.</value>
+        [Category("Common")]
         public string To
         {
             get { return (string)GetValue(ToProperty); }
@@ -76,6 +78,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the e-mail subject.
         /// </summary>
         /// <value>The e-mail subject.</value>
+        [Category("Common")]
         public string Subject
         {
             get { return (string)GetValue(SubjectProperty); }
@@ -92,6 +95,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the e-mail body.
         /// </summary>
         /// <value>The e-mail body.</value>
+        [Category("Common")]
         public string Body
         {
             get { return (string)GetValue(BodyProperty); }

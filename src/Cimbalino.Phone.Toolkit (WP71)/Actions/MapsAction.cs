@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.ComponentModel;
 using System.Device.Location;
 using System.Windows;
 using System.Windows.Interactivity;
@@ -29,6 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the location that will be used as the center point for the map.
         /// </summary>
         /// <value>The location that will be used as the center point for the map.</value>
+        [Category("Common")]
         public GeoCoordinate Center
         {
             get { return (GeoCoordinate)GetValue(CenterProperty); }
@@ -45,6 +47,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the search term that is used to find and tag locations on the map.
         /// </summary>
         /// <value>The search term that is used to find and tag locations on the map.</value>
+        [Category("Common")]
         public string SearchTerm
         {
             get { return (string)GetValue(SearchTermProperty); }
@@ -61,6 +64,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the initial zoom level of the map.
         /// </summary>
         /// <value>The initial zoom level of the map.</value>
+        [Category("Common")]
         public double ZoomLevel
         {
             get { return (double)GetValue(ZoomLevelProperty); }
