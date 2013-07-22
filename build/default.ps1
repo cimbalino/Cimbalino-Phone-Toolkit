@@ -49,6 +49,23 @@ task Clean -description "Clean the output folder" {
   New-Item -Path $binDir -ItemType Directory | Out-Null
 }
 
+task Setup -description "Setup environment" {
+  $configurations | % {
+    $configName = $_.Name
+
+    $projects | % {
+      $projectName = $_.Name
+      $fullProjectName = "$projectName ($configName)"
+      $packagesConfig = "$sourceDir\$fullProjectName\packages.config"
+      
+      Write-Host -ForegroundColor Green "Pre-installing NuGet packages for $fullProjectName..."
+      Write-Host
+      
+      Exec { .$nuget install $packagesConfig -solutionDir $sourceDir } "Error pre-installing NuGet packages"
+    }
+  }
+}
+
 task Version -description "Updates the version entries in AssemblyInfo.cs files" {
   $assemblyVersion = $version -replace '([0-9]+(\.[0-9]+){2}).*', '$1.0'
   $fileVersion = $assemblyVersion
@@ -80,7 +97,7 @@ task Version -description "Updates the version entries in AssemblyInfo.cs files"
   }
 }
 
-task Build -depends Clean, Version -description "Build all projects and get the assemblies" {
+task Build -depends Clean, Setup, Version -description "Build all projects and get the assemblies" {
   $tempBinariesDir = "$tempDir\binaries"
   
   New-Item -Path $binariesDir -ItemType Directory | Out-Null
