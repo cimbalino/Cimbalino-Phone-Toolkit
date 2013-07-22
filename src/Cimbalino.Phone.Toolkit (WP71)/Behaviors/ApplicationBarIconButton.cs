@@ -16,6 +16,7 @@
 using System;
 using System.Windows;
 using Microsoft.Phone.Shell;
+using System.ComponentModel;
 
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {
@@ -36,6 +37,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the URI of the icon to use for the button.
         /// </summary>
         /// <value>The URI of the icon to use for the button.</value>
+        [Category("Common")]
         public Uri IconUri
         {
             get

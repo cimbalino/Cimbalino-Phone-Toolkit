@@ -13,10 +13,11 @@
 // </license>
 // ****************************************************************************
 
+using Microsoft.Phone.Tasks;
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
-using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {
@@ -29,6 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the <see cref="Uri" /> to which the web browser application will navigate when it is launched.
         /// </summary>
         /// <value>The <see cref="Uri" /> to which the web browser application will navigate when it is launched.</value>
+        [Category("Common")]
         public Uri Uri
         {
             get { return (Uri)GetValue(UriProperty); }

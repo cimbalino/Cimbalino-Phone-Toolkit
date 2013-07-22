@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
 
@@ -27,6 +28,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the string that contains the Unicode text data to store on the clipboard.
         /// </summary>
         /// <value>The string that contains the Unicode text data to store on the clipboard.</value>
+        [Category("Common")]
         public string Text
         {
             get { return (string)GetValue(TextProperty); }

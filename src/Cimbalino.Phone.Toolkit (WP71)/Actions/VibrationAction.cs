@@ -13,10 +13,11 @@
 // </license>
 // ****************************************************************************
 
+using Microsoft.Devices;
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
-using Microsoft.Devices;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {
@@ -29,6 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Actions
         /// Gets or sets the duration to vibrate the device.
         /// </summary>
         /// <value>The duration to vibrate the device.</value>
+        [Category("Common")]
         public TimeSpan Duration
         {
             get { return (TimeSpan)GetValue(DurationProperty); }

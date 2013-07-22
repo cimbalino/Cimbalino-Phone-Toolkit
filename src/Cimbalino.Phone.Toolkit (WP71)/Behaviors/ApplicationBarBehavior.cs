@@ -15,6 +15,8 @@
 
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -64,6 +66,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets the <see cref="ApplicationBarMenuItem"/> collection that appear on the Application Bar.
         /// </summary>
         /// <value>The <see cref="ApplicationBarMenuItem"/> collection.</value>
+        [Category("Common")]
         public ApplicationBarMenuItemCollection MenuItems
         {
             get
@@ -86,6 +89,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets the <see cref="ApplicationBarIconButton"/> collection that appear on the Application Bar.
         /// </summary>
         /// <value>The <see cref="ApplicationBarIconButton"/> collection.</value>
+        [Category("Common")]
         public ApplicationBarIconButtonCollection Buttons
         {
             get
@@ -108,6 +112,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the background color of the Application Bar.
         /// </summary>
         /// <value>The background color of the Application Bar.</value>
+        [Category("Appearance")]
         public Color BackgroundColor
         {
             get
@@ -140,6 +145,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the foreground color of the Application Bar.
         /// </summary>
         /// <value>The foreground color of the Application Bar.</value>
+        [Category("Appearance")]
         public Color ForegroundColor
         {
             get
@@ -172,6 +178,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets a value indicating whether the user can open the menu.
         /// </summary>
         /// <value>true if the menu is enabled; otherwise, false.</value>
+        [Category("Common")]
         public bool IsMenuEnabled
         {
             get
@@ -204,6 +211,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets a value indicating whether the Application Bar is visible.
         /// </summary>
         /// <value>true if the Application Bar is visible; otherwise, false.</value>
+        [Category("Appearance")]
         public bool IsVisible
         {
             get
@@ -268,6 +276,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the opacity of the Application Bar.
         /// </summary>
         /// <value>The opacity of the Application Bar.</value>
+        [Category("Appearance")]
         public double Opacity
         {
             get
@@ -300,6 +309,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         /// Gets or sets the command to invoke when the user opens or closes the menu. This is a DependencyProperty.
         /// </summary>
         /// <value>The command to invoke when the user opens or closes the menu. The default is null.</value>
+        [Category("Common")]
         public ICommand StateChangedCommand
         {
             get { return (ICommand)GetValue(StateChangedCommandProperty); }
