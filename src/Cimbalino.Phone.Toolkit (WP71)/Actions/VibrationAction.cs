@@ -13,11 +13,11 @@
 // </license>
 // ****************************************************************************
 
-using Microsoft.Devices;
 using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
+using Microsoft.Devices;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {

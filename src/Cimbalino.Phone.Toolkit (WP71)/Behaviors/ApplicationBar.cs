@@ -14,11 +14,11 @@
 // ****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.Phone.Shell;
-using System.ComponentModel;
 
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {

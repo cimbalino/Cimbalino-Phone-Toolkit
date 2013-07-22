@@ -13,10 +13,10 @@
 // </license>
 // ****************************************************************************
 
-using Microsoft.Phone.Tasks;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interactivity;
+using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Actions
 {

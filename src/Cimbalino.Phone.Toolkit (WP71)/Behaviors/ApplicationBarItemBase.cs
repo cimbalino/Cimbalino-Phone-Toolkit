@@ -1,6 +1,6 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="ApplicationBarItemBase.cs" company="Pedro Lamas">
-// Copyright � Pedro Lamas 2011
+// Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
@@ -14,12 +14,12 @@
 // ****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using Microsoft.Phone.Shell;
-using System.ComponentModel;
 
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {

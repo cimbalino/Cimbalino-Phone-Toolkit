@@ -14,9 +14,9 @@
 // ****************************************************************************
 
 using System;
+using System.ComponentModel;
 using System.Windows;
 using Microsoft.Phone.Shell;
-using System.ComponentModel;
 
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {
