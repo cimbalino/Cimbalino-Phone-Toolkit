@@ -13,56 +13,35 @@
 // </license>
 // ****************************************************************************
 
-using System;
-using System.Collections.Generic;
 using System.Xml;
-using System.Xml.Schema;
-using System.Xml.Serialization;
 
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
     /// <summary>
     /// Represents a named node in the application manifest.
     /// </summary>
-    public class ApplicationManifestNamedNode : IXmlSerializable
+    public class ApplicationManifestNamedNode
     {
-        /// <summary>
-        /// Gets the list of values for this named node.
-        /// </summary>
-        /// <value>The list of values for this named node.</value>
-        public Dictionary<string, object> Values { get; private set; }
+        #region Properties
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationManifestNamedNode"/> class.
+        /// Gets or sets the Name attribute value.
         /// </summary>
-        public ApplicationManifestNamedNode()
+        /// <value>The Name attribute value.</value>
+        public string Name { get; set; }
+
+        #endregion
+
+        internal static ApplicationManifestNamedNode ParseXml(XmlReader reader)
         {
-            Values = new Dictionary<string, object>();
-        }
-
-        XmlSchema IXmlSerializable.GetSchema()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IXmlSerializable.ReadXml(XmlReader reader)
-        {
-            var container = reader.LocalName;
-
-            reader.ReadStartElement();
-
-            while (reader.LocalName != container)
+            var node = new ApplicationManifestNamedNode()
             {
-                Values.Add(reader.GetAttribute("Name"), null);
-                reader.Read();
-            }
+                Name = reader.GetAttribute("Name")
+            };
 
-            reader.ReadEndElement();
-        }
+            reader.Skip();
 
-        void IXmlSerializable.WriteXml(XmlWriter writer)
-        {
-            throw new NotImplementedException();
+            return node;
         }
     }
 }

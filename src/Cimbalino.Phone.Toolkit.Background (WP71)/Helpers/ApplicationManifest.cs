@@ -15,23 +15,21 @@
 
 using System;
 using System.Windows;
-using System.Xml.Serialization;
+using System.Xml;
+using Cimbalino.Phone.Toolkit.Extensions;
 
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
     /// <summary>
     /// Represents the contents of the application manifest.
     /// </summary>
-#if WP8
-    [XmlRoot("Deployment", Namespace = "http://schemas.microsoft.com/windowsphone/2012/deployment")]
-#else
-    [XmlRoot("Deployment", Namespace = "http://schemas.microsoft.com/windowsphone/2009/deployment")]
-#endif
     public class ApplicationManifest
     {
         private const string AppManifestName = "WMAppManifest.xml";
 
         private static ApplicationManifest _current;
+
+        #region Properties
 
         /// <summary>
         /// Gets the current <see cref="ApplicationManifest"/> instance.
@@ -43,13 +41,14 @@ namespace Cimbalino.Phone.Toolkit.Helpers
             {
                 if (_current == null)
                 {
-                    var xmlSerializer = new XmlSerializer(typeof(ApplicationManifest));
-
                     var appManifestResourceInfo = Application.GetResourceStream(new Uri(AppManifestName, UriKind.Relative));
 
                     using (var appManifestStream = appManifestResourceInfo.Stream)
                     {
-                        _current = (ApplicationManifest)xmlSerializer.Deserialize(appManifestStream);
+                        using (var reader = XmlReader.Create(appManifestStream, new XmlReaderSettings { IgnoreWhitespace = true }))
+                        {
+                            _current = ParseXml(reader);
+                        }
                     }
                 }
 
@@ -61,28 +60,79 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// Gets or sets the version of the Windows Phone SDK or the runtime binaries of the platform. The default value is 8.0 for Windows Phone 8 and 7.1 for Windows Phone OS 7.1.
         /// </summary>
         /// <value>The version of the Windows Phone SDK or the runtime binaries of the platform.</value>
-        [XmlAttribute]
         public string AppPlatformVersion { get; set; }
 
         /// <summary>
         /// Gets or sets the application default language.
         /// </summary>
         /// <value>The application default language.</value>
-        [XmlElement(Namespace = "")]
         public ApplicationManifestLanguageNode DefaultLanguage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the application extra elements.
+        /// </summary>
+        /// <value>The application extra elements.</value>
+        public ApplicationManifestNamedNode[] AppExtras { get; set; }
 
         /// <summary>
         /// Gets or sets the application supported languages.
         /// </summary>
         /// <value>The application supported languages.</value>
-        [XmlArray("Languages", Namespace = ""), XmlArrayItem("Language")]
         public ApplicationManifestLanguageNode[] Languages { get; set; }
 
         /// <summary>
         /// Gets or sets the app detailed information.
         /// </summary>
         /// <value>The app detailed information.</value>
-        [XmlElement(Namespace = "")]
         public ApplicationManifestAppNode App { get; set; }
+
+        #endregion
+
+        internal static ApplicationManifest ParseXml(XmlReader reader)
+        {
+            reader.MoveToContent();
+
+            var node = new ApplicationManifest
+            {
+                AppPlatformVersion = reader.GetAttribute("AppPlatformVersion")
+            };
+
+            reader.ReadStartElement();
+
+            while (reader.NodeType != XmlNodeType.EndElement)
+            {
+                switch (reader.Name)
+                {
+                    case "DefaultLanguage":
+                        node.DefaultLanguage = ApplicationManifestLanguageNode.ParseXml(reader);
+                        
+                        break;
+
+                    case "AppExtra":
+                        node.AppExtras = reader.ReadElementContentAsArray(ApplicationManifestNamedNode.ParseXml);
+
+                        break;
+
+                    case "Languages":
+                        node.Languages = reader.ReadElementContentAsArray(ApplicationManifestLanguageNode.ParseXml);
+                        
+                        break;
+
+                    case "App":
+                        node.App = ApplicationManifestAppNode.ParseXml(reader);
+                        
+                        break;
+
+                    default:
+                        reader.Skip();
+                        
+                        break;
+                }
+            }
+
+            reader.ReadEndElement();
+
+            return node;
+        }
     }
 }

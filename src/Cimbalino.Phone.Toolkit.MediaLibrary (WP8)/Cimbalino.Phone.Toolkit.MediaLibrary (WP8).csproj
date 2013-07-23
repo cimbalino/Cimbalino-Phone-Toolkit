@@ -90,8 +90,14 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Actions\ScreenshotAction.cs">
       <Link>Actions\ScreenshotAction.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Services\IMediaLibraryService.cs">
+      <Link>Services\IMediaLibraryService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Services\IScreenshotService.cs">
       <Link>Services\IScreenshotService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Services\MediaLibraryService.cs">
+      <Link>Services\MediaLibraryService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Services\ScreenshotService.cs">
       <Link>Services\ScreenshotService.cs</Link>

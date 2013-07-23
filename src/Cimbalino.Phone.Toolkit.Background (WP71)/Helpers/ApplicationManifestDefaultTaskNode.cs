@@ -1,11 +1,11 @@
 ﻿// ****************************************************************************
-// <copyright file="ApplicationManifestTaskNode.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2012
+// <copyright file="ApplicationManifestDefaultTaskNode.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2013
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>26-12-2012</date>
+// <date>23-07-2013</date>
 // <project>Cimbalino.Phone.Toolkit</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -13,27 +13,21 @@
 // </license>
 // ****************************************************************************
 
-using System.Xml.Serialization;
-
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
     /// <summary>
-    /// Represents a task in the application manifest.
+    /// Represents a default task in the application manifest.
     /// </summary>
-    public class ApplicationManifestTaskNode
+    public class ApplicationManifestDefaultTaskNode : ApplicationManifestTaskNodeBase
     {
-        /// <summary>
-        /// Gets or sets the name of the task.
-        /// </summary>
-        /// <value>The name of the task.</value>
-        [XmlAttribute]
-        public string Name { get; set; }
+        #region Properties
 
         /// <summary>
         /// Gets or sets the page to navigate.
         /// </summary>
         /// <value>The page to navigate.</value>
-        [XmlAttribute]
         public string NavigationPage { get; set; }
+
+        #endregion
     }
 }

@@ -13,7 +13,8 @@
 // </license>
 // ****************************************************************************
 
-using System.Xml.Serialization;
+using System.Xml;
+using Cimbalino.Phone.Toolkit.Extensions;
 
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
@@ -22,25 +23,36 @@ namespace Cimbalino.Phone.Toolkit.Helpers
     /// </summary>
     public class ApplicationManifestIconPathNode
     {
+        #region Properties
+
         /// <summary>
         /// Gets or sets a value indicating whether the icon location is relative.
         /// </summary>
         /// <value>true if the icon location is relative; otherwise false.</value>
-        [XmlAttribute]
         public bool IsRelative { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the icon is a resource.
         /// </summary>
         /// <value>true if the icon is a resource; otherwise false.</value>
-        [XmlAttribute]
         public bool IsResource { get; set; }
 
         /// <summary>
         /// Gets or sets the icon location.
         /// </summary>
         /// <value>The icon location.</value>
-        [XmlText]
         public string Value { get; set; }
+
+        #endregion
+
+        internal static ApplicationManifestIconPathNode ParseXml(XmlReader reader)
+        {
+            return new ApplicationManifestIconPathNode()
+            {
+                IsRelative = reader.GetAttributeAsBool("IsRelative"),
+                IsResource = reader.GetAttributeAsBool("IsResource"),
+                Value = reader.ReadElementContentAsString()
+            };
+        }
     }
 }

@@ -1,11 +1,11 @@
 ﻿// ****************************************************************************
-// <copyright file="ApplicationManifestTokenNode.cs" company="Pedro Lamas">
-// Copyright © Pedro Lamas 2012
+// <copyright file="MarketplaceAppContentNode.cs" company="Pedro Lamas">
+// Copyright © Pedro Lamas 2013
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
-// <date>26-12-2012</date>
+// <date>20-07-2013</date>
 // <project>Cimbalino.Phone.Toolkit</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
@@ -18,37 +18,33 @@ using System.Xml;
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
     /// <summary>
-    /// Represents a token in the application manifest.
+    /// Represents an application content information.
     /// </summary>
-    public class ApplicationManifestTokenNode
+    public class MarketplaceAppContentNode
     {
         #region Properties
 
         /// <summary>
-        /// Gets or sets the token id.
+        /// Gets or sets the application content information type.
         /// </summary>
-        /// <value>The token id.</value>
-        public string TokenId { get; set; }
+        /// <value>The application content information type.</value>
+        public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the token task name.
+        /// Gets or sets the application content information text.
         /// </summary>
-        /// <value>The token task name.</value>
-        public string TaskName { get; set; }
+        /// <value>The application content information text.</value>
+        public string Text { get; set; }
 
         #endregion
 
-        internal static ApplicationManifestTokenNode ParseXml(XmlReader reader)
+        internal static MarketplaceAppContentNode ParseXml(XmlReader reader)
         {
-            var node = new ApplicationManifestTokenNode()
+            return new MarketplaceAppContentNode
             {
-                TokenId = reader.GetAttribute("TokenID"),
-                TaskName = reader.GetAttribute("TaskName")
+                Type = reader.GetAttribute("type"),
+                Text = reader.ReadElementContentAsString()
             };
-
-            reader.Skip();
-
-            return node;
         }
     }
 }

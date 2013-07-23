@@ -141,6 +141,48 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\UriExtensions.cs">
       <Link>Extensions\UriExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\XmlReaderExtensions.cs">
+      <Link>Extensions\XmlReaderExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\ApplicationManifestBackgroundServiceAgentNode.cs">
+      <Link>Helpers\ApplicationManifestBackgroundServiceAgentNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\ApplicationManifestDefaultTaskNode.cs">
+      <Link>Helpers\ApplicationManifestDefaultTaskNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\ApplicationManifestExtendedTaskNode.cs">
+      <Link>Helpers\ApplicationManifestExtendedTaskNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\ApplicationManifestTaskNodeBase.cs">
+      <Link>Helpers\ApplicationManifestTaskNodeBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppCapabilitiesNode.cs">
+      <Link>Helpers\MarketplaceAppCapabilitiesNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppCapabilityNode.cs">
+      <Link>Helpers\MarketplaceAppCapabilityNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppCategoryNode.cs">
+      <Link>Helpers\MarketplaceAppCategoryNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppContentNode.cs">
+      <Link>Helpers\MarketplaceAppContentNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppEntryNode.cs">
+      <Link>Helpers\MarketplaceAppEntryNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppHwCapabilityNode.cs">
+      <Link>Helpers\MarketplaceAppHwCapabilityNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppImageNode.cs">
+      <Link>Helpers\MarketplaceAppImageNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppNode.cs">
+      <Link>Helpers\MarketplaceAppNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppOfferNode.cs">
+      <Link>Helpers\MarketplaceAppOfferNode.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MutexLock.cs">
       <Link>Helpers\MutexLock.cs</Link>
     </Compile>
@@ -159,6 +201,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IDeviceStatusService.cs">
       <Link>Services\IDeviceStatusService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IMarketplaceInformationService.cs">
+      <Link>Services\IMarketplaceInformationService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\INetworkInformationService.cs">
       <Link>Services\INetworkInformationService.cs</Link>
     </Compile>
@@ -170,6 +215,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IShellTileServiceTileData.cs">
       <Link>Services\IShellTileServiceTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\MarketplaceInformationService.cs">
+      <Link>Services\MarketplaceInformationService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\NetworkInformationService.cs">
       <Link>Services\NetworkInformationService.cs</Link>
@@ -224,9 +272,6 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Helpers\ApplicationManifestNamedNode.cs">
       <Link>Helpers\ApplicationManifestNamedNode.cs</Link>
-    </Compile>
-    <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Helpers\ApplicationManifestTaskNode.cs">
-      <Link>Helpers\ApplicationManifestTaskNode.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background (WP71)\Helpers\ApplicationManifestTokenNode.cs">
       <Link>Helpers\ApplicationManifestTokenNode.cs</Link>

@@ -1,5 +1,5 @@
 ﻿// ****************************************************************************
-// <copyright file="ApplicationManifestLanguageNode.cs" company="Pedro Lamas">
+// <copyright file="ApplicationManifestExtendedTaskNode.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
@@ -13,35 +13,21 @@
 // </license>
 // ****************************************************************************
 
-using System.Xml;
-
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
     /// <summary>
-    /// Represents a language in the application manifest.
+    /// Represents an extended task in the application manifest.
     /// </summary>
-    public class ApplicationManifestLanguageNode
+    public class ApplicationManifestExtendedTaskNode : ApplicationManifestTaskNodeBase
     {
         #region Properties
 
         /// <summary>
-        /// Gets or sets the language code.
+        /// Gets or sets the list of background service agents.
         /// </summary>
-        /// <value>The language code.</value>
-        public string Code { get; set; }
+        /// <value>The list of background service agents.</value>
+        public ApplicationManifestBackgroundServiceAgentNode[] BackgroundServiceAgents { get; set; }
 
         #endregion
-
-        internal static ApplicationManifestLanguageNode ParseXml(XmlReader reader)
-        {
-            var node = new ApplicationManifestLanguageNode()
-            {
-                Code = reader.GetAttribute("code")
-            };
-
-            reader.Skip();
-
-            return node;
-        }
     }
 }

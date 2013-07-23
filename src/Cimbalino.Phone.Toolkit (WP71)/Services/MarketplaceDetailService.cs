@@ -18,7 +18,7 @@ using Microsoft.Phone.Tasks;
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents an implementation of the <see cref="IMarketplaceDetailService"/>
+    /// Represents an implementation of the <see cref="IMarketplaceDetailService"/>.
     /// </summary>
     public class MarketplaceDetailService : IMarketplaceDetailService
     {
