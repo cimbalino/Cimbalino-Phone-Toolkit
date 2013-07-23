@@ -37,14 +37,6 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         }
 
         /// <summary>
-        /// Finalizes an instance of the <see cref="MutexLock" /> class.
-        /// </summary>
-        ~MutexLock()
-        {
-            Dispose();
-        }
-
-        /// <summary>
         /// Locks the Mutex and returns an <see cref="IDisposable"/> object that when disposed will release the Mutex.
         /// </summary>
         /// <returns>An <see cref="IDisposable"/> object that when disposed will release the Mutex.</returns>
