@@ -14,6 +14,8 @@
 // ****************************************************************************
 
 using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Media;
 using Microsoft.Devices;
 
@@ -65,6 +67,24 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <value>The flash mode.</value>
         FlashMode FlashMode { get; set; }
+
+        /// <summary>
+        /// Gets the camera for the available resolutions.
+        /// </summary>
+        /// <value>The collection of available resolutions on the camera.</value>
+        IEnumerable<Size> AvailableResolutions { get; }
+
+        /// <summary>
+        /// Gets or sets the resolution of the image captured by the camera.
+        /// </summary>
+        /// <value>The resolution of the image captured by the camera.</value>
+        Size Resolution { get; set; }
+
+        /// <summary>
+        /// Gets the number of degrees that the viewfinder brush needs to be rotated clockwise to align with the camera sensor.
+        /// </summary>
+        /// <value>The number of degrees that the viewfinder brush needs to be rotated clockwise to align with the camera sensor.</value>
+        double Orientation { get; }
 
         /// <summary>
         /// Starts the camera service.

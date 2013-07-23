@@ -14,6 +14,8 @@
 // ****************************************************************************
 
 using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Media;
 using Microsoft.Devices;
 
@@ -88,6 +90,52 @@ namespace Cimbalino.Phone.Toolkit.Services
                     {
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Gets the camera for the available resolutions.
+        /// </summary>
+        /// <value>The collection of available resolutions on the camera.</value>
+        public IEnumerable<Size> AvailableResolutions
+        {
+            get
+            {
+                return _photoCamera.AvailableResolutions;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the resolution of the image captured by the camera.
+        /// </summary>
+        /// <value>The resolution of the image captured by the camera.</value>
+        public Size Resolution
+        {
+            get
+            {
+                return _photoCamera.Resolution;
+            }
+            set
+            {
+                try
+                {
+                    _photoCamera.Resolution = value;
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the number of degrees that the viewfinder brush needs to be rotated clockwise to align with the camera sensor.
+        /// </summary>
+        /// <value>The number of degrees that the viewfinder brush needs to be rotated clockwise to align with the camera sensor.</value>
+        public double Orientation
+        {
+            get
+            {
+                return _photoCamera.Orientation;
             }
         }
 
