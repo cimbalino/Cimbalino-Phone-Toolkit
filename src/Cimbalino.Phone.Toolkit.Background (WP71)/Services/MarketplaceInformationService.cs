@@ -140,20 +140,7 @@ namespace Cimbalino.Phone.Toolkit.Services
 
                 using (var outputStream = response.GetResponseStream())
                 {
-                    ////using (var reader = XmlReader.Create(outputStream))
-                    ////{
-                    ////    reader.MoveToContent();
-
-                    ////    var aNamespace = reader.LookupNamespace("a");
-
-                    ////    reader.ReadToFollowing("entry", aNamespace);
-
-                    ////    reader.ReadToDescendant("version");
-
-                    ////    return new Version(reader.ReadElementContentAsString());
-                    ////}
-
-                    using (var reader = XmlReader.Create(outputStream, new XmlReaderSettings { IgnoreWhitespace = true }))
+                    using (var reader = XmlReader.Create(outputStream, new XmlReaderSettings { IgnoreWhitespace = true, IgnoreComments = true }))
                     {
                         return MarketplaceAppNode.ParseXml(reader);
                     }

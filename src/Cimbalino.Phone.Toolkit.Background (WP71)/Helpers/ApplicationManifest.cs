@@ -45,7 +45,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
 
                     using (var appManifestStream = appManifestResourceInfo.Stream)
                     {
-                        using (var reader = XmlReader.Create(appManifestStream, new XmlReaderSettings { IgnoreWhitespace = true }))
+                        using (var reader = XmlReader.Create(appManifestStream, new XmlReaderSettings { IgnoreWhitespace = true, IgnoreComments = true }))
                         {
                             _current = ParseXml(reader);
                         }
@@ -105,7 +105,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
                 {
                     case "DefaultLanguage":
                         node.DefaultLanguage = ApplicationManifestLanguageNode.ParseXml(reader);
-                        
+
                         break;
 
                     case "AppExtra":
@@ -115,17 +115,17 @@ namespace Cimbalino.Phone.Toolkit.Helpers
 
                     case "Languages":
                         node.Languages = reader.ReadElementContentAsArray(ApplicationManifestLanguageNode.ParseXml);
-                        
+
                         break;
 
                     case "App":
                         node.App = ApplicationManifestAppNode.ParseXml(reader);
-                        
+
                         break;
 
                     default:
                         reader.Skip();
-                        
+
                         break;
                 }
             }
