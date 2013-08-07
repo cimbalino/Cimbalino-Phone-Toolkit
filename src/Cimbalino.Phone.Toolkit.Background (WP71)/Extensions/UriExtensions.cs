@@ -16,6 +16,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -31,7 +32,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <returns>A collection that contains the query string values.</returns>
         public static IDictionary<string, string> QueryString(this Uri uri)
         {
-            var uriString = uri.ToString();
+            var uriString = uri.IsAbsoluteUri ? uri.AbsoluteUri : uri.OriginalString;
 
             var queryIndex = uriString.IndexOf("?", StringComparison.InvariantCulture);
 
@@ -45,7 +46,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             return query.Split('&')
                 .Where(x => !string.IsNullOrEmpty(x))
                 .Select(x => x.Split('='))
-                .ToDictionary(x => x[0], x => x.Length == 2 && !string.IsNullOrEmpty(x[1]) ? System.Net.HttpUtility.UrlDecode(x[1]) : null);
+                .ToDictionary(x => HttpUtility.UrlDecode(x[0]), x => x.Length == 2 && !string.IsNullOrEmpty(x[1]) ? HttpUtility.UrlDecode(x[1]) : null);
         }
     }
 }
