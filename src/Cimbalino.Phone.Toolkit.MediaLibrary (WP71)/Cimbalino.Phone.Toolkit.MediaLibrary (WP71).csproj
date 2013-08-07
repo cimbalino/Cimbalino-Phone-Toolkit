@@ -83,6 +83,8 @@
   <ItemGroup>
     <Compile Include="Actions\ScreenshotAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FMRadioService.cs" />
+    <Compile Include="Services\IFMRadioService.cs" />
     <Compile Include="Services\IMediaLibraryService.cs" />
     <Compile Include="Services\IScreenshotService.cs" />
     <Compile Include="Services\MediaLibraryService.cs" />

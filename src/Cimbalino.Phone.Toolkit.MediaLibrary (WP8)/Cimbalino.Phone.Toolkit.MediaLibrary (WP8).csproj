@@ -90,6 +90,12 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Actions\ScreenshotAction.cs">
       <Link>Actions\ScreenshotAction.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Services\FMRadioService.cs">
+      <Link>Services\FMRadioService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Services\IFMRadioService.cs">
+      <Link>Services\IFMRadioService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.MediaLibrary %28WP71%29\Services\IMediaLibraryService.cs">
       <Link>Services\IMediaLibraryService.cs</Link>
     </Compile>
