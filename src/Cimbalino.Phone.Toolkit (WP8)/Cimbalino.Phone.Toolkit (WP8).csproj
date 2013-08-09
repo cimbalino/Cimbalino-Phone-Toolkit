@@ -138,6 +138,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Actions\WebBrowserAction.cs">
       <Link>Actions\WebBrowserAction.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\AfterAutoFocusEventArgs.cs">
+      <Link>Behaviors\AfterAutoFocusEventArgs.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\ApplicationBar.cs">
       <Link>Behaviors\ApplicationBar.cs</Link>
     </Compile>
@@ -164,6 +167,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\ApplicationBarMenuItemCollection.cs">
       <Link>Behaviors\ApplicationBarMenuItemCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\AutoFocusBehavior.cs">
+      <Link>Behaviors\AutoFocusBehavior.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Behaviors\MultiApplicationBarBehavior.cs">
       <Link>Behaviors\MultiApplicationBarBehavior.cs</Link>

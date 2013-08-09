@@ -24,7 +24,7 @@ using Microsoft.Phone.Shell;
 namespace Cimbalino.Phone.Toolkit.Behaviors
 {
     /// <summary>
-    /// The behavior that creates a bindable <see cref="Microsoft.Phone.Shell.ApplicationBar" />
+    /// The behavior that creates a bindable <see cref="Microsoft.Phone.Shell.ApplicationBar" />.
     /// </summary>
     [System.Windows.Markup.ContentProperty("Buttons")]
     public class ApplicationBarBehavior : SafeBehavior<FrameworkElement>
