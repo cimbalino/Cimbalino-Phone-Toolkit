@@ -55,6 +55,38 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         }
 
         /// <summary>
+        /// Gets or sets a value indicating whether focus will jump from last control to first one.
+        /// </summary>
+        /// <value>true if focus will jump from last control to first one; otherwise, false.</value>
+        public bool CycleNavigation
+        {
+            get { return (bool)GetValue(CycleNavigationProperty); }
+            set { SetValue(CycleNavigationProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifier for the <see cref="CycleNavigation" /> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty CycleNavigationProperty =
+            DependencyProperty.Register("CycleNavigation", typeof(bool), typeof(AutoFocusBehavior), new PropertyMetadata(false));
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the entire contents of the controls will be selected on focus. 
+        /// </summary>
+        /// <value>true if the entire contents of the controls will be selected on focus; otherwise, false.</value>
+        public bool SelectAllOnFocus
+        {
+            get { return (bool)GetValue(SelectAllOnFocusProperty); }
+            set { SetValue(SelectAllOnFocusProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifier for the <see cref="SelectAllOnFocus" /> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty SelectAllOnFocusProperty =
+            DependencyProperty.Register("SelectAllOnFocus", typeof(bool), typeof(AutoFocusBehavior), new PropertyMetadata(false));
+
+        /// <summary>
         /// Gets or sets the command to invoke when the focus automatically moves from one control to the next. This is a DependencyProperty.
         /// </summary>
         /// <value>The command to invoke when the focus automatically moves from one control to the next.</value>
@@ -86,11 +118,19 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private void FocusNextControl(Control fromControl)
         {
-            var toControl = GetControlChilds(AssociatedObject)
+            var controls = GetChildControls(AssociatedObject)
                 .OrderBy(x => x.TabIndex)
+                .ToArray();
+
+            var toControl = controls
                 .SkipWhile(x => x != fromControl)
                 .Skip(1)
                 .FirstOrDefault();
+
+            if (toControl == null && CycleNavigation)
+            {
+                toControl = controls.FirstOrDefault();
+            }
 
             if (toControl == null)
             {
@@ -104,6 +144,25 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             else
             {
                 toControl.Focus();
+
+                if (SelectAllOnFocus)
+                {
+                    var textBox = toControl as TextBox;
+
+                    if (textBox != null)
+                    {
+                        textBox.SelectAll();
+                    }
+                    else
+                    {
+                        var passwordBox = toControl as PasswordBox;
+
+                        if (passwordBox != null)
+                        {
+                            passwordBox.SelectAll();
+                        }
+                    }
+                }
             }
 
             var eventArgs = new AfterAutoFocusEventArgs(fromControl, toControl);
@@ -123,7 +182,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             }
         }
 
-        private IEnumerable<Control> GetControlChilds(FrameworkElement control)
+        private IEnumerable<Control> GetChildControls(FrameworkElement control)
         {
             return GetVisibleVisualChilds(control)
                 .Descendants(x => x is TextBox || x is PasswordBox ? new FrameworkElement[] { } : GetVisibleVisualChilds(x))
