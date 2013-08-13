@@ -71,9 +71,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             DependencyProperty.Register("CycleNavigation", typeof(bool), typeof(AutoFocusBehavior), new PropertyMetadata(false));
 
         /// <summary>
-        /// Gets or sets a value indicating whether the entire contents of the controls will be selected on focus. 
+        /// Gets or sets a value indicating whether the entire contents of a control will be selected on focus. 
         /// </summary>
-        /// <value>true if the entire contents of the controls will be selected on focus; otherwise, false.</value>
+        /// <value>true if the entire contents of a control will be selected on focus; otherwise, false.</value>
         public bool SelectAllOnFocus
         {
             get { return (bool)GetValue(SelectAllOnFocusProperty); }
@@ -87,9 +87,9 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             DependencyProperty.Register("SelectAllOnFocus", typeof(bool), typeof(AutoFocusBehavior), new PropertyMetadata(false));
 
         /// <summary>
-        /// Gets or sets the command to invoke when the focus automatically moves from one control to the next. This is a DependencyProperty.
+        /// Gets or sets the command to invoke when the focus moves from one control to the next.
         /// </summary>
-        /// <value>The command to invoke when the focus automatically moves from one control to the next.</value>
+        /// <value>The command to invoke when the focus moves from one control to the next.</value>
         public ICommand AfterAutoFocusCommand
         {
             get { return (ICommand)GetValue(AfterAutoFocusCommandProperty); }
