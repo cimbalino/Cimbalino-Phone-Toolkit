@@ -15,6 +15,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
@@ -33,6 +34,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Occurs when a new navigation is requested.
         /// </summary>
         public event NavigatingCancelEventHandler Navigating;
+        
+        /// <summary>
+        /// Occurs when the content that is being navigated to has been found and is available.
+        /// </summary>
+        public event NavigatedEventHandler Navigated;
 
         /// <summary>
         /// Gets the uniform resource identifier (URI) of the content that is currently displayed.
@@ -157,24 +163,29 @@ namespace Cimbalino.Phone.Toolkit.Services
                         }
                     };
 
+                    _mainFrame.Navigated += (s, e) =>
+                    {
+                        if (_navigationService == null)
+                        {
+                            GetNavigationServiceFromPage(e.Content as PhoneApplicationPage);
+                        }
+
+                        var eventHandler = Navigated;
+
+                        if (eventHandler != null)
+                        {
+                            eventHandler(s, e);
+                        }
+                    };
+
                     if (GetNavigationServiceFromPage(_mainFrame.Content as PhoneApplicationPage))
                     {
                         return true;
                     }
-                    
-                    _mainFrame.Navigated += MainFrameNavigated;
                 }
             }
 
             return false;
-        }
-
-        private void MainFrameNavigated(object s, NavigationEventArgs e)
-        {
-            if (GetNavigationServiceFromPage(e.Content as PhoneApplicationPage))
-            {
-                _mainFrame.Navigated -= MainFrameNavigated;
-            }
         }
 
         private bool GetNavigationServiceFromPage(PhoneApplicationPage page)

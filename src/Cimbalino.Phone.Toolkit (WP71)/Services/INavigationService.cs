@@ -30,6 +30,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         event NavigatingCancelEventHandler Navigating;
 
         /// <summary>
+        /// Occurs when the content that is being navigated to has been found and is available.
+        /// </summary>
+        event NavigatedEventHandler Navigated;
+
+        /// <summary>
         /// Gets the uniform resource identifier (URI) of the content that is currently displayed.
         /// </summary>
         /// <value>Returns a value that represents the <see cref="Uri"/> of content that is currently displayed.</value>
