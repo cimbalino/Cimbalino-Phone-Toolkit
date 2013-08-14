@@ -104,14 +104,13 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
         private void AssociatedObjectKeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (e.Key == Key.Enter && (e.OriginalSource is TextBox || e.OriginalSource is PasswordBox))
             {
-                var originalSource = e.OriginalSource as Control;
-                var originalSourceAsTextBox = originalSource as TextBox;
+                var originalSourceTextBox = e.OriginalSource as TextBox;
 
-                if (originalSource != null && (originalSourceAsTextBox == null || !originalSourceAsTextBox.AcceptsReturn))
+                if (originalSourceTextBox == null || !originalSourceTextBox.AcceptsReturn)
                 {
-                    FocusNextControl(originalSource);
+                    FocusNextControl((Control)e.OriginalSource);
                 }
             }
         }
