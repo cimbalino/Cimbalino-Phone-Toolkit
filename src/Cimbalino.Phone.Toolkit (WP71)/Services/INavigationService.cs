@@ -30,7 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         event NavigatingCancelEventHandler Navigating;
 
         /// <summary>
-        /// Occurs when a navigated has finished successfully.
+        /// Occurs when the content that is being navigated to has been found and is available.
         /// </summary>
         event NavigatedEventHandler Navigated;
 

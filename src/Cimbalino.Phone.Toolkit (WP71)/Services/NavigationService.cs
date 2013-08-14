@@ -36,7 +36,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         public event NavigatingCancelEventHandler Navigating;
         
         /// <summary>
-        /// Occurs when a navigated has finished successfully.
+        /// Occurs when the content that is being navigated to has been found and is available.
         /// </summary>
         public event NavigatedEventHandler Navigated;
 
@@ -163,7 +163,20 @@ namespace Cimbalino.Phone.Toolkit.Services
                         }
                     };
 
-                    _mainFrame.Navigated += MainFrameNavigated;
+                    _mainFrame.Navigated += (s, e) =>
+                    {
+                        if (_navigationService == null)
+                        {
+                            GetNavigationServiceFromPage(e.Content as PhoneApplicationPage);
+                        }
+
+                        var eventHandler = Navigated;
+
+                        if (eventHandler != null)
+                        {
+                            eventHandler(s, e);
+                        }
+                    };
 
                     if (GetNavigationServiceFromPage(_mainFrame.Content as PhoneApplicationPage))
                     {
@@ -173,20 +186,6 @@ namespace Cimbalino.Phone.Toolkit.Services
             }
 
             return false;
-        }
-
-        private void MainFrameNavigated(object s, NavigationEventArgs e)
-        {
-            var handler = Navigated;
-            if (handler != null)
-            {
-                handler(s, e);
-            }
-
-            if (GetNavigationServiceFromPage(e.Content as PhoneApplicationPage))
-            {
-                _mainFrame.Navigated -= MainFrameNavigated;
-            }
         }
 
         private bool GetNavigationServiceFromPage(PhoneApplicationPage page)
