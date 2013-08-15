@@ -201,6 +201,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IDeviceStatusService.cs">
       <Link>Services\IDeviceStatusService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ILockScreenService.cs">
+      <Link>Services\ILockScreenService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IMarketplaceInformationService.cs">
       <Link>Services\IMarketplaceInformationService.cs</Link>
     </Compile>
@@ -215,6 +218,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\IShellTileServiceTileData.cs">
       <Link>Services\IShellTileServiceTileData.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\LockScreenServiceRequestResult.cs">
+      <Link>Services\LockScreenServiceRequestResult.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\MarketplaceInformationService.cs">
       <Link>Services\MarketplaceInformationService.cs</Link>
@@ -320,6 +326,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AsyncStorageService.cs" />
+    <Compile Include="Services\LockScreenService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

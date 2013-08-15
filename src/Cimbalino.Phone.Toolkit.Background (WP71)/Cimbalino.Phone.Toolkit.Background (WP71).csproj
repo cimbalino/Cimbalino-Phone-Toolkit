@@ -133,6 +133,10 @@
     <Compile Include="Services\IApplicationSettingsService.cs" />
     <Compile Include="Services\IAsyncStorageService.cs" />
     <Compile Include="Services\IDeviceStatusService.cs" />
+    <Compile Include="Services\ILockScreenService.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Services\IMarketplaceInformationService.cs" />
     <Compile Include="Services\INetworkInformationService.cs" />
     <Compile Include="Services\IScreenInfoService.cs" />
@@ -141,6 +145,11 @@
     <Compile Include="Services\IShellTileServiceTileData.cs" />
     <Compile Include="Services\IShellToastService.cs" />
     <Compile Include="Services\IStorageService.cs" />
+    <Compile Include="Services\LockScreenService.cs" />
+    <Compile Include="Services\LockScreenServiceRequestResult.cs">
+      <SubType>
+      </SubType>
+    </Compile>
     <Compile Include="Services\MarketplaceInformationService.cs" />
     <Compile Include="Services\NetworkInformationService.cs" />
     <Compile Include="Services\ScreenInfoService.cs" />
