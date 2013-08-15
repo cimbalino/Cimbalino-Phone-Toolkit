@@ -160,7 +160,19 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
             var applicationBar = SelectedItem;
 
-            page.ApplicationBar = applicationBar == null ? null : applicationBar.InternalApplicationBar;
+            if (applicationBar == null)
+            {
+                page.ApplicationBar = null;
+            }
+            else
+            {
+                // The following is required to fix a compatibility issue with the Windows Phone Toolkit CustomMessageBox
+                var internalApplicationBar = applicationBar.InternalApplicationBar;
+
+                internalApplicationBar.IsVisible = applicationBar.IsVisible;
+
+                page.ApplicationBar = internalApplicationBar;
+            }
         }
     }
 }
