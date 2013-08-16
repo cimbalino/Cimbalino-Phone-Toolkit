@@ -19,14 +19,18 @@ The Toolkit is divided in projects, regarding different Windows Phone applicatio
 * __Cimbalino.Phone.Toolkit.UserInfo__ - MVVM compatible services for user information access
 
 > **Note:** this toolkit is compatible with the [Windows Phone SDK 7.1.x][4] and [Windows Phone SDK 8.0][5]!
+> 
+> Also, Microsoft Visual Studio 2012 is required as of version 3.0.0
 
 ## Nuget
 
 The packages are available on [NuGet][8], with the same handles as the project names (e.g., the main package is `Cimbalino.Phone.Toolkit`)
 
-## Download
+## Cloning
 
-Please visit the [download section on GitHub][7] to download the latest release of the toolkit.
+After cloning the project and **before** you open the solution in Visual Studio 2012, open a Windows PowerShell window in the `\build` folder and type the following command:
+
+    .\psake1.ps1 setup
 
 ## License
 
