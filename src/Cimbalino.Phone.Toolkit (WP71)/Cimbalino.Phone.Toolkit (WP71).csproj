@@ -120,6 +120,8 @@
     <Compile Include="Behaviors\MultiBindingItemCollection.cs" />
     <Compile Include="Converters\BooleanToValueConverterBase.cs" />
     <Compile Include="Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="Converters\GreaterThanVisibilityConverter.cs" />
+    <Compile Include="Converters\LessThanVisibilityConverter.cs" />
     <Compile Include="Converters\MultiValueConverterBase.cs" />
     <Compile Include="Behaviors\SafeBehavior.cs" />
     <Compile Include="Converters\BooleanToBrushConverter.cs" />
