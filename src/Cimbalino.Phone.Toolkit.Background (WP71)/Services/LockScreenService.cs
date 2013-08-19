@@ -64,7 +64,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// Sets the default lock screen.
         /// </summary>
         /// <exception cref="System.NotSupportedException">This service is not supported in Windows Phone 7.x</exception>
-        public Task SetDefaultLockScreen()
+        public Task SetDefaultLockScreenAsync()
         {
             throw new NotSupportedException("This service is not supported in Windows Phone 7.x");
         }
@@ -74,7 +74,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="uri">The URI.</param>
         /// <exception cref="System.NotSupportedException">This service is not supported in Windows Phone 7.x</exception>
-        public Task SetLockScreen(string uri)
+        public Task SetLockScreenAsync(string uri)
         {
             throw new NotSupportedException("This service is not supported in Windows Phone 7.x");
         }

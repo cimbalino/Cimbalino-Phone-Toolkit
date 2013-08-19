@@ -44,12 +44,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// Sets the default lock screen.
         /// </summary>
-        Task SetDefaultLockScreen();
+        Task SetDefaultLockScreenAsync();
 
         /// <summary>
         /// Sets the lock screen.
         /// </summary>
         /// <param name="uri">The URI.</param>
-        Task SetLockScreen(string uri);
+        Task SetLockScreenAsync(string uri);
     }
 }

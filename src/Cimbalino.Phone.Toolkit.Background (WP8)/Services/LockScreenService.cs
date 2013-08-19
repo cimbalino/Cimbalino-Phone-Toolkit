@@ -121,12 +121,12 @@ namespace Cimbalino.Phone.Toolkit.Services
             }
         }
 
-        public async Task SetDefaultLockScreen()
+        public async Task SetDefaultLockScreenAsync()
         {
-            await SetLockScreen(DefaultLockScreenImageUri);
+            await SetLockScreenAsync(DefaultLockScreenImageUri);
         }
 
-        public async Task SetLockScreen(string uri)
+        public async Task SetLockScreenAsync(string uri)
         {
             if (uri.StartsWith("http"))
             {
@@ -151,7 +151,7 @@ namespace Cimbalino.Phone.Toolkit.Services
 
                 await SaveTheImage(writeableBitmap);
 
-                await SetLockScreen(LockScreenImageUrl);
+                await SetLockScreenAsync(LockScreenImageUrl);
             }
             catch (Exception ex)
             {
