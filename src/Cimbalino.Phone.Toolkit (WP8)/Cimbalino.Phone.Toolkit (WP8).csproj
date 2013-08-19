@@ -466,14 +466,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP8%29\Cimbalino.Phone.Toolkit.Background %28WP8%29.csproj">
       <Project>{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}</Project>
       <Name>Cimbalino.Phone.Toolkit.Background %28WP8%29</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
@@ -487,7 +487,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <StyleCopMSBuildTargetsFile>..\packages\StyleCop.MSBuild.4.7.44.1\tools\StyleCop.targets</StyleCopMSBuildTargetsFile>
+    <StyleCopMSBuildTargetsFile>..\packages\StyleCop.MSBuild.4.7.45.0\tools\StyleCop.targets</StyleCopMSBuildTargetsFile>
   </PropertyGroup>
   <Import Condition="Exists('$(StyleCopMSBuildTargetsFile)')" Project="$(StyleCopMSBuildTargetsFile)" />
   <PropertyGroup>
