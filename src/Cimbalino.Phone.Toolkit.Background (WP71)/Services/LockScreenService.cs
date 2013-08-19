@@ -59,5 +59,24 @@ namespace Cimbalino.Phone.Toolkit.Services
                 throw new NotSupportedException("This service is not supported in Windows Phone 7.x");
             }
         }
+
+        /// <summary>
+        /// Sets the default lock screen.
+        /// </summary>
+        /// <exception cref="System.NotSupportedException">This service is not supported in Windows Phone 7.x</exception>
+        public Task SetDefaultLockScreen()
+        {
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x");
+        }
+
+        /// <summary>
+        /// Sets the lock screen.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        /// <exception cref="System.NotSupportedException">This service is not supported in Windows Phone 7.x</exception>
+        public Task SetLockScreen(string uri)
+        {
+            throw new NotSupportedException("This service is not supported in Windows Phone 7.x");
+        }
     }
 }
