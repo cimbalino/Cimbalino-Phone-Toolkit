@@ -111,8 +111,13 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.9-beta\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.9-beta\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.9-beta\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.9-beta\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
   <PropertyGroup>
-    <StyleCopMSBuildTargetsFile>..\packages\StyleCop.MSBuild.4.7.44.1\tools\StyleCop.targets</StyleCopMSBuildTargetsFile>
+    <StyleCopMSBuildTargetsFile>..\packages\StyleCop.MSBuild.4.7.45.0\tools\StyleCop.targets</StyleCopMSBuildTargetsFile>
   </PropertyGroup>
   <Import Condition="Exists('$(StyleCopMSBuildTargetsFile)')" Project="$(StyleCopMSBuildTargetsFile)" />
   <PropertyGroup>
@@ -134,5 +139,4 @@
   <PropertyGroup>
     <PrepareForBuildDependsOn Condition="!Exists('$(StyleCopMSBuildTargetsFile)')">StyleCopMSBuildTargetsNotFound;$(PrepareForBuildDependsOn)</PrepareForBuildDependsOn>
   </PropertyGroup>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.5\tools\Microsoft.Bcl.Build.targets" />
 </Project>
