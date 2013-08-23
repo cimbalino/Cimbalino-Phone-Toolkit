@@ -114,7 +114,7 @@
     <Compile Include="Behaviors\ApplicationBarMenuItem.cs" />
     <Compile Include="Behaviors\ApplicationBarMenuItemCollection.cs" />
     <Compile Include="Behaviors\AutoFocusBehavior.cs" />
-    <Compile Include="Behaviors\SystemTrayCustomColourProgressBehaviour.cs" />
+    <Compile Include="Behaviors\SystemTrayProgressIndicatorBehaviour.cs" />
     <Compile Include="Behaviors\MultiApplicationBarBehavior.cs" />
     <Compile Include="Behaviors\MultiBindingBehavior.cs" />
     <Compile Include="Behaviors\MultiBindingItem.cs" />
