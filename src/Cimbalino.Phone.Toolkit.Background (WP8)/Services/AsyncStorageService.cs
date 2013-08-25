@@ -39,9 +39,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="sourceFileName">The name of the file to copy.</param>
         /// <param name="destinationFileName">The name of the destination file. This cannot be a directory or an existing file.</param>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
-        public async Task CopyFileAsync(string sourceFileName, string destinationFileName)
+        public Task CopyFileAsync(string sourceFileName, string destinationFileName)
         {
-            await CopyFileAsync(sourceFileName, destinationFileName, false);
+            return CopyFileAsync(sourceFileName, destinationFileName, false);
         }
 
         /// <summary>
@@ -80,9 +80,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="path">The relative path of the file to be created in the store.</param>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
-        public async Task<Stream> CreateFileAsync(string path)
+        public Task<Stream> CreateFileAsync(string path)
         {
-            return await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
+            return Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.ReplaceExisting);
         }
 
         /// <summary>
@@ -237,9 +237,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="path">The relative path of the file within the store.</param>
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
-        public async Task<Stream> OpenFileForReadAsync(string path)
+        public Task<Stream> OpenFileForReadAsync(string path)
         {
-            return await Storage.OpenStreamForReadAsync(path);
+            return Storage.OpenStreamForReadAsync(path);
         }
 
         /// <summary>
