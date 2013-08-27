@@ -169,7 +169,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         public async Task<string[]> GetDirectoryNamesAsync(string searchPattern)
         {
             var folderName = Path.GetDirectoryName(searchPattern);
-            var folder = await Storage.GetFolderAsync(folderName);
+            var folder = string.IsNullOrEmpty(folderName) ? Storage : await Storage.GetFolderAsync(folderName);
 
             var folders = await folder.GetFoldersAsync();
 
@@ -211,7 +211,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         public async Task<string[]> GetFileNamesAsync(string searchPattern)
         {
             var folderName = Path.GetDirectoryName(searchPattern);
-            var folder = await Storage.GetFolderAsync(folderName);
+            var folder = string.IsNullOrEmpty(folderName) ? Storage : await Storage.GetFolderAsync(folderName);
 
             var files = await folder.GetFilesAsync();
 
