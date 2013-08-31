@@ -71,7 +71,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
             DependencyProperty.Register("CycleNavigation", typeof(bool), typeof(AutoFocusBehavior), new PropertyMetadata(false));
 
         /// <summary>
-        /// Gets or sets a value indicating whether the entire contents of a control will be selected on focus. 
+        /// Gets or sets a value indicating whether the entire contents of a control will be selected on focus.
         /// </summary>
         /// <value>true if the entire contents of a control will be selected on focus; otherwise, false.</value>
         public bool SelectAllOnFocus
