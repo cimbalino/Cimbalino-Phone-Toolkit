@@ -46,21 +46,28 @@ namespace Cimbalino.Phone.Toolkit.Helpers
             var capabilities = new List<MarketplaceAppCapabilityNode>();
             var hardwareCapabilities = new List<MarketplaceAppHwCapabilityNode>();
 
-            while (reader.NodeType != XmlNodeType.EndElement)
+            if (reader.IsEmptyElement)
             {
-                switch (reader.Name)
+                reader.Skip();
+            }
+            else
+            {
+                while (reader.NodeType != XmlNodeType.EndElement)
                 {
-                    case "capability":
-                        capabilities.Add(MarketplaceAppCapabilityNode.ParseXml(reader));
-                        break;
+                    switch (reader.Name)
+                    {
+                        case "capability":
+                            capabilities.Add(MarketplaceAppCapabilityNode.ParseXml(reader));
+                            break;
 
-                    case "hwCapability":
-                        hardwareCapabilities.Add(MarketplaceAppHwCapabilityNode.ParseXml(reader));
-                        break;
+                        case "hwCapability":
+                            hardwareCapabilities.Add(MarketplaceAppHwCapabilityNode.ParseXml(reader));
+                            break;
 
-                    default:
-                        reader.Skip();
-                        break;
+                        default:
+                            reader.Skip();
+                            break;
+                    }
                 }
             }
 

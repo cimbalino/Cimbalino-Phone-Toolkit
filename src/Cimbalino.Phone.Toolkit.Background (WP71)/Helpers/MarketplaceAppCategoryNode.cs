@@ -56,35 +56,42 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         {
             var node = new MarketplaceAppCategoryNode();
 
-            reader.ReadStartElement();
-
-            while (reader.NodeType != XmlNodeType.EndElement)
+            if (reader.IsEmptyElement)
             {
-                switch (reader.LocalName)
-                {
-                    case "id":
-                        node.Id = reader.ReadElementContentAsUrn();
-                        break;
-
-                    case "title":
-                        node.Title = reader.ReadElementContentAsString();
-                        break;
-
-                    case "isRoot":
-                        node.IsRoot = string.Equals(reader.ReadElementContentAsString(), bool.TrueString, StringComparison.InvariantCultureIgnoreCase);
-                        break;
-
-                    case "parentId":
-                        node.ParentId = reader.ReadElementContentAsString();
-                        break;
-
-                    default:
-                        reader.Skip();
-                        break;
-                }
+                reader.Skip();
             }
+            else
+            {
+                reader.ReadStartElement();
 
-            reader.ReadEndElement();
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    switch (reader.LocalName)
+                    {
+                        case "id":
+                            node.Id = reader.ReadElementContentAsUrn();
+                            break;
+
+                        case "title":
+                            node.Title = reader.ReadElementContentAsString();
+                            break;
+
+                        case "isRoot":
+                            node.IsRoot = string.Equals(reader.ReadElementContentAsString(), bool.TrueString, StringComparison.InvariantCultureIgnoreCase);
+                            break;
+
+                        case "parentId":
+                            node.ParentId = reader.ReadElementContentAsString();
+                            break;
+
+                        default:
+                            reader.Skip();
+                            break;
+                    }
+                }
+
+                reader.ReadEndElement();
+            }
 
             return node;
         }

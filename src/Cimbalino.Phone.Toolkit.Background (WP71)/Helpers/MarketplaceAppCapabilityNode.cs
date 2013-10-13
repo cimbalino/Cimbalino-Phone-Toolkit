@@ -48,31 +48,38 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         {
             var node = new MarketplaceAppCapabilityNode();
 
-            reader.ReadStartElement();
-
-            while (reader.NodeType != XmlNodeType.EndElement)
+            if (reader.IsEmptyElement)
             {
-                switch (reader.Name)
-                {
-                    case "id":
-                        node.Id = reader.ReadElementContentAsString();
-                        break;
-
-                    case "string":
-                        node.Title = reader.ReadElementContentAsString();
-                        break;
-
-                    case "disclosure":
-                        node.Disclosure = reader.ReadElementContentAsString();
-                        break;
-
-                    default:
-                        reader.Skip();
-                        break;
-                }
+                reader.Skip();
             }
+            else
+            {
+                reader.ReadStartElement();
 
-            reader.ReadEndElement();
+                while (reader.NodeType != XmlNodeType.EndElement)
+                {
+                    switch (reader.Name)
+                    {
+                        case "id":
+                            node.Id = reader.ReadElementContentAsString();
+                            break;
+
+                        case "string":
+                            node.Title = reader.ReadElementContentAsString();
+                            break;
+
+                        case "disclosure":
+                            node.Disclosure = reader.ReadElementContentAsString();
+                            break;
+
+                        default:
+                            reader.Skip();
+                            break;
+                    }
+                }
+
+                reader.ReadEndElement();
+            }
 
             return node;
         }
