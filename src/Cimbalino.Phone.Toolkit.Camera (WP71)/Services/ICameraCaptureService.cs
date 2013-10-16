@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Threading.Tasks;
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -28,5 +29,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <param name="resultAction">The <see cref="Action{PhotoResult}"/> to be called once the operation is finished.</param>
         void Show(Action<PhotoResult> resultAction);
+
+        /// <summary>
+        /// Shows the camera application.
+        /// </summary>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        Task<PhotoResult> ShowAsync();
     }
 }

@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Threading.Tasks;
 using Microsoft.Phone.Tasks;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -31,6 +32,16 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             new ChooserHandler<PhotoResult>(new CameraCaptureTask(), resultAction)
                 .Show();
+        }
+
+        /// <summary>
+        /// Shows the camera application.
+        /// </summary>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public Task<PhotoResult> ShowAsync()
+        {
+            return new ChooserHandler<PhotoResult>(new CameraCaptureTask())
+                .ShowAsync();
         }
     }
 }
