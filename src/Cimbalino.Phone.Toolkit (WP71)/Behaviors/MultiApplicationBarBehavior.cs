@@ -108,7 +108,10 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         public static readonly DependencyProperty IsVisibleProperty =
             DependencyProperty.Register("Visible", typeof(bool), typeof(MultiApplicationBarBehavior), new PropertyMetadata(true, OnIsVisibleChanged));
 
-        internal ApplicationBar SelectedItem
+        /// <summary>
+        /// The selected application bar.
+        /// </summary>
+        public ApplicationBar SelectedItem
         {
             get
             {
@@ -173,6 +176,18 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
 
                 page.ApplicationBar = internalApplicationBar;
             }
+            
+            // raise the changed event _after_ it's been set properly
+            var handler = SelectedAppBarChanged;
+            if (handler != null)
+            {
+                handler(this, applicationBar);
+            }
         }
+        
+        /// <summary>
+        /// Raised when <see cref="SelectedIndex"/> changes.
+        /// </summary>
+        public event EventHandler<ApplicationBar> SelectedAppBarChanged;
     }
 }
