@@ -5,7 +5,7 @@
     <version>$version$</version>
     <authors>Pedro Lamas</authors>
     <title>Cimbalino Windows Phone Toolkit - Controls</title>
-    <description>Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone. This is the Controls component, and requires the Silverlight for Windows Phone Toolkit.</description>
+    <description>Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Windows Phone applications. This is the Controls component, and requires the Silverlight for Windows Phone Toolkit.</description>
     <language>en-US</language>
     <projectUrl>http://cimbalino.org</projectUrl>
     <licenseUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
