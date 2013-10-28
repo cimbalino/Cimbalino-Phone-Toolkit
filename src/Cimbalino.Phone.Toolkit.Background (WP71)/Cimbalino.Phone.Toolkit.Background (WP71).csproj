@@ -109,6 +109,7 @@
     <Compile Include="Helpers\ApplicationManifestTaskNodeBase.cs" />
     <Compile Include="Helpers\ApplicationManifestTokenNode.cs" />
     <Compile Include="Extensions\XmlReaderExtensions.cs" />
+    <Compile Include="Helpers\ChunkedStream.cs" />
     <Compile Include="Helpers\MarketplaceAppCapabilitiesNode.cs" />
     <Compile Include="Helpers\MarketplaceAppCapabilityNode.cs" />
     <Compile Include="Helpers\MarketplaceAppCategoryNode.cs" />

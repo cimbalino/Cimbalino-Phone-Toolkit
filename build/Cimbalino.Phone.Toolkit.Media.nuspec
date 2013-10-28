@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Cimbalino.Phone.Toolkit.Media</id>
+    <version>$version$</version>
+    <authors>Pedro Lamas</authors>
+    <title>Cimbalino Windows Phone Toolkit - Media Components</title>
+    <description>Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Windows Phone applications. This is the Media component.</description>
+    <language>en-US</language>
+    <projectUrl>http://cimbalino.org</projectUrl>
+    <licenseUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
+    <iconUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Device" />
+    </frameworkAssemblies>
+    <dependencies>
+      <dependency id="Cimbalino.Phone.Toolkit" />
+      <dependency id="Zlib.Portable" />
+    </dependencies>
+    <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Media Png</tags>
+  </metadata>
+</package>

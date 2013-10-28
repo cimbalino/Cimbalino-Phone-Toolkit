@@ -156,6 +156,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\ApplicationManifestTaskNodeBase.cs">
       <Link>Helpers\ApplicationManifestTaskNodeBase.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\ChunkedStream.cs">
+      <Link>Helpers\ChunkedStream.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Helpers\MarketplaceAppCapabilitiesNode.cs">
       <Link>Helpers\MarketplaceAppCapabilitiesNode.cs</Link>
     </Compile>
