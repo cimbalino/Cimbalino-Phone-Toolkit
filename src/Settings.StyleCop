@@ -4,10 +4,7 @@
       <Value>bindable</Value>
       <Value>cimbalino</Value>
       <Value>databinding</Value>
-      <Value>iap</Value>
       <Value>namescope</Value>
-      <Value>sku</Value>
-      <Value>specifier</Value>
       <Value>tombstoned</Value>
     </CollectionProperty>
   </GlobalSettings>

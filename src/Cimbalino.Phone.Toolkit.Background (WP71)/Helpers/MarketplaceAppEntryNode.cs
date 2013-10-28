@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
 using System.Xml;
@@ -62,12 +63,14 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// Gets or sets the application entry sku identifier.
         /// </summary>
         /// <value>The application entry sku identifier.</value>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public string SkuId { get; set; }
 
         /// <summary>
         /// Gets or sets the application entry sku last updated.
         /// </summary>
         /// <value>The application entry sku last updated.</value>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public DateTime? SkuLastUpdated { get; set; }
 
         /// <summary>

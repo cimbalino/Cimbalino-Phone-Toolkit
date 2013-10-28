@@ -13,6 +13,7 @@
 // </license>
 // ****************************************************************************
 
+using System.Diagnostics.CodeAnalysis;
 using System.Xml;
 
 namespace Cimbalino.Phone.Toolkit.Helpers
@@ -28,6 +29,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// Gets or sets the background service agent specifier.
         /// </summary>
         /// <value>The background service agent specifier.</value>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public string Specifier { get; set; }
 
         /// <summary>

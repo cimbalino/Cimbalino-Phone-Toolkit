@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Xml;
 using Cimbalino.Phone.Toolkit.Extensions;
 
@@ -54,6 +55,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// Gets or sets the application content iap count.
         /// </summary>
         /// <value>The application content iap count.</value>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed. Suppression is OK here.")]
         public int? IapCount { get; set; }
 
         /// <summary>
