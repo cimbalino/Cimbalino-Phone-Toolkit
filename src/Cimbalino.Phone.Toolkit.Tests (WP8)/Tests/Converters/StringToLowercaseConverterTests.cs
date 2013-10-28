@@ -24,7 +24,7 @@ namespace Cimbalino.Phone.Toolkit.Tests.Converters
         {
             var converter = new StringToLowercaseConverter();
 
-            Assert.ThrowsException<NotImplementedException>(() => converter.ConvertBack(null, typeof(string), null, CultureInfo.CurrentCulture));
+            Assert.ThrowsException<NotSupportedException>(() => converter.ConvertBack(null, typeof(string), null, CultureInfo.CurrentCulture));
         }
     }
 }

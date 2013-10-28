@@ -143,7 +143,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the DeviceStatusWithKeyboardService instead. This method can't be called from a Background Agent.");
+                throw new NotSupportedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the DeviceStatusWithKeyboardService instead. This method can't be called from a Background Agent.");
             }
         }
 
@@ -157,7 +157,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             get
             {
-                throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the DeviceStatusWithKeyboardService instead. This method can't be called from a Background Agent.");
+                throw new NotSupportedException("To use this method, add Cimbalino.Phone.Toolkit assembly to the project and use the DeviceStatusWithKeyboardService instead. This method can't be called from a Background Agent.");
             }
         }
 

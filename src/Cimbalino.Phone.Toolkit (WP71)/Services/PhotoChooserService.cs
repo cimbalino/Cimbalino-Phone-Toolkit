@@ -41,7 +41,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="resultAction">The <see cref="Action{PhotoResult}" /> to be called once the operation is finished.</param>
         public virtual void Show(bool showCamera, Action<PhotoResult> resultAction)
         {
-            throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
+            throw new NotSupportedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public virtual Task<PhotoResult> ShowAsync(bool showCamera)
         {
-            throw new NotImplementedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
+            throw new NotSupportedException("To use this method, add Cimbalino.Phone.Toolkit.Camera assembly to the project and use the PhotoChooserWithCameraService instead.");
         }
     }
 }

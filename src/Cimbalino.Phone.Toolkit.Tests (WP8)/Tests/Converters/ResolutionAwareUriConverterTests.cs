@@ -29,7 +29,7 @@ namespace Cimbalino.Phone.Toolkit.Tests.Converters
         {
             var converter = new ResolutionAwareUriConverter();
 
-            Assert.ThrowsException<NotImplementedException>(() => converter.ConvertBack(null, typeof(Uri), null, CultureInfo.CurrentCulture));
+            Assert.ThrowsException<NotSupportedException>(() => converter.ConvertBack(null, typeof(Uri), null, CultureInfo.CurrentCulture));
         }
     }
 }

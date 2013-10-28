@@ -47,7 +47,7 @@ namespace Cimbalino.Phone.Toolkit.Tests.Converters
         {
             var converter = new StringToVisibilityConverter();
 
-            Assert.ThrowsException<NotImplementedException>(() => converter.ConvertBack(Visibility.Visible, typeof(string), null, CultureInfo.CurrentCulture));
+            Assert.ThrowsException<NotSupportedException>(() => converter.ConvertBack(Visibility.Visible, typeof(string), null, CultureInfo.CurrentCulture));
         }
     }
 }
