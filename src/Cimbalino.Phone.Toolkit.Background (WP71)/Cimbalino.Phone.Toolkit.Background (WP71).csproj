@@ -78,6 +78,19 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compression\Crc32.generated.cs" />
+    <Compile Include="Compression\Deflate.generated.cs" />
+    <Compile Include="Compression\DeflateStream.generated.cs" />
+    <Compile Include="Compression\GZipStream.generated.cs" />
+    <Compile Include="Compression\Inflate.generated.cs" />
+    <Compile Include="Compression\InfTree.generated.cs" />
+    <Compile Include="Compression\Iso8859Dash1Encoding.generated.cs" />
+    <Compile Include="Compression\Tree.generated.cs" />
+    <Compile Include="Compression\Zlib.generated.cs" />
+    <Compile Include="Compression\ZlibBaseStream.generated.cs" />
+    <Compile Include="Compression\ZlibCodec.generated.cs" />
+    <Compile Include="Compression\ZlibConstants.generated.cs" />
+    <Compile Include="Compression\ZlibStream.generated.cs" />
     <Compile Include="Data\TableObject.cs" />
     <Compile Include="Extensions\ByteArrayExtensions.cs" />
     <Compile Include="Extensions\DependencyObjectExtensions.cs" />
@@ -98,6 +111,8 @@
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
+    <Compile Include="Extensions\WriteableBitmapExtensions.cs" />
+    <Compile Include="Extensions\WriteableBitmapSavePngParameters.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />
     <Compile Include="Helpers\ApplicationManifestAppNode.cs" />
     <Compile Include="Helpers\ApplicationManifestBackgroundServiceAgentNode.cs" />

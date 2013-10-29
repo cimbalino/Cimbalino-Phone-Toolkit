@@ -17,9 +17,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
+using Cimbalino.Phone.Toolkit.Compression;
 using Cimbalino.Phone.Toolkit.Helpers;
-using Ionic.Crc;
-using Ionic.Zlib;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -59,7 +58,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="writeableBitmap">The writeable bitmap.</param>
         /// <param name="outputStream">The image data stream.</param>
         /// <param name="compressionLevel">The image compression level.</param>
-        public static void SavePng(this WriteableBitmap writeableBitmap, Stream outputStream, WriteableBitmapPngCompressionLevel compressionLevel)
+        public static void SavePng(this WriteableBitmap writeableBitmap, Stream outputStream, CompressionLevel compressionLevel)
         {
             SavePng(writeableBitmap, outputStream, new WriteableBitmapSavePngParameters { CompressionLevel = compressionLevel });
         }
@@ -83,45 +82,6 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             WriteFooter(outputStream);
 
             outputStream.Flush();
-        }
-
-        internal static CompressionLevel ToCompressionLevel(this WriteableBitmapPngCompressionLevel compressionLevel)
-        {
-            switch (compressionLevel)
-            {
-                case WriteableBitmapPngCompressionLevel.Level0:
-                    return CompressionLevel.Level0;
-
-                case WriteableBitmapPngCompressionLevel.Level1:
-                    return CompressionLevel.Level1;
-
-                case WriteableBitmapPngCompressionLevel.Level2:
-                    return CompressionLevel.Level2;
-
-                case WriteableBitmapPngCompressionLevel.Level3:
-                    return CompressionLevel.Level3;
-
-                case WriteableBitmapPngCompressionLevel.Level4:
-                    return CompressionLevel.Level4;
-
-                case WriteableBitmapPngCompressionLevel.Level5:
-                    return CompressionLevel.Level5;
-
-                case WriteableBitmapPngCompressionLevel.Level6:
-                    return CompressionLevel.Level6;
-
-                case WriteableBitmapPngCompressionLevel.Level7:
-                    return CompressionLevel.Level7;
-
-                case WriteableBitmapPngCompressionLevel.Level8:
-                    return CompressionLevel.Level8;
-
-                case WriteableBitmapPngCompressionLevel.Level9:
-                    return CompressionLevel.Level9;
-
-                default:
-                    throw new ArgumentOutOfRangeException("compressionLevel");
-            }
         }
 
         private static void WriteHeader(Stream outputStream, WriteableBitmap writeableBitmap)
@@ -169,7 +129,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         {
             using (var chunkedStream = new ChunkedStream(MaximumChunkSize, data => WriteChunk(outputStream, PngChunkTypeData, data)))
             {
-                using (var zlibStream = new ZlibStream(chunkedStream, CompressionMode.Compress, parameters.CompressionLevel.ToCompressionLevel(), true))
+                using (var zlibStream = new ZlibStream(chunkedStream, CompressionMode.Compress, parameters.CompressionLevel, true))
                 {
                     writeableBitmap.Invalidate();
 

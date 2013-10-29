@@ -87,6 +87,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\Crc32.generated.cs">
+      <Link>Compression\Crc32.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\Deflate.generated.cs">
+      <Link>Compression\Deflate.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\DeflateStream.generated.cs">
+      <Link>Compression\DeflateStream.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\GZipStream.generated.cs">
+      <Link>Compression\GZipStream.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\Inflate.generated.cs">
+      <Link>Compression\Inflate.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\InfTree.generated.cs">
+      <Link>Compression\InfTree.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\Iso8859Dash1Encoding.generated.cs">
+      <Link>Compression\Iso8859Dash1Encoding.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\Tree.generated.cs">
+      <Link>Compression\Tree.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\Zlib.generated.cs">
+      <Link>Compression\Zlib.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\ZlibBaseStream.generated.cs">
+      <Link>Compression\ZlibBaseStream.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\ZlibCodec.generated.cs">
+      <Link>Compression\ZlibCodec.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\ZlibConstants.generated.cs">
+      <Link>Compression\ZlibConstants.generated.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Compression\ZlibStream.generated.cs">
+      <Link>Compression\ZlibStream.generated.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Data\TableObject.cs">
       <Link>Data\TableObject.cs</Link>
     </Compile>
@@ -140,6 +179,12 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\UriExtensions.cs">
       <Link>Extensions\UriExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\WriteableBitmapExtensions.cs">
+      <Link>Extensions\WriteableBitmapExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\WriteableBitmapSavePngParameters.cs">
+      <Link>Extensions\WriteableBitmapSavePngParameters.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\XmlReaderExtensions.cs">
       <Link>Extensions\XmlReaderExtensions.cs</Link>

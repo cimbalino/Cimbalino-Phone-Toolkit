@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System.Diagnostics.CodeAnalysis;
+using Cimbalino.Phone.Toolkit.Compression;
 
 namespace Cimbalino.Phone.Toolkit.Extensions
 {
@@ -29,7 +30,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// Gets or sets the picture compression level.
         /// </summary>
         /// <value>The picture compression level.</value>
-        public WriteableBitmapPngCompressionLevel CompressionLevel { get; set; }
+        public CompressionLevel CompressionLevel { get; set; }
 
         /// <summary>
         /// Gets or sets the picture horizontal resolution.
@@ -72,7 +73,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// </summary>
         public WriteableBitmapSavePngParameters()
         {
-            CompressionLevel = WriteableBitmapPngCompressionLevel.Default;
+            CompressionLevel = CompressionLevel.Default;
             HorizontalResolution = VerticalResolution = 75;
             Gamma = 2.2;
             SaveResolution = true;

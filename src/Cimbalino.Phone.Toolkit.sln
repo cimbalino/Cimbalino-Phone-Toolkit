@@ -5,7 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit (WP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E863E549-8D90-4BA9-8922-CD18B30B5BF1}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE.jzlib.txt = LICENSE.jzlib.txt
 		License.txt = License.txt
+		License.zlib.txt = License.zlib.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit.Camera (WP71)", "Cimbalino.Phone.Toolkit.Camera (WP71)\Cimbalino.Phone.Toolkit.Camera (WP71).csproj", "{88BB126E-AEE9-49F4-8416-A7BCA2A291AB}"
@@ -53,10 +55,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit.Background (WP71)", "Cimbalino.Phone.Toolkit.Background (WP71)\Cimbalino.Phone.Toolkit.Background (WP71).csproj", "{960E9331-9264-4485-ADD3-C68966685311}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit.Background (WP8)", "Cimbalino.Phone.Toolkit.Background (WP8)\Cimbalino.Phone.Toolkit.Background (WP8).csproj", "{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit.Media (WP71)", "Cimbalino.Phone.Toolkit.Media (WP71)\Cimbalino.Phone.Toolkit.Media (WP71).csproj", "{3374E019-DD98-4001-83E9-FE57F67D489E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit.Media (WP8)", "Cimbalino.Phone.Toolkit.Media (WP8)\Cimbalino.Phone.Toolkit.Media (WP8).csproj", "{87927DF4-DC6D-4273-9DD3-9524D9F169BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -352,34 +350,6 @@ Global
 		{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}.Release|Mixed Platforms.Build.0 = Release|x86
 		{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}.Release|x86.ActiveCfg = Release|x86
 		{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}.Release|x86.Build.0 = Release|x86
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Release|ARM.ActiveCfg = Release|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{3374E019-DD98-4001-83E9-FE57F67D489E}.Release|x86.ActiveCfg = Release|Any CPU
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|ARM.ActiveCfg = Debug|ARM
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|ARM.Build.0 = Debug|ARM
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|x86.ActiveCfg = Debug|x86
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Debug|x86.Build.0 = Debug|x86
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|ARM.ActiveCfg = Release|ARM
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|ARM.Build.0 = Release|ARM
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|Mixed Platforms.Build.0 = Release|x86
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|x86.ActiveCfg = Release|x86
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -394,7 +364,6 @@ Global
 		{73BB80C0-85B3-4E66-B822-A691FCDCBB3D} = {456BFC96-0157-42C1-9FC3-4AF11C5E920A}
 		{B7B4F386-072C-47E6-8A72-409BDFA1FFE5} = {456BFC96-0157-42C1-9FC3-4AF11C5E920A}
 		{960E9331-9264-4485-ADD3-C68966685311} = {456BFC96-0157-42C1-9FC3-4AF11C5E920A}
-		{3374E019-DD98-4001-83E9-FE57F67D489E} = {456BFC96-0157-42C1-9FC3-4AF11C5E920A}
 		{F75511BC-209A-485C-8952-33C638C56BA7} = {7C64668C-5D70-4D85-9EB2-B6313547E9F4}
 		{89B3D695-F3FE-4F83-AA94-36674DA7CC97} = {7C64668C-5D70-4D85-9EB2-B6313547E9F4}
 		{4684F06C-58DD-434A-BED3-741D88839638} = {7C64668C-5D70-4D85-9EB2-B6313547E9F4}
@@ -405,6 +374,5 @@ Global
 		{26D5F3A0-4452-492B-8318-3F8A21AF0C27} = {7C64668C-5D70-4D85-9EB2-B6313547E9F4}
 		{BFB23CF4-A0AE-4120-81E6-B7705C7D0915} = {7C64668C-5D70-4D85-9EB2-B6313547E9F4}
 		{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6} = {7C64668C-5D70-4D85-9EB2-B6313547E9F4}
-		{87927DF4-DC6D-4273-9DD3-9524D9F169BE} = {7C64668C-5D70-4D85-9EB2-B6313547E9F4}
 	EndGlobalSection
 EndGlobal
