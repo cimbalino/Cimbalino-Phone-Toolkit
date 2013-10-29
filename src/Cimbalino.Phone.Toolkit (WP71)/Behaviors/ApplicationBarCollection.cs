@@ -1,4 +1,4 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="ApplicationBarCollection.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2011
 // </copyright>

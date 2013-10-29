@@ -1,6 +1,6 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="IEmailAddressChooserService.cs" company="Pedro Lamas">
-// Copyright � Pedro Lamas 2011
+// Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>

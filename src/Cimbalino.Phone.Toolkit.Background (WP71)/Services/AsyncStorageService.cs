@@ -6,7 +6,7 @@
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
 // <date>23-05-2013</date>
-// <project>Cimbalino.Phone.Toolkit</project>
+// <project>Cimbalino.Phone.Toolkit.Background</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
 // See license.txt in this solution or http://www.pedrolamas.com/license_MIT.txt

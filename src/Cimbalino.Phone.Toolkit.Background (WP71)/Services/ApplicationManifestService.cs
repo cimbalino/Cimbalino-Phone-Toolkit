@@ -1,12 +1,12 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="ApplicationManifestService.cs" company="Pedro Lamas">
-// Copyright � Pedro Lamas 2011
+// Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
 // <date>07-02-2012</date>
-// <project>Cimbalino.Phone.Toolkit</project>
+// <project>Cimbalino.Phone.Toolkit.Background</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
 // See license.txt in this solution or http://www.pedrolamas.com/license_MIT.txt

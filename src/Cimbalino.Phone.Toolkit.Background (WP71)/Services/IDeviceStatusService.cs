@@ -1,12 +1,12 @@
-// ****************************************************************************
+﻿// ****************************************************************************
 // <copyright file="IDeviceStatusService.cs" company="Pedro Lamas">
-// Copyright � Pedro Lamas 2011
+// Copyright © Pedro Lamas 2011
 // </copyright>
 // ****************************************************************************
 // <author>Pedro Lamas</author>
 // <email>pedrolamas@gmail.com</email>
 // <date>24-11-2011</date>
-// <project>Cimbalino.Phone.Toolkit</project>
+// <project>Cimbalino.Phone.Toolkit.Background</project>
 // <web>http://www.pedrolamas.com</web>
 // <license>
 // See license.txt in this solution or http://www.pedrolamas.com/license_MIT.txt
