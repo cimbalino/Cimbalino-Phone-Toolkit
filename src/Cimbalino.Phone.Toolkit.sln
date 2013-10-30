@@ -5,7 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cimbalino.Phone.Toolkit (WP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E863E549-8D90-4BA9-8922-CD18B30B5BF1}"
 	ProjectSection(SolutionItems) = preProject
-		LICENSE.jzlib.txt = LICENSE.jzlib.txt
+		License.dotnetzip.txt = License.dotnetzip.txt
+		License.jzlib.txt = License.jzlib.txt
 		License.txt = License.txt
 		License.zlib.txt = License.zlib.txt
 	EndProjectSection
