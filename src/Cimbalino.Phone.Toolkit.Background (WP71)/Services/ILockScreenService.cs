@@ -40,5 +40,16 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// </summary>
         /// <value>The Uniform Resource Identifier (URI) of the current lock screen background.</value>
         Uri ImageUri { get; set; }
+
+        /// <summary>
+        /// Sets the default lock screen.
+        /// </summary>
+        Task SetDefaultLockScreenAsync();
+
+        /// <summary>
+        /// Sets the lock screen.
+        /// </summary>
+        /// <param name="uri">The URI.</param>
+        Task SetLockScreenAsync(string uri);
     }
 }
