@@ -13,10 +13,12 @@
 // </license>
 // ****************************************************************************
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Cimbalino.Phone.Toolkit.Helpers
 {
@@ -81,8 +83,14 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         /// Adds the specified items collection to the current <see cref="OptimizedObservableCollection{T}"/> instance.
         /// </summary>
         /// <param name="items">The collection from which the items are copied.</param>
+        /// <exception cref="ArgumentNullException">The items list is null.</exception>
         public void AddRange(IEnumerable<T> items)
         {
+            if (items == null)
+            {
+                throw new ArgumentNullException("items");
+            }
+
             try
             {
                 SuppressEvents = true;
@@ -101,16 +109,57 @@ namespace Cimbalino.Phone.Toolkit.Helpers
         }
 
         /// <summary>
-        /// Replaces the current <see cref="OptimizedObservableCollection{T}"/> instance items with the ones specified in the items collection.
+        /// Replaces the current <see cref="OptimizedObservableCollection{T}"/> instance items with the ones specified in the items collection, raising a single <see cref="NotifyCollectionChangedAction.Reset"/> event.
         /// </summary>
         /// <param name="items">The collection from which the items are copied.</param>
+        /// <exception cref="ArgumentNullException">The items list is null.</exception>
         public void ReplaceWith(IEnumerable<T> items)
         {
+            if (items == null)
+            {
+                throw new ArgumentNullException("items");
+            }
+
             SuppressEvents = true;
 
             Clear();
 
             AddRange(items);
+        }
+
+        /// <summary>
+        /// Switches the current <see cref="OptimizedObservableCollection{T}"/> instance items with the ones specified in the items collection, raising the minimum required change events.
+        /// </summary>
+        /// <param name="items">The collection from which the items are copied.</param>
+        /// <exception cref="ArgumentNullException">The items list is null.</exception>
+        public void SwitchTo(IEnumerable<T> items)
+        {
+            if (items == null)
+            {
+                throw new ArgumentNullException("items");
+            }
+
+            var itemIndex = 0;
+            var count = Count;
+
+            foreach (var item in items)
+            {
+                if (itemIndex >= count)
+                {
+                    Add(item);
+                }
+                else if (!Equals(this[itemIndex], item))
+                {
+                    this[itemIndex] = item;
+                }
+
+                itemIndex++;
+            }
+
+            while (count > itemIndex)
+            {
+                this.RemoveAt(--count);
+            }
         }
     }
 }
