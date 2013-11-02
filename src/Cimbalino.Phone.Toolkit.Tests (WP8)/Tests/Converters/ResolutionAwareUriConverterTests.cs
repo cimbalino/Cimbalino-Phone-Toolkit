@@ -14,6 +14,7 @@ namespace Cimbalino.Phone.Toolkit.Tests.Converters
         [DataRow(100, "test.Screen-WVGA.png")]
         [DataRow(150, "test.Screen-720p.png")]
         [DataRow(160, "test.Screen-WXGA.png")]
+        [DataRow(225, "test.Screen-1080p.png")]
         public void ConvertFromUriToResolutionAwareUri(int scaleFactor, string expectedValue)
         {
             var converter = new ResolutionAwareUriConverter(scaleFactor);

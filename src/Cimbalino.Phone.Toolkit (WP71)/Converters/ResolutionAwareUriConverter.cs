@@ -51,6 +51,9 @@ namespace Cimbalino.Phone.Toolkit.Converters
                 case 160:
                     _resolutionSuffix = ".Screen-WXGA";
                     break;
+                case 225:
+                    _resolutionSuffix = ".Screen-1080p";
+                    break;
             }
         }
 #endif

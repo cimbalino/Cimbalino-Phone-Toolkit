@@ -169,6 +169,7 @@
     <Compile Include="Services\MarketplaceInformationService.cs" />
     <Compile Include="Services\NetworkInformationService.cs" />
     <Compile Include="Services\ScreenInfoService.cs" />
+    <Compile Include="Services\ScreenInfoServiceAspectRatio.cs" />
     <Compile Include="Services\ScreenInfoServiceResolution.cs" />
     <Compile Include="Services\ShellTileService.cs" />
     <Compile Include="Services\ShellTileServiceCycleTileData.cs" />

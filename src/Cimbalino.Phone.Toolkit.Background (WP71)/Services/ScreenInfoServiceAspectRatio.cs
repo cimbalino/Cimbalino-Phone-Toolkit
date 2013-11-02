@@ -1,5 +1,5 @@
 ﻿// ****************************************************************************
-// <copyright file="IScreenInfoService.cs" company="Pedro Lamas">
+// <copyright file="ScreenInfoServiceAspectRatio.cs" company="Pedro Lamas">
 // Copyright © Pedro Lamas 2012
 // </copyright>
 // ****************************************************************************
@@ -13,37 +13,26 @@
 // </license>
 // ****************************************************************************
 
-using System.Windows;
-
 namespace Cimbalino.Phone.Toolkit.Services
 {
     /// <summary>
-    /// Represents a service capable of retrieving device resolution information.
+    /// Describes the device aspect ratio.
     /// </summary>
-    public interface IScreenInfoService
+    public enum ScreenInfoServiceAspectRatio
     {
         /// <summary>
-        /// Gets a value indicating the device scale factor.
+        /// The device has an unknown aspect ratio.
         /// </summary>
-        /// <value>The device scale factor.</value>
-        int ScaleFactor { get; }
+        Unknown,
 
         /// <summary>
-        /// Gets the device resolution.
+        /// The device has a 15:9 aspect ratio.
         /// </summary>
-        /// <value>The device resolution.</value>
-        ScreenInfoServiceResolution Resolution { get; }
+        AspectRatio15By9,
 
         /// <summary>
-        /// Gets the device aspect ratio.
+        /// The device has a 16:9 aspect ratio.
         /// </summary>
-        /// <value>The device aspect ratio.</value>
-        ScreenInfoServiceAspectRatio AspectRatio { get; }
-
-        /// <summary>
-        /// Gets the device screen size.
-        /// </summary>
-        /// <value>The device screen size.</value>
-        Size Size { get; }
+        AspectRatio16By9
     }
 }

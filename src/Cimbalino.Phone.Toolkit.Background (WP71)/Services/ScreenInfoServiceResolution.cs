@@ -38,6 +38,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <summary>
         /// The device has a WXGA (768x1280) resolution.
         /// </summary>
-        WXGA = 160
+        WXGA = 160,
+
+        /// <summary>
+        /// The device has a HD 1080p (1080x1920) resolution.
+        /// </summary>
+        HD1080p = 225
     }
 }

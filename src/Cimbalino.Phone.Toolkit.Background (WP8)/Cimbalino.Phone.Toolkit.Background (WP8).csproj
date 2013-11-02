@@ -276,6 +276,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\NetworkInformationService.cs">
       <Link>Services\NetworkInformationService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ScreenInfoServiceAspectRatio.cs">
+      <Link>Services\ScreenInfoServiceAspectRatio.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Services\ShellTileService.cs">
       <Link>Services\ShellTileService.cs</Link>
     </Compile>
