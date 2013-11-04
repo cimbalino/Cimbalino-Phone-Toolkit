@@ -14,7 +14,7 @@
       <frameworkAssembly assemblyName="System.Device" />
     </frameworkAssemblies>
     <dependencies>
-      <dependency id="Cimbalino.Phone.Toolkit" />
+      <dependency id="Cimbalino.Phone.Toolkit" version="$version$" />
     </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Location GPS</tags>
   </metadata>

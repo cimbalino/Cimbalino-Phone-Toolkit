@@ -15,7 +15,7 @@
       <frameworkAssembly assemblyName="Microsoft.Xna.Framework.GamerServices" />
     </frameworkAssemblies>
     <dependencies>
-      <dependency id="Cimbalino.Phone.Toolkit.Background" />
+      <dependency id="Cimbalino.Phone.Toolkit.Background" version="$version$" />
     </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight Appbar ApplicationBar</tags>
   </metadata>
