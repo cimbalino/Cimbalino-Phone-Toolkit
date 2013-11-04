@@ -4,7 +4,7 @@
 
 ### [Official Site][1] - [@CimbalinoWP][2]
 
-Cimbalino Windows Phone Toolkit is a set of useful and powerful items that will help you build your Silverlight applications for Windows Phone.
+Cimbalino Windows Phone Toolkit is a set of useful and powerful tools that will help you build your Windows Phone applications.
 
 The Toolkit is divided in projects, regarding different Windows Phone application required capabilities:
 
@@ -40,6 +40,7 @@ See the [LICENSE.txt][6] file for details.
 
 * [Paulo Morgado](https://twitter.com/PauloMorgado)
 * [Scott Lovegrove](https://twitter.com/scottisafool)
+* [Sara Silva](https://twitter.com/saramgsilva)
 * [Jeff Wilcox](https://twitter.com/jeffwilcox)
 * All developers that use this toolkit in their apps! :)
 
