@@ -180,6 +180,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\UriExtensions.cs">
       <Link>Extensions\UriExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\WebRequestExtensions.cs">
+      <Link>Extensions\WebRequestExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Extensions\WriteableBitmapExtensions.cs">
       <Link>Extensions\WriteableBitmapExtensions.cs</Link>
     </Compile>

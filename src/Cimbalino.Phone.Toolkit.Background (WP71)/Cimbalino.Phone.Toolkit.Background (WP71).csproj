@@ -111,6 +111,7 @@
     <Compile Include="Extensions\StreamWriterExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
+    <Compile Include="Extensions\WebRequestExtensions.cs" />
     <Compile Include="Extensions\WriteableBitmapExtensions.cs" />
     <Compile Include="Extensions\WriteableBitmapSavePngParameters.cs" />
     <Compile Include="Helpers\ApplicationManifest.cs" />
