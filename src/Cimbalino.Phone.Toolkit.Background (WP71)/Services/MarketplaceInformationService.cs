@@ -18,6 +18,8 @@ using System.Globalization;
 using System.Net;
 using System.Threading.Tasks;
 using System.Xml;
+
+using Cimbalino.Phone.Toolkit.Extensions;
 using Cimbalino.Phone.Toolkit.Helpers;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -124,7 +126,11 @@ namespace Cimbalino.Phone.Toolkit.Services
                 productId.TrimStart('{').TrimEnd('}'),
                 Environment.OSVersion.Version);
 #endif
-            return WebRequest.Create(url);
+            var request = WebRequest.Create(url);
+
+            request.SetNoCacheHeaders();
+
+            return request;
         }
 
         private MarketplaceAppNode WebRequestEndGetResponse(IAsyncResult asyncResult)
