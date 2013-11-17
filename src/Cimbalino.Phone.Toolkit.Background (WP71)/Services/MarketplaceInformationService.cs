@@ -114,14 +114,14 @@ namespace Cimbalino.Phone.Toolkit.Services
 
 #if WP8
             var url = string.Format("http://marketplaceedgeservice.windowsphone.com/v8/catalog/apps/{0}?os={1}&cc={2}&oc=&lang={3}​",
-                productId,
+                productId.TrimStart('{').TrimEnd('}'),
                 Environment.OSVersion.Version,
                 cultureInfoName.Substring(cultureInfoName.Length - 2).ToUpperInvariant(),
                 cultureInfoName);
 #else
             var url = string.Format("http://marketplaceedgeservice.windowsphone.com/v3.2/{0}/apps/{1}?clientType=WinMobile%207.1&os={2}",
                 cultureInfoName,
-                productId,
+                productId.TrimStart('{').TrimEnd('}'),
                 Environment.OSVersion.Version);
 #endif
             return WebRequest.Create(url);
