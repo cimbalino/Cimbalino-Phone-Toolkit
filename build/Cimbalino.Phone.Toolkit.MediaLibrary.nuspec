@@ -12,6 +12,7 @@
     <iconUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Device" />
+      <frameworkAssembly assemblyName="Microsoft.Xna.Framework" />
     </frameworkAssemblies>
     <dependencies>
       <dependency id="Cimbalino.Phone.Toolkit" version="$version$" />
