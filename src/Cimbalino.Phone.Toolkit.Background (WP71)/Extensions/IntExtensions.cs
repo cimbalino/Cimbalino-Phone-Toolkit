@@ -55,6 +55,40 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
+        /// Repeats the specified <see cref="Func{T}"/> the number of times.
+        /// </summary>
+        /// <param name="input">The number of times to repeat the <see cref="Action"/>.</param>
+        /// <param name="function">The <see cref="Func{T}"/> to repeat.</param>
+        /// <typeparam name="T">The return value type.</typeparam>
+        /// <returns>An enumerable with the results.</returns>
+        public static IEnumerable<T> Times<T>(this int input, Func<T> function)
+        {
+            while (input-- > 0)
+            {
+                yield return function();
+            }
+        }
+
+        /// <summary>
+        /// Repeats the specified <see cref="Func{Int32,T}"/> the number of times.
+        /// </summary>
+        /// <param name="input">The number of times to repeat the <see cref="Action"/>.</param>
+        /// <param name="function">The <see cref="Func{Int32,T}"/> to repeat.</param>
+        /// <typeparam name="T">The return value type.</typeparam>
+        /// <returns>An enumerable with the results.</returns>
+        public static IEnumerable<T> Times<T>(this int input, Func<int, T> function)
+        {
+            var count = 0;
+
+            while (count < input)
+            {
+                yield return function(count);
+
+                count++;
+            }
+        }
+
+        /// <summary>
         /// Generates a sequence of integral numbers within a specified range.
         /// </summary>
         /// <param name="first">The value of the first integer in the sequence.</param>
