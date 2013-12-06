@@ -131,8 +131,6 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             {
                 using (var zlibStream = new ZlibStream(chunkedStream, CompressionMode.Compress, parameters.CompressionLevel, true))
                 {
-                    writeableBitmap.Invalidate();
-
                     var pixels = writeableBitmap.Pixels;
                     var width = writeableBitmap.PixelWidth;
                     var height = writeableBitmap.PixelHeight;
