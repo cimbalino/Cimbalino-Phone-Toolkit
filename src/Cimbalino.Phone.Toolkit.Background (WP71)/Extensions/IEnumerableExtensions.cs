@@ -118,6 +118,21 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
+        /// Produces a sequence containing a subset of the current elements, starting from the specified position.
+        /// </summary>
+        /// <param name="source">The enumerable.</param>
+        /// <param name="offset">The zero-based offset at which to begin returning items from the enumerable.</param>
+        /// <param name="count">The number of items to return from the enumerable.</param>
+        /// <returns>An <see cref="IEnumerable{TResult}"/> that contains a subset of the current elements, starting from the specified position.</returns>
+        /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
+        public static IEnumerable<TResult> Slice<TResult>(this IEnumerable<TResult> source, int offset, int count)
+        {
+            return source
+                .Skip(offset)
+                .Take(count);
+        }
+
+        /// <summary>
         /// Produces a sequence containing the current elements randomly shuffled.
         /// </summary>
         /// <typeparam name="TResult">The type of items in the enumerable.</typeparam>
