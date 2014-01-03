@@ -16,6 +16,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using Cimbalino.Phone.Toolkit.Compression;
 using Cimbalino.Phone.Toolkit.Helpers;
@@ -82,6 +83,118 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             WriteFooter(outputStream);
 
             outputStream.Flush();
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a PNG stream.
+        /// </summary>
+        /// <param name="writeableBitmap">The writeable bitmap.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static Task SavePngAsync(this WriteableBitmap writeableBitmap, Stream outputStream)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                writeableBitmap.SavePng(outputStream);
+            });
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a PNG stream, using the specified output compression.
+        /// </summary>
+        /// <param name="writeableBitmap">The writeable bitmap.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="compressionLevel">The image compression level.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static Task SavePngAsync(this WriteableBitmap writeableBitmap, Stream outputStream, CompressionLevel compressionLevel)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                writeableBitmap.SavePng(outputStream, compressionLevel);
+            });
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a PNG stream, using the specified output <see cref="WriteableBitmapSavePngParameters"/>.
+        /// </summary>
+        /// <param name="writeableBitmap">The writeable bitmap.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="parameters">The image save parameters.</param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static Task SavePngAsync(this WriteableBitmap writeableBitmap, Stream outputStream, WriteableBitmapSavePngParameters parameters)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                writeableBitmap.SavePng(outputStream, parameters);
+            });
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a JPEG stream, with parameters for setting the target quality of the JPEG file.
+        /// </summary>
+        /// <param name="writeableBitmap">The WriteableBitmap object.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="quality">This parameter represents the quality of the JPEG photo with a range between 0 and 100, with 100 being the best photo quality. We recommend that you do not fall lower than a value of 70. because JPEG picture quality diminishes significantly below that level. </param>
+        public static void SaveJpeg(this WriteableBitmap writeableBitmap, Stream outputStream, int quality)
+        {
+            writeableBitmap.SaveJpeg(outputStream, writeableBitmap.PixelWidth, writeableBitmap.PixelHeight, 0, quality);
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a JPEG stream, with parameters for setting the target width, height, and quality of the JPEG file.
+        /// </summary>
+        /// <param name="writeableBitmap">The WriteableBitmap object.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="targetWidth">The target width of the file.</param>
+        /// <param name="targetHeight">The target height of the file.</param>
+        /// <param name="quality">This parameter represents the quality of the JPEG photo with a range between 0 and 100, with 100 being the best photo quality. We recommend that you do not fall lower than a value of 70. because JPEG picture quality diminishes significantly below that level. </param>
+        public static void SaveJpeg(this WriteableBitmap writeableBitmap, Stream outputStream, int targetWidth, int targetHeight, int quality)
+        {
+            writeableBitmap.SaveJpeg(outputStream, targetWidth, targetHeight, 0, quality);
+        }
+        
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a JPEG stream, with parameters for setting the target quality of the JPEG file.
+        /// </summary>
+        /// <param name="writeableBitmap">The WriteableBitmap object.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="quality">This parameter represents the quality of the JPEG photo with a range between 0 and 100, with 100 being the best photo quality. We recommend that you do not fall lower than a value of 70. because JPEG picture quality diminishes significantly below that level. </param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static Task SaveJpegAsync(this WriteableBitmap writeableBitmap, Stream outputStream, int quality)
+        {
+            return writeableBitmap.SaveJpegAsync(outputStream, writeableBitmap.PixelWidth, writeableBitmap.PixelHeight, 0, quality);
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a JPEG stream, with parameters for setting the target width, height, and quality of the JPEG file.
+        /// </summary>
+        /// <param name="writeableBitmap">The WriteableBitmap object.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="targetWidth">The target width of the file.</param>
+        /// <param name="targetHeight">The target height of the file.</param>
+        /// <param name="quality">This parameter represents the quality of the JPEG photo with a range between 0 and 100, with 100 being the best photo quality. We recommend that you do not fall lower than a value of 70. because JPEG picture quality diminishes significantly below that level. </param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static Task SaveJpegAsync(this WriteableBitmap writeableBitmap, Stream outputStream, int targetWidth, int targetHeight, int quality)
+        {
+            return writeableBitmap.SaveJpegAsync(outputStream, targetWidth, targetHeight, 0, quality);
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a JPEG stream, with parameters for setting the target width, height, orientation, and quality of the JPEG file.
+        /// </summary>
+        /// <param name="writeableBitmap">The WriteableBitmap object.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="targetWidth">The target width of the file.</param>
+        /// <param name="targetHeight">The target height of the file.</param>
+        /// <param name="orientation">This parameter is not currently used by this method. Use a value of 0 as a placeholder.</param>
+        /// <param name="quality">This parameter represents the quality of the JPEG photo with a range between 0 and 100, with 100 being the best photo quality. We recommend that you do not fall lower than a value of 70. because JPEG picture quality diminishes significantly below that level. </param>
+        /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
+        public static Task SaveJpegAsync(this WriteableBitmap writeableBitmap, Stream outputStream, int targetWidth, int targetHeight, int orientation, int quality)
+        {
+            return Task.Factory.StartNew(() =>
+            {
+                writeableBitmap.SaveJpeg(outputStream, targetWidth, targetHeight, orientation, quality);
+            });
         }
 
         private static void WriteHeader(Stream outputStream, WriteableBitmap writeableBitmap)
