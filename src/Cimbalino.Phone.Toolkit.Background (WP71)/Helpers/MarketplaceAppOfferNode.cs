@@ -135,7 +135,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
                         break;
 
                     case "expiration":
-                        node.Expiration = reader.ReadElementContentAsDateTime();
+                        node.Expiration = reader.ReadElementContentAsNullable<DateTime>();
                         break;
 
                     default:

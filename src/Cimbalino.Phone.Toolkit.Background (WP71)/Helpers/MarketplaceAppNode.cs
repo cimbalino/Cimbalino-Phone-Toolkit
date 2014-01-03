@@ -167,7 +167,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
                 switch (reader.Name)
                 {
                     case "a:updated":
-                        node.Updated = reader.ReadElementContentAsDateTime();
+                        node.Updated = reader.ReadElementContentAsNullable<DateTime>();
                         break;
 
                     case "a:title":
@@ -191,7 +191,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
                         break;
 
                     case "releaseDate":
-                        node.ReleaseDate = reader.ReadElementContentAsDateTime();
+                        node.ReleaseDate = reader.ReadElementContentAsNullable<DateTime>();
                         break;
 
                     case "visibilityStatus":

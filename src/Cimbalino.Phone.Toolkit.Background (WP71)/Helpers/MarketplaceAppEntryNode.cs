@@ -152,7 +152,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
                 switch (reader.Name)
                 {
                     case "a:updated":
-                        node.Updated = reader.ReadElementContentAsDateTime();
+                        node.Updated = reader.ReadElementContentAsNullable<DateTime>();
                         break;
 
                     case "a:title":
@@ -176,7 +176,7 @@ namespace Cimbalino.Phone.Toolkit.Helpers
                         break;
 
                     case "skuLastUpdated":
-                        node.SkuLastUpdated = reader.ReadElementContentAsDateTime();
+                        node.SkuLastUpdated = reader.ReadElementContentAsNullable<DateTime>();
                         break;
 
                     case "isAvailableInCountry":

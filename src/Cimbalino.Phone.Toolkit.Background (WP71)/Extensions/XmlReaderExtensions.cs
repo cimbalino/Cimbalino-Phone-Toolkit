@@ -37,6 +37,24 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
+        /// Reads the current element as the requested nullable type.
+        /// </summary>
+        /// <param name="reader">The current reader.</param>
+        /// <typeparam name="T">The return type.</typeparam>
+        /// <returns>The element content converted to the requested nullable typed object.</returns>
+        public static T? ReadElementContentAsNullable<T>(this XmlReader reader) where T : struct
+        {
+            if (reader.HasValue)
+            {
+                return (T)reader.ReadElementContentAs(typeof(T), null);
+            }
+
+            reader.Skip();
+
+            return null;
+        }
+
+        /// <summary>
         /// Reads the current element as an array and returns the contents using the specified function.
         /// </summary>
         /// <param name="reader">The current reader.</param>
