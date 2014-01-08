@@ -107,6 +107,22 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
         public static readonly DependencyProperty ConverterParameterProperty =
             DependencyProperty.Register("ConverterParameter", typeof(object), typeof(MultiBindingBehavior), new PropertyMetadata(null, OnPropertyChanged));
 
+        /// <summary>
+        /// Gets or sets a value that indicates the direction of the data flow in the binding.
+        /// </summary>
+        /// <value>A value that indicates the direction of the data flow in the binding.</value>
+        public BindingMode Mode
+        {
+            get { return (BindingMode)GetValue(ModeProperty); }
+            set { SetValue(ModeProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifier for the <see cref="Mode" /> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty ModeProperty =
+            DependencyProperty.Register("Mode", typeof(BindingMode), typeof(MultiBindingBehavior), new PropertyMetadata(BindingMode.OneWay, OnPropertyChanged));
+
         private static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var multiBindingBehavior = (MultiBindingBehavior)d;
@@ -166,7 +182,7 @@ namespace Cimbalino.Phone.Toolkit.Behaviors
                 Converter = Converter,
                 ConverterCulture = ConverterCulture,
                 ConverterParameter = ConverterParameter,
-                Mode = BindingMode.TwoWay
+                Mode = Mode
             };
 
             BindingOperations.SetBinding(AssociatedObject, targetDependencyProperty, binding);

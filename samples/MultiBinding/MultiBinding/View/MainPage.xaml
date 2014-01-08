@@ -55,7 +55,9 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 <i:Interaction.Behaviors>
-                    <cimbalinoBehaviors:MultiBindingBehavior Converter="{StaticResource MultiStringsToStateConverter}" PropertyName="SelectedIndex">
+                    <cimbalinoBehaviors:MultiBindingBehavior Converter="{StaticResource MultiStringsToStateConverter}"
+                                                             Mode="TwoWay"
+                                                             PropertyName="SelectedIndex">
                         <cimbalinoBehaviors:MultiBindingItem Value="{Binding Text1, Mode=TwoWay}" />
                         <cimbalinoBehaviors:MultiBindingItem Value="{Binding Text2, Mode=TwoWay}" />
                     </cimbalinoBehaviors:MultiBindingBehavior>
