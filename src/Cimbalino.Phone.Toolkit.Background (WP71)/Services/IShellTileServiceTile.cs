@@ -35,6 +35,12 @@ namespace Cimbalino.Phone.Toolkit.Services
         void Update(IShellTileServiceTileData data);
 
         /// <summary>
+        /// Updates an Application Tile or secondary Tile.
+        /// </summary>
+        /// <param name="xmlData">The XML document that contains the tile data template information.</param>
+        void Update(string xmlData);
+
+        /// <summary>
         /// Unpins and deletes a secondary tile.
         /// </summary>
         void Delete();

@@ -14,6 +14,8 @@
 // ****************************************************************************
 
 using System;
+using System.IO;
+using System.Xml;
 using Microsoft.Phone.Shell;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -61,6 +63,54 @@ namespace Cimbalino.Phone.Toolkit.Services
 
             _shellTile.Update(shellTileServiceTileDataBase.ToShellTileData());
         }
+
+        /// <summary>
+        /// Updates an Application Tile or secondary Tile.
+        /// </summary>
+        /// <param name="xmlData">The XML document that contains the tile data template information.</param>
+        public void Update(string xmlData)
+        {
+#if WP8
+            switch (GetTileTypeFromXmlString(xmlData))
+            {
+                case "CycleTile":
+                    _shellTile.Update(new CycleTileData(xmlData));
+                    break;
+
+                case "FlipTile":
+                    _shellTile.Update(new FlipTileData(xmlData));
+                    break;
+
+                case "IconicTile":
+                    _shellTile.Update(new IconicTileData(xmlData));
+                    break;
+
+                default:
+                    _shellTile.Update(new StandardTileData(xmlData));
+                    break;
+            }
+#else
+            throw new NotSupportedException("This method is not supported in Windows Phone 7.x");
+#endif
+        }
+
+#if WP8
+        private string GetTileTypeFromXmlString(string xmlData)
+        {
+            using (var stringReader = new StringReader(xmlData))
+            {
+                using (var reader = XmlReader.Create(stringReader, new XmlReaderSettings { IgnoreWhitespace = true, IgnoreComments = true }))
+                {
+                    if (reader.ReadToDescendant("wp:tile"))
+                    {
+                        reader.GetAttribute("template");
+                    }
+                }
+            }
+
+            return null;
+        }
+#endif
 
         /// <summary>
         /// Unpins and deletes a secondary tile.
