@@ -14,6 +14,9 @@
 // ****************************************************************************
 
 using System.IO;
+
+using Cimbalino.Phone.Toolkit.Extensions;
+
 using Microsoft.Xna.Framework.Media;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -110,7 +113,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="imageBuffer">The picture to save, provided as a byte array.</param>
         public void SavePictureToCameraRoll(string name, byte[] imageBuffer)
         {
-            _mediaLibrary.SavePictureToCameraRoll(name, imageBuffer);
+            _mediaLibrary.InvokeMethod("SavePictureToCameraRoll", new object[] { name, imageBuffer });
         }
 
         /// <summary>
@@ -120,7 +123,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="source">The picture to save, provided as a <see cref="Stream"/>.</param>
         public void SavePictureToCameraRoll(string name, Stream source)
         {
-            _mediaLibrary.SavePictureToCameraRoll(name, source);
+            _mediaLibrary.InvokeMethod("SavePictureToCameraRoll", new object[] { name, source });
         }
     }
 }
