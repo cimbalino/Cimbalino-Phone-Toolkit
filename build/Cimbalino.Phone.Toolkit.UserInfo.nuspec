@@ -11,7 +11,7 @@
     <licenseUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/LICENSE.txt</licenseUrl>
     <iconUrl>https://github.com/Cimbalino/Cimbalino-Phone-Toolkit/raw/master/Cimbalino.Phone.Toolkit.png</iconUrl>
     <dependencies>
-      <dependency id="Cimbalino.Phone.Toolkit" version="$version$" />
+      <dependency id="Cimbalino.Phone.Toolkit.Background" version="$version$" />
     </dependencies>
     <tags>Cimbalino Windows Phone Toolkit PedroLamas WP7 WP8 MVVM WPDev WP8Dev Silverlight User</tags>
   </metadata>

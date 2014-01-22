@@ -97,11 +97,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cimbalino.Phone.Toolkit %28WP8%29\Cimbalino.Phone.Toolkit %28WP8%29.csproj">
-      <Project>{F75511BC-209A-485C-8952-33C638C56BA7}</Project>
-      <Name>Cimbalino.Phone.Toolkit %28WP8%29</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP8%29\Cimbalino.Phone.Toolkit.Background %28WP8%29.csproj">
       <Project>{93DA53CF-E4BE-43F1-904B-F0F7933A0AF6}</Project>
       <Name>Cimbalino.Phone.Toolkit.Background %28WP8%29</Name>

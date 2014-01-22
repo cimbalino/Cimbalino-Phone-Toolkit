@@ -92,11 +92,6 @@
     <Compile Include="Services\LocationServiceStatusChangedEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Cimbalino.Phone.Toolkit %28WP71%29.csproj">
-      <Project>{73BB80C0-85B3-4E66-B822-A691FCDCBB3D}</Project>
-      <Name>Cimbalino.Phone.Toolkit %28WP71%29</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\Cimbalino.Phone.Toolkit.Background %28WP71%29\Cimbalino.Phone.Toolkit.Background %28WP71%29.csproj">
       <Project>{960E9331-9264-4485-ADD3-C68966685311}</Project>
       <Name>Cimbalino.Phone.Toolkit.Background %28WP71%29</Name>
