@@ -15,8 +15,8 @@
 
 using System;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Data;
-using Cimbalino.Phone.Toolkit.Extensions;
 
 namespace Cimbalino.Phone.Toolkit.Controls
 {
@@ -37,7 +37,8 @@ namespace Cimbalino.Phone.Toolkit.Controls
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            return ((Enum)value).GetNames()
+            return value.GetType().GetFields(BindingFlags.Public | BindingFlags.Static)
+                .Select(x => x.Name)
                 .ToArray();
         }
 

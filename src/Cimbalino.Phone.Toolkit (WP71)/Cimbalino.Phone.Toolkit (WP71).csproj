@@ -126,6 +126,7 @@
     <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="Converters\ResolutionAwareUriConverter.cs" />
     <Compile Include="Converters\StringRegexConverter.cs" />
+    <Compile Include="Extensions\FrameworkElementExtensions.cs" />
     <Compile Include="Helpers\LittleWatson.cs" />
     <Compile Include="Helpers\NamescopeBinding.cs" />
     <Compile Include="Services\DeviceStatusWithKeyboardService.cs" />

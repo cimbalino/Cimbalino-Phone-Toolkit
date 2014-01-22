@@ -228,6 +228,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Converters\StringToVisibilityConverter.cs">
       <Link>Converters\StringToVisibilityConverter.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Extensions\FrameworkElementExtensions.cs">
+      <Link>Extensions\FrameworkElementExtensions.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Helpers\LittleWatson.cs">
       <Link>Helpers\LittleWatson.cs</Link>
     </Compile>
