@@ -263,7 +263,16 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             _geolocator.DesiredAccuracy = desiredAccuracy.ToPositionAccuracy();
 
-            var position = await _geolocator.GetGeopositionAsync(maximumAge, timeout).AsTask().ConfigureAwait(false);
+            var getGeopositionAsyncTask = _geolocator.GetGeopositionAsync(maximumAge, timeout).AsTask();
+
+            var completedTask = await Task.WhenAny(getGeopositionAsyncTask, Task.Delay((int)timeout.TotalMilliseconds + 500)).ConfigureAwait(false);
+
+            if (completedTask != getGeopositionAsyncTask)
+            {
+                throw new TimeoutException();
+            }
+
+            var position = getGeopositionAsyncTask.Result;
 
             return position.Coordinate.ToLocationServicePosition();
         }

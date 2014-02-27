@@ -102,7 +102,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             try
             {
-                throw new Exception("Timeout");
+                throw new TimeoutException();
             }
             catch (Exception ex)
             {
