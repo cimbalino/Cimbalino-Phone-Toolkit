@@ -172,9 +172,9 @@ namespace Cimbalino.Phone.Toolkit.Services
 #if WP8
         public async Task LaunchFileAsync(string file)
         {
-            var storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(file);
+            var storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(file).AsTask().ConfigureAwait(false);
 
-            await Launcher.LaunchFileAsync(storageFile);
+            await Launcher.LaunchFileAsync(storageFile).AsTask().ConfigureAwait(false);
         }
 #else
         public Task LaunchFileAsync(string file)

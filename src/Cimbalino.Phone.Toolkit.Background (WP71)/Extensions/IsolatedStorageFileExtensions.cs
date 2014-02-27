@@ -345,7 +345,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             {
                 var buffer = new byte[fileStream.Length];
 
-                await fileStream.ReadAsync(buffer, 0, buffer.Length);
+                await fileStream.ReadAsync(buffer, 0, buffer.Length).ConfigureAwait(false);
 
                 return buffer;
             }
@@ -472,7 +472,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             {
                 foreach (var str in contents)
                 {
-                    await streamWriter.WriteLineAsync(str);
+                    await streamWriter.WriteLineAsync(str).ConfigureAwait(false);
                 }
             }
         }

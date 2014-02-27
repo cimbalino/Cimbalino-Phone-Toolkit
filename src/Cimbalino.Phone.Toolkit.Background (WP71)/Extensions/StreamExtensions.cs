@@ -113,7 +113,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
 
             using (memoryStream = new MemoryStream())
             {
-                await input.CopyToAsync(memoryStream);
+                await input.CopyToAsync(memoryStream).ConfigureAwait(false);
 
                 return memoryStream.ToArray();
             }

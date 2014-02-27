@@ -47,7 +47,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         {
             foreach (var line in lines)
             {
-                await streamWriter.WriteLineAsync(line);
+                await streamWriter.WriteLineAsync(line).ConfigureAwait(false);
             }
         }
     }

@@ -176,7 +176,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             try
             {
-                var position = await GetPositionAsync(desiredAccuracy);
+                var position = await GetPositionAsync(desiredAccuracy).ConfigureAwait(false);
 
                 locationResult(position, null);
             }
@@ -208,7 +208,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             try
             {
-                var position = await GetPositionAsync(desiredAccuracy, maximumAge, timeout);
+                var position = await GetPositionAsync(desiredAccuracy, maximumAge, timeout).ConfigureAwait(false);
 
                 locationResult(position, null);
             }
@@ -236,7 +236,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             _geolocator.DesiredAccuracy = desiredAccuracy.ToPositionAccuracy();
 
-            var position = await _geolocator.GetGeopositionAsync();
+            var position = await _geolocator.GetGeopositionAsync().AsTask().ConfigureAwait(false);
 
             return position.Coordinate.ToLocationServicePosition();
         }
@@ -263,7 +263,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             _geolocator.DesiredAccuracy = desiredAccuracy.ToPositionAccuracy();
 
-            var position = await _geolocator.GetGeopositionAsync(maximumAge, timeout);
+            var position = await _geolocator.GetGeopositionAsync(maximumAge, timeout).AsTask().ConfigureAwait(false);
 
             return position.Coordinate.ToLocationServicePosition();
         }

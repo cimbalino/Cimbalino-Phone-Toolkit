@@ -53,16 +53,16 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task CopyFileAsync(string sourceFileName, string destinationFileName, bool overwrite)
         {
-            var file = await Storage.GetFileAsync(sourceFileName);
+            var file = await Storage.GetFileAsync(sourceFileName).AsTask().ConfigureAwait(false);
 
             var destinationFolderName = Path.GetDirectoryName(destinationFileName);
-            var destinationFolder = await Storage.GetFolderAsync(destinationFolderName);
+            var destinationFolder = await Storage.GetFolderAsync(destinationFolderName).AsTask().ConfigureAwait(false);
 
             destinationFileName = Path.GetFileName(destinationFileName);
 
             var nameCollisionOption = overwrite ? NameCollisionOption.ReplaceExisting : NameCollisionOption.FailIfExists;
 
-            await file.CopyAsync(destinationFolder, destinationFileName, nameCollisionOption);
+            await file.CopyAsync(destinationFolder, destinationFileName, nameCollisionOption).AsTask().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task CreateDirectoryAsync(string dir)
         {
-            await Storage.CreateFolderAsync(dir);
+            await Storage.CreateFolderAsync(dir).AsTask().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -92,9 +92,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task DeleteDirectoryAsync(string dir)
         {
-            var folder = await Storage.GetFolderAsync(dir);
+            var folder = await Storage.GetFolderAsync(dir).AsTask().ConfigureAwait(false);
 
-            await folder.DeleteAsync();
+            await folder.DeleteAsync().AsTask().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -104,9 +104,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task DeleteFileAsync(string path)
         {
-            var file = await Storage.GetFileAsync(path);
+            var file = await Storage.GetFileAsync(path).AsTask().ConfigureAwait(false);
 
-            await file.DeleteAsync();
+            await file.DeleteAsync().AsTask().ConfigureAwait(false);
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             try
             {
-                var folder = await Storage.GetFolderAsync(dir);
+                var folder = await Storage.GetFolderAsync(dir).AsTask().ConfigureAwait(false);
 
                 return folder != null;
             }
@@ -138,7 +138,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         {
             try
             {
-                var file = await Storage.GetFileAsync(path);
+                var file = await Storage.GetFileAsync(path).AsTask().ConfigureAwait(false);
 
                 return file != null;
             }
@@ -154,7 +154,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetDirectoryNamesAsync()
         {
-            var folders = await Storage.GetFoldersAsync();
+            var folders = await Storage.GetFoldersAsync().AsTask().ConfigureAwait(false);
 
             return folders
                 .Select(x => x.Name)
@@ -169,9 +169,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         public async Task<string[]> GetDirectoryNamesAsync(string searchPattern)
         {
             var folderName = Path.GetDirectoryName(searchPattern);
-            var folder = string.IsNullOrEmpty(folderName) ? Storage : await Storage.GetFolderAsync(folderName);
+            var folder = string.IsNullOrEmpty(folderName) ? Storage : await Storage.GetFolderAsync(folderName).AsTask().ConfigureAwait(false);
 
-            var folders = await folder.GetFoldersAsync();
+            var folders = await folder.GetFoldersAsync().AsTask().ConfigureAwait(false);
 
             searchPattern = Path.GetFileName(searchPattern);
 
@@ -196,7 +196,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> GetFileNamesAsync()
         {
-            var files = await Storage.GetFilesAsync();
+            var files = await Storage.GetFilesAsync().AsTask().ConfigureAwait(false);
 
             return files
                 .Select(x => x.Name)
@@ -211,9 +211,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         public async Task<string[]> GetFileNamesAsync(string searchPattern)
         {
             var folderName = Path.GetDirectoryName(searchPattern);
-            var folder = string.IsNullOrEmpty(folderName) ? Storage : await Storage.GetFolderAsync(folderName);
+            var folder = string.IsNullOrEmpty(folderName) ? Storage : await Storage.GetFolderAsync(folderName).AsTask().ConfigureAwait(false);
 
-            var files = await folder.GetFilesAsync();
+            var files = await folder.GetFilesAsync().AsTask().ConfigureAwait(false);
 
             searchPattern = Path.GetFileName(searchPattern);
 
@@ -249,11 +249,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string> ReadAllTextAsync(string path)
         {
-            using (var fileStream = await OpenFileForReadAsync(path))
+            using (var fileStream = await OpenFileForReadAsync(path).ConfigureAwait(false))
             {
                 using (var streamReader = new StreamReader(fileStream))
                 {
-                    return await streamReader.ReadToEndAsync();
+                    return await streamReader.ReadToEndAsync().ConfigureAwait(false);
                 }
             }
         }
@@ -266,11 +266,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string> ReadAllTextAsync(string path, Encoding encoding)
         {
-            using (var fileStream = await OpenFileForReadAsync(path))
+            using (var fileStream = await OpenFileForReadAsync(path).ConfigureAwait(false))
             {
                 using (var streamReader = new StreamReader(fileStream, encoding))
                 {
-                    return await streamReader.ReadToEndAsync();
+                    return await streamReader.ReadToEndAsync().ConfigureAwait(false);
                 }
             }
         }
@@ -282,7 +282,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> ReadAllLinesAsync(string path)
         {
-            using (var fileStream = await OpenFileForReadAsync(path))
+            using (var fileStream = await OpenFileForReadAsync(path).ConfigureAwait(false))
             {
                 var lines = new List<string>();
 
@@ -290,7 +290,7 @@ namespace Cimbalino.Phone.Toolkit.Services
                 {
                     while (!streamReader.EndOfStream)
                     {
-                        lines.Add(await streamReader.ReadLineAsync());
+                        lines.Add(await streamReader.ReadLineAsync().ConfigureAwait(false));
                     }
                 }
 
@@ -306,7 +306,7 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<string[]> ReadAllLinesAsync(string path, Encoding encoding)
         {
-            using (var fileStream = await OpenFileForReadAsync(path))
+            using (var fileStream = await OpenFileForReadAsync(path).ConfigureAwait(false))
             {
                 var lines = new List<string>();
 
@@ -314,7 +314,7 @@ namespace Cimbalino.Phone.Toolkit.Services
                 {
                     while (!streamReader.EndOfStream)
                     {
-                        lines.Add(await streamReader.ReadLineAsync());
+                        lines.Add(await streamReader.ReadLineAsync().ConfigureAwait(false));
                     }
                 }
 
@@ -329,9 +329,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task<byte[]> ReadAllBytesAsync(string path)
         {
-            using (var fileStream = await OpenFileForReadAsync(path))
+            using (var fileStream = await OpenFileForReadAsync(path).ConfigureAwait(false))
             {
-                return await fileStream.ToArrayAsync();
+                return await fileStream.ToArrayAsync().ConfigureAwait(false);
             }
         }
 
@@ -343,11 +343,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task WriteAllTextAsync(string path, string contents)
         {
-            using (var fileStream = await CreateFileAsync(path))
+            using (var fileStream = await CreateFileAsync(path).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
-                    await streamWriter.WriteAsync(contents);
+                    await streamWriter.WriteAsync(contents).ConfigureAwait(false);
                 }
             }
         }
@@ -361,11 +361,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task WriteAllTextAsync(string path, string contents, Encoding encoding)
         {
-            using (var fileStream = await CreateFileAsync(path))
+            using (var fileStream = await CreateFileAsync(path).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream, encoding))
                 {
-                    await streamWriter.WriteAsync(contents);
+                    await streamWriter.WriteAsync(contents).ConfigureAwait(false);
                 }
             }
         }
@@ -378,14 +378,13 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task WriteAllLinesAsync(string path, IEnumerable<string> contents)
         {
-            using (var fileStream = await CreateFileAsync(path))
+            using (var fileStream = await CreateFileAsync(path).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
                     foreach (var line in contents)
                     {
-                        await streamWriter.WriteAsync(line);
-                        await streamWriter.WriteAsync(Environment.NewLine);
+                        await streamWriter.WriteLineAsync(line).ConfigureAwait(false);
                     }
                 }
             }
@@ -400,14 +399,13 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task WriteAllLinesAsync(string path, IEnumerable<string> contents, Encoding encoding)
         {
-            using (var fileStream = await CreateFileAsync(path))
+            using (var fileStream = await CreateFileAsync(path).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream, encoding))
                 {
                     foreach (var line in contents)
                     {
-                        await streamWriter.WriteAsync(line);
-                        await streamWriter.WriteAsync(Environment.NewLine);
+                        await streamWriter.WriteLineAsync(line).ConfigureAwait(false);
                     }
                 }
             }
@@ -421,9 +419,9 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task WriteAllBytesAsync(string path, byte[] bytes)
         {
-            using (var fileStream = await CreateFileAsync(path))
+            using (var fileStream = await CreateFileAsync(path).ConfigureAwait(false))
             {
-                await fileStream.WriteAsync(bytes, 0, bytes.Length);
+                await fileStream.WriteAsync(bytes, 0, bytes.Length).ConfigureAwait(false);
             }
         }
 
@@ -435,11 +433,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllText(string path, string contents)
         {
-            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
-                    await streamWriter.WriteAsync(contents);
+                    await streamWriter.WriteAsync(contents).ConfigureAwait(false);
                 }
             }
         }
@@ -453,11 +451,11 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllText(string path, string contents, Encoding encoding)
         {
-            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream, encoding))
                 {
-                    await streamWriter.WriteAsync(contents);
+                    await streamWriter.WriteAsync(contents).ConfigureAwait(false);
                 }
             }
         }
@@ -470,14 +468,13 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllLines(string path, IEnumerable<string> contents)
         {
-            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream))
                 {
                     foreach (var line in contents)
                     {
-                        await streamWriter.WriteAsync(line);
-                        await streamWriter.WriteAsync(Environment.NewLine);
+                        await streamWriter.WriteLineAsync(line).ConfigureAwait(false);
                     }
                 }
             }
@@ -492,14 +489,13 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <returns>The <see cref="Task"/> object representing the asynchronous operation.</returns>
         public async Task AppendAllLines(string path, IEnumerable<string> contents, Encoding encoding)
         {
-            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists))
+            using (var fileStream = await Storage.OpenStreamForWriteAsync(path, CreationCollisionOption.OpenIfExists).ConfigureAwait(false))
             {
                 using (var streamWriter = new StreamWriter(fileStream, encoding))
                 {
                     foreach (var line in contents)
                     {
-                        await streamWriter.WriteAsync(line);
-                        await streamWriter.WriteAsync(Environment.NewLine);
+                        await streamWriter.WriteLineAsync(line).ConfigureAwait(false);
                     }
                 }
             }
