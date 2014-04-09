@@ -336,6 +336,9 @@
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISavePhoneNumberService.cs">
       <Link>Services\ISavePhoneNumberService.cs</Link>
     </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISaveRingtoneService.cs">
+      <Link>Services\ISaveRingtoneService.cs</Link>
+    </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\ISearchService.cs">
       <Link>Services\ISearchService.cs</Link>
     </Compile>
@@ -419,6 +422,9 @@
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SavePhoneNumberService.cs">
       <Link>Services\SavePhoneNumberService.cs</Link>
+    </Compile>
+    <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SaveRingtoneService.cs">
+      <Link>Services\SaveRingtoneService.cs</Link>
     </Compile>
     <Compile Include="..\Cimbalino.Phone.Toolkit %28WP71%29\Services\SearchService.cs">
       <Link>Services\SearchService.cs</Link>

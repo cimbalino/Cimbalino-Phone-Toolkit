@@ -134,6 +134,7 @@
     <Compile Include="Services\IMapDownloaderService.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISaveContactService.cs" />
+    <Compile Include="Services\ISaveRingtoneService.cs" />
     <Compile Include="Services\IVoiceCommandService.cs" />
     <Compile Include="Services\IVoiceCommandServiceSet.cs" />
     <Compile Include="Services\ILauncherService.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Services\SaveAppointmentServiceParams.cs" />
     <Compile Include="Services\SaveContactService.cs" />
     <Compile Include="Services\SaveContactServiceParams.cs" />
+    <Compile Include="Services\SaveRingtoneService.cs" />
     <Compile Include="Services\ShareMediaService.cs" />
     <Compile Include="Services\ApplicationLifecycleService.cs" />
     <Compile Include="Services\ClipboardService.cs" />
