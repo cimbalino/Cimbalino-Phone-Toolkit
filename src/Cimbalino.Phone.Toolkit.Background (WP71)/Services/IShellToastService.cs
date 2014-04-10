@@ -36,5 +36,23 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="content">The contents of the toast message.</param>
         /// <param name="navigationUri">Uri to navigate to if the user taps the toast message.</param>
         void Show(string title, string content, Uri navigationUri);
+
+        /// <summary>
+        /// Display a toast message with the specified title and content.
+        /// </summary>
+        /// <param name="title">The title of the toast message.</param>
+        /// <param name="content">The contents of the toast message.</param>
+        /// <param name="navigationUri">Uri to navigate to if the user taps the toast message.</param>
+        /// <param name="soundUri">The sound URI of the toast message.</param>
+        void Show(string title, string content, Uri navigationUri, Uri soundUri);
+
+        /// <summary>
+        /// Display a toast message with the specified title and content.
+        /// </summary>
+        /// <param name="title">The title of the toast message.</param>
+        /// <param name="content">The contents of the toast message.</param>
+        /// <param name="navigationUri">Uri to navigate to if the user taps the toast message.</param>
+        /// <param name="silent">true if the toast should not use the default sound; otherwise, false.</param>
+        void Show(string title, string content, Uri navigationUri, bool silent);
     }
 }

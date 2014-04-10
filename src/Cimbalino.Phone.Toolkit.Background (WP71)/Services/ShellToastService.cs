@@ -14,6 +14,7 @@
 // ****************************************************************************
 
 using System;
+using Cimbalino.Phone.Toolkit.Extensions;
 using Microsoft.Phone.Shell;
 
 namespace Cimbalino.Phone.Toolkit.Services
@@ -23,6 +24,10 @@ namespace Cimbalino.Phone.Toolkit.Services
     /// </summary>
     public class ShellToastService : IShellToastService
     {
+#if WP8
+        internal static readonly bool CustomSoundsSupportedStatic = Environment.OSVersion.Version >= new Version(8, 0, 10492);
+#endif
+
         /// <summary>
         /// Display a toast message with the specified title and content.
         /// </summary>
@@ -41,6 +46,18 @@ namespace Cimbalino.Phone.Toolkit.Services
         /// <param name="navigationUri">Uri to navigate to if the user taps the toast message.</param>
         public void Show(string title, string content, Uri navigationUri)
         {
+            Show(title, content, null, null);
+        }
+
+        /// <summary>
+        /// Display a toast message with the specified title and content.
+        /// </summary>
+        /// <param name="title">The title of the toast message.</param>
+        /// <param name="content">The contents of the toast message.</param>
+        /// <param name="navigationUri">Uri to navigate to if the user taps the toast message.</param>
+        /// <param name="soundUri">The sound URI of the toast message.</param>
+        public void Show(string title, string content, Uri navigationUri, Uri soundUri)
+        {
             var toast = new ShellToast()
             {
                 Title = title,
@@ -48,7 +65,26 @@ namespace Cimbalino.Phone.Toolkit.Services
                 NavigationUri = navigationUri
             };
 
+#if WP8
+            if (CustomSoundsSupportedStatic && soundUri != null)
+            {
+                toast.SetPropertyValue("Sound", soundUri);
+            }
+#endif
+
             toast.Show();
+        }
+
+        /// <summary>
+        /// Display a toast message with the specified title and content.
+        /// </summary>
+        /// <param name="title">The title of the toast message.</param>
+        /// <param name="content">The contents of the toast message.</param>
+        /// <param name="navigationUri">Uri to navigate to if the user taps the toast message.</param>
+        /// <param name="silent">true if the toast should not use the default sound; otherwise, false.</param>
+        public void Show(string title, string content, Uri navigationUri, bool silent)
+        {
+            Show(title, content, navigationUri, silent ? new Uri(string.Empty, UriKind.RelativeOrAbsolute) : null);
         }
     }
 }
