@@ -121,7 +121,7 @@ namespace Cimbalino.Phone.Toolkit.Services
                         return new Size(720, 1280);
 
                     case ScreenInfoServiceResolution.WXGA:
-                        return new Size(800, 1280);
+                        return new Size(768, 1280);
 
                     case ScreenInfoServiceResolution.HD1080p:
                         return new Size(1080, 1920);
