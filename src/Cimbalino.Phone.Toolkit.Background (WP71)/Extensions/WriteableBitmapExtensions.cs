@@ -17,6 +17,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media.Imaging;
 using Cimbalino.Phone.Toolkit.Compression;
 using Cimbalino.Phone.Toolkit.Helpers;
@@ -54,6 +55,17 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         }
 
         /// <summary>
+        /// Encodes a WriteableBitmap object into a PNG stream.
+        /// </summary>
+        /// <param name="writeableBitmap">The writeable bitmap.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="desiredSize">The desired size of the png from the top left corner.</param>
+        public static void SavePng(this WriteableBitmap writeableBitmap, Stream outputStream, Size desiredSize)
+        {
+            SavePng(writeableBitmap, outputStream, new WriteableBitmapSavePngParameters(), desiredSize);
+        }
+
+        /// <summary>
         /// Encodes a WriteableBitmap object into a PNG stream, using the specified output compression.
         /// </summary>
         /// <param name="writeableBitmap">The writeable bitmap.</param>
@@ -72,19 +84,33 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         /// <param name="parameters">The image save parameters.</param>
         public static void SavePng(this WriteableBitmap writeableBitmap, Stream outputStream, WriteableBitmapSavePngParameters parameters)
         {
-            WriteHeader(outputStream, writeableBitmap);
+            SavePng(writeableBitmap, outputStream, parameters, new Size(writeableBitmap.PixelWidth, writeableBitmap.PixelHeight));
+        }
+
+        /// <summary>
+        /// Encodes a WriteableBitmap object into a PNG stream, using the specified output <see cref="WriteableBitmapSavePngParameters"/>.
+        /// </summary>
+        /// <param name="writeableBitmap">The writeable bitmap.</param>
+        /// <param name="outputStream">The image data stream.</param>
+        /// <param name="parameters">The image save parameters.</param>
+        /// <param name="desiredSize">The desired size of the png from the top left corner.</param>
+        public static void SavePng(this WriteableBitmap writeableBitmap, Stream outputStream, WriteableBitmapSavePngParameters parameters, Size desiredSize)
+        {
+            if (desiredSize.Width > writeableBitmap.PixelWidth) throw new InvalidOperationException("HorizontalResolution must be smaller that PixleWidth");
+            if (desiredSize.Height > writeableBitmap.PixelHeight) throw new InvalidOperationException("VerticalResolution must be smaller that PixleHeight");
+
+            WriteHeader(outputStream, desiredSize);
 
             WritePhysics(outputStream, parameters);
 
             WriteGamma(outputStream, parameters);
 
-            WriteDataChunks(outputStream, writeableBitmap, parameters);
+            WriteDataChunks(outputStream, writeableBitmap, parameters, desiredSize);
 
             WriteFooter(outputStream);
 
             outputStream.Flush();
         }
-
         /// <summary>
         /// Encodes a WriteableBitmap object into a PNG stream.
         /// </summary>
@@ -152,7 +178,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
         {
             writeableBitmap.SaveJpeg(outputStream, targetWidth, targetHeight, 0, quality);
         }
-        
+
         /// <summary>
         /// Encodes a WriteableBitmap object into a JPEG stream, with parameters for setting the target quality of the JPEG file.
         /// </summary>
@@ -197,13 +223,13 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             });
         }
 
-        private static void WriteHeader(Stream outputStream, WriteableBitmap writeableBitmap)
+        private static void WriteHeader(Stream outputStream, Size desiredSize)
         {
             outputStream.Write(new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A }, 0, 8);
 
             var chunkData = CreateChunk(
-                writeableBitmap.PixelWidth,
-                writeableBitmap.PixelHeight,
+                (int)desiredSize.Width,
+                (int)desiredSize.Height,
                 PngHeaderBitDepth,
                 PngHeaderColorType,
                 PngHeaderCompressionMethod,
@@ -238,15 +264,15 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             }
         }
 
-        private static void WriteDataChunks(Stream outputStream, WriteableBitmap writeableBitmap, WriteableBitmapSavePngParameters parameters)
+        private static void WriteDataChunks(Stream outputStream, WriteableBitmap writeableBitmap, WriteableBitmapSavePngParameters parameters, Size desiredSize)
         {
             using (var chunkedStream = new ChunkedStream(MaximumChunkSize, data => WriteChunk(outputStream, PngChunkTypeData, data)))
             {
                 using (var zlibStream = new ZlibStream(chunkedStream, CompressionMode.Compress, parameters.CompressionLevel, true))
                 {
                     var pixels = writeableBitmap.Pixels;
-                    var width = writeableBitmap.PixelWidth;
-                    var height = writeableBitmap.PixelHeight;
+                    var width = (int)desiredSize.Width;
+                    var height = (int)desiredSize.Height;
                     var index = 0;
 
                     var dataRowLength = width * 4;
@@ -254,12 +280,12 @@ namespace Cimbalino.Phone.Toolkit.Extensions
 
                     for (var y = 0; y < height; y++)
                     {
+                        // shift pixels due to on requested size
+                        index = writeableBitmap.PixelWidth * y;
                         zlibStream.WriteByte(0);
-
                         for (var x = 0; x < width; x++)
                         {
                             var color = pixels[index++];
-
                             var alpha = (byte)(color >> 24);
 
                             int alphaInt = alpha;
