@@ -278,6 +278,12 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                     var dataRowLength = width * 4;
                     var dataRow = new byte[dataRowLength];
 
+                    // only declare these once to save memory
+                    int dataRowOffset;
+                    int color;
+                    byte alpha;
+                    int alphaInt;
+
                     for (var y = 0; y < height; y++)
                     {
                         // shift pixels due to on requested size
@@ -285,10 +291,10 @@ namespace Cimbalino.Phone.Toolkit.Extensions
                         zlibStream.WriteByte(0);
                         for (var x = 0; x < width; x++)
                         {
-                            var color = pixels[index++];
-                            var alpha = (byte)(color >> 24);
+                            color = pixels[index++];
+                            alpha = (byte)(color >> 24);
 
-                            int alphaInt = alpha;
+                            alphaInt = alpha;
 
                             if (alphaInt == 0)
                             {
@@ -297,7 +303,7 @@ namespace Cimbalino.Phone.Toolkit.Extensions
 
                             alphaInt = (255 << 8) / alphaInt;
 
-                            var dataRowOffset = x * 4;
+                            dataRowOffset = x * 4;
 
                             dataRow[dataRowOffset] = (byte)((((color >> 16) & 0xFF) * alphaInt) >> 8);
                             dataRow[dataRowOffset + 1] = (byte)((((color >> 8) & 0xFF) * alphaInt) >> 8);
