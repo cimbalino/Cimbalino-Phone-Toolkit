@@ -223,6 +223,18 @@ namespace Cimbalino.Phone.Toolkit.Extensions
             });
         }
 
+        /// <summary>
+        /// Will zero out all pixels of the WriteableBitmap. Use this method when you want to reuse the WriteableBitmap.
+        /// </summary>
+        /// <param name="writeableBitmap"></param>
+        public static void Clear(this WriteableBitmap writeableBitmap)
+        {
+            for (int i = 0; i < writeableBitmap.Pixels.Length; i++)
+            {
+                writeableBitmap.Pixels[i] = 0;
+            }
+        }
+
         private static void WriteHeader(Stream outputStream, Size desiredSize)
         {
             outputStream.Write(new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A }, 0, 8);
