@@ -4,6 +4,12 @@
 
 ### [Official Site][1] - [@CimbalinoWP][2]
 
+### Looking for Universal Apps or Windows 8.x support?
+
+Then please check the [**Cimbalino Toolkit**](https://github.com/Cimbalino/Cimbalino-Toolkit), which is the new improved version of this toolkit!
+
+---
+
 Cimbalino Windows Phone Toolkit is a set of useful and powerful tools that will help you build your Windows Phone applications.
 
 The Toolkit is divided in projects, regarding different Windows Phone application required capabilities:
